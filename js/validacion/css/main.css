@@ -1,0 +1,153 @@
+.tipsbox {
+	font-family: tahoma, verdana, "sans-serif";
+	color:#FFFFFF;
+	margin : 0;
+	padding : 0;
+	border : 0;
+	font-size: 13px;
+	text-shadow: 1px 1px 1px black;
+	
+}
+.IzqVerdeRotado{
+	background : url('/js/validacion/images/izqVerdeRotadito.png') repeat-y;
+	width : 16px;
+	_background-position : 9px 8px;
+}
+.tipsbox .DerVerdeRotado{
+	background : url('/js/validacion/images/DerVerdeRotado.png') repeat-y;
+	width : 17px;
+	_background-position : 9px 8px;
+}
+
+.tipsbox .ArribaIzqVerde{
+	background : url('/js/validacion/images/ArribaIzqVerde.png') no-repeat;
+	_background-position : 9px 8px;
+}
+
+
+.tipsbox .ArribaVerde{
+	background : url('/js/validacion/images/ArribaVerde.png') repeat-x;
+	height : 16px;
+	_background-position : 0px 8px;
+}
+
+.tipsbox .ArribaDerVerde{
+	background : url('/js/validacion/images/ArribaDerVerde.png') no-repeat;
+
+	_background-position : 0px 8px;
+}
+
+.DentroVerde{
+	background : url('/js/validacion/images/dentroVerde.png') repeat;
+	padding: 0px 4px;
+}
+.IzqVerde{
+	background : url('/js/validacion/images/IzqVerde.png') repeat-y;
+	width : 17px;
+	_background-position : 9px 8px;
+}
+
+.tipsbox .IzqVerde{
+	background : url('/js/validacion/images/IzqVerde.png') repeat-y;
+	width : 17px;
+	_background-position : 9px 8px;
+}
+
+.tipsbox .DerVerde{
+	background : url('/js/validacion/images/DerVerde.png') repeat-y;
+	width : 22px;
+}
+
+.tipsbox .AbajoIzqVerde{
+	background : url('/js/validacion/images/AbajoIzqVerde.png');
+	_background-position : 9px 0px;
+}
+
+.tipsbox .AbajoVerde{
+	background : url('/js/validacion/images/AbajoVerde.png') no-repeat;
+	height : 36px;
+}
+
+.tipsbox .AbajoDerVerde{
+	background : url('/js/validacion/images/AbajoDerVerde.png');
+}
+
+.tipsbox_top_left{
+	background : url('/js/validacion/images/top_left.png') no-repeat;
+	_background : url('/js/validacion/images/top_left.gif') no-repeat;
+	_background-position : 9px 8px;
+}
+
+ .tipsbox_top{
+	background : url('/js/validacion/images/top.png') repeat-x;
+	height : 17px;
+	_background : url('/js/validacion/images/top.gif') repeat-x;
+	_background-position : 0px 8px;
+}
+
+ .tipsbox_top_right{
+	background : url('/js/validacion/images/top_right.png') no-repeat;
+	_background : url('/js/validacion/images/top_right.gif') no-repeat;
+	_background-position : 0px 8px;
+}
+
+ .tipsbox_left{
+	background : url('/js/validacion/images/left.png') repeat-y;
+	width : 17px;
+	_background : url('/js/validacion/images/side.gif') repeat-y;
+	_background-position : 9px 8px;
+}
+
+.tipsbox_right{
+	background : url('/js/validacion/images/right.png') repeat-y;
+	width : 22px;
+	_background : url('/js/validacion/images/side.gif') repeat-y;
+	_width : 9px;
+}
+
+ .tipsbox_bottom_left{
+	background : url('/js/validacion/images/bottom_left.png');
+	_background : url('/js/validacion/images/bottom_left.gif') no-repeat;
+	_background-position : 9px 0px;
+}
+
+.tipsbox_mark{
+	background : url('/js/validacion/images/mark.png') no-repeat;
+	height : 36px;
+	_background : url('/js/validacion/images/mark.gif') no-repeat;
+}
+.tipsbox_down{
+	background : url('/js/validacion/images/down.png') repeat-x;
+	height : 36px;
+}
+
+.tipsbox_bottom_right{
+	background : url('/js/validacion/images/bottom_right.png');
+	_background : url('/js/validacion/images/bottom_right.gif') no-repeat;
+}
+
+.tipsbox .tipsbox_inner, .tipsbox .tipsbox_inner_ie6{
+	background : url('/js/validacion/images/inner.png');
+	padding: 0px 4px;
+}
+
+.tipsbox .tipsbox_inner_ie6 {
+	padding : 4px;
+}
+
+.tipsbox .tipsbox_error {
+	background : url('/js/validacion/images/error.png') no-repeat;
+	_background : url('/js/validacion/images/error.gif') no-repeat;
+	width: 40px;
+	height: 40px;
+	margin-top: 5px;
+	float: left;
+	clear: left;
+}
+
+.error_campo_mgd{
+	background:url('/js/validacion/images/delete.png') no-repeat center right;
+}
+.correcto_campo_mgd{
+	background:url('/js/validacion/images/correcto.png') no-repeat center right;
+}
