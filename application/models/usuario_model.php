@@ -22,6 +22,7 @@ class Usuario_model extends CI_Model {
 	function login($email,$password){
 		$this->db->where('correo', $email);
 		$this->db->where('password', $password);
+		$this->db->join('zone_time', 'zone_time.id_zone_time = usuario.id_zone_time');
 		$query = $this->db->get($this->table);
 			
 		if ($query->num_rows() > 0)
@@ -35,7 +36,7 @@ class Usuario_model extends CI_Model {
 	function getById($id){
 			
 		$this->db->where('id_usuario', $id);
-			
+		$this->db->join('zone_time', 'zone_time.id_zone_time = usuario.id_zone_time');
 		$query = $this->db->get($this->table);
 
 		if ($query->num_rows() > 0)
@@ -88,6 +89,7 @@ class Usuario_model extends CI_Model {
 	function getData()
 	{
 		//Query the data table for every record and row
+		$this->db->join('zone_time', 'zone_time.id_zone_time = usuario.id_zone_time');
 		$query = $this->db->get($this->table);
 		 
 		if ($query->num_rows() > 0)

@@ -2,6 +2,8 @@
 
 /* my constantes web */
 
+define ('URL_BASE','/js/');
+
 define ('PATH_JS','/js/');
 define ('PATH_CSS','/css/');
 define ('PATH_IMG','/img/');

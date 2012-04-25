@@ -37,6 +37,7 @@ class Login_form extends CI_Controller {
 			
 			$correo= $this->input->post('correo');
 			$password= $this->input->post('password');
+			$recordar= $this->input->post('recordar');
 			
 			$this->load->model('Usuario_model');
 			$user=$this->Usuario_model->login($correo,$password);
@@ -52,6 +53,18 @@ class Login_form extends CI_Controller {
 				printf(MSG_WATCHOUT, $this->lang->line('error_form_estandar'),$this->lang->line('activar_tu_cuenta'));
 				exit;
 			}else{
+				
+				if (isset($recordar))
+				{
+					$cookie = array(
+							'name'   => 'auto_login',
+							'value'  => $user->correo.';'.$user->password,
+							'expire' => '86500'
+					);
+					$this->load->helper('cookie');
+					set_cookie($cookie);
+				}
+				
 				$this->load->model('Usuario_configuracion_model');
 				
 				$user_configuration=$this->Usuario_configuracion_model->getById($user->id_usuario);

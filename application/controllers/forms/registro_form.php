@@ -48,12 +48,12 @@ class Registro_form extends CI_Controller {
 			$insertUsuario['nombre']= $this->input->post('nombre');
 			$insertUsuario['apellidos']= $this->input->post('apellidos');
 			$insertUsuario['correo']= $this->input->post('correo');
-			$insertUsuario['zone_time']= $this->input->post('uso_horario');
+			$insertUsuario['id_zone_time']= $this->input->post('uso_horario');
 			$insertUsuario['password']= $this->input->post('contrasena');
 			$insertUsuario['activar_cuenta']= random_string('alnum', 16);
 			
 			
-			$insertConfiguracion['zone_time']= $insertUsuario['zone_time'];
+			$insertConfiguracion['id_zone_time']= $insertUsuario['id_zone_time'];
 			$insertConfiguracion['titulo']= $this->input->post('titulo');
 			$insertConfiguracion['nombre_unico']= url_title($this->input->post('titulo'));
 			

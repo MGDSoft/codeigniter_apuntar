@@ -10,12 +10,27 @@
 |
 */
 
-$hook['post_controller_constructor'] = array(
-                                'class'    => 'Lenguaje',
-                                'function' => 'idiomas_carga',
-                                'filename' => 'lenguaje.php',
-                                'filepath' => 'hooks'
+$hook['post_controller_constructor'] =  array(
+								array(
+	                                'class'    => 'Lenguaje',
+	                                'function' => 'idiomas_carga',
+	                                'filename' => 'lenguaje.php',
+	                                'filepath' => 'hooks'
+                                )
+								,array(
+									'class'    => 'Login',
+									'function' => 'auto_login',
+									'filename' => 'login.php',
+									'filepath' => 'hooks'
+                                )
+								,array(
+										'class'    => 'Huso_horario',
+										'function' => 'auto_load_huso_horario',
+										'filename' => 'Huso_horario.php',
+										'filepath' => 'hooks'
+								)
                                 );
+
 
 
 /* End of file hooks.php */
