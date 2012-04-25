@@ -1,11 +1,6 @@
 <?php  if ( ! defined('BASEPATH')) exit('No direct script access allowed');
 
-define ('PATH_JS','/js/');
-define ('PATH_CSS','/css/');
-define ('PATH_IMG','/img/');
 
-define ('MSG_ERROR','alert("%s");');
-define ('MSG_ERROR_CAMPO','new VentanaError("%s","%s");');
 
 
 /*

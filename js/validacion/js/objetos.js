@@ -39,6 +39,10 @@ var VentanaError = new Class({
 	var derecha= 22;
 	var arriba= -56;
 	var idCajonNuevo="caja_error_" + idTextarea;
+	
+	if ($("caja_error_" + idTextarea))
+		$("caja_error_" + idTextarea).destroy();
+	
 	var table = new Element('table', {'class' : 'tipsbox',
 	"id" : idCajonNuevo,
 	"styles": {
@@ -80,8 +84,7 @@ var VentanaError = new Class({
 	table.fade(0);
 	table.inject(this.textarea, "before");
 	$(idCajonNuevo).fade("in");
-	
-      //llamo al m�todo que cuenta caracteres, para inicializar el contador
+
    
    }
       
@@ -90,14 +93,17 @@ var VentanaError = new Class({
 var VentanaInfo = new Class({
    //defino un constructor, que recibe el id del textarea
    initialize: function(idTextarea,texto,posicion){
-      //recupero el elemento textarea con la funci�n dolar
+    
 
-      this.textarea =idTextarea;
-	
-      //creo un elemento SPAN para mostrar el contador
+     this.textarea =idTextarea;
+
 	var derecha= +200;
 	var arriba= 8;
 	var idCajonNuevo="verde";
+	
+	if ($(idCajonNuevo))
+		$(idCajonNuevo).destroy();
+	
 	var table = new Element('table', {'class' : 'tipsbox',
 		"id" : idCajonNuevo,
 		"styles": {
@@ -160,27 +166,7 @@ var VentanaInfo = new Class({
 						}
 	otroMas.fade(1);
 	otroMas.inject(this.textarea, "before");
-	//$(idCajonNuevo).fade("in");
-      //inyecto el contador despu�s del textarea
-      
-      
-      //creo un evento para el textarea, keyup, para cuando el usuario suelta la tecla
-   /*   this.textarea.addEvent("keyup", function(){
-	  reValidacion(obj,$("cajon"),tipo)
-		
-	
-      }.bind(this)
-      );*/
-      
-      //llamo al m�todo que cuenta caracteres, para inicializar el contador
-     
-    
    }
-   
-   
-   
-   //creo un m�todo para contar los caracteres
-   
 });   
 
  function creacionEventos(id,texto,tipe,obligatorio,posicion,tamano){
@@ -223,11 +209,13 @@ var VentanaInfo = new Class({
 		if (tipe=='texto' || tipe=='numerico'){
 
 			obj.addEvent("keyup", function(){
+				
 				validacion_mgd(obj,tipe, obligatorio);
 			});
 		}else{
-
+			
 			obj.addEvent("change", function(){
+				
 				validacion_mgd(obj,tipe, obligatorio);
 			});
 		} 

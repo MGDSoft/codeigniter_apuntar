@@ -3,7 +3,7 @@ function objetoAjax(){var xmlhttp=false;try{xmlhttp=new ActiveXObject("Msxml2.XM
 if(!xmlhttp&&typeof XMLHttpRequest!='undefined'){xmlhttp=new XMLHttpRequest();}
 return xmlhttp;}
 function AJAXCrearObjeto(){var obj;if(window.XMLHttpRequest){obj=new XMLHttpRequest();}else{try{obj=new ActiveXObject("Microsoft.XMLHTTP");}
-catch(e){alert('El navegador utilizado no est� soportado');}}
+catch(e){alert('El navegador utilizado no está soportado');}}
 return obj;}
 function getRadioButtonSelectedValue(ctrl)
 {
@@ -33,7 +33,7 @@ function validacion_mgd(obj,tipo,obligatorio){
 		var auxiliar="";
 	*/
 		switch(tipo){
-			case"texto":
+			case "texto":
 				//alert(!isNaN(valor));
 				//alert(validaObligatorio);
 				if (!isNaN(valor) || errorObligatorio)
@@ -43,7 +43,8 @@ function validacion_mgd(obj,tipo,obligatorio){
 					
 				operacion(resultado,lang_texto,obj);
 			break;
-			case"email":
+			case "email":
+				
 				if (esEmailCorrecto(valor)==false || errorObligatorio)
 					resultado=true;
 				else
@@ -61,14 +62,14 @@ function validacion_mgd(obj,tipo,obligatorio){
 					
 				operacion(resultado,lang_igual,obj);
 			break;
-			case"emailUnico":
+			case "emailUnico":
 				if(texto!=""){auxiliar="NO";}
 				operacion(auxiliar,texto,obj);
 			break;
-			case"equipoUnico":if(texto!=""){auxiliar="NO";}
+			case "equipoUnico":if(texto!=""){auxiliar="NO";}
 				operacion(auxiliar,texto,obj);
 			break;
-			case"numerico":
+			case "numerico":
 				if (isNaN(valor) || errorObligatorio)
 					resultado=true;
 				else

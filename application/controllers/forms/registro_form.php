@@ -17,18 +17,16 @@ class Registro_form extends CI_Controller {
 	 * map to /index.php/welcome/<method_name>
 	 * @see http://codeigniter.com/user_guide/general/urls.html
 	 */
-	 	public function __construct()
-	{
+	 public function __construct()
+	 {
 		parent::__construct();
 		$this->load->library('form_validation');
-		
-		
-	}
+	 }
 	public function index()
 	{
 		
 		$this->form_validation->set_rules('correo','correo','required|valid_email|trim');
-		$this->form_validation->set_rules('contrasena','contrasena','required|trim');
+		$this->form_validation->set_rules('contrasena','contrasena','required|trim|md5');
 		$this->form_validation->set_rules('recontrasena','recontrasena','required|matches[contrasena]|trim');
 		$this->form_validation->set_rules('nombre','nombre','required|trim');
 		$this->form_validation->set_rules('apellidos','apellidos','required|trim');
@@ -41,39 +39,70 @@ class Registro_form extends CI_Controller {
 			 printf(MSG_ERROR, trim(validation_errors()));
 		}else{
 			
-			$this->load->model('Usuario_model');
+			$this->load->helper('string');
 			
-			$insert['nombre']= $this->input->post('nombre');
-			$insert['apellidos']= $this->input->post('apellidos');
-			$insert['correo']= $this->input->post('correo');
-			$insert['uso_horario']= $this->input->post('uso_horario');
-			$insert['titulo']= $this->input->post('titulo');
-			$insert['nombre_unico']= url_title($this->input->post('titulo'));
-			$insert['password']= $this->input->post('password');
+			$this->load->model('Usuario_model');
+			$this->load->model('Usuario_configuracion_model');
+			
+			
+			$insertUsuario['nombre']= $this->input->post('nombre');
+			$insertUsuario['apellidos']= $this->input->post('apellidos');
+			$insertUsuario['correo']= $this->input->post('correo');
+			$insertUsuario['zone_time']= $this->input->post('uso_horario');
+			$insertUsuario['password']= $this->input->post('contrasena');
+			$insertUsuario['activar_cuenta']= random_string('alnum', 16);
+			
+			
+			$insertConfiguracion['zone_time']= $insertUsuario['zone_time'];
+			$insertConfiguracion['titulo']= $this->input->post('titulo');
+			$insertConfiguracion['nombre_unico']= url_title($this->input->post('titulo'));
+			
 			
 			/*Validaciones de BD*/
 			
-			if ($this->Usuario_model->existe_correo($insert['correo']))
-				printf(MSG_ERROR_CAMPO, 'correo',$this->lang->line('correo_error_repetido'));
-				
-			else if ($this->Usuario_model->existe_nombre_unico($insert['nombre_unico']))	
-				printf(MSG_ERROR_CAMPO, 'titulo',$this->lang->line('titulo_error_repetido'));
-				
-			else
+			if ($this->Usuario_model->existe_correo($insertUsuario['correo']))
 			{
-					
-				if($this->Usuario_model->insert($insert))
-					echo "OK";
-				else
-					printf(MSG_ERROR, $this->lang->line('error_db'));
+				printf(MSG_ERROR_CAMPO, 'correo',$this->lang->line('correo_error_repetido'));
+				exit;
 				
+			}else if ($this->Usuario_configuracion_model->existe_nombre_unico($insertConfiguracion['nombre_unico'])){
+				
+				printf(MSG_ERROR_CAMPO, 'titulo',$this->lang->line('titulo_error_repetido'));
+				exit;
+				
+			}else{
+				
+				$this->db->trans_begin();
+				$id_user=$this->Usuario_model->insert($insertUsuario);
+				$insertConfiguracion['id_usuario']= ($id_user) ? $id_user : null;
+				
+				$id_user=$this->Usuario_configuracion_model->insert($insertConfiguracion);
+				
+				echo $this->db->last_query();
+				echo $this->db->trans_status();
+				
+				if ($this->db->trans_status() === FALSE)
+				{
+					$this->db->trans_rollback();
+					printf(MSG_ERROR, $this->lang->line('error_db'));
+					
+				}else{
+					//sendEmail($insertUsuario['correo'],$this->lang->line('activar_tu_cuenta_correo_cuenta'),$this->lang->line('activar_tu_cuenta_correo_texto'));
+					$this->db->trans_commit();
+					echo RESPONSE_OK_JS;
+				}
 			}
-			 
+				
+				
+					
+				
 		}
-			
+			 
 	}
-	
+			
 }
+	
+
 
 /* End of file welcome.php */
 /* Location: ./application/controllers/welcome.php */

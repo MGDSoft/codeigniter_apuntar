@@ -1,5 +1,22 @@
 <?php  if ( ! defined('BASEPATH')) exit('No direct script access allowed');
 
+/* my constantes web */
+
+define ('PATH_JS','/js/');
+define ('PATH_CSS','/css/');
+define ('PATH_IMG','/img/');
+
+define ('MSG_ERROR','alert("%s");');
+define ('MSG_ERROR_CAMPO','new VentanaError("%s","%s");');
+
+define ('RESPONSE_OK_JS','OK');
+
+define ('MSG_INFO_URGENT','new Message({isUrgent: true, iconPath: "'.PATH_JS.'Message-Class/images/",icon:"okMedium.png",title: "%s",message: "%s"}).say();');
+define ('MSG_INFO','new Message({iconPath: "'.PATH_JS.'Message-Class/images/",icon:"okMedium.png",title: "%s",message: "%s"}).say();');
+define ('MSG_WATCHOUT','var msg = new Message({iconPath: "'.PATH_JS.'Message-Class/images/",icon: "cautionMedium.png",title: "%s",message: "%s"}).say();msg.tell();');
+define ('MSG_QUESTION','new Message({iconPath: "'.PATH_JS.'Message-Class/images/",icon: "mediumQuestion.png", title: "%s", message: "%s", callback: "%s"}).ask();');
+define ('REDIRECT_URL_JS','redirect("/%s");');
+
 /*
 |--------------------------------------------------------------------------
 | File and Directory Modes

@@ -146,7 +146,7 @@
 }
 
 .error_campo_mgd{
-	background:url('/js/validacion/images/delete.png') no-repeat center right;
+	background:url('/js/validacion/images/delete.png') no-repeat center right !important;
 }
 .correcto_campo_mgd{
 	background:url('/js/validacion/images/correcto.png') no-repeat center right;

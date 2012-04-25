@@ -17,25 +17,51 @@ class Login_form extends CI_Controller {
 	 * map to /index.php/welcome/<method_name>
 	 * @see http://codeigniter.com/user_guide/general/urls.html
 	 */
-	 	public function __construct()
+	public function __construct()
 	{
 		parent::__construct();
 		$this->load->library('form_validation');
-		
-		
+
 	}
 	public function index()
 	{
 		
-		$this->form_validation->set_rules('correo','correo','required');
-		$this->form_validation->set_rules('password','password','required|valid_email');
+		$this->form_validation->set_rules('correo','correo','required|valid_email|trim');
+		$this->form_validation->set_rules('password','password','required|trim|md5');
 		
 		if ($this->form_validation->run()==FALSE)
 		{
-			 echo validation_errors();
+			 printf(MSG_ERROR, trim(validation_errors()));
 		}	
 		else{
-			  
+			
+			$correo= $this->input->post('correo');
+			$password= $this->input->post('password');
+			
+			$this->load->model('Usuario_model');
+			$user=$this->Usuario_model->login($correo,$password);
+			
+			if (!$user)
+			{
+				printf(MSG_WATCHOUT, $this->lang->line('error_form_estandar'),$this->lang->line('login_incorrecto'));
+				exit;
+			}
+			
+			if ($user->activo !=1)
+			{
+				printf(MSG_WATCHOUT, $this->lang->line('error_form_estandar'),$this->lang->line('activar_tu_cuenta'));
+				exit;
+			}else{
+				$this->load->model('Usuario_configuracion_model');
+				
+				$user_configuration=$this->Usuario_configuracion_model->getById($user->id_usuario);
+				
+				$_SESSION['usuario']=$user;$_SESSION['usuario_configuracion']=$user_configuration;
+				
+				printf(REDIRECT_URL_JS, $user_configuration->nombre_unico);
+				exit;
+			}
+			
 		}
 			
 	}

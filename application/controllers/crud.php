@@ -26,7 +26,7 @@ class crud extends CI_Controller {
 	public function index()
 	{
 		$this->output->enable_profiler(TRUE);
-		echo "Prueba";
+
 	}
 	public function rendimiento()
 	{
