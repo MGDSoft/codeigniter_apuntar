@@ -1,4 +1,5 @@
 <?php
+$lang['admin_nueva_noticia'] = 'Nueva noticia';
 
 $lang['cuenta_activada'] = 'La cuenta ha sido activada enhorabuena';
 $lang['cuenta_no_activada'] = 'La cuenta no ha podido ser activada o ya fue activada, has editado la direccion o copiado mal en enlace ?';

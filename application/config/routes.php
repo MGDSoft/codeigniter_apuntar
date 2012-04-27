@@ -39,6 +39,7 @@
 */
 
 $route['default_controller'] = 'index';
+$route['(.+).html(.*)'] = 'portal_inicio/index/nombre_unico=$1$2';
 $route['scaffolding_trigger'] = 'secret';
 $route['404_override'] = '';
 

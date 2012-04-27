@@ -4,7 +4,6 @@
   	public function __construct()
 	{
 		parent::__construct();
-		$this->load->library('form_validation');
 		
 	}
   function index()

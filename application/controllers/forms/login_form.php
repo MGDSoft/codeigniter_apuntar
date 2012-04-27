@@ -71,7 +71,7 @@ class Login_form extends CI_Controller {
 				
 				$_SESSION['usuario']=$user;$_SESSION['usuario_configuracion']=$user_configuration;
 				
-				printf(REDIRECT_URL_JS, $user_configuration->nombre_unico);
+				printf(REDIRECT_URL_JS, $user_configuration->nombre_unico . HTACCESS_WEB_USUARIO_TERMINACION);
 				exit;
 			}
 			

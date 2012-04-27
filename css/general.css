@@ -3,11 +3,141 @@ body{
 	font-size: 13px;
 	text-align: left;
 	font-weight:normal;
+	height:100%;
+}
+#contenedor_portal{
+	width:100%;
+	height:100%;
+}
+#cuerpo{
+	width:100%;
+	padding-top:10px;
+}
+/* Cabecera Header */
+
+#cabecera{
+	width:100%;
+	height: 170px;
 	
+	overflow:hidden;
 }
 #caja_login{
+	overflow:hidden;
 	float:right;
 	width:300px;
-	height: 300px;
+	height: 170px;
+	
+}
+#logo{
+	width:200px;
+	float:left;
+	height: 170px;
+	
+	overflow:hidden;
+	text-align:center;
+}
+#contenedor_titulo_buscador{
+	height: 170px;
+	overflow:hidden;
+	
+}
+#contenedor_titulo_buscador span{
+	display: block;
+    overflow: hidden;
+    padding: 0 5px 0 0;
+}
+#contenedor_titulo_buscador #buscador{
+	width:100%;
+	height: 30px;
+	
+}
+#contenedor_titulo_buscador #titulo{
+	font-size:30px;
+	padding:10px;
+	display:block;
+	color: #083C6B;
+	font-family: arial, verdana;
+}
+#contenedor_titulo_buscador #contenidos_extra{
+	float:right;
+	padding-right:30px;
+}
+#contenedor_titulo_buscador #titulo_desc{
+	min-height: 90px;
+	margin:0px 0px 10px 20px;
+	color:#005396;
+}
+#contenedor_titulo_buscador #descripcion{
+	font-size:16px;
+	color:#5C5C5C;
+	display:block;
+	font-style: italic;
+	padding-left:10px;
+	
+}
+#contenedor_titulo_buscador #buscar_tipo{
+	float:left;
+	padding-left:30px;
+}
+#contenedor_titulo_buscador #buscar_boton{
+	float:right;
+	padding-right:30px;
+	
 }
 
+#arbol{
+	width:100%;
+	
+}
+#calendario{
+	padding:16px 0px 5px 0px;
+	
+	text-align:center;
+	width:100%;
+}
+#calendario table {
+    margin-left:auto; 
+    margin-right:auto;
+ }
+#bloque_izq{
+	float:left;
+	height:100%;
+	width:200px;
+}
+#contenido{
+	display: table;
+	padding:0px 30px 0px 10px;
+}
+
+#contenido span.titulo_noticia{
+	color: #083C6B;
+	font-size: 23px;
+	display: block;
+	font-family: arial, verdana;
+	padding:10px 10px 11px 0px;
+
+}
+#contenido div.extras_noticia {
+	padding: 20px 0px 15px 0px;
+	border-bottom: 1px dotted #C9DBEC;
+}
+#contenido div.extras_noticia span.extra_fecha_noticia{
+	display: block;
+	float:right;
+}
+#contenido div.extras_noticia span.extra_nombre{
+	font-weight:bold;
+}
+#contenido div.extras_noticia span.extra_valor{
+	font-style: italic;
+}
+#contenido div.contenido_noticia {
+	padding-left:10px;
+}
+#contenido #admin{
+	margin:10px 10px;
+}
+#contenido #admin .nueva_noticia{
+	padding:5px 5px 5px 25px;
+	border:1px solid #ccc;
+}

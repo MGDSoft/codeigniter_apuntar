@@ -17,9 +17,11 @@
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <link rel="shortcut icon" href="imagenesWeb/myequipo.ico" /> 
 <base href="<?=base_url();?>">
-<!-- <script src="<?= PATH_JS ?>mootools-core-1.4.2.js" type="text/javascript"></script> -->   
-<script src="<?= PATH_JS ?>Message-Class/js/mootools.js" type="text/javascript"></script>
-<script src="<?= PATH_JS ?>Message-Class/js/mootools-Dependencies.js" type="text/javascript"></script>
+<script src="<?= PATH_JS ?>mootools-core-1.4.2.js" type="text/javascript"></script>
+<script src="<?= PATH_JS ?>mootools-more.js" type="text/javascript"></script> 
+<!-- <script src="<?= PATH_JS ?>Message-Class/js/mootools.js" type="text/javascript"></script>
+
+<script src="<?= PATH_JS ?>Message-Class/js/mootools-Dependencies.js" type="text/javascript"></script>  -->
 
 <script src="<?= PATH_JS ?>scriptbase.js" type="text/javascript"></script>   
 <script src="<?= PATH_JS ?>validacion/js/objetos.js" type="text/javascript"></script> 
@@ -27,7 +29,10 @@
 <script src="<?= PATH_JS ?>validacion/js/idiomas/spanish.js" type="text/javascript"></script>  
 <link href="<?= PATH_JS ?>validacion/css/main.css" rel="stylesheet"  type="text/css" />   
 
-<script href="<?= PATH_JS ?>Message-Class/js/message.js" type="text/javascript" /></script>
+<script src="<?= PATH_JS ?>arbol.js" type="text/javascript"></script>
+<link href="<?= PATH_CSS ?>arbol.css" rel="stylesheet"  type="text/css" />  
+
+<script src="<?= PATH_JS ?>Message-Class/js/message_src.js" type="text/javascript" /></script>
 <link href="<?= PATH_JS ?>Message-Class/css/message.css" rel="stylesheet"  type="text/css" />
 
 <link href="<?= PATH_CSS ?>formularios.css" rel="stylesheet"  type="text/css" />  

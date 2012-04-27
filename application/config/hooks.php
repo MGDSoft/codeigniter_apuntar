@@ -14,13 +14,13 @@ $hook['post_controller_constructor'] =  array(
 								array(
 	                                'class'    => 'Lenguaje',
 	                                'function' => 'idiomas_carga',
-	                                'filename' => 'lenguaje.php',
+	                                'filename' => 'Lenguaje.php',
 	                                'filepath' => 'hooks'
                                 )
 								,array(
 									'class'    => 'Login',
 									'function' => 'auto_login',
-									'filename' => 'login.php',
+									'filename' => 'Login.php',
 									'filepath' => 'hooks'
                                 )
 								,array(
