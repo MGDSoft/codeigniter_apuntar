@@ -64,13 +64,16 @@ function enviar_form_ajax(formulario,url_envio,ver_resultado,ejecutar_si_ok,redi
 	
 	if (valido)
 	{
-		
+		var llego=0;
 		$(formulario).set('send',{url:getHostname() + url_envio
 		,method:'post'
-		,onRequest:function(){ submit_cargando(formulario); }
-		,onComplete:function(responseText){
+		,onRequest:function(){ //submit_cargando(formulario); 
+			
+		}
+		,onSuccess:function(responseText){
 
-			submit_cargado(formulario);
+			
+			//submit_cargado(formulario);
 			
 			if ($(ver_resultado))
 				$(ver_resultado).innerHTML=responseText;
@@ -94,4 +97,83 @@ function enviar_form_ajax(formulario,url_envio,ver_resultado,ejecutar_si_ok,redi
 			}
 		}}).send();
 	}
+}
+
+
+
+function request_simple_post(url_txt,vars,eval_to_do){
+	waiter_run();
+	new Request({
+	    url: url_txt,
+	    method: 'post',
+	    data: vars,
+	    onRequest: function(){
+	    	
+	    },
+	    onSuccess: function(responseText){
+	    	
+	    	alert(responseText);
+	    	waiter_disable();
+	    	if (eval_to_do)
+	    		eval(eval_to_do);
+	    	
+	    	if (responseText)
+	    		eval(responseText);
+	    	
+	    	
+	    },
+	    onFailure: function(){
+	    	waiter_disable();
+	    	alert('error no response');
+	    	
+	    }
+	}).send(vars);
+}
+
+function cargar_pagina_stadart (url_txt,vars,caja_respuesta){
+	
+	if (!caja_respuesta)
+		caja_respuesta=$('contenedor_variable');
+	else
+		caja_respuesta=$(caja_respuesta);
+	
+	pos=url_txt.indexOf("/")+1;
+	
+	if (url_txt.length <= pos || pos==0)
+		hash_txt = '';
+	else
+		hash_txt= url_txt.substring(pos);
+	
+	location.hash = hash_txt+vars;
+	vars='ishash=1'+vars;
+	alert(vars);
+	new Request({
+	    url: url_txt,
+	    method: 'get',
+	    data: vars,
+	    onRequest: function(){
+	    	waiter_run();
+	    },
+	    onSuccess: function(responseText){
+	    	
+	    	waiter_disable();
+	    	caja_respuesta.innerHTML=responseText;
+	    	
+	    	(function(){ runJS(auto_ejecutar_js); }).delay(500);
+	    },
+	    onFailure: function(){
+	    	waiter_disable();
+	    	alert('error no response');
+	    	
+	    }
+	}).send(vars);
+}
+
+function runJS(Idobj) 
+{ 
+	window.addEvent('domready', function(){
+			if ($(Idobj))
+				eval($(Idobj).innerHTML);	
+		});
+	
 }

@@ -39,7 +39,10 @@
 */
 
 $route['default_controller'] = 'index';
-$route['(.+).html(.*)'] = 'portal_inicio/index/nombre_unico=$1$2';
+$route['web/(.+?)'] = 'portal_inicio/index/$1';
+$route['(.+)/nueva_noticia'] = 'admin/noticia/nueva_noticia';
+$route['(.+)/modificar_noticia'] = 'admin/noticia/modificar_noticia';
+$route['(.+).html'] = 'portal_inicio/index/';
 $route['scaffolding_trigger'] = 'secret';
 $route['404_override'] = '';
 

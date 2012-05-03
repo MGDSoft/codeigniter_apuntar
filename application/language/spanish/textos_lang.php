@@ -1,4 +1,48 @@
 <?php
+$lang['si'] = 'si';
+$lang['no'] = 'no';
+$lang['copiar'] = 'Copiar';
+$lang['expandir'] = 'Expandir';
+$lang['contraer'] = 'Contraer';
+$lang['copiado'] = 'Copiado';
+
+$lang['noticia_borrada'] = 'Noticia borrada';
+$lang['noticia_modificada'] = 'Noticia modificada';
+$lang['noticia_incluida'] = 'Noticia agregada';
+$lang['modificar_noticia'] = 'Modificar noticia';
+$lang['borrar_noticia'] = 'Borrar noticia';
+
+$lang['selecciona'] = 'Selecciona';
+
+$lang['categoria'] = 'Categoria';
+$lang['titulo_noticia'] = 'Título';
+$lang['noticia'] = 'Noticia';
+$lang['visible'] = 'Visible';
+$lang['comentable'] = 'Comentable';
+
+$lang['categoria_modificada'] = 'Categoria modificada';
+$lang['js_categoria_modificar_titulo'] = 'Modificar categoria';
+
+$lang['js_categoria_borrar_titulo'] = 'Borrar categoria';
+$lang['js_categoria_borrar'] = 'Las noticias asociadas se borraran, desea borrar.';
+$lang['categoria_borrada'] = 'Categoria borrada';
+
+$lang['js_categoria_incluir_titulo'] = 'Nueva categoria';
+$lang['categoria_incluida'] = 'Categoria agregada';
+$lang['js_pagina_no_encontrada'] = 'Página no encontrada';
+
+$lang['js_msg_cargando'] = 'Cargando...';
+$lang['js_msg_titlo'] = 'Por favor espere!';
+
+$lang['carpeta_hija_txt'] = 'Añadir carpeta hija';
+$lang['modificar_nombre_txt'] = 'Modificar nombre';
+$lang['borrar_txt'] = 'Borrar';
+$lang['opciones_txt'] = 'Opciones';
+
+$lang['admin_configura_web'] = 'Configurar web';
+
+
+$lang['admin_modificar_noticia'] = 'Modificar noticia';
 $lang['admin_nueva_noticia'] = 'Nueva noticia';
 
 $lang['cuenta_activada'] = 'La cuenta ha sido activada enhorabuena';

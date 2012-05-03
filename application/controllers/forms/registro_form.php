@@ -78,8 +78,8 @@ class Registro_form extends CI_Controller {
 				
 				$id_user=$this->Usuario_configuracion_model->insert($insertConfiguracion);
 				
-				echo $this->db->last_query();
-				echo $this->db->trans_status();
+				//echo $this->db->last_query();
+				//echo $this->db->trans_status();
 				
 				if ($this->db->trans_status() === FALSE)
 				{

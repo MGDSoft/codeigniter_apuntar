@@ -63,10 +63,8 @@ class Usuario_model extends CI_Model {
 	function update($id_usuario,$datos = array()){
 		 
 		$this->db->where('id_usuario', $id_usuario);
-		$this->db->update($this->table, $datos);
 
-
-		if ($this->db->affected_rows()>0)
+		if ($this->db->update($this->table, $datos))
 			return $this->db->insert_id() ;
 		else
 			return false;

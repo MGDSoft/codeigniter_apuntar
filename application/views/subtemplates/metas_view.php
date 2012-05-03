@@ -17,6 +17,29 @@
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <link rel="shortcut icon" href="imagenesWeb/myequipo.ico" /> 
 <base href="<?=base_url();?>">
+
+<script src="<?= PATH_JS ?>zeroclipboard/ZeroClipboard.js" type="text/javascript"></script>
+<script type="text/javascript">
+to_clip = new ZeroClipboard.Client();
+to_clip.setText( "Copy me!" );
+to_clip.setHandCursor( true );
+
+to_clip.setText( '' ); // will be set later on mouseDown
+to_clip.setHandCursor( true );
+to_clip.setCSSEffects( true );
+
+to_clip.addEventListener('load', function (client) {
+	alert("Flash movie loaded and ready.");
+});
+to_clip.addEventListener('complete', function (client, text) {
+	<?php printf(MSG_INFO,  $this->lang->line('correcto'),$this->lang->line('copiado'));?>
+});
+
+to_clip.addEventListener( 'complete', function(client, text) {
+    alert("Copied text to clipboard: " + text );
+} );
+</script>
+
 <script src="<?= PATH_JS ?>mootools-core-1.4.2.js" type="text/javascript"></script>
 <script src="<?= PATH_JS ?>mootools-more.js" type="text/javascript"></script> 
 <!-- <script src="<?= PATH_JS ?>Message-Class/js/mootools.js" type="text/javascript"></script>
@@ -29,6 +52,8 @@
 <script src="<?= PATH_JS ?>validacion/js/idiomas/spanish.js" type="text/javascript"></script>  
 <link href="<?= PATH_JS ?>validacion/css/main.css" rel="stylesheet"  type="text/css" />   
 
+<script src="<?= PATH_JS ?>scripts_varios.js" type="text/javascript"></script>
+
 <script src="<?= PATH_JS ?>arbol.js" type="text/javascript"></script>
 <link href="<?= PATH_CSS ?>arbol.css" rel="stylesheet"  type="text/css" />  
 
@@ -38,4 +63,16 @@
 <link href="<?= PATH_CSS ?>formularios.css" rel="stylesheet"  type="text/css" />  
 <link href="<?= PATH_CSS ?>general.css" rel="stylesheet"  type="text/css" /> 
 
+<link rel="stylesheet" href="<?= PATH_JS ?>highlight/styles/googlecode.css">
+<script src="<?= PATH_JS ?>highlight/highlight.pack.js" type="text/javascript"></script>
+<script src="<?= PATH_JS ?>highlight/numberLines.js" type="text/javascript"></script>
+
+
+
+<script src="<?= PATH_JS ?>ckeditor/ckeditor.js" type="text/javascript"></script>
+
+
+
 <?php $this->load->view('peques/msg_info_controller_view'); ?>
+
+

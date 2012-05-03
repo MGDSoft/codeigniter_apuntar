@@ -2,7 +2,11 @@
 
 /* my constantes web */
 
+define ('AUTO_EJECUTAR_JS','exec_js');
+
 define ('HTACCESS_WEB_USUARIO_TERMINACION','.html');
+define ('URL_WEB_NOT_FOUND','/index.php?info=2');
+
 
 define ('PATH_JS','/js/');
 define ('PATH_CSS','/css/');
@@ -13,11 +17,21 @@ define ('MSG_ERROR_CAMPO','new VentanaError("%s","%s");');
 
 define ('RESPONSE_OK_JS','OK');
 
+
 define ('MSG_INFO_URGENT','new Message({isUrgent: true,icon:"okMedium.png",title: "%s",message: "%s"}).say();');
 define ('MSG_INFO','new Message({icon:"okMedium.png",title: "%s",message: "%s"}).say();');
 define ('MSG_WATCHOUT','var msg = new Message({icon: "cautionMedium.png",title: "%s",message: "%s"}).say();msg.tell();');
-define ('MSG_QUESTION','new Message({icon: "mediumQuestion.png", title: "%s", message: "%s", callback: "%s"}).ask();');
+define ('MSG_QUESTION','new Message({icon: "speakMedium.png.png", title: "%s", message: "%s", callback: "%s"}).ask();');
+define ('MSG_QUESTION_DEFAULT','new Message({isUrgent: true,icon: "speakMedium.png",width: 300,fontSize: 14,autoDismiss: false,title: %s ,message: "<input type=\'text\' id=\'js_commentText\' value=%s>",callback: %s}).say();');
+
+define ('MSG_QUESTION_SI_NO_DEFAULT','new Message({icon: "questionMedium.png",title: %s,message: %s,callback: %s}).ask();');
+
 define ('REDIRECT_URL_JS','redirect("/%s");');
+define ('CARGAR_PAGINA_JS','cargar_pagina_stadart (\'%s\',\'\',\'\');');
+
+define ('ARBOL_AGREGAR_CARPETA','obj_menu_carpetas.arbol_agregar_carpeta(%s,%s,"%s");');
+
+
 
 /*
 |--------------------------------------------------------------------------

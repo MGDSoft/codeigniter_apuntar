@@ -1,5 +1,14 @@
+.formulario_estandar legend{
+	padding: 0px 10px;
+	font-size: 15px;
+	color: #1D2A5B;
+}
+.formulario_estandar fieldset{
+	padding: 45px 50px 23px 50px;
+	border: 1px dashed #CFE0FC;
+}
 
-.formulario_estandar input,.formulario_estandar select{
+.formulario_estandar input,.formulario_estandar select,.formulario_estandar textarea{
 	padding: 6px;
 	font-size: 16px;
 	width: 250px;
@@ -12,6 +21,10 @@
 	color:#303030;
 	background:#ffffff;
 }
+.formulario_estandar textarea{
+	width:500px;
+	min-height:60px; 
+}
 .formulario_estandar input[type="checkbox"]:checked::after {
 	content: url(//ssl.gstatic.com/ui/v1/menu/checkmark.png);
 	display: block;
@@ -23,7 +36,7 @@
 .formulario_estandar input[type="checkbox"],.formulario_estandar  input[type="radio"]
 
  {
- 	margin:3px 0px !important;
+ 	margin:5px 0px !important;
 	-webkit-appearance: none;
 	appearance: none;
 	width: 13px;
@@ -105,5 +118,50 @@
 	border-radius: 2px;
 	-moz-border-radius: 2px;
 	color:#303030;
-	background:url('/img/search.png') center no-repeat  #96A6C5;
+	background:url('/img/search.png') center no-repeat  #ABBCD9;
+}
+#js_commentText{
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 12px;
+	width: 250px;
+	background: black;
+	background: rgba(255, 255, 255, 0.1);
+	border: 1px solid #7A7A7A;
+	margin: 14px 0px;
+	
+	color: white;
+}
+
+ol.linenums li{
+	border:0px;
+	border-bottom:1px dotted #ccc;
+	background:#fff;
+	padding-left:10px;
+	
+}
+ol.linenums{
+	background:#E8E8E8;
+	border:1px solid #ccc;
+	padding: 3px 0px;
+}
+
+.custom_code{
+	float:right;
+
+}
+
+.custom_code span{
+	padding: 5px 5px;
+	font-size:14px;
+
+}
+.custom_code span:hover{
+	background: #FFFF85;
+	cursor:pointer;
+
+}
+.my_code_collapse{
+	height:50px;
+	overflow:hidden;
+	border-bottom:1px dashed #ccc;
 }

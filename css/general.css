@@ -106,20 +106,25 @@ body{
 }
 #contenido{
 	display: table;
-	padding:0px 30px 0px 10px;
+	padding:0px 30px 0px 25px;
 }
 
 #contenido span.titulo_noticia{
 	color: #083C6B;
 	font-size: 23px;
-	display: block;
 	font-family: arial, verdana;
-	padding:10px 10px 11px 0px;
-
+	padding:10px 10px 11px 10px;
+}
+#contenido div.categoria_noticia{
+	float:right;
+	padding: 0px 20px;
+	font-size:14px;
+	height:25px;
 }
 #contenido div.extras_noticia {
-	padding: 20px 0px 15px 0px;
+	padding: 20px 0px 15px 20px;
 	border-bottom: 1px dotted #C9DBEC;
+	margin-bottom: 25px;
 }
 #contenido div.extras_noticia span.extra_fecha_noticia{
 	display: block;
@@ -130,14 +135,91 @@ body{
 }
 #contenido div.extras_noticia span.extra_valor{
 	font-style: italic;
+	padding: 0px 10px 0px 0px;
 }
+#contenido .noticia_admin{
+	display:none;
+	margin-right:20px;
+}
+#contenido img{
+	cursor:pointer
+}
+#contenido .noticia_completa:hover .noticia_admin{
+	display: inline;
+}
+
 #contenido div.contenido_noticia {
-	padding-left:10px;
+	clear:both;
+	padding: 5px 0px 5px 20px;
+	
 }
 #contenido #admin{
-	margin:10px 10px;
+	margin: 20px 10px;
+	height: 35px;
+	
 }
 #contenido #admin .nueva_noticia{
-	padding:5px 5px 5px 25px;
+	background: url('/img/nueva_noticia.png') no-repeat left;
+}
+#contenido #admin .config_Web{
+	background: url('/img/configurar_web.png') no-repeat left;
+}
+#contenido #admin span{
+	padding:11px 15px 10px 38px;
+	background-color: #ABBCD9 !important;
+	border: 1px solid #29447E;
+	text-shadow: 1px 1px 0px #000;
+	color:#fff;
+	font-size: 14px;
+	font-weight: bold;
+	-webkit-border-radius:5px;
+	border-radius: 5px;
+	-moz-border-radius: 5px;
+	-moz-box-shadow: 3px 4px 0px #888;
+	-webkit-box-shadow: 3px 4px 0px #888;
+	box-shadow: 3px 4px 0px #888;
+	cursor:pointer;
+	margin-right:20px;
+}
+#contenido #admin span:hover{
+	-moz-box-shadow: 1px 2px 0px #888;
+	-webkit-box-shadow: 1px 2px 0px #888;
+	box-shadow: 1px 2px 0px #888;
+	border:1px solid #333333;
+	background-color: #CAD5E8 !important;
+}
+span.volver{
+	clear:both;
+	margin:30px 0px 20px 0px ;
+	display: block
+}
+span.volver a{
+	background: #F5F5F5;
+	-webkit-border-radius: 2px;
+	-moz-border-radius: 2px;
+	border-radius: 2px;
+	padding: 2px 4px;
 	border:1px solid #ccc;
+	
+}
+
+a {
+text-decoration:none;
+color: #3B5998;
+}
+a:visited {
+text-decoration:none;
+color: #243A69;
+}
+a:hover {
+text-decoration:underline;
+
+}
+a:active {
+text-decoration:none;
+color: #3B5998;
+}
+p{
+	padding:0px;
+	margin:0px;
 }
