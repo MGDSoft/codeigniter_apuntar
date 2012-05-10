@@ -43,6 +43,9 @@ $route['web/(.+?)'] = 'portal_inicio/index/$1';
 $route['(.+)/nueva_noticia'] = 'admin/noticia/nueva_noticia';
 $route['(.+)/modificar_noticia'] = 'admin/noticia/modificar_noticia';
 $route['(.+).html'] = 'portal_inicio/index/';
+$route['buscador'] = 'extras/buscador/index/';
+$route['news/(:any)/(:num)'] = 'noticia_detalle/index/';
+
 $route['scaffolding_trigger'] = 'secret';
 $route['404_override'] = '';
 

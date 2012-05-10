@@ -7,7 +7,7 @@ define ('AUTO_EJECUTAR_JS','exec_js');
 define ('HTACCESS_WEB_USUARIO_TERMINACION','.html');
 define ('URL_WEB_NOT_FOUND','/index.php?info=2');
 
-
+define ('ID_ANONIMO','0');
 define ('PATH_JS','/js/');
 define ('PATH_CSS','/css/');
 define ('PATH_IMG','/img/');
@@ -27,9 +27,17 @@ define ('MSG_QUESTION_DEFAULT','new Message({isUrgent: true,icon: "speakMedium.p
 define ('MSG_QUESTION_SI_NO_DEFAULT','new Message({icon: "questionMedium.png",title: %s,message: %s,callback: %s}).ask();');
 
 define ('REDIRECT_URL_JS','redirect("/%s");');
-define ('CARGAR_PAGINA_JS','cargar_pagina_stadart (\'%s\',\'\',\'\');');
 
-define ('ARBOL_AGREGAR_CARPETA','obj_menu_carpetas.arbol_agregar_carpeta(%s,%s,"%s");');
+define ('CARGAR_PAGINA_JS','cargar_pagina_stadart (\'%s\',\'\',\'\');');
+define ('CARGAR_PAGINA_VARS_JS','cargar_pagina_stadart (\'%s\',\'%s\',\'\');');
+define ('RELOAD_PAGINA_JS','reloadActual ("%s");');
+define ('SCROLL_ELEMENT_JS','scrolToElement(\'%s\');');
+define ('HIGHLIGHT_ELEMENT_JS','highLight(\'%s\');');
+define ('RELOAD_CAPTCHAS_JS','reloadAllCaptchas(\'%s\');');
+define ('AGREGAR_COMENTARIO_JS','agregarComentario(\'%s\',\'%s\');');
+define ('MODIFICAR_VOTO_JS','modificar_voto(\'%s\',\'%s\');');
+define ('NUMERO_POR_PAGINA',10);
+define ('COMENTARIOS_POR_PAGINA',20);
 
 
 

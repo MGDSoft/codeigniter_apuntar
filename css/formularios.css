@@ -25,6 +25,11 @@
 	width:500px;
 	min-height:60px; 
 }
+.formulario_estandar .seguridad img{
+	vertical-align: middle;
+
+}
+.ghost_input{color: #ccc !important;font-style: italic}
 .formulario_estandar input[type="checkbox"]:checked::after {
 	content: url(//ssl.gstatic.com/ui/v1/menu/checkmark.png);
 	display: block;
@@ -68,7 +73,7 @@
 	color: #C90000;
 	text-shadow:1px 1px 0px #000;
 }
-.formulario_estandar .boton_standart{
+.formulario_estandar .boton_standart,.boton_standart{
 	margin:8px 0px;
 	background: #97A9C7;
 	border: 1px solid #29447E;
@@ -153,11 +158,14 @@ ol.linenums{
 .custom_code span{
 	padding: 5px 5px;
 	font-size:14px;
+	
 
 }
-.custom_code span:hover{
-	background: #FFFF85;
+.custom_code span:hover,div.sugerencias_helper div:hover{
+	background: #FFFFBF !important;
+	border:1px solid #000 !important;
 	cursor:pointer;
+	
 
 }
 .my_code_collapse{

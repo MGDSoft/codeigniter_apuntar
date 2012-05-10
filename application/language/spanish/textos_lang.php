@@ -1,4 +1,32 @@
 <?php
+$lang['veces'] = 'veces';
+$lang['editado'] = 'Editado';
+$lang['comentario_modificado'] = 'Comentario modificado';
+$lang['comentario_muteado'] = 'Comentario silenciado';
+$lang['comentario_desmuteado'] = 'Comentario activo otra vez';
+$lang['mute_default'] = 'razón';
+$lang['mute_titulo'] = 'Escribe una razón por la que se silencia';
+$lang['muter_comentario'] = 'Silenciar comentario con razón';
+
+$lang['comentario_borrado'] = 'Comentario borrado';
+$lang['borrar_comentario'] = 'Borrar comentario';
+$lang['voto_incluido'] = 'Voto agregado';
+$lang['recargar_captcha'] = 'Pulsa para recargar captcha';
+
+$lang['captcha_invalido'] = 'No es correcto';
+$lang['comentario_incluido'] = 'Comentario Incluido';
+
+$lang['seguridad'] = 'Seguridad';
+$lang['responder'] = 'Responder';
+$lang['trampeando'] = 'Error';
+$lang['autor'] = 'Autor';
+$lang['anonimo'] = 'Anónimo';
+$lang['nuevo_comentario'] = 'Nuevo comentario';
+$lang['modificar_comentario'] = 'Modificar comentario';
+$lang['comentario'] = 'Comentario';
+
+$lang['comentarios'] = 'Comentarios';
+
 $lang['si'] = 'si';
 $lang['no'] = 'no';
 $lang['copiar'] = 'Copiar';

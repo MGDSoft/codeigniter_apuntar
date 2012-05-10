@@ -60,21 +60,25 @@ if ( ! function_exists('create_captcha'))
 
 		if ($img_path == '' OR $img_url == '')
 		{
+			echo 1;
 			return FALSE;
 		}
 
 		if ( ! @is_dir($img_path))
 		{
+			echo 2;
 			return FALSE;
 		}
 
 		if ( ! is_writable($img_path))
 		{
+			echo 3;
 			return FALSE;
 		}
 
 		if ( ! extension_loaded('gd'))
 		{
+			echo 4;
 			return FALSE;
 		}
 
@@ -232,7 +236,9 @@ if ( ! function_exists('create_captcha'))
 
 		ImageJPEG($im, $img_path.$img_name);
 
-		$img = "<img src=\"$img_url$img_name\" width=\"$img_width\" height=\"$img_height\" style=\"border:0;\" alt=\" \" />";
+		$CI =& get_instance();
+		
+		$img = "<img class='captcha' src=\"$img_url$img_name\" width=\"$img_width\" height=\"$img_height\" style=\"border:0;\" alt=\"".$CI->lang->line('recargar_captcha')."\" title=\"".$CI->lang->line('recargar_captcha')."\" />";
 
 		ImageDestroy($im);
 

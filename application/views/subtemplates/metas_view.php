@@ -14,6 +14,7 @@
 <meta name="language" content="es-ES"/>
 <meta http-equiv="Pragma" content="no-cache"/>
 <meta name="resource-type" content="document"/>
+<meta name="fragment" content="!">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <link rel="shortcut icon" href="imagenesWeb/myequipo.ico" /> 
 <base href="<?=base_url();?>">
@@ -55,7 +56,9 @@ to_clip.addEventListener( 'complete', function(client, text) {
 <script src="<?= PATH_JS ?>scripts_varios.js" type="text/javascript"></script>
 
 <script src="<?= PATH_JS ?>arbol.js" type="text/javascript"></script>
-<link href="<?= PATH_CSS ?>arbol.css" rel="stylesheet"  type="text/css" />  
+<link href="<?= PATH_CSS ?>arbol.css" rel="stylesheet"  type="text/css" />
+
+<script src="<?= PATH_JS ?>buscador.js" type="text/javascript"></script>
 
 <script src="<?= PATH_JS ?>Message-Class/js/message_src.js" type="text/javascript" /></script>
 <link href="<?= PATH_JS ?>Message-Class/css/message.css" rel="stylesheet"  type="text/css" />
@@ -67,7 +70,7 @@ to_clip.addEventListener( 'complete', function(client, text) {
 <script src="<?= PATH_JS ?>highlight/highlight.pack.js" type="text/javascript"></script>
 <script src="<?= PATH_JS ?>highlight/numberLines.js" type="text/javascript"></script>
 
-
+<script src="<?= PATH_JS ?>arieh-historymanager/Source/HashListener.js" type="text/javascript"></script>
 
 <script src="<?= PATH_JS ?>ckeditor/ckeditor.js" type="text/javascript"></script>
 

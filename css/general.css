@@ -10,7 +10,7 @@ body{
 	height:100%;
 }
 #cuerpo{
-	width:100%;
+	clear: both;
 	padding-top:10px;
 }
 /* Cabecera Header */
@@ -46,9 +46,35 @@ body{
     overflow: hidden;
     padding: 0 5px 0 0;
 }
-#contenedor_titulo_buscador #buscador{
+#contenedor_titulo_buscador #buscador_txt{
 	width:100%;
 	height: 30px;
+}
+#contenedor_titulo_buscador .sugerencias_helper{
+	position:absolute;
+}
+#contenedor_titulo_buscador .sugerencias_helper div{
+	border:1px solid #BDC7D8;
+	padding:5px 6px;
+	margin-top:-1px;
+	font-size:14px;
+	-webkit-border-radius:2px;
+	border-radius: 2px;
+	-moz-border-radius: 2px;
+	color:#303030;
+	background:#ffffff;
+}
+
+#contenedor_titulo_buscador #buscador_tipo{
+	width:150px;
+	height: 30px;
+	-webkit-border-top-left-radius: 10px;
+	-webkit-border-bottom-left-radius: 10px;
+	-moz-border-radius-topleft: 10px;
+	-moz-border-radius-bottomleft: 10px;
+	border-top-left-radius: 10px;
+	border-bottom-left-radius: 10px;
+	padding-left: 10px;
 	
 }
 #contenedor_titulo_buscador #titulo{
@@ -82,7 +108,15 @@ body{
 #contenedor_titulo_buscador #buscar_boton{
 	float:right;
 	padding-right:30px;
-	
+}
+#contenedor_titulo_buscador #buscar_boton input{
+	-webkit-border-top-right-radius: 10px;
+	-webkit-border-bottom-right-radius: 10px;
+	-moz-border-radius-topright: 10px;
+	-moz-border-radius-bottomright: 10px;
+	border-top-right-radius: 10px;
+	border-bottom-right-radius: 10px;
+	width: 70px;
 }
 
 #arbol{
@@ -101,12 +135,19 @@ body{
  }
 #bloque_izq{
 	float:left;
-	height:100%;
+	width:200px;
+}
+#bloque_der{
+	float:left;
 	width:200px;
 }
 #contenido{
-	display: table;
 	padding:0px 30px 0px 25px;
+	display: table;
+	min-width: 600px;
+}
+#contenedor_variable{
+	min-width: 600px;
 }
 
 #contenido span.titulo_noticia{
@@ -148,10 +189,100 @@ body{
 	display: inline;
 }
 
-#contenido div.contenido_noticia {
-	clear:both;
-	padding: 5px 0px 5px 20px;
+
+#titulo_comentarios{
+	color: #083C6B;
+	font-size: 23px;
+	font-family: arial, verdana;
+	padding: 20px 10px 31px 10px;
+}
+
+.comentario_completo {
+	margin: 20px 0 15px 0;	
+}
+.comentario_completo span.comentario_admin{
+	display: none;
+}
+.comentario_completo span.propietario .nombre_autor{
+	padding:3px 9px;
+	-webkit-border-radius:5px;
+	border-radius: 5px;
+	-moz-border-radius: 5px;
+	text-shadow: 1px 1px 0px #fff;
+	border:1px solid #7D7D7D;
+	background: #DFE9F2;
+
+}
+
+
+.este_comentario:hover span.comentario_admin{
+	display: inline;
+}
+
+.comentario_completo img.avatar{
+	float:left;
+	border:1px solid #ccc;
+	margin:0 10px 0 0;
+}
+.comentario_completo div.contenido_comentario{
+	padding: 15px 0px 5px 20px;
 	
+}
+.comentario_completo span.nombre_autor{
+	font-weight: bold;
+} 
+.comentario_completo div.extras_comentario {
+	text-align: right;
+	padding: 10px 0px 15px 20px;
+	border-bottom: 1px dotted #C9DBEC;
+	font-size: 15px;
+}
+.comentario_completo div.extras_comentario img{
+	cursor: pointer;
+	margin-left:5px;
+}
+
+.comentario_completo div.responder{
+	padding:10px 0 0 20px;
+	margin-top:10px;
+	border-top: 1px dashed #C9DBEC;
+	
+	text-align:left;
+}
+.comentario_completo div.respuestas div.comentario_completo{
+	padding:17px 0 0 15px;
+	margin:0px;
+	border-left:14px solid #F5F5F5;
+	margin-left:24px;
+	text-align:left;
+}
+
+.comentario_completo div.responder input[submit]{
+	padding:15px 0 0 20px;
+	margin-top:10px;
+	border-top: 1px dashed #C9DBEC;
+	font-size: 14px;
+	text-align:left;
+}
+.comentario_completo .muteado img{
+	margin: 10px 0 0 -25px
+}
+.comentario_completo div.modificar_comentario{
+	padding-top:13px;
+}
+.comentario_completo span.editado{
+	display:block;
+	float:left;
+	font-style: italic;
+	color:#ccc;
+	font-size: 14px;
+	padding-top:15px;
+	
+}
+
+
+#contenido div.contenido_noticia {
+	padding: 20px 0px 5px 20px;	
 }
 #contenido #admin{
 	margin: 20px 10px;
@@ -164,7 +295,7 @@ body{
 #contenido #admin .config_Web{
 	background: url('/img/configurar_web.png') no-repeat left;
 }
-#contenido #admin span{
+#contenido #admin a{
 	padding:11px 15px 10px 38px;
 	background-color: #ABBCD9 !important;
 	border: 1px solid #29447E;
@@ -187,6 +318,9 @@ body{
 	box-shadow: 1px 2px 0px #888;
 	border:1px solid #333333;
 	background-color: #CAD5E8 !important;
+}
+#contenedor_portal #footer{
+	clear :both;
 }
 span.volver{
 	clear:both;

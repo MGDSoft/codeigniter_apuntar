@@ -218,7 +218,7 @@ class CI_Pagination {
 		}
 		else
 		{
-			$this->base_url = rtrim($this->base_url, '/') .'/';
+			$this->base_url = rtrim($this->base_url, '/') ;
 		}
 
 		// And here we go...
