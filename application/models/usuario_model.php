@@ -3,7 +3,7 @@ class Usuario_model extends CI_Model {
 
 	private $table='usuario';
 
-	function Usuario_model()
+	function __construct()
 	{
 		// Call the Model constructor
 		parent::__construct();
@@ -18,11 +18,29 @@ class Usuario_model extends CI_Model {
 		}
 		return 0;
 	}
-
-	function login($email,$password){
+	
+	function getLast10($desc='DESC',$limit=10)
+	{
+		$this->db->order_by('fecha',$desc);
+		$this->db->join('usuario_configuracion', 'usuario.id_usuario = usuario_configuracion.id_usuario');
+		$this->db->limit($limit,0);
+		$query = $this->db->get($this->table);
+		
+		if ($query->num_rows() > 0)
+			return $query->result();
+		else
+			return array();
+	}
+	
+	function login($email,$password,$preguntarPass=true){
+		
 		$this->db->where('correo', $email);
-		$this->db->where('password', $password);
+		
+		if ($preguntarPass)
+			$this->db->where('password', $password);
+		
 		$this->db->join('zone_time', 'zone_time.id_zone_time = usuario.id_zone_time');
+		$this->db->join('usuario_configuracion', 'usuario_configuracion.id_usuario = usuario.id_usuario');
 		$query = $this->db->get($this->table);
 			
 		if ($query->num_rows() > 0)
@@ -65,12 +83,23 @@ class Usuario_model extends CI_Model {
 		$this->db->where('id_usuario', $id_usuario);
 
 		if ($this->db->update($this->table, $datos))
-			return $this->db->insert_id() ;
+			return true ;
 		else
 			return false;
 		 
 	}
 	 
+	function updateByCorreo($correo,$datos = array()){
+			
+		$this->db->where('correo', $correo);
+	
+		if ($this->db->update($this->table, $datos))
+			return true ;
+		else
+			return false;
+			
+	}
+	
 	function activar_cuenta($id_usuario,$password,$datos = array()){
 		 
 		$this->db->where('id_usuario', $id_usuario);

@@ -1,25 +1,29 @@
+
 .formulario_estandar legend{
 	padding: 0px 10px;
-	font-size: 15px;
-	color: #1D2A5B;
+	font-size: 1.4em;
 }
 .formulario_estandar fieldset{
 	padding: 45px 50px 23px 50px;
-	border: 1px dashed #CFE0FC;
+	margin:13px 0;
+	border-width: 1px;
+	border-style: dashed;
 }
 
-.formulario_estandar input,.formulario_estandar select,.formulario_estandar textarea{
+.formulario_estandar input, .formulario_estandar select, .formulario_estandar textarea{
 	padding: 6px;
-	font-size: 16px;
+	font-size: 1.2em;
 	width: 250px;
-	border-color: #96A6C5;
+	
 	margin-top: 2px;
-	border: 1px solid #BDC7D8;
+	border-width: 1px;
+	border-style: solid;
 	-webkit-border-radius:2px;
 	border-radius: 2px;
 	-moz-border-radius: 2px;
 	color:#303030;
 	background:#ffffff;
+	behavior: url('/img/PIE.htc');
 }
 .formulario_estandar textarea{
 	width:500px;
@@ -30,12 +34,14 @@
 
 }
 .ghost_input{color: #ccc !important;font-style: italic}
+
 .formulario_estandar input[type="checkbox"]:checked::after {
 	content: url(//ssl.gstatic.com/ui/v1/menu/checkmark.png);
 	display: block;
 	position: absolute;
 	top: -6px;
 	left: -5px;
+	
 }
 
 .formulario_estandar input[type="checkbox"],.formulario_estandar  input[type="radio"]
@@ -43,7 +49,6 @@
  {
  	margin:5px 0px !important;
 	-webkit-appearance: none;
-	appearance: none;
 	width: 13px;
 	height: 13px;
 	margin: 0;
@@ -54,45 +59,40 @@
 	-webkit-border-radius: 1px;
 	-moz-border-radius: 1px;
 	border-radius: 1px;
-	-webkit-box-sizing: border-box;
-	-moz-box-sizing: border-box;
-	box-sizing: border-box;
 	position: relative;
+	behavior: url('/img/PIE.htc');
+	padding:0;
+	*border:0px;
 }
 #login_form input[type=text],#login_form input[type=password]{
 	width: 150px;
+	font-size: 1em;
+	padding: 4px 5px;
+	text-align: center;
 }
-.formulario_estandar th{
-	font-size: 13px;
-	color: #1D2A5B;
-	text-align: right;
-	font-weight:normal;
-	padding-right:8px;
+
+.formulario_estandar th.separador{
+	padding-top:15px;
+	padding-bottom:15px;
+	font-size:1.1em;
+	font-weight: bold;
 }
+
 .respuesta_fallida{
 	color: #C90000;
 	text-shadow:1px 1px 0px #000;
 }
 .formulario_estandar .boton_standart,.boton_standart{
 	margin:8px 0px;
-	background: #97A9C7;
-	border: 1px solid #29447E;
 	text-align: center;
 	cursor: pointer;
 	font-weight:bold;
-	color: #fff;
-	
 	padding: 4px 15px;
 	width:auto;
-	text-shadow:1px 1px 0px #000;
-
 	-webkit-border-radius:5px;
 	border-radius: 5px;
 	-moz-border-radius: 5px;
-	-moz-box-shadow: 2px 4px 1px #888;
-	-webkit-box-shadow: 2px 4px 1px #888;
-	box-shadow: 2px 4px 1px #888;
-
+	behavior: url('/img/PIE.htc');
 }
 .formulario_estandar .boton_standart:hover{
 	-moz-box-shadow: 2px 2px 1px #888;
@@ -100,31 +100,7 @@
 	box-shadow: 2px 2px 1px #888;
 	background: #ABBCD9;
 }
-#contenedor_titulo_buscador input[type="text"]{
-	padding: 4px;
-	font-size: 16px;
-	width: 250px;
-	border-color: #96A6C5;
-	margin-top: 2px;
-	border: 1px solid #BDC7D8;
-	-webkit-border-radius:2px;
-	border-radius: 2px;
-	-moz-border-radius: 2px;
-	color:#303030;
-	background:#ffffff;
-}
-#contenedor_titulo_buscador input[type="submit"]{
-	width: 60px;
-	height:40px;
-	border-color: #96A6C5;
-	margin-top: 2px;
-	border: 1px solid #404040;
-	-webkit-border-radius:2px;
-	border-radius: 2px;
-	-moz-border-radius: 2px;
-	color:#303030;
-	background:url('/img/search.png') center no-repeat  #ABBCD9;
-}
+
 #js_commentText{
 	font-family: Arial, Helvetica, sans-serif;
 	font-size: 12px;
@@ -135,41 +111,4 @@
 	margin: 14px 0px;
 	
 	color: white;
-}
-
-ol.linenums li{
-	border:0px;
-	border-bottom:1px dotted #ccc;
-	background:#fff;
-	padding-left:10px;
-	
-}
-ol.linenums{
-	background:#E8E8E8;
-	border:1px solid #ccc;
-	padding: 3px 0px;
-}
-
-.custom_code{
-	float:right;
-
-}
-
-.custom_code span{
-	padding: 5px 5px;
-	font-size:14px;
-	
-
-}
-.custom_code span:hover,div.sugerencias_helper div:hover{
-	background: #FFFFBF !important;
-	border:1px solid #000 !important;
-	cursor:pointer;
-	
-
-}
-.my_code_collapse{
-	height:50px;
-	overflow:hidden;
-	border-bottom:1px dashed #ccc;
 }

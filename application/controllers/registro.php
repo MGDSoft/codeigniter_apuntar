@@ -7,7 +7,7 @@
 		$this->load->library('form_validation');
 		
 	}
-  function index()
+  public function index()
   {
    
 	   /*$this->session->set_userdata('language', ENGLISH);
@@ -21,10 +21,14 @@
 	   $vars['huso_horario']=$this->Zone_time_model->getData();
 	   //print_r($huso_horario);
 	   
-	   $this->load->view('subtemplates/metas_view',$data);
-	   $this->load->view('subtemplates/header_inicio_view');
+	   /*$this->load->view('subtemplates/metas_view',$data);
+	   $this->load->view('subtemplates/header_inicio_view');*/
 	   $this->load->view('forms/registro_Fview',$vars);
-	   $this->load->view('subtemplates/footer_inicio_view');
+	   /*$this->load->view('subtemplates/footer_inicio_view');*/
+  }
+  
+  public function recordar(){
+  	   $this->load->view('forms/recordar_Fview');
   }
  }
 ?>

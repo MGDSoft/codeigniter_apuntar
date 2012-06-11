@@ -6,7 +6,9 @@
 	border : 0;
 	font-size: 13px;
 	text-shadow: 1px 1px 1px black;
-	
+}
+.tipsbox td{
+	padding:0 !important;
 }
 .IzqVerdeRotado{
 	background : url('/js/validacion/images/izqVerdeRotadito.png') repeat-y;

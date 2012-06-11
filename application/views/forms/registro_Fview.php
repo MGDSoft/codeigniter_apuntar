@@ -1,5 +1,7 @@
-registro
-<form id='registro_form' name="registro_form"  action="javascript:enviar_form_ajax('registro_form','/forms/registro_form','','','/index.php?info=1')" method="post" accept-charset="utf-8">
+<form id='registro_form' name="registro_form" class='formulario_estandar' action="javascript:enviar_form_ajax('registro_form','/forms/registro_forms','','','/index.php?info=1')" method="post" accept-charset="utf-8">
+<fieldset>
+	<legend><?= $this->lang->line('registro') ?></legend>
+
 	<table class='formulario_estandar'>
 		<tr><th><?= $this->lang->line('correo') ?></th><td><input type="text" name="correo" value="" id="correo"></td></tr>
 		<tr><th><?= $this->lang->line('contrasena') ?></th><td><input type="password" name="contrasena" value="" id="contrasena"></td></tr>
@@ -17,16 +19,21 @@ registro
 		<tr><td colspan='2' align='right'><input type="submit" name="enviar" class='boton_standart' value="<?= $this->lang->line('enviar') ?>"></td></tr>
 	</table>
 	<input name="iehack" type="hidden" value="&#9760;" />
-	<div id='resultado_form' style='border:1px solid red'></div>
+	<div id='resultado_form' ></div>
+	</fieldset>
 </form>
 
 <script>
 //new VentanaError('recontrasena','asdsd');
-creacionEventos('apellidos','informativo','texto',1);
-creacionEventos('nombre','informativo','texto',1);
-creacionEventos('correo','informativo','email',1);
-creacionEventos('titulo','informativo','',1);
-creacionEventos('contrasena','contrasena','',1);
-creacionEventos('recontrasena','recontrasena','igual',1);
+
 
 </script>
+<?php $TipoMessage=((isset($device)) ? 2 : 1) ?>
+<div class='<?= AUTO_EJECUTAR_JS ?>' style='display:none'>
+	creacionEventos('apellidos','','',<?= $TipoMessage ?>);
+	creacionEventos('nombre','','',<?= $TipoMessage ?>);
+	creacionEventos('correo','','email',<?= $TipoMessage ?>);
+	creacionEventos('titulo','','',<?= $TipoMessage ?>);
+	creacionEventos('contrasena','','',<?= $TipoMessage ?>);
+	creacionEventos('recontrasena','','igual',<?= $TipoMessage ?>);
+</div>

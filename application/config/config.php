@@ -17,7 +17,7 @@
 | path to your installation.
 |
 */
-$config['base_url']	= 'http://apuntes-dev/';
+$config['base_url']	= 'http://'.URL_BASE.'/';
 
 /*
 |--------------------------------------------------------------------------
@@ -270,7 +270,7 @@ $config['sess_time_to_update']	= 300;
 |
 */
 $config['cookie_prefix']	= "";
-$config['cookie_domain']	= "";
+$config['cookie_domain']	= '.'.URL_BASE;
 $config['cookie_path']		= "/";
 $config['cookie_secure']	= FALSE;
 

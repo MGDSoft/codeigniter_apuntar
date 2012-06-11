@@ -4,27 +4,67 @@
   	public function __construct()
 	{
 		parent::__construct();
+		$this->load->model('Usuario_model');
 		
 	}
-  function index()
-  {
- 	if (isset($_GET['logout']))
- 	{
- 		session_unset();
- 		$this->load->helper('cookie');
- 		delete_cookie('auto_login');
- 		redirect('/', 'refresh');
- 	}
-   /*$this->session->set_userdata('language', ENGLISH);
-   $language = $this->session->userdata('language');
-  	*/
+	public function portada()
+	{
+		$this->load->view('peques/portada_contenido_view');
+	}
+	
+   public function index()
+    {
+  	$this->logout_();
+  	$this->redirect_web();
    $data['titulo']="tit";
    $data['descripcion']="desc";
+   $portal->contacto_pagina_personal='';
+   $portal->contacto_steam='';
+   $portal->contacto_youtube='';
+   $portal->contacto_tuenti='';
+   $portal->contacto_steam='';
+   $portal->contacto_twitter='x';
+   $portal->contacto_facebook='x';
    
-   $this->load->view('subtemplates/metas_view',$data);
-   $this->load->view('subtemplates/header_inicio_view');
-   echo date('l jS \of F Y h:i:s A');
-   $this->load->view('subtemplates/footer_inicio_view');
+   $datos['usuario_configuracion']=$portal;
+   $datos['nuevos']=$this->Usuario_model->getLast10();
+   $datos['ejemplos']=$this->Usuario_model->getLast10('ASC',3);
+   
+   $this->load->view('subtemplates/metas_portada_view',$data);
+   $this->load->view('peques/iniciador_portada_js_view');
+   $this->load->view('subtemplates/header_portada_view',$datos);
+   $this->load->view('cuerpo_portada_view');
+   $this->load->view('subtemplates/footer_portada_view');
+  }
+  
+  private function redirect_web(){
+  	
+  	if($_SERVER['SERVER_NAME']!= base_url())
+  	{
+  		$array = explode('.',$_SERVER['SERVER_NAME']);
+  		
+  		if($array[0]!='www')
+  			$method=$array[0];
+  		
+  		elseif($array[0]=='www')
+  			$method=$array[1];
+
+  		if ($method=="devices")
+  			redirect('http://'.$_SERVER['SERVER_NAME'].'/portal_devices', 'refresh');
+  		if (!stripos(base_url(), $method))  			
+  			redirect('http://'.$_SERVER['SERVER_NAME'].'/portal', 'refresh');
+  		  	
+  	}
+ }
+  	
+  private function logout_(){
+  	if (isset($_GET['logout']))
+  	{
+  		session_unset();
+  		$this->load->helper('cookie');
+  		delete_cookie('auto_login');
+  		redirect('/', 'refresh');
+  	}
   }
  }
 ?>

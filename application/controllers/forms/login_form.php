@@ -69,9 +69,9 @@ class Login_form extends CI_Controller {
 				
 				$user_configuration=$this->Usuario_configuracion_model->getById($user->id_usuario);
 				
-				$_SESSION['usuario']=$user;$_SESSION['usuario_configuracion']=$user_configuration;
+				$_SESSION['usuario']=$user;
 				
-				printf(REDIRECT_URL_JS, $user_configuration->nombre_unico . HTACCESS_WEB_USUARIO_TERMINACION);
+				printf(REDIRECT_URL_JS, RUTA_PORTAL);
 				exit;
 			}
 			

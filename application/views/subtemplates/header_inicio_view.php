@@ -1,29 +1,33 @@
+<?php   $this->load->view('peques/cargar_estilos_web_view'); ?>
 </head>
-<body>
-<div style="position:absolute;z-index:-1;width:100%;height:58px;background:#F5F5F5;top:100px;left:0px;border-top:1px solid #ccc;border-bottom:1px solid #ccc;"></div>  
+<body class="<?= $usuario_configuracion->fondo_estilo ?>">
+<?php   $this->load->view('peques/cargar_separadores_web_view'); ?>
+<div id="gototop" style="visibility:hidden;">
+	<img src="<?= PATH_IMG ?>1x1.gif" class="arriba" height="100" width="91" onclick="new Fx.Scroll(window).toTop();">
+	<img id="gotodown" src="<?= PATH_IMG ?>1x1.gif" class="abajo" height="100" width="91" onclick="new Fx.Scroll(window).toBottom();">
+	
+</div>
+
 <div id="contenedor_portal">
 	<div id="cabecera">
 		<div id="logo">
-	 		<img src="<?= PATH_IMG ?>logo_default.png" width="190">
+			<div>
+	 			<a href="<?= RUTA_PORTAL ?>#!"><img src="<?= PATH_IMG.'usuario/logo/'.$usuario_configuracion->logo ?>"></a>
+	 		</div>
 	 	</div>
 	 	<div id="caja_login">
 	 		<?php   $this->load->view('subtemplates/login_view'); ?>
 	 	</div>
 	 	<div id="contenedor_titulo_buscador">
 	 		<div id="contenidos_extra">
-	 			<img src="<?= PATH_IMG ?>steam.png">
-	 			<img src="<?= PATH_IMG ?>youtube.png">
-	 			<img src="<?= PATH_IMG ?>twitter.png">
-	 			<img src="<?= PATH_IMG ?>facebook.png">
-	 			<img src="<?= PATH_IMG ?>email.png">
-	 			<img src="<?= PATH_IMG ?>rss.png">
+	 			<?php   $this->load->view('peques/contact_view'); ?>
 	 		</div>
 	 		<div id="titulo_desc">
 	 			<span id="titulo">
-		 			MGDSoftware
+		 			<a href="<?= RUTA_PORTAL ?>#!"><?= $usuario_configuracion->titulo ?></a>
 		 		</span>
 		 		<span id="descripcion">
-		 			"Todo lo que necesitas saber sobre la informática"
+		 			<?= $usuario_configuracion->eslogan ?>
 		 		</span>
 	 		</div>
 	 		
@@ -32,5 +36,3 @@
 		 	</div>
 	 	</div>
 	</div>
-	
-	<div style="position:absolute;z-index:-1;left:0px;width:100%;height:100%;border-top:1px dashed #CFE0FC"></div>

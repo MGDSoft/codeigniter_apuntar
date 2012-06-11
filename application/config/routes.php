@@ -42,8 +42,16 @@ $route['default_controller'] = 'index';
 $route['web/(.+?)'] = 'portal_inicio/index/$1';
 $route['(.+)/nueva_noticia'] = 'admin/noticia/nueva_noticia';
 $route['(.+)/modificar_noticia'] = 'admin/noticia/modificar_noticia';
-$route['(.+).html'] = 'portal_inicio/index/';
+$route['bienvenido'] = 'portal_devices/bienvenido';
+$route['recordar'] = 'registro/recordar';
+$route['portada'] = 'index/portada';
+
 $route['buscador'] = 'extras/buscador/index/';
+
+$route['(:any)/rss'] = 'extras/rss/index';
+$route['calendario/(:num)/(:num)'] = 'portal/cargar_calendario';
+$route['news/fecha/(:num)/(:num)/(:num)'] = 'listado_noticias/por_fecha';
+$route['news/mes/(:num)/(:num)'] = 'listado_noticias/por_mes';
 $route['news/(:any)/(:num)'] = 'noticia_detalle/index/';
 
 $route['scaffolding_trigger'] = 'secret';

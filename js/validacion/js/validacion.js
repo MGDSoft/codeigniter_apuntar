@@ -1,17 +1,12 @@
 
-function objetoAjax(){var xmlhttp=false;try{xmlhttp=new ActiveXObject("Msxml2.XMLHTTP");}catch(e){try{xmlhttp=new ActiveXObject("Microsoft.XMLHTTP");}catch(E){xmlhttp=false;}}
-if(!xmlhttp&&typeof XMLHttpRequest!='undefined'){xmlhttp=new XMLHttpRequest();}
-return xmlhttp;}
-function AJAXCrearObjeto(){var obj;if(window.XMLHttpRequest){obj=new XMLHttpRequest();}else{try{obj=new ActiveXObject("Microsoft.XMLHTTP");}
-catch(e){alert('El navegador utilizado no está soportado');}}
-return obj;}
 function getRadioButtonSelectedValue(ctrl)
 {
 	for(i=0;i<ctrl.length;i++)
 		if(ctrl[i].checked)return ctrl[i].value;
 }
 function esEmailCorrecto (email) {return (/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\D{2,4})+$/.test(email));}
-function validacion_mgd(obj,tipo,obligatorio){
+function validacion_mgd(obj,tipo,obligatorio,posicion){
+	
 	var valor=obj.value;
 	var validaObligatorio;
 	var resultado=true;
@@ -22,16 +17,6 @@ function validacion_mgd(obj,tipo,obligatorio){
 		errorObligatorio=false;
 		
 	
-	/*
-	ajax=objetoAjax();
-	ajax.open("POST","//ajjax/validacion.php",true);
-	ajax.onreadystatechange=function(){
-	if(ajax.readyState==4){
-	
-		var resultado=ajax.responseText;
-		var texto=resultado;
-		var auxiliar="";
-	*/
 		switch(tipo){
 			case "texto":
 				//alert(!isNaN(valor));
@@ -41,7 +26,7 @@ function validacion_mgd(obj,tipo,obligatorio){
 				else
 					resultado=false;
 					
-				operacion(resultado,lang_texto,obj);
+				operacion(resultado,lang_texto,obj,posicion);
 			break;
 			case "email":
 				
@@ -50,7 +35,7 @@ function validacion_mgd(obj,tipo,obligatorio){
 				else
 					resultado=false;
 					
-				operacion(resultado,lang_email,obj);
+				operacion(resultado,lang_email,obj,posicion);
 			break;
 			// iguala a otro campo que no tenga "re" delante
 			// Ejemplo: repassword, y password, Tipico campo para verificar que se vuelve a escribir correctamente
@@ -60,14 +45,14 @@ function validacion_mgd(obj,tipo,obligatorio){
 				else
 					resultado=true;
 					
-				operacion(resultado,lang_igual,obj);
+				operacion(resultado,lang_igual,obj,posicion);
 			break;
 			case "emailUnico":
 				if(texto!=""){auxiliar="NO";}
-				operacion(auxiliar,texto,obj);
+				operacion(auxiliar,texto,obj,posicion);
 			break;
 			case "equipoUnico":if(texto!=""){auxiliar="NO";}
-				operacion(auxiliar,texto,obj);
+				operacion(auxiliar,texto,obj,posicion);
 			break;
 			case "numerico":
 				if (isNaN(valor) || errorObligatorio)
@@ -75,7 +60,7 @@ function validacion_mgd(obj,tipo,obligatorio){
 				else
 					resultado=false;
 					
-				operacion(resultado,lang_numerico,obj);
+				operacion(resultado,lang_numerico,obj,posicion);
 				break;
 			default:
 				if (errorObligatorio)
@@ -83,7 +68,7 @@ function validacion_mgd(obj,tipo,obligatorio){
 				else
 					resultado=false;
 					
-				operacion(resultado,lang_obligatorio,obj);
+				operacion(resultado,lang_obligatorio,obj,posicion);
 			break;
 
 	}
@@ -92,7 +77,7 @@ function validacion_mgd(obj,tipo,obligatorio){
 	ajax.send("tipo="+tipo+"&valor="+valor+"&obligatorio="+obligatorio)*/
 }
 
-function operacion(resultado,textoError,obj){
+function operacion(resultado,textoError,obj,posicion){
 	//alert('caja_error_' + obj.get('id'));
 	var objCaja=$('caja_error_' + obj.get('id'));
 	if(resultado==true)
@@ -100,9 +85,9 @@ function operacion(resultado,textoError,obj){
 		$('validacion_estado_' + obj.get('id')).value="0";
 		if(objCaja){
 			objCaja.destroy();
-			new VentanaError(obj.get('id'),textoError);
+			new VentanaError(obj.get('id'),textoError,posicion);
 		}else{
-			new VentanaError(obj.get('id'),textoError);
+			new VentanaError(obj.get('id'),textoError,posicion);
 		}
 	}else{
 		$('validacion_estado_' + obj.get('id')).value="1";

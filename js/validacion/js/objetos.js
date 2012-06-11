@@ -29,7 +29,7 @@ var raiz="http://myequipostatic.appspot.com/myequipo/";
 //creo una clase para conseguir que un textarea tenga un contador de caracteres
 var VentanaError = new Class({
    //defino un constructor, que recibe el id del textarea
-   initialize: function(idTextarea,textoError,numId){
+   initialize: function(idTextarea,textoError,posicion){
 	
 	textoError="<b><font color=red>Error:</font><font color=white> "+textoError+"</font></b>";
 	//recupero el elemento textarea con la funci�n dolar
@@ -68,14 +68,20 @@ var VentanaError = new Class({
 	new Element('td', {'class' : 'tipsbox_right'}).inject(tr2);
 	var tr3 = new Element('tr').inject(tbody);
 	new Element('td', {'class' : 'tipsbox_bottom_left'}).inject(tr3);
-	if (numId==999)						
+	if (posicion!=1)						
 		new Element('td', {'class' : 'tipsbox_down'}).inject(tr3);
 	else
 		new Element('td', {'class' : 'tipsbox_mark'}).inject(tr3);
 	
 	new Element('td', {'class' : 'tipsbox_bottom_right'}).inject(tr3);
 	 
-	 
+	if (posicion!=1)
+		table.set("styles", {
+			'left' : this.textarea.getCoordinates().left  ,
+			'top'	: this.textarea.getCoordinates().bottom
+				 });
+	else
+		
 	table.set("styles", {
 	'left' : this.textarea.getCoordinates().right - derecha ,
 	'top'	: this.textarea.getCoordinates().top + arriba
@@ -170,6 +176,9 @@ var VentanaInfo = new Class({
 });   
 
  function creacionEventos(id,texto,tipe,obligatorio,posicion,tamano){
+	if (!posicion || posicion== "undefined" || posicion=="" )
+		posicion=1;
+	
 	
 	var obj=$(id);
 	
@@ -202,7 +211,7 @@ var VentanaInfo = new Class({
 		'id': 'validacion_estado_'+id,
 		'validacion' : 'si',
 		'value' : (obligatorio==1) ? '0' :'1',
-		'aviso' : "($('"+id+"'),'" + tipe + "','" + obligatorio + "');"
+		'aviso' : "($('"+id+"'),'" + tipe + "','" + obligatorio + "',"+posicion+");"
 		}).inject(obj,'after');
 		
 		
@@ -210,13 +219,13 @@ var VentanaInfo = new Class({
 
 			obj.addEvent("keyup", function(){
 				
-				validacion_mgd(obj,tipe, obligatorio);
+				validacion_mgd(obj,tipe, obligatorio,posicion);
 			});
 		}else{
 			
 			obj.addEvent("change", function(){
 				
-				validacion_mgd(obj,tipe, obligatorio);
+				validacion_mgd(obj,tipe, obligatorio,posicion);
 			});
 		} 
 
