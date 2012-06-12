@@ -1,0 +1,1 @@
+<?=  ((file_exists('.'.PATH_IMG.'usuario/personal/'.$web_sobre_mi->imagen_sobre_mi) && $web_sobre_mi->imagen_sobre_mi!="") ? '<img id="img_sobremi" src="'. PATH_IMG.'usuario/personal/'.$web_sobre_mi->imagen_sobre_mi .'">' : ''). $web_sobre_mi->sobre_mi ?>

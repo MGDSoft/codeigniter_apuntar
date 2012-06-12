@@ -1,0 +1,122 @@
+ul#menu{
+	list-style:none;
+	padding:0;
+	padding-left:4px;
+	
+	margin:0;
+	
+}
+ul#menu li{
+	list-style:none;
+	padding: 4px;
+	height:15px;
+	border-width: 0px;
+	border-bottom-width: 1px;
+	border-style: dashed;
+	white-space: nowrap;
+	
+}
+ul#menu ul{
+	list-style:none;
+	padding-left:10px;
+}
+.cajaOpciones{
+	position:absolute;
+	margin:-20px 0px 0px 150px;
+	padding: 6px;
+	border:1px solid #ccc;
+	width:200px;
+	background: #ffffff;
+	-webkit-border-radius: 6px;
+	-moz-border-radius: 6px;
+	border-radius: 6px;
+	-webkit-box-shadow: rgba(0,0,0, .5) 3px 3px 6px;
+	-moz-box-shadow: rgba(0,0,0, .5) 3px 3px 6px;
+	box-shadow: rgba(0,0,0, .5) 3px 3px 6px;
+	cursor: default !important;
+	behavior: url('/img/PIE.htc');
+}
+.cajaOpciones div.tituloOpciones{
+	padding-bottom: 5px;
+	border-bottom :1px solid #ccc;
+	font-weight:bold;
+	font-size:1.3em;
+	margin-bottom:6px;	
+	text-align:center
+}
+.cajaOpciones li{
+	list-style: none !important;
+	border:0px !important;
+	padding:0px;
+	font-weight: normal;
+}
+.cajaOpciones li:hover{
+	border-bottom: 1px dashed #ccc;
+}
+.cajaOpciones ul{
+	padding:0px 4px;
+}
+.cajaOpciones div.tituloOpciones span.cerrar{
+	color:red;
+	margin-left:40px;
+	cursor:pointer;
+	text-shadow:1px 1px 1px black
+}
+ul#menu .cajaOpciones ul,ul#menu  .cajaOpciones li{
+	list-style:circle;
+}
+ul#menu .cajaOpciones ul{
+	margin-bottom:4px
+}
+.busquedaSeleccionada{
+ 	background:#ccc;
+}
+ul#menu .mov{
+	padding:12px 6px;
+	margin-right:4px;
+	cursor:pointer;
+}
+ul#menu .opt{
+	padding:10px 14px;
+	margin-left:4px;
+	cursor:pointer;
+	
+}
+ul#menu .refresh{
+	padding:10px 11px;
+	margin-left:74px;
+	cursor:pointer;
+}
+ul#menu #categoria_0{
+	margin-left:-10px;
+	border:0px;
+	padding-bottom:10px;
+}
+ul#menu #categoria_0 span.cont{
+	font-size:1.1em;
+	font-weight:bold;
+	cursor: auto;
+}
+ul#menu span.cont{
+	font-size: 0.9em;
+	cursor: pointer;
+	font-weight: normal;
+}
+ul#menu li:hover .refresh{
+	background-position: -24px -139px;
+}	
+ul#menu li:hover .opt{
+	background-position: 8px -140px;
+}	
+ul#menu .flecha_abajo{
+	background-position: -47px -139px;
+}
+
+ul#menu .flecha_derecha{
+	background-position: -64px -139px;
+}
+ul#menu .flecha_derecha,ul#menu .flecha_abajo,ul#menu li:hover .opt,ul#menu li:hover .refresh{
+	background-repeat: no-repeat;
+	background-image: url('/img/sprites.png');
+}
+

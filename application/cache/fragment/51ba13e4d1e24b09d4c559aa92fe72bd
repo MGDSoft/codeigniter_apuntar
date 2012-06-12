@@ -1,0 +1,278 @@
+
+		<div class="noticia_completa">
+			<div class="categoria_noticia"><span class="noticia_admin"> 
+				<a href="/equipo-rudy.html#!admin/modificar_noticia&id=76"><img ALIGN="absmiddle" src="/img/modificar.png" title="Modificar noticia" ></a> 
+				<img ALIGN="absmiddle" title="Borrar noticia" src="/img/borrar.png" onclick="request_simple_post('/forms/noticias_forms/delete_noticia','&id=76','')"> </span>Categoria: <a href="javascript:nada()" onclick="buscarCategoria(this)">Carnes</a>
+			</div>
+			<span class="titulo_noticia"><a href="/equipo-rudy.html#!news/zoy-una-rata-mu-apaa/76/">zoy una rata mu apaña</a></span>
+			<div class="contenido_noticia"><p>
+ zuzanita tiene un raton un raton xikitin que come xocolate y &nbsp;turron y bolitaz de aniz duelme serca del radiador con la almoada en los pies y sue&ntilde;a que es un gran campeon jugando al ajedres</p></div>
+			<div class="extras_noticia">
+				<span class="extra_fecha_noticia">
+					2012-05-18 18:43:12</span><span class="extra_nombre">Comentarios:</span> <span class="extra_valor">92</span> <span class="extra_nombre">Valoracion:</span> <span class="extra_valor">3</span><span class="extra_nombre">Visible:</span> <span class="extra_valor"> no</span> 
+			</div>
+		</div>
+		<div class="noticia_completa">
+			<div class="categoria_noticia"><span class="noticia_admin"> 
+				<a href="/equipo-rudy.html#!admin/modificar_noticia&id=13"><img ALIGN="absmiddle" src="/img/modificar.png" title="Modificar noticia" ></a> 
+				<img ALIGN="absmiddle" title="Borrar noticia" src="/img/borrar.png" onclick="request_simple_post('/forms/noticias_forms/delete_noticia','&id=13','')"> </span>Categoria: <a href="javascript:nada()" onclick="buscarCategoria(this)">carpeta_hija de pu</a>
+			</div>
+			<span class="titulo_noticia"><a href="/equipo-rudy.html#!news/Cruyff/13/">Cruyff':</a></span>
+			<div class="contenido_noticia"><p>
+ Le han nombrado asesor del Chivas de Guadalajara</p>
+<p>
+ &quot;Organizo el club, di&aacute;logo...es algo at&iacute;pico porque s&oacute;lo usa mejicanos. Voy dos veces al a&ntilde;o, dos o tres semanas&quot;.</p>
+<p>
+ &nbsp;</p>
+<pre class="brush:cpp;">
+#include&lt;stdio.h&gt;
+ 
+int main()
+{
+    int radio;
+    float area, perimetro;
+ 
+    // SALIDA: mensaje un pantalla
+    printf(&quot;Introduce el radio del circulo: &quot;);
+ 
+    //ENTRADA: recibir dato desde teclado
+    scanf(&quot;%d&quot;, &amp;radio);
+ 
+    // calculos
+    area = 3.1416 * radio * radio;
+    perimetro = 3.1416 * radio * 2;
+ 
+    //SALIDA: resultado en pantalla
+    printf(&quot;El area es %.2f y el perimetro %.2f&quot;, area, perimetro);
+    getch();
+ 
+    return 0;
+}</pre>
+<p>
+ &nbsp;</p>
+<p>
+ &nbsp;</p>
+<p>
+ &iquest;Cree que Guardiola se ha equivocado o ha acertado al decidir irse?</p>
+<p>
+ &quot;Creo que ha acertado porque es una tarea que consume mucho, ha hecho un trabajo extraordinariamente bien y hay que tener fuerzas para seguir, sobre todo en una &eacute;poca muy dif&iacute;cil porque hay cambios. Dejar a alguien fuera y ganar todos los triunfos, cuesta mucho&quot;.</p>
+<p>
+ &nbsp;</p>
+<p>
+ &iquest;Se va por el desgaste o porque hay que tomar decisiones que humanamente no puede?</p>
+<p>
+ &quot;Nunca es una cosa, siempre son varias&quot;.</p>
+<p>
+ &nbsp;</p>
+<p>
+ &iquest;Usted lo sab&iacute;a?</p>
+<p>
+ &quot;No, aunque ves c&oacute;mo se comporta y ves que le costaba&quot;.</p>
+<p>
+ &nbsp;</p>
+<p>
+ Mourinho ha dicho que a &eacute;l lo que le desgasta es que no haya partidos en junio</p>
+<p>
+ &quot;Cada uno vive como quiere y Guardiola ha tomado esta decisi&oacute;n despu&eacute;s de una etapa largu&iacute;sima y ahora coge el descanso y creo que es bien merecido&quot;.</p>
+<p>
+ &nbsp;</p>
+<p>
+ &iquest;Cree que si el presidente hubiera sido Laporta, Pep se hubiera ido?</p>
+<p>
+ &quot;No se sabe, pero cuando empiezas con un grupo de gente que te cubre las espaldas, ahora que est&aacute; m&aacute;s solo que antes, puede que s&iacute;. Ha habido muchos cambios y eso influye&quot;.</p>
+<p>
+ &nbsp;</p>
+<p>
+ &iquest;Qu&eacute; le parece que hayan elegido a Tito Vilanova?</p>
+<p>
+ &quot;Hay que ver, tiene una base importante, es de aqu&iacute;...pero el momento en el que est&aacute;s al mando hay que ver c&oacute;mo va&quot;.</p>
+<p>
+ &nbsp;</p>
+<p>
+ Usted habl&oacute; de Valverde como posible sustituto</p>
+<p>
+ &quot;En Grecia ha intentado jugar muy bien al f&uacute;tbol, ha tenido &eacute;xito y pod&iacute;a ser por su manera de ver el f&uacute;tbol. Pero como no me preguntan nada, yo no he dicho nada&quot;.</p>
+<p>
+ &nbsp;</p>
+<p>
+ &iquest;Qu&eacute; nota le pone a esta temporada?</p>
+<p>
+ &quot;Hay que ponerle una nota alt&iacute;sima. Todo el mundo quiere ganar pero si en la &uacute;ltima semana est&aacute;s en todos los frentes, has tenido una temporada excelente. El Madrid ha tenido los &uacute;ltimos a&ntilde;os la mala suerte de competir con el Barcelona, pero no puede estar decepcionado&quot;.</p>
+<p>
+ &nbsp;</p>
+<p>
+ &iquest;Cree que el Madrid est&aacute; al mismo nivel que el Bar&ccedil;a?</p>
+<p>
+ &quot;Siempre ha estado a un nivel alt&iacute;simo. El Madrid ha jugado muy bien, pero tiene menos simpat&iacute;as por el comportamiento de mucha gente, pero no por su calidad futbol&iacute;stica. Hay bastante equilibrio en todo, creo que han hecho los dos una temporada muy buena&quot;.</p>
+<p>
+ &nbsp;</p>
+<p>
+ Hay gente que habla de fin de ciclo</p>
+<p>
+ &quot;Fin de ciclo no tiene nada que ver con Guardiola sino con muchas circunstancias, no es un entrenador&quot;.</p>
+<p>
+ &nbsp;</p>
+<p>
+ &iquest;Tendr&aacute; car&aacute;cter Vilanova para hacer cambios?, &iquest;qu&eacute; habr&iacute;a que reforzar?&nbsp;</p>
+<p>
+ &quot;Depende de la filosof&iacute;a, ya no est&aacute;n Laporta, Beguiristain, Guardiola...hay visiones diferentes, opiniones nuevas y cada detalle es importante. La plantilla este a&ntilde;o se ha defendido perfectamente bien, han comprado bien...cada a&ntilde;o hay que buscar una pieza, Abidal est&aacute; enfermo, Villa volver&aacute;, delante tienen mucha calidad...Vilanova tiene que guiar las cosas&quot;.</p>
+<p>
+ &nbsp;</p>
+<p>
+ &iquest;Fichar&iacute;a un delantero centro?</p>
+<p>
+ &quot;Depende c&oacute;mo quieres jugar. No le han faltado goles, ha marcado m&aacute;s de cien. Pedro ha tenido una temporada pasada extremamente buena y se tiene que asentar. Si has hecho una buena temporada no quiere decir que la siguiente va a ser tan buena, eso es casi imposible, casi inhumano&quot;.</p>
+<p>
+ &nbsp;</p>
+<p>
+ &iquest;Prefiere a Messi o Cristiano?</p>
+<p>
+ &quot;A Messi porque es un amante del bal&oacute;n, todo es pura t&eacute;cnica y tiene cara de ni&ntilde;o bueno que le gusta a mucha gente. Son completamente diferentes&quot;.</p>
+<p>
+ &nbsp;</p>
+<p>
+ &iquest;Le parecer&iacute;a bien que prescindieran de Dani Alves?</p>
+<p>
+ &quot;Tiene que ver c&oacute;mo uno se comporta. Un vestuario son cuarenta o cincuenta personas, hay un mont&oacute;n de cosas que influyen: comportamiento, convivencia, actitud...y el entrenador tiene la m&aacute;xima importancia por c&oacute;mo lleva estas cosas; no es el jugador en s&iacute;. Alguna vez un jugador de gran calidad no cuadra. Eso es lo m&aacute;s dif&iacute;cil que hay en un club&quot;.</p>
+<p>
+ &nbsp;</p>
+<p>
+ &iquest;Volver&aacute;n Guardiola o Laporta?</p>
+<p>
+ &quot;Guardiola volver&aacute;. Si ser&aacute; entrenador del Barcelona no se sabe, hay muchos cargos. Con Laporta el Bar&ccedil;a ha tenido unos &eacute;xitos enormes, ha puesto la base de todos los &eacute;xitos de hoy en d&iacute;a y en cuanto la cosa vaya mal la gente va a exigir a &eacute;l&quot;.</p>
+<p>
+ &nbsp;</p>
+<p>
+ Publicidad</p>
+<p>
+ Cuenta NARANJA 3&sbquo;30% ING. Sin comisiones. &iexcl;&Aacute;brela ya!</p>
+<p>
+ &nbsp;</p>
+<p>
+ &iquest;Te ha parecido interesante la noticia? S&iacute; No</p>
+<p>
+ &iquest;Alg&uacute;n error en la noticia? Env&iacute;anos una correcci&oacute;n</p>
+<p>
+ &nbsp;</p>
+<p>
+ 16 comentarios</p>
+<p>
+ TODOS</p>
+<p>
+ MEJOR VALORADOS</p>
+<p>
+ TE MENCIONANTU REDtom507#1102.may.2012 | 05:38#10 como que el chiste de Sergio Ramos aburre yaaaaa no??????????DenunciarValorar: PositivoNegativoRespondertom507#1202.may.2012 | 05:40vota positivo si crees que en el minuto 4 de todos los partidos el camp nou deber&iacute;a elogiar a Guardiola y a cruyff en el 14...DenunciarValorar: PositivoNegativoResponderCuleMetalero95#1302.may.2012 | 06:18@gio0066 Hasta ahora veo al Madrid con 1 de 4 t&iacute;tulos y al Bar&ccedil;a con 3 y posiblemente 4 de 6 t&iacute;tulos. &iquest;Qui&eacute;n tuvo mejor temporada?DenunciarValorar: PositivoNegativoResponderCuleMetalero95#1402.may.2012 | 06:20Positivo Pep Guardiola. No pongo ning&uacute;n negativo porque con Guardiola todo es positivo.DenunciarValorar: PositivoNegativoResponderMesutDIOZIL#1502.may.2012 | 07:24A m&iacute; no me parece que acierte a menos que en su mente est&eacute; pensando volver en poco tiempo. En cambio, si se est&aacute; yendo para no volver la est&aacute; cag... el equipo lo necesita y me parece una cobard&iacute;a de su parte. Ahora saldr&aacute;n los cul&eacute;s a decirme que el verdadero cobarde es mou y el otro que se asusta cuando hay que aparecer en semis de champions y pues me importa poco porque yo estoy hablando de la actitud de Guardiola que me parece cobarde a m&aacute;s no poder A MENOS QUE TENGA PLANEADO VOLVER PRONTO (m&aacute;ximo 3 a&ntilde;os)DenunciarValorar: PositivoNegativoResponderRickypoal90#1602.may.2012 | 07:44#3 Hombre, si bien es cierto que el Madrid ha ganado la liga...el Bar&ccedil;a gan&oacute; la supercopa de Espa&ntilde;a (al Madrid), est&aacute; todav&iacute;a en la final de copa ( habiendo eliminado al Madrid), gan&oacute; la supercopa de Europa y el Mundialito...ah&iacute;, ah&iacute; dir&iacute;a yo.</p></div>
+			<div class="extras_noticia">
+				<span class="extra_fecha_noticia">
+					2012-05-18 06:24:43</span><span class="extra_nombre">Leídos:</span> <span class="extra_valor">15</span> <span class="extra_nombre">Comentarios:</span> <span class="extra_valor">18</span> <span class="extra_nombre">Valoracion:</span> <span class="extra_valor">3</span><span class="extra_nombre">Visible:</span> <span class="extra_valor"> si</span> 
+			</div>
+		</div>
+		<div class="noticia_completa">
+			<div class="categoria_noticia"><span class="noticia_admin"> 
+				<a href="/equipo-rudy.html#!admin/modificar_noticia&id=30"><img ALIGN="absmiddle" src="/img/modificar.png" title="Modificar noticia" ></a> 
+				<img ALIGN="absmiddle" title="Borrar noticia" src="/img/borrar.png" onclick="request_simple_post('/forms/noticias_forms/delete_noticia','&id=30','')"> </span>Categoria: <a href="javascript:nada()" onclick="buscarCategoria(this)">Salchichas</a>
+			</div>
+			<span class="titulo_noticia"><a href="/equipo-rudy.html#!news/titititit/30/">titititit</a></span>
+			<div class="contenido_noticia">noticia</div>
+			<div class="extras_noticia">
+				<span class="extra_fecha_noticia">
+					2012-05-05 03:20:03</span><span class="extra_nombre">Leídos:</span> <span class="extra_valor">0</span> <span class="extra_nombre">Comentarios:</span> <span class="extra_valor">0</span> <span class="extra_nombre">Valoracion:</span> <span class="extra_valor">--</span><span class="extra_nombre">Visible:</span> <span class="extra_valor"> si</span> 
+			</div>
+		</div>
+		<div class="noticia_completa">
+			<div class="categoria_noticia"><span class="noticia_admin"> 
+				<a href="/equipo-rudy.html#!admin/modificar_noticia&id=32"><img ALIGN="absmiddle" src="/img/modificar.png" title="Modificar noticia" ></a> 
+				<img ALIGN="absmiddle" title="Borrar noticia" src="/img/borrar.png" onclick="request_simple_post('/forms/noticias_forms/delete_noticia','&id=32','')"> </span>Categoria: <a href="javascript:nada()" onclick="buscarCategoria(this)">Salchichas</a>
+			</div>
+			<span class="titulo_noticia"><a href="/equipo-rudy.html#!news/titititit/32/">titititit</a></span>
+			<div class="contenido_noticia">noticia</div>
+			<div class="extras_noticia">
+				<span class="extra_fecha_noticia">
+					2012-05-05 03:20:03</span><span class="extra_nombre">Leídos:</span> <span class="extra_valor">0</span> <span class="extra_nombre">Comentarios:</span> <span class="extra_valor">0</span> <span class="extra_nombre">Valoracion:</span> <span class="extra_valor">--</span><span class="extra_nombre">Visible:</span> <span class="extra_valor"> si</span> 
+			</div>
+		</div>
+		<div class="noticia_completa">
+			<div class="categoria_noticia"><span class="noticia_admin"> 
+				<a href="/equipo-rudy.html#!admin/modificar_noticia&id=34"><img ALIGN="absmiddle" src="/img/modificar.png" title="Modificar noticia" ></a> 
+				<img ALIGN="absmiddle" title="Borrar noticia" src="/img/borrar.png" onclick="request_simple_post('/forms/noticias_forms/delete_noticia','&id=34','')"> </span>Categoria: <a href="javascript:nada()" onclick="buscarCategoria(this)">Salchichas</a>
+			</div>
+			<span class="titulo_noticia"><a href="/equipo-rudy.html#!news/titititit/34/">titititit</a></span>
+			<div class="contenido_noticia">noticia</div>
+			<div class="extras_noticia">
+				<span class="extra_fecha_noticia">
+					2012-05-05 03:20:03</span><span class="extra_nombre">Leídos:</span> <span class="extra_valor">0</span> <span class="extra_nombre">Comentarios:</span> <span class="extra_valor">0</span> <span class="extra_nombre">Valoracion:</span> <span class="extra_valor">--</span><span class="extra_nombre">Visible:</span> <span class="extra_valor"> si</span> 
+			</div>
+		</div>
+		<div class="noticia_completa">
+			<div class="categoria_noticia"><span class="noticia_admin"> 
+				<a href="/equipo-rudy.html#!admin/modificar_noticia&id=43"><img ALIGN="absmiddle" src="/img/modificar.png" title="Modificar noticia" ></a> 
+				<img ALIGN="absmiddle" title="Borrar noticia" src="/img/borrar.png" onclick="request_simple_post('/forms/noticias_forms/delete_noticia','&id=43','')"> </span>Categoria: <a href="javascript:nada()" onclick="buscarCategoria(this)">Salchichas</a>
+			</div>
+			<span class="titulo_noticia"><a href="/equipo-rudy.html#!news/titititit/43/">titititit</a></span>
+			<div class="contenido_noticia">noticia</div>
+			<div class="extras_noticia">
+				<span class="extra_fecha_noticia">
+					2012-05-05 03:20:03</span><span class="extra_nombre">Leídos:</span> <span class="extra_valor">0</span> <span class="extra_nombre">Comentarios:</span> <span class="extra_valor">0</span> <span class="extra_nombre">Valoracion:</span> <span class="extra_valor">--</span><span class="extra_nombre">Visible:</span> <span class="extra_valor"> si</span> 
+			</div>
+		</div>
+		<div class="noticia_completa">
+			<div class="categoria_noticia"><span class="noticia_admin"> 
+				<a href="/equipo-rudy.html#!admin/modificar_noticia&id=44"><img ALIGN="absmiddle" src="/img/modificar.png" title="Modificar noticia" ></a> 
+				<img ALIGN="absmiddle" title="Borrar noticia" src="/img/borrar.png" onclick="request_simple_post('/forms/noticias_forms/delete_noticia','&id=44','')"> </span>Categoria: <a href="javascript:nada()" onclick="buscarCategoria(this)">Salchichas</a>
+			</div>
+			<span class="titulo_noticia"><a href="/equipo-rudy.html#!news/titititit/44/">titititit</a></span>
+			<div class="contenido_noticia">noticia</div>
+			<div class="extras_noticia">
+				<span class="extra_fecha_noticia">
+					2012-05-05 03:20:03</span><span class="extra_nombre">Leídos:</span> <span class="extra_valor">0</span> <span class="extra_nombre">Comentarios:</span> <span class="extra_valor">0</span> <span class="extra_nombre">Valoracion:</span> <span class="extra_valor">--</span><span class="extra_nombre">Visible:</span> <span class="extra_valor"> si</span> 
+			</div>
+		</div>
+		<div class="noticia_completa">
+			<div class="categoria_noticia"><span class="noticia_admin"> 
+				<a href="/equipo-rudy.html#!admin/modificar_noticia&id=45"><img ALIGN="absmiddle" src="/img/modificar.png" title="Modificar noticia" ></a> 
+				<img ALIGN="absmiddle" title="Borrar noticia" src="/img/borrar.png" onclick="request_simple_post('/forms/noticias_forms/delete_noticia','&id=45','')"> </span>Categoria: <a href="javascript:nada()" onclick="buscarCategoria(this)">Salchichas</a>
+			</div>
+			<span class="titulo_noticia"><a href="/equipo-rudy.html#!news/titititit/45/">titititit</a></span>
+			<div class="contenido_noticia">noticia</div>
+			<div class="extras_noticia">
+				<span class="extra_fecha_noticia">
+					2012-05-05 03:20:03</span><span class="extra_nombre">Leídos:</span> <span class="extra_valor">0</span> <span class="extra_nombre">Comentarios:</span> <span class="extra_valor">0</span> <span class="extra_nombre">Valoracion:</span> <span class="extra_valor">--</span><span class="extra_nombre">Visible:</span> <span class="extra_valor"> si</span> 
+			</div>
+		</div>
+		<div class="noticia_completa">
+			<div class="categoria_noticia"><span class="noticia_admin"> 
+				<a href="/equipo-rudy.html#!admin/modificar_noticia&id=46"><img ALIGN="absmiddle" src="/img/modificar.png" title="Modificar noticia" ></a> 
+				<img ALIGN="absmiddle" title="Borrar noticia" src="/img/borrar.png" onclick="request_simple_post('/forms/noticias_forms/delete_noticia','&id=46','')"> </span>Categoria: <a href="javascript:nada()" onclick="buscarCategoria(this)">Salchichas</a>
+			</div>
+			<span class="titulo_noticia"><a href="/equipo-rudy.html#!news/titititit/46/">titititit</a></span>
+			<div class="contenido_noticia">noticia</div>
+			<div class="extras_noticia">
+				<span class="extra_fecha_noticia">
+					2012-05-05 03:20:03</span><span class="extra_nombre">Leídos:</span> <span class="extra_valor">0</span> <span class="extra_nombre">Comentarios:</span> <span class="extra_valor">0</span> <span class="extra_nombre">Valoracion:</span> <span class="extra_valor">--</span><span class="extra_nombre">Visible:</span> <span class="extra_valor"> si</span> 
+			</div>
+		</div>
+		<div class="noticia_completa">
+			<div class="categoria_noticia"><span class="noticia_admin"> 
+				<a href="/equipo-rudy.html#!admin/modificar_noticia&id=47"><img ALIGN="absmiddle" src="/img/modificar.png" title="Modificar noticia" ></a> 
+				<img ALIGN="absmiddle" title="Borrar noticia" src="/img/borrar.png" onclick="request_simple_post('/forms/noticias_forms/delete_noticia','&id=47','')"> </span>Categoria: <a href="javascript:nada()" onclick="buscarCategoria(this)">Salchichas</a>
+			</div>
+			<span class="titulo_noticia"><a href="/equipo-rudy.html#!news/titititit/47/">titititit</a></span>
+			<div class="contenido_noticia">noticia</div>
+			<div class="extras_noticia">
+				<span class="extra_fecha_noticia">
+					2012-05-05 03:20:03</span><span class="extra_nombre">Leídos:</span> <span class="extra_valor">0</span> <span class="extra_nombre">Comentarios:</span> <span class="extra_valor">0</span> <span class="extra_nombre">Valoracion:</span> <span class="extra_valor">--</span><span class="extra_nombre">Visible:</span> <span class="extra_valor"> si</span> 
+			</div>
+		</div><div class="paginado">&nbsp;<strong>1</strong>&nbsp;<a href="equipo-rudy.html#!listado_noticias&pag=10">2</a>&nbsp;<a href="equipo-rudy.html#!listado_noticias&pag=20">3</a>&nbsp;<a href="equipo-rudy.html#!listado_noticias&pag=30">4</a>&nbsp;<a class="next" href="equipo-rudy.html#!listado_noticias&pag=10">&gt;</a>&nbsp;</div>
+<div class='exec_js' style='display:none'>
+	$$('#contenedor_variable pre').each(function(el){
+
+		if (el.getChildren('.custom_code').length==0)
+		{
+			hljs.highlightBlock(el);
+			numberLines(el,1,true);
+			mycustom(el,'Copiar','Expandir','Contraer',false);
+		}
+	});
+	
+</div>
+

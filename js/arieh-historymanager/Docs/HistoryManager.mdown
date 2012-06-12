@@ -1,0 +1,128 @@
+Class: HistoryManager {#HistoryManager}
+==========================================
+<big>This class is meant to function as a domain observer. It uses the browser-hash (via HashListener) to monitor and save the domain-state (enabling bookmarks and back/forward button functionality). 
+The class acts as a parameter stack, to monitor and modify the state of an application. Whenever a parameter withing the stack changes state, the class notifies its followers of the change.</big>
+
+HistoryManager Method: constructor {#HistoryManager:constructor}
+----------------------------------
+### Example:
+
+	var HM = new HistoryManager(options);
+
+### Arguments:
+
+1. options - (`object`: optional) See below:
+
+### Options:
+
+* blank_page - (`string`: defaults to `blank.html`) an alternative path to the blank.html file. 
+* start - (`bool`: defaults to `false`) whether to start the listener on construction
+* delimiter - (`string`: defaults no '') a beginning delimiter to add to the hash, to support the new Google AJAX syntax (#!)
+* serializeHash - `string function (aHash)` (_Optional_, use with `deserializeHash`) A callback function which serializes a Hash
+* deserializeHash - `Hash function (aString)` (_Optional_, use with `serializeHash`) A callback function which deserializes a String to a Hash
+* compat - (`boolean` : defaults to `false`) whether to file deprecated event style as well (`key-added` aongside `key:added`)
+
+### Delimiter Usage:
+	var HM = new HistoryManager({delimiter:'!'}); //will add support for the google syntax
+
+### Custom (de)serializer Usage:
+	// using URI query syntax for data instead of JSON
+	var HM = new HistoryManager({
+		serializeHash: function (h) {
+			return h.toQueryString();
+		},
+		deserializeHash: function (s) {
+			return new Hash(s.parseQueryString());
+		}
+	});
+
+HistoryManager Method: Set {#HistoryManager:set}
+---------------------------
+<big>Used to set a state for the domain. Will set a key's value in the state.</big>
+
+### Example:
+
+	HM.set(key,value);
+
+### Arguments:
+
+1. key - (`string`) A key identifier
+2. elements - (`mixed`) whatever value you want to set to that key (must be JSON encodable)
+
+A note about set. Because of the way the hash is analyzed, changing the order of the inner members of a value will cuase a state-change event. 
+This is because i'm convering the objects to JSON instead of parsing them to save speed.
+If you do not controll the order of the values in your objects, make sure you check this manuly.
+An Example for this:
+
+	HM.set('someValue',{a:'a',b:'b'});
+	HM.set('someValue',{b:'b',a:'a'}); //will fire someValue-changed although values aren't actualy modified. 
+
+HistoryManager Method: Remove {#HistoryManager:remove}
+-----------------------------
+<big>Used to remove a state from the domain. Will remove `key` and its value from the state.</big>
+
+### Example:
+
+	HM.remove('my-key');
+
+### Arguments:
+
+1. key - (`string`) A key identifier
+
+HistoryManager Method: Start {#HistoryManager:start}
+----------------------------
+<big>Will start the listener. This will enable the various events attached to the class.</big>
+
+### Example:
+
+	HM.start();
+
+HistoryManager Method: Stop {#HistoryManager:stop}
+---------------------------
+<big>Will stop the event listener. When down, no events will be fired</big>
+
+### JavaScript:
+
+	HM.stop();
+	
+HistoryManaget: Events {#HistoryManager:Events}
+-------
+<big>The class is event-based, but doesn't have prefixed events. The events change according to the key being observed. 
+The names point to one of 3 states a value might be in: Added, Changed and Removed.</big>
+For every change that goes on on a specific key, an event with that key's name will be fired, passing it's value as parameter.
+
+
+<small>As of v1.1, all event names will be using colon seperation. For dash seperation, use the compat options.</small>
+
+  * `key`':added' : will be fired when an unset key is given a value. will pass the new value as parameter.
+  * `key`':updated' : will be fired when a current key's value was changed. will pass the new value as parameter.
+  * `key`':removed' : will be fired when a key has been removed from the state. will pas the key's last value as parameter.
+  * `key`':changed' : will fire when any a key is added/updated. will pass the new value as parameter. *NOTE: this will fire alongside the add/updated events*
+  
+HistoryManager: Example {#HistoryManager:Example}
+--------
+
+	var HM = new HistoryManager();
+	
+	HM.addEvent( 'MyVar:added'   , function(myvar){console.log('added '+myvar)} );
+	HM.addEvent( 'MyVar:updated' , function(myvar){console.log('changed '+myvar)} );
+	HM.addEvent( 'MyVar:removed' , function(myvar){console.log('removed '+myvar)} );
+	
+	/*
+	 * it is strongly recommended to set the events before starting the object.
+	 * this is because we want the hash to be analyzed when we enter the site through a bookmark/history.
+	 */
+	HM.start();
+	
+	HM.set('MyVar',1); //will log 'added 1'
+	HM.set('MyVar',2); //will log 'changed 2'
+	HM.set('MyVar',3); //will log 'changed 3'
+	HM.remove('MyVar');//will log 'removed 3'
+	
+	/* 
+	 * pressing back button will log the following:
+	 * 1. added 3
+	 * 2. changed 2
+	 * 3. changed 1
+	 * 4. removed 1
+	 */

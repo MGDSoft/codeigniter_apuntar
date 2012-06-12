@@ -1,0 +1,1 @@
+<span class='volver'><a  href="/<?= RUTA_PORTAL ?>#!"><< Volver</a></span>

@@ -1,0 +1,84 @@
+<!DOCTYPE html 
+     PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+     "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+
+<html>
+<head>
+	<title>History-Manager Demo</title>
+    <meta type='description' value='A Demo on how to use the mootools class history manager' />
+	<meta http-equiv="Content-Type" content="text/html; charset='UTF-8'" />
+    <style type="text/css">
+    #box{height:150px; width:150px; line-height:150px; vertical-align:middle; text-align:center; border:2px solid black; margin:0 auto;}
+    
+    #box.white{background:#fff}
+    #box.blue{background:#00f}
+    #box.red{background:#f00}
+    #box.green{background:#0f0}
+    
+    #container{width:900px; padding:30px; height:450px; background:#eee; border:3px solid #bbb; margin:0 auto;}
+    h1,h2{text-align:center}
+    ul{text-align:center}
+    li{display:inline; list-style-type:none;}
+    </style>
+</head>
+<body>
+<div id='container'>
+<h1>History Manager Demo</h1>
+<h2>Use the links below to change the state of tthe box. Use the back/forward buttons to navigate the changes made.</h2>
+<div id='box' class='white'>I'm a fancy Box!</div>
+<ul id='state-nav'>
+	<li><a href="javascript:;" id="blue">Make Blue</a></li>
+	<li><a href="javascript:;" id="red">Make Red</a></li>
+	<li><a href="javascript:;" id="green">Make Green</a></li>
+	<li><a href="javascript:;" id="increase">Increase Size</a></li>
+	<li><a href="javascript:;" id="decrease">Descrease Size</a></li>
+</ul>
+<ul>
+	<li><a href="http://mootools.net/forge/p/historymanager" target='_blank'>Forge Page</a></li>
+	<li><a href="http://moodocs.net/arieh/historymanager/HistoryManager" target='_blank'>Moodocs Page</a></li>
+	<li><a href="http://blog.arieh.co.il/posts/open/introduction-to-historymanager" target='_blank'>More Reading</a></li>
+</ul>
+</div>
+<script type='text/javascript' src='mootools-core-1.3.js'></script>
+<script type='text/javascript' src='../Source/HashListener.1.3.js'></script>
+<script type='text/javascript' src='../Source/HistoryManager.1.3.js'></script>
+<script type='text/javascript'>
+//<!CDATA[
+var box = document.id('box')
+    , size = 150
+    , colors = ['red','green','blue','white']
+    , i = 0
+    , HM = new HistoryManager;
+
+function switchColor(color){
+    if (colors.contains(color)) box.set('class',color);
+}
+
+function changeSize(amount){
+    var c_size = size + amount*20;
+    box.setStyles({
+        'height':c_size
+        ,'width':c_size
+        ,'line-height':c_size
+    });
+}
+
+HM.addEvent('color:changed',switchColor);
+HM.addEvent('color:removed',function(){switchColor('white');});
+
+HM.addEvent('size:changed',changeSize);
+HM.addEvent('size:removed',function(){changeSize(i=0)});
+
+$('red').addEvent('click',function(){HM.set('color','red');});
+$('green').addEvent('click',function(){HM.set('color','green');});
+$('blue').addEvent('click',function(){HM.set('color','blue');});
+
+$('increase').addEvent('click',function(){HM.set('size',++i);});
+$('decrease').addEvent('click',function(){HM.set('size',--i);});
+
+HM.start();
+
+//]]>	
+</script>
+</body>
+</html>
