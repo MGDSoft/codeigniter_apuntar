@@ -69,9 +69,49 @@ function enviar_form_ajax(formulario, url_envio, ver_resultado, ejecutar_si_ok,
 	if (valido) {
 		var llego = 0;
 		
-	log("voy a ejecutar^^");	
 	
 	
+	var vars=$(formulario).toQueryString();
+	
+	log("voy a ejecutar"+vars);	
+	log("valor jaja texto"+$('texto_noticia').value);
+	
+	new Request({
+		url : getHostname() + url_envio,
+		method : 'post',
+		data: vars,
+		onRequest : function() {
+			submit_cargando(formulario);
+		},
+		onSuccess : function(responseText) {
+			log("respuesta");
+			submit_cargado(formulario);
+
+			if ($(ver_resultado))
+				$(ver_resultado).innerHTML = responseText;
+
+			if (responseText != "OK") {
+				log("error: " + responseText + ".");
+				if (ver_resultado != "" && $(ver_resultado)) {
+					$(ver_resultado).innerHTML = responseText;
+				} else
+					eval(responseText);
+
+			} else {
+				log("OK -> exec" + ejecutar_si_ok);
+				if (ejecutar_si_ok != "")
+					eval(ejecutar_si_ok);
+				else if (redirect_url != "ok")
+					redirect(redirect_url);
+			}
+		},
+		onFailure : function() {
+			alert('error no response');
+
+		}
+	}).send();
+	
+	/*
 	$(formulario).set('send', {
 			url : getHostname() + url_envio,
 			method : 'post',
@@ -102,7 +142,7 @@ function enviar_form_ajax(formulario, url_envio, ver_resultado, ejecutar_si_ok,
 			}
 		}).send();
 	
-	$(formulario).eliminate('send');
+	$(formulario).eliminate('send');*/
 	
 	
 	

@@ -1,4 +1,5 @@
 <?php
+
  class Noticias_forms extends CI_Controller{
  	
  	private $i=1;
@@ -18,9 +19,19 @@
 
 	  function insertar_noticia()
 	  {
+	  	echo "<pre>";
+	  	echo $_SERVER['QUERY_STRING'];
+	  	//print_r(parse_url( $_SERVER['QUERY_STRING']));
+	  	print_r($_GET);
+	  	echo "<br><br>";
+	  	print_r($_POST);
+	  	//echo 'GET_TEXTO_NOTICIA'.$_GET['texto_noticia'].'FIN';
+	  	echo "</pre>";
+	  	
+	  	
 	  	$this->form_validation->set_rules('titulo_noticia', $this->lang->line('titulo_noticia'),'required|trim');
 	  	$this->form_validation->set_rules('categoria_noticia','categoria_noticia','required|trim');
-	  	$this->form_validation->set_rules('texto_noticia','texto_noticia','required|trim');
+	  	$this->form_validation->set_rules('texto_noticia','texto_noticia','required');
 	  	
 	  	if ($this->form_validation->run()==FALSE)
 	  	{
@@ -32,11 +43,8 @@
 	  		$insert['id_usuario']= $_SESSION['usuario']->id_usuario;
 	  		
 	  		
-	  		if ( get_magic_quotes_gpc() )
-	  			$insert['noticia'] =  $_POST['texto_noticia']  ;
-	  		else
-	  			$insert['noticia'] = htmlspecialchars( $_POST['texto_noticia'] ) ;
-	  		
+	  		die;
+	  		//$insert['noticia'] = $_POST[];$this->input->post('texto_noticia') ;
 	  		
 	  		//echo $this->input->post('texto_noticia');
 	  		//$insert['noticia'] =  $this->input->post('texto_noticia');
@@ -73,10 +81,8 @@
 	  		$update['id_categoria']= $this->input->post('categoria_noticia');
 	  		$update['id_usuario']= $_SESSION['usuario']->id_usuario;
 	  		
-	  		if ( get_magic_quotes_gpc() )
-	  			$update['noticia'] =  $_POST['texto_noticia']  ;
-	  		else
-	  			$update['noticia'] = htmlspecialchars( $_POST['texto_noticia'] ) ;
+	  	
+	  		$update['noticia'] = $this->input->post('texto_noticia') ;
 	  		
 	  		$update['visible']=  (isset($_POST['visible_noticia']))? 1 : 0;
 	  		$update['comentable']=  (isset($_POST['comentable_noticia']))? 1 : 0;

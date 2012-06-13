@@ -1,4 +1,4 @@
-<form id='nueva_noticia_form' class='formulario_estandar' name="nueva_noticia_form"  action="javascript:enviar_form_ajax('nueva_noticia_form','/forms/noticias_forms/<?= (($accion=='insert')? 'insertar_noticia' : 'update_noticia') ?>','','','/index.php?info=1')" method="post" accept-charset="utf-8">
+<form id='nueva_noticia_form' class='formulario_estandar' name="nueva_noticia_form"  action="javascript:enviar_form_ajax('nueva_noticia_form','/forms/noticias_forms/<?= (($accion=='insert')? 'insertar_noticia' : 'update_noticia') ?>','','','/index.php?info=1')" method="post" >
 <fieldset>
 	<legend><?= (($accion == 'insert') ? $this->lang->line('admin_nueva_noticia') : $this->lang->line('admin_modificar_noticia')) ?></legend>
 			
@@ -54,7 +54,7 @@
 			
 		CKEDITOR.replace( 'texto_noticia',
 			 {
-			 toolbar: [['Bold', 'Italic', '-', 'NumberedList', 'BulletedList', '-', 'Link', 'Unlink', 'UIColor'],[ 'TextColor','BGColor' ],[ 'Code']],
+			 toolbar: [['Source','Bold', 'Italic', '-', 'NumberedList', 'BulletedList', '-', 'Link', 'Unlink', 'UIColor'],[ 'TextColor','BGColor' ],[ 'Code']],
 			 width:  <?= ((isset($_SESSION['device'])) ? '(window.getSize().x - 80)' : '600') ?>
 			 
 			});
