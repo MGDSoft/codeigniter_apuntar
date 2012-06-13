@@ -136,6 +136,7 @@ span.volver a{
 	color: inherit;
 }
 #contenido .noticia_completa {
+	width:100%;
 	padding-left:4px !important;
 	margin-top: 0px !important;
 }

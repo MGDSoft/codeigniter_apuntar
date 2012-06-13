@@ -31,7 +31,15 @@
 	  		$insert['id_categoria']= $this->input->post('categoria_noticia');
 	  		$insert['id_usuario']= $_SESSION['usuario']->id_usuario;
 	  		
-	  		$insert['noticia'] =  $this->input->post('texto_noticia');
+	  		
+	  		if ( get_magic_quotes_gpc() )
+	  			$insert['noticia'] =  $_POST['texto_noticia']  ;
+	  		else
+	  			$insert['noticia'] = htmlspecialchars( $_POST['texto_noticia'] ) ;
+	  		
+	  		
+	  		//echo $this->input->post('texto_noticia');
+	  		//$insert['noticia'] =  $this->input->post('texto_noticia');
 
 	  		$insert['visible']=  (isset($_POST['visible_noticia']))? 1 : 0;
 	  		$insert['comentable']=  (isset($_POST['comentable_noticia']))? 1 : 0;
@@ -65,7 +73,10 @@
 	  		$update['id_categoria']= $this->input->post('categoria_noticia');
 	  		$update['id_usuario']= $_SESSION['usuario']->id_usuario;
 	  		
-	  		$update['noticia'] = $this->input->post('texto_noticia');
+	  		if ( get_magic_quotes_gpc() )
+	  			$update['noticia'] =  $_POST['texto_noticia']  ;
+	  		else
+	  			$update['noticia'] = htmlspecialchars( $_POST['texto_noticia'] ) ;
 	  		
 	  		$update['visible']=  (isset($_POST['visible_noticia']))? 1 : 0;
 	  		$update['comentable']=  (isset($_POST['comentable_noticia']))? 1 : 0;
