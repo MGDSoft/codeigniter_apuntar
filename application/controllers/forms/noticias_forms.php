@@ -19,15 +19,6 @@
 
 	  function insertar_noticia()
 	  {
-	  	echo "<pre>";
-	  	echo $_SERVER['QUERY_STRING'];
-	  	//print_r(parse_url( $_SERVER['QUERY_STRING']));
-	  	print_r($_GET);
-	  	echo "<br><br>";
-	  	print_r($_POST);
-	  	//echo 'GET_TEXTO_NOTICIA'.$_GET['texto_noticia'].'FIN';
-	  	echo "</pre>";
-	  	
 	  	
 	  	$this->form_validation->set_rules('titulo_noticia', $this->lang->line('titulo_noticia'),'required|trim');
 	  	$this->form_validation->set_rules('categoria_noticia','categoria_noticia','required|trim');
@@ -42,12 +33,7 @@
 	  		$insert['id_categoria']= $this->input->post('categoria_noticia');
 	  		$insert['id_usuario']= $_SESSION['usuario']->id_usuario;
 	  		
-	  		
-	  		die;
-	  		//$insert['noticia'] = $_POST[];$this->input->post('texto_noticia') ;
-	  		
-	  		//echo $this->input->post('texto_noticia');
-	  		//$insert['noticia'] =  $this->input->post('texto_noticia');
+	  		$insert['noticia'] =  $this->input->post('texto_noticia');
 
 	  		$insert['visible']=  (isset($_POST['visible_noticia']))? 1 : 0;
 	  		$insert['comentable']=  (isset($_POST['comentable_noticia']))? 1 : 0;

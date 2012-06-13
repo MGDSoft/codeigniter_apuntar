@@ -27,7 +27,7 @@
 			
 			<tr><td align='right'><input type="submit" name="enviar" class='boton_standart' value="<?= $this->lang->line('enviar') ?>"></td></tr>
 			</table>
-		<input name="iehack" type="hidden" value="&#9760;" />
+			
 		<?= (($accion=='update') ? '<input name="id" type="hidden" value="'.$noticia->id_noticia.'" />' :'' ) ?>
 </fieldset>
 </form>
