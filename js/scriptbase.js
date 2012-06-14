@@ -149,19 +149,13 @@ function request_simple_post(url_txt, vars, eval_to_do) {
 function darAnchoContenedorVariable(){
 	
 	contenedor=$('contenedor_variable');
-	
-	if (!contenedor.getStyle('width'))
-	{
-		var coor=contenedor.getCoordinates();
-		contenedor.setStyle('width',coor.right-coor.left);
-	}
-	
-	
+	contenedor.setStyle('width',contenedor.getStyle('width'));
+		
 }
 
 function cargar_pagina_stadart(url_txt, vars, caja_respuesta,evalToDo) {
 	
-	darAnchoContenedorVariable();
+	
 	
 	var caja_respuesta_txt;
 	var hasNuevo;
@@ -281,7 +275,7 @@ function runJS(caja_respuesta_txt) {
 }
 
 function cargarPaginaInit(evalToDo) {
-
+	darAnchoContenedorVariable();
 	var url = location.hash;
 
 	if (url == "" || url == "undefined" || !url) {
