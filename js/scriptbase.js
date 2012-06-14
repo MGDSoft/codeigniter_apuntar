@@ -365,7 +365,7 @@ function generic_modificarAtributoCSS(class_name,color_txt,style_txt){
 	    });
 	});
 }
-function  log (str){
+function log (str){
     if (window.console) console.log('[apuntes] ' + str);        
 }
 
