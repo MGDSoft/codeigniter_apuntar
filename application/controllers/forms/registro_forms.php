@@ -319,7 +319,7 @@ int main()
 					printf(MSG_ERROR, $this->lang->line('error_db'));
 					
 				}else{
-					//sendEmail($insertUsuario['correo'],$this->lang->line('activar_tu_cuenta_correo_cuenta'),$this->lang->line('activar_tu_cuenta_correo_texto'));
+					sendEmail($insertUsuario['correo'],$this->lang->line('activar_tu_cuenta_correo_cuenta'),$this->lang->line('activar_tu_cuenta_correo_texto'));
 					$this->db->trans_commit();
 					
 					printf(HIDE_REQUEST, 'forms/categorias_forms/reordenamientoPost','id_usuario='.$id_user);
