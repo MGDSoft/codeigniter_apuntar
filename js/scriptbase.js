@@ -71,47 +71,6 @@ function enviar_form_ajax(formulario, url_envio, ver_resultado, ejecutar_si_ok,
 		
 	
 	
-	var vars=$(formulario).toQueryString();
-	
-	log("voy a ejecutar"+vars);	
-	log("valor jaja texto"+$('texto_noticia').value);
-	
-	new Request({
-		url : getHostname() + url_envio,
-		method : 'post',
-		data: vars,
-		onRequest : function() {
-			submit_cargando(formulario);
-		},
-		onSuccess : function(responseText) {
-			log("respuesta");
-			submit_cargado(formulario);
-
-			if ($(ver_resultado))
-				$(ver_resultado).innerHTML = responseText;
-
-			if (responseText != "OK") {
-				log("error: " + responseText + ".");
-				if (ver_resultado != "" && $(ver_resultado)) {
-					$(ver_resultado).innerHTML = responseText;
-				} else
-					eval(responseText);
-
-			} else {
-				log("OK -> exec" + ejecutar_si_ok);
-				if (ejecutar_si_ok != "")
-					eval(ejecutar_si_ok);
-				else if (redirect_url != "ok")
-					redirect(redirect_url);
-			}
-		},
-		onFailure : function() {
-			alert('error no response');
-
-		}
-	}).send();
-	
-	/*
 	$(formulario).set('send', {
 			url : getHostname() + url_envio,
 			method : 'post',
@@ -142,7 +101,7 @@ function enviar_form_ajax(formulario, url_envio, ver_resultado, ejecutar_si_ok,
 			}
 		}).send();
 	
-	$(formulario).eliminate('send');*/
+	$(formulario).eliminate('send');
 	
 	
 	
@@ -186,7 +145,23 @@ function request_simple_post(url_txt, vars, eval_to_do) {
 	}).send(vars);
 }
 
+
+function darAnchoContenedorVariable(){
+	
+	contenedor=$('contenedor_variable');
+	
+	if (!contenedor.getStyle('width'))
+	{
+		var coor=contenedor.getCoordinates();
+		contenedor.setStyle('width',coor.right-coor.left);
+	}
+	
+	
+}
+
 function cargar_pagina_stadart(url_txt, vars, caja_respuesta,evalToDo) {
+	
+	darAnchoContenedorVariable();
 	
 	var caja_respuesta_txt;
 	var hasNuevo;
@@ -218,8 +193,7 @@ function cargar_pagina_stadart(url_txt, vars, caja_respuesta,evalToDo) {
 			return;
 		}
 	}
-	
-	
+
 	caja_respuesta = $(caja_respuesta_txt);
 	
 
