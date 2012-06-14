@@ -67,7 +67,7 @@ class Login_form extends CI_Controller {
 				
 				$this->load->model('Usuario_configuracion_model');
 				
-				$user_configuration=$this->Usuario_configuracion_model->getById($user->id_usuario);
+				//$user_configuration=$this->Usuario_configuracion_model->getById($user->id_usuario);
 				
 				$_SESSION['usuario']=$user;
 				

@@ -31,20 +31,20 @@ var galeriaMGD=new Class({
 		 obj.setStyle('display','block');
 		 obj.get('slide').slideIn();
 		 obj.set('activo','si');
-		 log("aparece");
+		 
 	 },
 	 obj_desaparecer:function(obj){
 		 obj.erase('activo');
 		 obj.get('slide').slideOut();
 		 var thisClass=this;
 		 (function(){obj.setStyle('display','none');}).delay(thisClass.options.duracionEfecto+1);
-		 log("des_aparece");
+		 
 	 },
 	 on_time_call:function(){
 		 var siguiente=0;
 		 var i=0;
 		 var thisClass=this;
-		 log(this.obj+this.id_obj);
+		 
 		 var result=this.obj.getElements('span').some(function(item)
 		{
 			
@@ -53,12 +53,12 @@ var galeriaMGD=new Class({
 			{
 				siguiente=0;
 				(function(){thisClass.obj_aparecer(item);}).delay((thisClass.options.duracionEfecto*2));
-				log('aparece '+i);
+				
 				return true;
 			}
 			if (item.get('activo'))
 			{
-				log('desaparece '+i);
+				
 				thisClass.obj_desaparecer(item);
 				siguiente=1;
 			}

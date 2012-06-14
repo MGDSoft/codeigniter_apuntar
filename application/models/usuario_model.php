@@ -51,10 +51,13 @@ class Usuario_model extends CI_Model {
 
 	}
 	 
-	function getById($id){
+	function getById($id,$getZone=true){
 			
 		$this->db->where('id_usuario', $id);
-		$this->db->join('zone_time', 'zone_time.id_zone_time = usuario.id_zone_time');
+		
+		if ($getZone)
+			$this->db->join('zone_time', 'zone_time.id_zone_time = usuario.id_zone_time');
+		
 		$query = $this->db->get($this->table);
 
 		if ($query->num_rows() > 0)

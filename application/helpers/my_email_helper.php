@@ -1,6 +1,7 @@
 <?php
 function sendEmail($address,$subject,$text){
-	
+	$CI =& get_instance();
+	$CI->load->library('email');
 	$text_top='<div style="width:100%;text-align:center">
 	<div style="width:600px;background:#1F62BF;border:0px solid #000000;color:#ffffff;text-align:left;padding-bottom:20px;font-family: \'lucida grande\', tahoma, verdana, arial, sans-serif;-webkit-border-radius: 10px;-moz-border-radius: 10px;border-radius: 10px;">
 	<div style="padding:20px 30px 20px 30px">
@@ -18,16 +19,21 @@ function sendEmail($address,$subject,$text){
 	</div>
 	</div>';
 
-  	$this->email->to($address);
-    $this->email->from('info@'.URL_BASE,URL_BASE);
-    $this->email->subject($subject);
-    $this->email->message($text_top.$text.$text_bottom);
+  	$CI->email->to($address);
+    $CI->email->from('info@'.URL_BASE,URL_BASE);
+    $CI->email->subject($subject);
+    $CI->email->message($text_top.$text.$text_bottom);
     
     //$config['protocol'] = 'sendmail';
     //$config['charset'] = 'iso-8859-1'; // Default value utf-8
     //$config['wordwrap'] = TRUE;
     
-    $this->email->send();
+    // Mostramos texto para localhost
+    
+    if (URL_BASE == 'apuntes-dev' )
+    	echo $text_top.$text.$text_bottom;
+    else
+    	$this->email->send();
 	
 }   
 ?>

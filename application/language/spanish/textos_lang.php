@@ -220,9 +220,13 @@ $lang['descripcion_default'] = 'Tu página ya esta creada, sólo falta agregar c
 
 $lang['correcto']="Correcto";
 
+$lang['codigo_erroneo'] = 'El código o el usuario no son validos';
+$lang['usuario_no_existe'] = 'El usuario no existe';
+
+$lang['usuario_ya_activo'] = 'El usuario ya esta activado..';
 $lang['activar_tu_cuenta'] = 'Revisa tu correo, deberás activar tu cuenta pulsando el link que te adjuntamos.';
 $lang['activar_tu_cuenta_correo_subject'] = 'Activar cuenta';
-$lang['activar_tu_cuenta_correo_texto'] = 'Bienvenido a apuntes.net.<br>Para activar tu cuenta deberas pulsar la siguiente direccion %s <br><br>Tus datos de usuario son: <br><br> Usuario: %s <br>Contraseña: %s. <br><br> ';
+$lang['activar_tu_cuenta_correo_texto'] = 'Bienvenido a '.URL_BASE.'!!!.<br><br>Para activar tu cuenta deberas pulsar la siguiente direccion:<br><b><a href="%s">%s</a></b> <br><br>Tus datos de usuario son: <br><br> Usuario: %s <br>Contraseña: %s.';
 
 
 $lang['error_db'] = 'Error de base de datos';
