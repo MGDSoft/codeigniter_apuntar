@@ -30,6 +30,7 @@ class Registro_forms extends CI_Controller {
 		$this->load->model('Noticias_model');
 		$this->load->helper('string');
 		$this->load->helper('cookie');
+		
 	 }
 	 public function update()
 	 {
