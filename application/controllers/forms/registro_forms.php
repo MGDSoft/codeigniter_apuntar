@@ -319,11 +319,13 @@ int main()
 					printf(MSG_ERROR, $this->lang->line('error_db'));
 					
 				}else{
+					
+					$this->db->trans_commit();
+					
 					$urlActivarCuenta='http://'.URL_BASE.'/activar_cuenta?id='.$id_user.'&codigo='.$insertUsuario['activar_cuenta'];
 					$texto_correo=sprintf($this->lang->line('activar_tu_cuenta_correo_texto'),$urlActivarCuenta,$urlActivarCuenta,$insertUsuario['correo'],$this->input->post('recontrasena'));
 					sendEmail($insertUsuario['correo'],$this->lang->line('activar_tu_cuenta_correo_cuenta'), $texto_correo);
-					
-					$this->db->trans_commit();
+						
 					
 					printf(HIDE_REQUEST, 'forms/categorias_forms/reordenamientoPost','id_usuario='.$id_user);
 					printf(MSG_INFO_URGENT,  $this->lang->line('correcto'),$this->lang->line('activar_tu_cuenta'));
