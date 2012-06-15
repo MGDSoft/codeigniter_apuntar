@@ -23,7 +23,7 @@ function sendEmail($address,$subject,$text){
     $CI->email->from('info@'.URL_BASE,URL_BASE);
     $CI->email->subject($subject);
     $CI->email->message($text_top.$text.$text_bottom);
-    
+    $CI->email->mailtype('html');
     //$config['protocol'] = 'sendmail';
     //$config['charset'] = 'iso-8859-1'; // Default value utf-8
     //$config['wordwrap'] = TRUE;
