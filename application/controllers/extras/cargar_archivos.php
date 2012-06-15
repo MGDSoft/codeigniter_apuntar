@@ -1,5 +1,5 @@
 <?php
-// Clase para la carga de archivos CSS y Javascript .....
+// Clase para la carga de archivos CSS y Javascript ....
 class Cargar_archivos extends CI_Controller{
 
 	public function __construct()
