@@ -205,7 +205,7 @@ class Registro_forms extends CI_Controller {
 				
 			}else if ($this->Usuario_configuracion_model->existe_nombre_unico($insertConfiguracion['nombre_unico'])){
 				
-				printf(MSG_ERROR_CAMPO, 'titulo',$this->lang->line('titulo_error_repetido'));
+				printf(MSG_ERROR_CAMPO, 'titulo_registro',$this->lang->line('titulo_error_repetido'));
 				exit;
 				
 			}else{

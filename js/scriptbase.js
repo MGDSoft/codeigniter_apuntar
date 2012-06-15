@@ -69,16 +69,16 @@ function enviar_form_ajax(formulario, url_envio, ver_resultado, ejecutar_si_ok,
 	if (valido) {
 		var llego = 0;
 		
-	
+	log('enviando a '+ url_envio + ' vars= ' + $(formulario).toQueryString());
 	
 	$(formulario).set('send', {
-			url : getHostname() + url_envio,
+			url : url_envio,
 			method : 'post',
 			onRequest : function() { 
 				submit_cargando(formulario);
 			},
 			onSuccess : function(responseText) {
-				log("respuesta");
+				log("respuesta" + responseText);
 				submit_cargado(formulario);
 	
 				if ($(ver_resultado))
@@ -154,6 +154,7 @@ function darAnchoContenedorVariable(){
 		nuevoAncho=$('contenido').getStyle('width');
 	else 
 		nuevoAncho=$('contenedor_portal').getStyle('width'); // para device en bienvenida
+	
 	log(nuevoAncho);
 	contenedor.setStyle('width',nuevoAncho);
 	

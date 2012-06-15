@@ -8,7 +8,7 @@
 		<tr><th><?= $this->lang->line('recontrasena') ?></th><td><input type="password" name="recontrasena" value="" id="recontrasena"></td></tr>
 		<tr><th><?= $this->lang->line('nombre') ?></th><td><input type="text" name="nombre" value="" id="nombre"></td></tr>
 		<tr><th><?= $this->lang->line('apellidos') ?></th><td><input type="text" name="apellidos" value="" id="apellidos"></td></tr>
-		<tr><th><?= $this->lang->line('titulo') ?></th><td><input type="text" name="titulo" value="" id="titulo"></td></tr>
+		<tr><th><?= $this->lang->line('titulo') ?></th><td><input type="text" name="titulo" value="" id="titulo_registro"></td></tr>
 		<tr><th><?= $this->lang->line('uso_horario') ?></th><td>
 		<select name="uso_horario" id="uso_horario">
 			<?php foreach($huso_horario as $huso){
@@ -33,7 +33,7 @@
 	creacionEventos('apellidos','','',<?= $TipoMessage ?>);
 	creacionEventos('nombre','','',<?= $TipoMessage ?>);
 	creacionEventos('correo','','email',<?= $TipoMessage ?>);
-	creacionEventos('titulo','','',<?= $TipoMessage ?>);
+	creacionEventos('titulo_registro','','',<?= $TipoMessage ?>);
 	creacionEventos('contrasena','','',<?= $TipoMessage ?>);
 	creacionEventos('recontrasena','','igual',<?= $TipoMessage ?>);
 </div>
