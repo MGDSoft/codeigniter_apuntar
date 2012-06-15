@@ -1,9 +1,9 @@
 <title><?= $titulo ?></title>
-<meta name="title" content="<?= $titulo ?> | myEquipo.com"/>
+<meta name="title" content="<?= $titulo ?> | <?= URL_BASE ?>/>
 <meta property="og:title" content="<?= $titulo ?>"/>
-<meta property="og:site_name" content=""/>
+<meta property="og:site_name" content="<?= URL_BASE ?>"/>
 <meta name="description" content="<?= $descripcion ?>" lang="es"/>
-<meta http-equiv="Content-Language" content="es-ES"/>
+<meta http-equiv="Content-Language"/>
 <meta name="author" content="MGDSoftware"/>
 <link rev="made" href="mailto:administracion@myequipo.com"/>
 <meta name="locality" content="Madrid, España"/>
