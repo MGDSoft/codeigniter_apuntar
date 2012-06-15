@@ -3,9 +3,17 @@
 /* Mis constantes para toda la web! */
 
 if (ENVIRONMENT == 'development')
+{
 	define ('URL_BASE','apuntes-dev');
+	$extra="";
+}
 else
+{
 	define ('URL_BASE','apuntar.net');
+	$extra=".net";
+}
+
+
 
 define ('AUTO_EJECUTAR_JS','exec_js');
 
@@ -21,7 +29,7 @@ elseif($array[0]=='www')
 
 if ($method=="devices")
 	define ('RUTA_PORTAL','portal_devices');
-else if ($method==URL_BASE)
+else if ($method.$extra==URL_BASE)
 	define ('RUTA_PORTAL','');
 else
 	define ('RUTA_PORTAL','portal');

@@ -30,7 +30,7 @@ function sendEmail($address,$subject,$text){
     
     // Mostramos texto para localhost
     
-    if (URL_BASE == 'apuntes-dev' )
+    if (ENVIRONMENT=='development')
     	echo $text_top.$text.$text_bottom;
     else
     	$this->email->send();
