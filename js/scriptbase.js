@@ -55,9 +55,7 @@ function comprobar_estado_form(form) {
 
 	return validacion;
 }
-
-function enviar_form_ajax(formulario, url_envio, ver_resultado, ejecutar_si_ok,
-		redirect_url) {
+var enviar_form_ajax = function(formulario, url_envio, ver_resultado, ejecutar_si_ok ,redirect_url) {
 
 	valido = comprobar_estado_form(formulario);
 

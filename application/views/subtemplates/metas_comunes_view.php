@@ -1,11 +1,11 @@
 <title><?= $titulo ?></title>
-<meta name="title" content="<?= $titulo ?> | <?= URL_BASE ?>/>
+<meta name="title" content="<?= $titulo ?> | <?= URL_BASE ?>"/>
 <meta property="og:title" content="<?= $titulo ?>"/>
 <meta property="og:site_name" content="<?= URL_BASE ?>"/>
 <meta name="description" content="<?= $descripcion ?>" lang="es"/>
 <meta http-equiv="Content-Language"/>
 <meta name="author" content="MGDSoftware"/>
-<link rev="made" href="mailto:administracion@myequipo.com"/>
+<link rev="made" href="mailto:administracion@apuntar.net"/>
 <meta name="locality" content="Madrid, España"/>
 <meta name="distribution" content="global"/>
 <meta name="language" content="es-ES"/>
