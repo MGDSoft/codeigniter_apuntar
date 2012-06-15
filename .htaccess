@@ -1,3 +1,17 @@
+AuthName "Teclea la pass o largate"
+AuthType Basic
+AuthName "MGDSoftware - Privado"
+AuthUserFile /var/www/vhosts/mgdsoftware.es/subdomains/git/httpsdocs/.htpasswd
+Require valid-user
+
+IndexOptions +FancyIndexing
+IndexOptions -SuppressDescription
+IndexOptions -ScanHTMLTitles
+IndexOptions +SuppressHTMLPreamble 
+IndexOptions +SuppressLastModified
+
+Options +Indexes
+
 RewriteEngine ON
 
 RewriteCond $1 !^(index\.php|images|descargas|img|js|css|robots\.txt)

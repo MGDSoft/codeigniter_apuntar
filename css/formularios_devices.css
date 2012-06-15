@@ -1,4 +1,3 @@
-
 .formulario_estandar legend,ul#menu #categoria_0 span.cont{
 	padding: 0px 10px;
 	font-size: 1.2em !important;
@@ -14,6 +13,7 @@
 .formulario_estandar th{
 	font-weight: normal;
 	padding-left:10px;
+	text-align:left;
 }
 .formulario_estandar td{
 	padding-left:13px;
@@ -78,13 +78,16 @@
 	margin:8px 0px;
 	text-align: center;
 	cursor: pointer;
-	font-weight:bold;
+	
 	padding: 4px 15px;
 	width:auto;
 	-webkit-border-radius:5px;
 	border-radius: 5px;
 	-moz-border-radius: 5px;
 	color: #ffffff !important;
+	font-weight:bold;
+	font-weight:normal\9;
+	color: #154985 !important\9;
 	moz-box-shadow: 3px 4px 3px #999999;
 	-webkit-box-shadow: 3px 4px 3px #999999;
 	box-shadow: 3px 4px 3px #999999;

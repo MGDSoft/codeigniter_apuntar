@@ -16,13 +16,12 @@
 	}
   function index()
   {
-
   		
   		$id_noticia=($this->uri->segment(3) ?  $this->uri->segment(3) : '' );
   		
   		if (empty($id_noticia))
   		{
-  			//no existe
+  			//no hay id de la noticia existe
   			exit;
   		}
   		
@@ -68,7 +67,6 @@
   		
   		$portal_ini['titulo']=str_replace(array('"', "'"), "", $portal_ini['nombre_unico'].' - '.$portal_ini['noticia']->titulo);
   		$portal_ini['descripcion']=str_replace(array('"', "'"), "", $portal_ini['nombre_unico'].' - '.$portal_ini['noticia']->titulo);
-  		
   		
   		
 		$this->load->view('peques/noticia_detalle_view',$portal_ini);

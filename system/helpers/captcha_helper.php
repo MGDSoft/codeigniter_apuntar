@@ -60,25 +60,25 @@ if ( ! function_exists('create_captcha'))
 
 		if ($img_path == '' OR $img_url == '')
 		{
-			echo 1;
+			
 			return FALSE;
 		}
 
 		if ( ! @is_dir($img_path))
 		{
-			echo 2;
+			
 			return FALSE;
 		}
 
 		if ( ! is_writable($img_path))
 		{
-			echo 3;
+			
 			return FALSE;
 		}
 
 		if ( ! extension_loaded('gd'))
 		{
-			echo 4;
+			
 			return FALSE;
 		}
 

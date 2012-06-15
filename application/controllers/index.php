@@ -5,7 +5,7 @@
 	{
 		parent::__construct();
 		$this->load->model('Usuario_model');
-		
+
 	}
 	public function portada()
 	{
@@ -23,8 +23,8 @@
    $portal->contacto_youtube='';
    $portal->contacto_tuenti='';
    $portal->contacto_steam='';
-   $portal->contacto_twitter='x';
-   $portal->contacto_facebook='x';
+   $portal->contacto_twitter='';
+   $portal->contacto_facebook='';
    
    $datos['usuario_configuracion']=$portal;
    $datos['nuevos']=$this->Usuario_model->getLast10();
@@ -41,6 +41,7 @@
   	
   	if($_SERVER['SERVER_NAME']!= base_url())
   	{
+ 			
   		$array = explode('.',$_SERVER['SERVER_NAME']);
   		
   		if($array[0]!='www')

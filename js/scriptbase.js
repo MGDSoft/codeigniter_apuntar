@@ -149,13 +149,20 @@ function request_simple_post(url_txt, vars, eval_to_do) {
 function darAnchoContenedorVariable(){
 	
 	contenedor=$('contenedor_variable');
-	contenedor.setStyle('width',contenedor.getStyle('width'));
-		
+	var nuevoAncho;
+	if ($('contenido'))
+		nuevoAncho=$('contenido').getStyle('width');
+	else 
+		nuevoAncho=$('contenedor_portal').getStyle('width'); // para device en bienvenida
+	log(nuevoAncho);
+	contenedor.setStyle('width',nuevoAncho);
+	
 }
 
 function cargar_pagina_stadart(url_txt, vars, caja_respuesta,evalToDo) {
 	
-	
+	// auto ajustar si se mueve la pantalla
+	darAnchoContenedorVariable();
 	
 	var caja_respuesta_txt;
 	var hasNuevo;
@@ -229,7 +236,7 @@ function cargar_pagina_stadart(url_txt, vars, caja_respuesta,evalToDo) {
 			}
 		},
 		onSuccess : function(responseText) {
-			
+			new Fx.Scroll(window).toTop();
 			//log(responseText);
 			if (!isIE())
 				waiter_disable();
@@ -275,7 +282,7 @@ function runJS(caja_respuesta_txt) {
 }
 
 function cargarPaginaInit(evalToDo) {
-	darAnchoContenedorVariable();
+	
 	var url = location.hash;
 
 	if (url == "" || url == "undefined" || !url) {

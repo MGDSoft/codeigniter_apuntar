@@ -17,7 +17,7 @@ function my_create_captcha(){
 		    'img_height' => 32,
 		    'expiration' => 7200
 		    );
-  			
+  			 
   			return create_captcha($vals);
 	
 }   

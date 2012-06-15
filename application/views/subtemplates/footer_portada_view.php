@@ -1,4 +1,5 @@
 	<div id="footer">
+		<div id="degradado_footer"></div>
 		<img src="<?= PATH_IMG.'portada/logo_mgd.jpg' ?>">
 		<div id="contacto_f">
 		
