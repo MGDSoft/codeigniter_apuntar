@@ -33,7 +33,7 @@ function sendEmail($address,$subject,$text){
     if (ENVIRONMENT=='development')
     	echo $text_top.$text.$text_bottom;
     else
-    	$this->email->send();
+    	$CI->email->send();
 	
 }   
 ?>
