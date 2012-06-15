@@ -1,7 +1,11 @@
 <?php  if ( ! defined('BASEPATH')) exit('No direct script access allowed');
 
 /* my constantes web */
-define ('URL_BASE','apuntes-dev');
+if (ENVIRONMENT == 'development')
+	define ('URL_BASE','apuntes-dev');
+else
+	define ('URL_BASE','apuntar.net');
+
 define ('AUTO_EJECUTAR_JS','exec_js');
 
 define ('HTACCESS_WEB_USUARIO_TERMINACION','.html');
