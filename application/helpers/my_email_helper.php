@@ -1,7 +1,10 @@
 <?php
 function sendEmail($address,$subject,$text){
+	echo "entra_dentro $address $subject $text";
 	$CI =& get_instance();
+	echo 1;
 	$CI->load->library('email');
+	echo 2;
 	$text_top='<div style="width:100%;text-align:center">
 	<div style="width:600px;background:#1F62BF;border:0px solid #000000;color:#ffffff;text-align:left;padding-bottom:20px;font-family: \'lucida grande\', tahoma, verdana, arial, sans-serif;-webkit-border-radius: 10px;-moz-border-radius: 10px;border-radius: 10px;">
 	<div style="padding:20px 30px 20px 30px">
@@ -10,7 +13,7 @@ function sendEmail($address,$subject,$text){
 	</div>
 	<div style="padding:35px 8px 25px 18px;margin:20px 20x 20px 20px;text-align:left;border:1px solid #cccccc;background:#ffffff;color:#000000;font-size:13px">
 	Hola,<br><br>';
-	
+	echo 3;
 	
 	
 	$text_bottom='<br><br>
@@ -18,17 +21,23 @@ function sendEmail($address,$subject,$text){
 	</div>
 	</div>
 	</div>';
-
+	echo 4;
   	$CI->email->to($address);
+  	echo 5;
     $CI->email->from('info@'.URL_BASE,URL_BASE);
+    echo 6;
     $CI->email->subject($subject);
+    echo 7;
     $CI->email->message($text_top.$text.$text_bottom);
+    echo 8;
     $CI->email->mailtype('html');
+    echo 9;
     //$config['protocol'] = 'sendmail';
     //$config['charset'] = 'iso-8859-1'; // Default value utf-8
     //$config['wordwrap'] = TRUE;
     
     // Mostramos texto para localhost
+    
     
     if (ENVIRONMENT=='development')
     	echo $text_top.$text.$text_bottom;

@@ -322,7 +322,7 @@ int main()
 					
 					$this->db->trans_commit();
 					
-					// correo se envia despues ya que sino afecta a la transaccion y se queda la pagina colgada . No me digas xq...
+					// correo se envia despues ya que sino afecta a la transaccion y se queda la pagina colgada . No me digas xq... 
 					$urlActivarCuenta='http://'.URL_BASE.'/activar_cuenta?id='.$id_user.'&codigo='.$insertUsuario['activar_cuenta'];
 					$texto_correo=sprintf($this->lang->line('activar_tu_cuenta_correo_texto'),$urlActivarCuenta,$urlActivarCuenta,$insertUsuario['correo'],$this->input->post('recontrasena'));
 					sendEmail($insertUsuario['correo'],$this->lang->line('activar_tu_cuenta_correo_cuenta'), $texto_correo);
