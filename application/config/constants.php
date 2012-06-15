@@ -1,6 +1,6 @@
 <?php  if ( ! defined('BASEPATH')) exit('No direct script access allowed');
 
-/* Mis constantes para toda la web ! */
+/* Mis constantes para toda la web! */
 
 if (ENVIRONMENT == 'development')
 	define ('URL_BASE','apuntes-dev');
