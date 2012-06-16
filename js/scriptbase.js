@@ -148,10 +148,9 @@ function darAnchoContenedorVariable(){
 	
 	contenedor=$('contenedor_variable');
 	var nuevoAncho;
-	if ($('contenido'))
-		nuevoAncho=$('contenido').getStyle('width');
-	else 
-		nuevoAncho=$('contenedor_portal').getStyle('width'); // para device en bienvenida
+	
+
+	nuevoAncho=contenedor.getStyle('width'); // para device en bienvenida
 	
 	log(nuevoAncho);
 	contenedor.setStyle('width',nuevoAncho);
@@ -285,7 +284,13 @@ function cargarPaginaInit(evalToDo) {
 	var url = location.hash;
 
 	if (url == "" || url == "undefined" || !url) {
-		cargar_pagina_stadart('listado_noticias', '', '','');
+		
+		if (nombre_unico!='portada')
+			hasNuevo= 'listado_noticias';
+		else
+			hasNuevo= 'portada';
+		
+		cargar_pagina_stadart(hasNuevo, '', '','');
 		return;
 	} else {
 

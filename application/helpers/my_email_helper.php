@@ -9,7 +9,7 @@ function sendEmail($address,$subject,$text){
 	<img src="http://'.URL_BASE.'/img/portada/logo_apuntes_.png" align="right" width="100" height="85">
 	<a href="http://'.URL_BASE.'" style="font-size:20px;color:#ffffff;font-weight:bold;">'.URL_BASE.'</a><br><span style="font-size:14px;font-weight:bold">Apunta r&#225;pido todo lo que necesites recordar!</span>
 	</div>
-	<div style="padding:35px 8px 25px 18px;margin:20px 20x 20px 20px;text-align:left;border:1px solid #cccccc;background:#ffffff;color:#000000;font-size:13px">
+	<div style="padding:25px 8px 25px 18px;margin:20px 20x 20px 20px;text-align:left;border:1px solid #cccccc;background:#ffffff;color:#000000;font-size:13px">
 	Hola,<br><br>';
 	
 	

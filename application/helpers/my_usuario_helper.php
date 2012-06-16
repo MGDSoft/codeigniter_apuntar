@@ -30,13 +30,8 @@ function comprobarAdmin($configuracion_diseno=false,$expulsar_no_admins=false){
 	
   	$user_configuration=$CI->Usuario_configuracion_model->getByNombreUnico($nombre_unico,$configuracion_diseno);
   	
-  	/*echo $configuracion_diseno.'-';
-  	 echo $nombre_unico.'-';
-  	print_r($user_configuration);
-  	die;*/
-  	
   	$result['admin']=((isset($_SESSION['usuario']) 
-  			&& $_SESSION['usuario']->id_usuario==$user_configuration->id_usuario) 
+  			&& isset($user_configuration) && $_SESSION['usuario']->id_usuario==$user_configuration->id_usuario)
   			? true : false);
   	
   	if ($expulsar_no_admins)

@@ -63,8 +63,6 @@ class Cargar_archivos extends CI_Controller{
 		
 		include '.'.PATH_JS .'arieh-historymanager/Source/HashListener.js';
 		
-		include '.'.PATH_JS .'ckeditor/ckeditor.js';
-		
 		include '.'.PATH_JS .'arbol.js';
 	}
 	
@@ -110,8 +108,6 @@ class Cargar_archivos extends CI_Controller{
 		include '.'.PATH_JS.'highlight/numberLines.js';
 		
 		include '.'.PATH_JS.'arieh-historymanager/Source/HashListener.js';
-		
-		include '.'.PATH_JS.'ckeditor/ckeditor.js';
 		
 		include '.'.PATH_JS.'mooRainbow/Source/mooRainbow.js';
 		

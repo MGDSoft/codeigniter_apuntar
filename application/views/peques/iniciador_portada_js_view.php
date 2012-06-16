@@ -49,6 +49,7 @@ window.addEvent('domready', function() {
 		});
 	}
 	
+	cargarPaginaInit();
 	
 	var gal=new galeriaMGD('galeria');
 
