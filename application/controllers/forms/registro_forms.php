@@ -311,7 +311,7 @@ int main()
 					// correo se envia despues ya que sino afecta a la transaccion y se queda la pagina colgada . No me digas xq... 
 					$urlActivarCuenta='http://'.URL_BASE.'/activar_cuenta?id='.$id_user.'&codigo='.$insertUsuario['activar_cuenta'];
 					$texto_correo=sprintf($this->lang->line('activar_tu_cuenta_correo_texto'),$urlActivarCuenta,$urlActivarCuenta,$insertUsuario['correo'],$this->input->post('recontrasena'));
-					sendEmail($insertUsuario['correo'],$this->lang->line('activar_tu_cuenta_correo_cuenta'), $texto_correo);
+					sendEmail($insertUsuario['correo'],$this->lang->line('activar_tu_cuenta_correo_subject'), $texto_correo);
 						
 					
 					printf(HIDE_REQUEST, 'forms/categorias_forms/reordenamientoPost','id_usuario='.$id_user);

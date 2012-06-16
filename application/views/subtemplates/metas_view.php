@@ -7,14 +7,4 @@
 <script src="/extras/cargar_archivos/js_comun" type="text/javascript"></script>
 <link href="/extras/cargar_archivos/css_comun" media="screen" rel="stylesheet"  type="text/css" />
 
-
-<script type="text/javascript">var switchTo5x=true;</script>
-<script type="text/javascript" src="http://w.sharethis.com/button/buttons.js"></script>
-<script type="text/javascript">stLight.options({publisher: "ur-dc998efb-c353-e08d-ca94-cfc61c85bbf7"}); </script>
- 
-
-
-
 <?php $this->load->view('peques/msg_info_controller_view'); ?>
-
-
