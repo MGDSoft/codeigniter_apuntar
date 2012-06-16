@@ -43,8 +43,7 @@ define ('PATH_JS','/js/');
 define ('PATH_CSS','/css/');
 define ('PATH_IMG','/img/');
 
-define ('MSG_ERROR','alert("%s");');
-define ('MSG_ERROR_CAMPO','new VentanaError("%s","%s");');
+
 
 define ('RESPONSE_OK_JS','OK');
 
@@ -53,10 +52,14 @@ define ('URL_SUB_DOMAIN','http://%s.'.URL_BASE);
 define ('MSG_INFO_URGENT','new Message({isUrgent: true,icon:"okMedium.png",title: "%s",message: "%s"}).say();');
 define ('MSG_INFO','new Message({icon:"okMedium.png",title: "%s",message: "%s"}).say();');
 define ('MSG_WATCHOUT','new Message({icon: "cautionMedium.png",title: "%s",message: "%s"}).say();');
+define ('MSG_WATCHOUT_URGENT','new Message({isUrgent: true, icon: "cautionMedium.png",title: "%s",message: "%s"}).say();');
 define ('MSG_QUESTION','new Message({icon: "speakMedium.png.png", title: "%s", message: "%s", callback: "%s"}).ask();');
 define ('MSG_QUESTION_DEFAULT','new Message({isUrgent: true,icon: "speakMedium.png",width: 300,fontSize: 14,autoDismiss: false,title: %s ,message: "<input type=\'text\' id=\'js_commentText\' value=%s>",callback: %s}).say();');
 define ('HIDE_REQUEST','new Request({url : "%s", method : "post", data: "%s", onRequest : function() {},	onSuccess : function(responseText) { log(responseText) }}).send();');
 
+define ('MSG_ERROR',sprintf(MSG_WATCHOUT_URGENT,"Error :(","<br>%s"));
+
+define ('MSG_ERROR_CAMPO','new VentanaError("%s","%s");');
 
 define ('MSG_QUESTION_SI_NO_DEFAULT','new Message({icon: "questionMedium.png",title: %s,message: %s,callback: %s}).ask();');
 

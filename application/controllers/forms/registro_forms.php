@@ -27,7 +27,7 @@ class Registro_forms extends CI_Controller {
 	 	
 	 	if ($this->form_validation->run()==FALSE)
 	 	{
-	 		printf(MSG_ERROR, trim(validation_errors()));
+	 		printf(MSG_ERROR, preg_replace('~[\r\n]+~', '', validation_errors()));
 	 	}else{
 	 			
 	 		$this->load->helper('string');
@@ -68,7 +68,7 @@ class Registro_forms extends CI_Controller {
 	 	 
 	 	if ($this->form_validation->run()==FALSE)
 	 	{
-	 		printf(MSG_ERROR, trim(validation_errors()));
+	 		printf(MSG_ERROR, preg_replace('~[\r\n]+~', '', validation_errors()));
 	 	}else{
 	 	 	
 	 		$usuario=$this->Usuario_model->getById($_SESSION['usuario']->id_usuario);
@@ -97,7 +97,7 @@ class Registro_forms extends CI_Controller {
 	 
 	 	if ($this->form_validation->run()==FALSE)
 	 	{
-	 		printf(MSG_ERROR, trim(validation_errors()));
+	 		printf(MSG_ERROR, preg_replace('~[\r\n]+~', '', validation_errors()));
 	 	}else{
 	 		
 	 		// Protección anti abussers
@@ -162,7 +162,7 @@ class Registro_forms extends CI_Controller {
 		
 		if ($this->form_validation->run()==FALSE)
 		{
-			 printf(MSG_ERROR, trim(validation_errors()));
+			 printf(MSG_ERROR, preg_replace('~[\r\n]+~', '', validation_errors()));
 		}else{
 			
 			$this->load->helper('string');

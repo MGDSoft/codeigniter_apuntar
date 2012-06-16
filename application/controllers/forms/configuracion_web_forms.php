@@ -194,7 +194,7 @@
 	  	 
 	  	if ($this->form_validation->run()==FALSE)
 	  	{
-	  		printf(MSG_ERROR, trim(validation_errors()));
+	  		printf(MSG_ERROR, preg_replace('~[\r\n]+~', '', validation_errors()));
 	  	}else{
 	  		 
 	  		$id_categoria= $this->input->post('id');

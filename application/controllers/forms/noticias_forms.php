@@ -26,7 +26,7 @@
 	  	
 	  	if ($this->form_validation->run()==FALSE)
 	  	{
-	  		printf(MSG_ERROR, trim(validation_errors()));
+	  		printf(MSG_ERROR, preg_replace('~[\r\n]+~', '', validation_errors()));
 	  	}else{
 	  		
 	  		$insert['titulo']= $this->input->post('titulo_noticia');
@@ -60,7 +60,7 @@
 	  	
 	  	if ($this->form_validation->run()==FALSE)
 	  	{
-	  		printf(MSG_ERROR, trim(validation_errors()));
+	  		printf(MSG_ERROR, preg_replace('~[\r\n]+~', '', validation_errors()));
 	  	}else{
 	  		
 	  		$update['titulo']= $this->input->post('titulo_noticia');
@@ -97,7 +97,7 @@
 	  	 
 	  	if ($this->form_validation->run()==FALSE)
 	  	{
-	  		printf(MSG_ERROR, trim(validation_errors()));
+	  		printf(MSG_ERROR, preg_replace('~[\r\n]+~', '', validation_errors()));
 	  	}else{
 	  		 
 	  		$id_noticia= $this->input->post('id');

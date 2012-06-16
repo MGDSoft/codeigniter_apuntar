@@ -46,7 +46,7 @@ function comprobarAdmin($configuracion_diseno=false,$expulsar_no_admins=false){
   	}	
   	
   	
-  	if ($configuracion_diseno)
+  	if ($configuracion_diseno && isset($user_configuration))
   		$result['web_configuracion_separadores']=$CI->Web_configuracion_separadores_model->getById($user_configuration->id_configuracion);
   	
   	

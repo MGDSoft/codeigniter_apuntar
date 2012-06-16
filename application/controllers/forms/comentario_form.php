@@ -2,21 +2,7 @@
 
 class Comentario_form extends CI_Controller {
 
-	/**
-	 * Index Page for this controller.
-	 *
-	 * Maps to the following URL
-	 * 		http://example.com/index.php/welcome
-	 *	- or -  
-	 * 		http://example.com/index.php/welcome/index
-	 *	- or -
-	 * Since this controller is set as the default controller in 
-	 * config/routes.php, it's displayed at http://example.com/
-	 *
-	 * So any other public methods not prefixed with an underscore will
-	 * map to /index.php/welcome/<method_name>
-	 * @see http://codeigniter.com/user_guide/general/urls.html
-	 */
+	
 	 public function __construct()
 	 {
 		parent::__construct();
@@ -37,7 +23,7 @@ class Comentario_form extends CI_Controller {
 	 	$this->form_validation->set_rules('id','id','is_numeric');
 	 	if ($this->form_validation->run()==FALSE)
 	 	{
-	 		printf(MSG_ERROR, trim(validation_errors()));
+	 		printf(MSG_ERROR, preg_replace('~[\r\n]+~', '', validation_errors()));
 	 	}else{
 	 
 	 		$id=$this->input->post('id');
@@ -90,7 +76,7 @@ class Comentario_form extends CI_Controller {
 	 	$this->form_validation->set_rules('id','id','is_numeric');
 	 	if ($this->form_validation->run()==FALSE)
 	 	{
-	 		printf(MSG_ERROR, trim(validation_errors()));
+	 		printf(MSG_ERROR, preg_replace('~[\r\n]+~', '', validation_errors()));
 	 	}else{
 	 		
 	 		$id=$this->input->post('id');
@@ -132,7 +118,7 @@ class Comentario_form extends CI_Controller {
 	 	
 	 	if ($this->form_validation->run()==FALSE)
 	 	{
-	 		printf(MSG_ERROR, trim(validation_errors()));
+	 		printf(MSG_ERROR, preg_replace('~[\r\n]+~', '', validation_errors()));
 	 	}else{
 	 		
 	 		$id=$this->input->post('id');
@@ -165,7 +151,7 @@ class Comentario_form extends CI_Controller {
 	 	$this->form_validation->set_rules('id','id','is_numeric');
 	 	if ($this->form_validation->run()==FALSE)
 	 	{
-	 		printf(MSG_ERROR, trim(validation_errors()));
+	 		printf(MSG_ERROR, preg_replace('~[\r\n]+~', '', validation_errors()));
 	 	}else{
 	 		$id=$this->input->post('id');
 	 		$borrado=0;
@@ -200,7 +186,7 @@ class Comentario_form extends CI_Controller {
 	 	$this->form_validation->set_rules('id','id','is_numeric');
 	 	if ($this->form_validation->run()==FALSE)
 	 	{
-	 		printf(MSG_ERROR, trim(validation_errors()));
+	 		printf(MSG_ERROR, preg_replace('~[\r\n]+~', '', validation_errors()));
 	 	}else{
 	 		
 	 		$id=$this->input->post('id');
@@ -244,7 +230,7 @@ class Comentario_form extends CI_Controller {
 		
 		if ($this->form_validation->run()==FALSE)
 		{
-			 printf(MSG_ERROR, trim(validation_errors()));
+			 printf(MSG_ERROR, preg_replace('~[\r\n]+~', '', validation_errors()));
 		}else{
 			
 			if (!isset($_SESSION['usuario']))
@@ -319,7 +305,7 @@ class Comentario_form extends CI_Controller {
 	
 		if ($this->form_validation->run()==FALSE)
 		{
-			printf(MSG_ERROR, trim(validation_errors()));
+			printf(MSG_ERROR, preg_replace('~[\r\n]+~', '', validation_errors()));
 		}else{
 				
 			$id_noticia= $this->input->post('id_noticia');
