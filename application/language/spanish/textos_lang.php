@@ -1,4 +1,12 @@
 <?php
+/* Metas página */
+$lang['titulo_portada_meta'] ='Registrate | '.URL_BASE;
+$lang['descripcion_portada_meta'] ='Registrate es muy rápido y gratis';
+
+$lang['titulo_portada_meta'] ='Bienvenido a '.URL_BASE;
+$lang['descripcion_portada_meta'] ='Apunta todo lo que necesites rápido, grátis y para cualquier plataforma. Con multiples opciones de configuración y diseño';
+
+/* Fin metas */
 
 $lang['ir_a_mi_web'] = 'Ir a mi página';
 $lang['no_noticias'] = 'No hay noticias para esta búsqueda';

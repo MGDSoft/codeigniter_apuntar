@@ -16,8 +16,10 @@
     {
   	$this->logout_();
   	$this->redirect_web();
-   $data['titulo']="tit";
-   $data['descripcion']="desc";
+
+  	$data['titulo']=$this->lang->line('titulo_portada_meta');
+    $data['descripcion']=$this->lang->line('descripcion_portada_meta');
+    
    $portal->contacto_pagina_personal='';
    $portal->contacto_steam='';
    $portal->contacto_youtube='';

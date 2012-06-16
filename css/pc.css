@@ -154,6 +154,7 @@ h2{
 #calendario{
 	padding:0 0 5px 0;
 	text-align:center;
+	margin-bottom:30px;
 	width:100%;
 	font-size: 0.9em;
 }
@@ -242,22 +243,18 @@ h2{
 #contenedor_titulo_buscador #titulo_desc a{
 	font-size: inherit;
 	color: inherit;
-	
 }
 #img_sobremi{
 	float:left;
 	margin: 0 20px 0 40px;
 	display: block;
-	
 }
 #calendario td{
 	padding:4px;
 }
 #calendario th{
 	font-weight: normal;
-	
 	padding:4px 0;
-	
 }
 .titulo_l{
 	font-size:1.1em;
@@ -297,4 +294,3 @@ h2{
 .este_comentario:hover span.comentario_admin{
 	display: inline;
 }
-

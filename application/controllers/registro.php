@@ -13,8 +13,9 @@
 	   /*$this->session->set_userdata('language', ENGLISH);
 	   $language = $this->session->userdata('language');
 	  	*/
-	   $data['titulo']="tit";
-	   $data['descripcion']="desc";
+
+	   $data['titulo']=$this->lang->line('titulo_portada_meta');
+	   $data['descripcion']=$this->lang->line('descripcion_portada_meta');
 	   
 	   $this->load->model('Zone_time_model');
 	   
@@ -28,6 +29,7 @@
   }
   
   public function recordar(){
+  	
   	   $this->load->view('forms/recordar_Fview');
   }
  }

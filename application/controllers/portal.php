@@ -26,9 +26,9 @@
 	  	$arbol['admin']=$portal_ini['admin'];
 	  	
 	  	$portal_ini['calendario']= $this->load_calendar(date('m'),date('y'),$portal_ini['usuario_configuracion']->id_usuario,$portal_ini['nombre_unico'],$busqueda_visible);
-	  	
-	  	$data['titulo']="titdadasd";
-	  	$data['descripcion']="desc";
+
+	  	$data['titulo']=str_replace(array('"', "'"), "", $portal_ini['usuario_configuracion']->titulo);
+	  	$data['descripcion']=str_replace(array('"', "'"), "", $portal_ini['nombre_unico'].' - '.$portal_ini['usuario_configuracion']->eslogan);
 	  	$portal_ini['web_sobre_mi']=$this->Web_sobre_mi_model->getById($portal_ini['usuario_configuracion']->id_configuracion);
 	   
 	  	if (isset($_GET['ishash']))
