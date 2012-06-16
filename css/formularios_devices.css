@@ -41,7 +41,7 @@
 .ghost_input{color: #ccc !important;font-style: italic}
 
 .formulario_estandar input[type="checkbox"]:checked::after {
-	content: url(//ssl.gstatic.com/ui/v1/menu/checkmark.png);
+	content: url(/img/checkmark.png);
 	display: block;
 	position: absolute;
 	top: -6px;
