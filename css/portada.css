@@ -1,8 +1,14 @@
-@media all and (max-width: 601px) {
-	#galeria, #galeria span{
-		width:460px !important;
+@media all and (max-width: 1000px), all and (max-device-width: 1000px) {
+	#galeria{
+		margin-left:20px !important;
 	}
 }
+@media all and (max-width: 600px), all and (max-device-width: 600px) {
+	#galeria, #galeria span{
+		width:450px !important;
+	}
+}
+
 
 #contenedor_titulo_buscador #titulo_desc {
 	font-size: 35px;

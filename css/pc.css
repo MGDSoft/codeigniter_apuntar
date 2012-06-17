@@ -1,10 +1,10 @@
-@media all and (min-width: 1224px) {
+@media all and (min-width: 1224px) , all and (max-device-width: 1224px) {
   #contenidos_extra span {
       display:block !important;
     }
 
 }
-@media all and (max-width: 1000px) {
+@media all and (max-width: 1000px) , all and (max-device-width: 1000px) {
 	#logo{
     	display:none !important;
     }
@@ -27,7 +27,7 @@
 	}
 
 }
-@media all and (max-width: 600px) {
+@media all and (max-width: 600px), all and (max-device-width: 600px) { 
 	#bloque_izq{
 		display:none !important;
 	}
