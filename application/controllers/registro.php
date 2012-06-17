@@ -14,8 +14,8 @@
 	   $language = $this->session->userdata('language');
 	  	*/
 
-	   $data['titulo']=$this->lang->line('titulo_portada_meta');
-	   $data['descripcion']=$this->lang->line('descripcion_portada_meta');
+	   $data['titulo']=$this->lang->line('titulo_registro_meta');
+	   $data['descripcion']=$this->lang->line('descripcion_registro_meta');
 	   
 	   $this->load->model('Zone_time_model');
 	   

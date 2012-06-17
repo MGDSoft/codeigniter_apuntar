@@ -27,7 +27,7 @@
 	}
 
 }
-@media all and (max-width: 600px), all and (max-device-width: 600px) { 
+@media all and (max-width: 600px), all and (max-device-width: 800px) { 
 	#bloque_izq{
 		display:none !important;
 	}

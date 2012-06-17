@@ -3,7 +3,7 @@
 		margin-left:20px !important;
 	}
 }
-@media all and (max-width: 600px), all and (max-device-width: 600px) {
+@media all and (max-width: 600px), all and (max-device-width: 800px) {
 	#galeria, #galeria span{
 		width:450px !important;
 	}

@@ -1,9 +1,9 @@
 <?php
 /* Metas página */
-$lang['titulo_portada_meta'] ='Registrate | '.URL_BASE;
-$lang['descripcion_portada_meta'] ='Registrate es muy rápido y gratis';
+$lang['titulo_registro_meta'] ='Registrate | '.URL_BASE;
+$lang['descripcion_registro_meta'] ='Registrate es muy rápido y gratis';
 
-$lang['titulo_portada_meta'] ='Bienvenido a '.URL_BASE;
+$lang['titulo_portada_meta'] ='Apunta todo lo que necesitas de una manera rápida y facil en '.URL_BASE;
 $lang['descripcion_portada_meta'] ='Apunta todo lo que necesites rápido, grátis y para cualquier plataforma. Con multiples opciones de configuración y diseño';
 
 /* Fin metas */
