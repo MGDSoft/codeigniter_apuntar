@@ -313,6 +313,16 @@ function cargarPaginaInit(evalToDo) {
 function reloadActual(evalToDo) {
 	cargarPaginaInit(evalToDo);
 }
+function toggleLogin(cajaEvento){
+	objLogin=$('caja_login');
+	var ancho=objLogin.getStyle('margin-top');
+	if (ancho=='0px')
+		objLogin.tween('margin-top', 0, -200);
+	else
+		objLogin.tween('margin-top', -200, 0);
+	
+	
+}
 
 function reloadAllCaptchasOnclick(padre) {
 	

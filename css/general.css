@@ -120,7 +120,6 @@ html, body{
 	-moz-border-radius-topright: 10px;
 	-moz-border-radius-bottomright: 10px;
 	border-radius:0 10px 10px 0;
-	margin-left: 10px\0/;
 	behavior: url('/img/PIE.htc');
 }
 #contenedor_titulo_buscador #buscador_tipo{
@@ -139,7 +138,7 @@ html, body{
 
 #contenedor_titulo_buscador #titulo{
 	padding:0 10px;
-	margin: 3px 0;
+	margin: 6px 0 3px 0;
 	height: 40px;
 	overflow:hidden;
 	display:block;

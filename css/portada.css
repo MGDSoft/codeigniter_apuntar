@@ -1,3 +1,9 @@
+@media all and (max-width: 601px) {
+	#galeria, #galeria span{
+		width:460px !important;
+	}
+}
+
 #contenedor_titulo_buscador #titulo_desc {
 	font-size: 35px;
 	height: 90px;

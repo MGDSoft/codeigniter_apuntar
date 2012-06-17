@@ -1,10 +1,10 @@
-@media only screen and (min-width: 1224px) {
+@media all and (min-width: 1224px) {
   #contenidos_extra span {
       display:block !important;
     }
 
 }
-@media only screen and (max-width: 1000px) {
+@media all and (max-width: 1000px) {
 	#logo{
     	display:none !important;
     }
@@ -23,27 +23,36 @@
 	}
 	#descripcion{
 		font-size:0.5em !important;
+		margin-top:5px;
 	}
 
 }
-@media only screen and (max-width: 480px) {
+@media all and (max-width: 600px) {
 	#bloque_izq{
 		display:none !important;
 	}
 	#caja_login{
-		display:none !important; 
+		margin-top:-200px;
+	}
+	#mostarLogin{
+		display: block !important;
 	}
 	#gototop{
 		display:none !important;
 	}
 	#descripcion{
 		font-size:0.5em !important;
+		margin-top:5px;
+	}
+	#contenedor_titulo_buscador #titulo{
+		margin-top:10px !important;
 	}
 	span.visible_{
    	display:none !important;
    }
-	
+   
 }
+
 h1{
 	font-size: 1.5em;
 }
@@ -61,6 +70,19 @@ h2{
 	overflow:hidden;
 	
 }
+#mostarLogin{
+	display: none;
+	position: fixed;
+	top:10px;
+	right: 10px;
+	background-image: url("/img/sprites.png");
+    background-repeat: no-repeat;
+    border: 0 none;
+    background-position: 0 -114px;
+    cursor: pointer;
+    z-index: 5;
+}
+
 #caja_login div.registro a{
 
 	padding: 0px 4px 0px 4px;

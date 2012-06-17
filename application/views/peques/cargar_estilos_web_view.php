@@ -112,8 +112,8 @@ div.paginado a,div.paginado strong{
 	font-size:0.7em;
 	display:block;
 	font-style: italic;
-	padding-left:10px;
-	width:100%;
+	padding: 0 10px;
+	
 	color: <?= $usuario_configuracion->otros_color ?>;
 }
 </style>
