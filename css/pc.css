@@ -25,9 +25,7 @@
 		font-size:0.5em !important;
 		margin-top:5px;
 	}
-	#contenedor_variable{
-		width:460px !important;
-	}
+
 }
 @media all and (max-width: 600px), all and (max-device-width: 800px) { 
 	#bloque_izq{
@@ -52,6 +50,9 @@
 	span.visible_{
    	display:none !important;
    }
+   	#contenedor_variable{
+		width:460px !important;
+	}
    
 }
 
