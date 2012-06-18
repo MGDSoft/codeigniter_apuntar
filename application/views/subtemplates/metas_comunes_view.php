@@ -9,7 +9,7 @@
 <meta name="locality" content="Madrid, España"/>
 <meta name="distribution" content="global"/>
 <meta name="language" content="es-ES"/>
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="viewport" content="width=475">
 <meta http-equiv="Pragma" content="no-cache"/>
 <meta name="resource-type" content="document"/>
 <meta name="fragment" content="!">
