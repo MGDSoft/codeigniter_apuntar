@@ -5,7 +5,17 @@
 }
 @media all and (max-width: 600px), all and (max-device-width: 800px) {
 	#galeria, #galeria span{
-		width:450px !important;
+		width:460px !important;
+		margin-right:5px !important;
+	}
+	#contenido_portada
+	{
+		border:0px !important;
+		-moz-box-shadow: none !important;
+		-webkit-box-shadow: none !important;
+		box-shadow: none !important;
+		padding:10px 10px !important;
+		margin:15px 0 !important;
 	}
 }
 

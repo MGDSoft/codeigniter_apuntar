@@ -315,11 +315,11 @@ function reloadActual(evalToDo) {
 }
 function toggleLogin(cajaEvento){
 	objLogin=$('caja_login');
-	var ancho=objLogin.getStyle('margin-top');
-	if (ancho=='0px')
-		objLogin.tween('margin-top', 0, -200);
+	var ancho=objLogin.getStyle('top');
+	if (ancho=='0px' || ancho=='0')
+		objLogin.tween('top', 0, -200);
 	else
-		objLogin.tween('margin-top', -200, 0);
+		objLogin.tween('top', -200, 0);
 	
 	
 }

@@ -32,7 +32,10 @@
 		display:none !important;
 	}
 	#caja_login{
-		margin-top:-200px;
+		position:fixed;
+		top:-200px;
+		right:10px;
+	
 	}
 	#mostarLogin{
 		display: block !important;
@@ -52,6 +55,9 @@
    }
    	#contenedor_variable{
 		width:460px !important;
+	}
+	#cuerpo{
+		padding:0 !important;
 	}
    
 }
