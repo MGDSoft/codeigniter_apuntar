@@ -1,10 +1,10 @@
-@media all and (min-width: 1224px) , all and (min-device-width: 1224px) {
+@media all and (min-width: 1224px) , all and (min-device-width: 1424px) {
   #contenidos_extra span {
       display:block !important;
     }
 
 }
-@media all and (max-width: 1000px) , all and (max-device-width: 1000px) {
+@media all and (max-width: 1000px) , all and (max-device-width: 1200px) {
 	#logo{
     	display:none !important;
     }
@@ -59,9 +59,16 @@
 	#cuerpo{
 		padding:0 !important;
 	}
-   
+   	#contenedor_portal{
+		width: 475px !important;
+		padding:0;
+		margin:0;
+	}
+	.formulario_estandar textarea{
+		width: 340px !important;
+	}
+	
 }
-
 h1{
 	font-size: 1.5em;
 }
