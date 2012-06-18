@@ -1,5 +1,8 @@
 <?php
 /* Metas página */
+$lang['titulo_portada_device'] ='Versión plataforma reducida, Apunta todo lo que necesitas de una manera rápida y facil en'.URL_BASE;
+$lang['descripcion_portada_meta'] ='Versión plataforma reducida, Apunta todo lo que necesites rápido, grátis y para cualquier plataforma. Con multiples opciones de configuración y diseñon'.URL_BASE;
+
 $lang['titulo_registro_meta'] ='Registrate | '.URL_BASE;
 $lang['descripcion_registro_meta'] ='Registrate es muy rápido y gratis';
 

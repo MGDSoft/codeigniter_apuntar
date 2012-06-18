@@ -22,30 +22,26 @@
 	
   public function index()
   {
+  	
+	  	$data['titulo']=$this->lang->line('titulo_portada_device');
+	  	$data['descripcion']=$this->lang->line('descripcion_portada_meta');
+	 
   		if (!isset($_SESSION['usuario']))
   		{
 	  		$portal_ini=iniVarsDevices();
-	  	
-		  	$data['titulo']="titdadasd";
-		  	$data['descripcion']="desc";
-		  	
 		  	
 	  		$this->load->view('devices/subtemplates/metas_devices_view',$data);
 	  		$this->load->view('devices/peques/iniciador_devices_js_view');
 	  		$this->load->view('devices/peques/bienvenido_header_view');
 	  		$this->load->view('devices/subtemplates/footer_devices_view');
+	  		
   		}else{
   			$portal_ini=comprobarAdminDevices();
   			
-  			$data['titulo']="titdadasd";
-  			$data['descripcion']="desc";
-  			 
   			$this->load->view('devices/subtemplates/metas_devices_view',$data);
   			$this->load->view('devices/peques/iniciador_devices_js_view',$portal_ini);
   			$this->load->view('devices/subtemplates/header_devices_view');
-  			
-  			
-  			
+  
   			$this->load->view('devices/subtemplates/footer_devices_view');
   		}	
 	  		

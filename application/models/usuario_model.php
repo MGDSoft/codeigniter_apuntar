@@ -42,7 +42,8 @@ class Usuario_model extends CI_Model {
 		$this->db->join('zone_time', 'zone_time.id_zone_time = usuario.id_zone_time');
 		$this->db->join('usuario_configuracion', 'usuario_configuracion.id_usuario = usuario.id_usuario');
 		$query = $this->db->get($this->table);
-			
+
+		
 		if ($query->num_rows() > 0)
 			return $query->row();
 		else

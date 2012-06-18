@@ -31,7 +31,9 @@
 }
 .formulario_estandar .seguridad img{
 	vertical-align: middle;
-
+}
+.formulario_estandar .seguridad input{
+	width:100px;
 }
 .ghost_input{color: #ccc !important;font-style: italic}
 

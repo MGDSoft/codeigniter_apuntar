@@ -40,9 +40,15 @@ window.addEvent('domready', function() {
 	
 	
 	cargarPaginaInit();
-	obj_menu_carpetas=new menuCarpetas('menu',<?= $usuario_configuracion->id_usuario ?>,'<?= $this->lang->line('opciones_txt') ?>','<?= $this->lang->line('carpeta_hija_txt') ?>','<?= $this->lang->line('modificar_nombre_txt') ?>','<?= $this->lang->line('borrar_txt') ?>');
+
+	
+	if ($('bloque_izq').getStyle('display')!='none')
+		obj_menu_carpetas=new menuCarpetas('menu',<?= $usuario_configuracion->id_usuario ?>,'<?= $this->lang->line('opciones_txt') ?>','<?= $this->lang->line('carpeta_hija_txt') ?>','<?= $this->lang->line('modificar_nombre_txt') ?>','<?= $this->lang->line('borrar_txt') ?>');
+	
 	obj_buscador_sugerencias=new buscadorCategorias($('buscador_txt'),<?= $usuario_configuracion->id_usuario ?>,'/extras/buscador/buscar_sugerencias',1);
-	obj_buscadorCategorias=new buscadorCategorias($('buscador_tipo'),<?= $usuario_configuracion->id_usuario ?>,'/extras/buscador/buscar_categorias',0);
+
+	if ($('buscador_tipo').getStyle('display')!='none')
+		obj_buscadorCategorias=new buscadorCategorias($('buscador_tipo'),<?= $usuario_configuracion->id_usuario ?>,'/extras/buscador/buscar_categorias',0);
 
 	$$('#buscar_boton input')[0].addEvent('click', function(){
 		
@@ -52,7 +58,7 @@ window.addEvent('domready', function() {
 		obj_buscadorCategorias.vaciarCajaSugerencias();
 	});
 
-	if (!isIE())
+	if (!isIE() && $('gototop').getStyle('display')!='none')
 	{
 		spy = new ScrollSpy({ 
 		    min: 1000, 

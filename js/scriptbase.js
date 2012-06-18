@@ -320,8 +320,6 @@ function toggleLogin(cajaEvento){
 		objLogin.tween('top', 0, -200);
 	else
 		objLogin.tween('top', -200, 0);
-	
-	
 }
 
 function reloadAllCaptchasOnclick(padre) {

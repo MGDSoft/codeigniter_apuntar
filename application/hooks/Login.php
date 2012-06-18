@@ -47,15 +47,19 @@ class Login
 	
 	function agregar_valores_session($cookie){
 		$obj = explode(';', $cookie);
-		
+		//echo 'cookie '.$cookie; 
 		$CI =& get_instance();
 		$CI->load->model('Usuario_model');
 		$CI->load->model('Usuario_configuracion_model');
 		
-		$user=$CI->Usuario_model->login($obj[0],$obj[1]);
-		
-		$_SESSION['usuario']=$user;
-		
+		if (isset($obj[0]) && isset($obj[1]))
+		{
+			
+			$user=$CI->Usuario_model->login($obj[0],$obj[1],true);
+			
+			if ($user)
+				$_SESSION['usuario']=$user;
+		}
 		
 	}
 }
