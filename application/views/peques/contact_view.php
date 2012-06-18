@@ -9,4 +9,5 @@
  			<?= (($usuario_configuracion->contacto_twitter != "")? '<a href="'.$usuario_configuracion->contacto_twitter.'" target="_blank"><img width="32" height="32"  class="twitter" src="'.PATH_IMG.'1x1.gif"></a>' : '' )?>
  			<?= (($usuario_configuracion->contacto_facebook != "")? '<a href="'.$usuario_configuracion->contacto_facebook.'" target="_blank"><img width="32" height="32"  class="facebook" src="'.PATH_IMG.'1x1.gif"></a>' : '' )?>
  			
- 			<?= ((isset($usuario_configuracion->nombre_unico)) ? '<a href="/'.$usuario_configuracion->nombre_unico .'/rss" target="_blank"><img  width="32" height="32" class="rss" src="'. PATH_IMG .'1x1.gif"></a> 			</span> ' :'') ?>
+ 			<?= ((isset($usuario_configuracion->nombre_unico)) ? '<a href="/'.$usuario_configuracion->nombre_unico .'/rss" target="_blank"><img  width="32" height="32" class="rss" src="'. PATH_IMG .'1x1.gif"></a>' :'') ?>
+ 			</span>
