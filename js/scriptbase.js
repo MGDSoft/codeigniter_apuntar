@@ -163,13 +163,15 @@ function cargar_pagina_stadart(url_txt, vars, caja_respuesta,evalToDo) {
 	darAnchoContenedorVariable();
 	
 	var caja_respuesta_txt;
-	var hasNuevo;
+	
 	
 	if (!$(caja_respuesta))
 		caja_respuesta_txt = 'contenedor_variable';
 	else
 		caja_respuesta_txt = caja_respuesta;
 	
+	
+	var hasNuevo;
 	
 	if (url_txt == '' || url_txt == '/') 
 	{
