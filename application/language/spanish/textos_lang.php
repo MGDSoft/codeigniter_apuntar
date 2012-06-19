@@ -240,4 +240,6 @@ $lang['activar_tu_cuenta_correo_subject'] = 'Activar cuenta';
 $lang['activar_tu_cuenta_correo_texto'] = 'Bienvenido a '.URL_BASE.'!!!.<br><br>Para activar tu cuenta deberas pulsar la siguiente direccion:<br><b><a href="%s">%s</a></b> <br><br>Tus datos de usuario son: <br><br> Usuario: %s <br>Contraseña: %s';
 
 
+$lang['sesion_acabada'] = 'La sesión ha finalizado, vuelve a logearte';
+
 $lang['error_db'] = 'Error de base de datos';

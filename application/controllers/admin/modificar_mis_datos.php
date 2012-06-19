@@ -7,6 +7,7 @@ class Modificar_mis_datos extends CI_Controller{
 		$this->load->helper('my_usuario_helper');
 		$this->load->model('Usuario_configuracion_model');
 		$this->load->model('Usuario_model');
+		comprobar_session_activa_y_redirect();
 	}
 
 	function index()

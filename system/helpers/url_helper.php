@@ -534,14 +534,24 @@ if ( ! function_exists('redirect'))
 {
 	function redirect($uri = '', $method = 'location', $http_response_code = 302)
 	{
-		if ( ! preg_match('#^https?://#i', $uri))
+		
+		if ($method != 'javascript' && !preg_match('#^https?://#i', $uri))
 		{
+			
 			$uri = site_url($uri);
 		}
 
 		switch($method)
 		{
 			case 'refresh'	: header("Refresh:0;url=".$uri);
+				break;
+			case 'javascript' : 
+				
+				//echo sprintf(REDIRECT_URL_JS,$uri);
+				if (substr($uri,0,1)=='/')
+					$uri=substr($uri,1);
+				
+				printf(CARGAR_JS_AUTO,sprintf(REDIRECT_URL_JS,$uri));
 				break;
 			default			: header("Location: ".$uri, TRUE, $http_response_code);
 				break;

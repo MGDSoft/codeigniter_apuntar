@@ -8,7 +8,7 @@ class Noticia extends CI_Controller{
 		$this->load->model('Usuario_configuracion_model');
 		$this->load->model('Categorias_model');
 		$this->load->model('Noticias_model');
-		
+		comprobar_session_activa_y_redirect();
 	}
 
 	
@@ -33,6 +33,8 @@ class Noticia extends CI_Controller{
 	
 	function modificar_noticia()
 	{
+		
+		
 		$id=$this->input->post('id');
 	  
 	  	

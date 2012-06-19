@@ -10,6 +10,7 @@
 		$this->load->model('Noticias_model');
 		$this->load->model('Web_sobre_mi_model');
 		$this->load->helper('my_usuario_helper');
+		comprobar_session_activa_y_redirect();
 	}
 
 	

@@ -37,6 +37,7 @@ else
 
 define ('URL_WEB_NOT_FOUND','/index.php?info=2');
 define ('URL_WEB_PRIVADA','/index.php?info=3');
+define ('URL_WEB_SESION_FINALIZADA','/index.php?info=4');
 
 define ('ID_ANONIMO','0');
 define ('PATH_JS','/js/');

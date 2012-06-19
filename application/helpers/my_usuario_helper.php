@@ -1,4 +1,16 @@
 <?php
+function comprobar_session_activa_y_redirect(){
+	$CI =& get_instance();
+	if (!isset($_SESSION['usuario']))
+	{
+		//echo sprintf(CARGAR_JS_AUTO,sprintf(MSG_WATCHOUT_URGENT,'Error','Session finalizada'));
+		redirect('', 'javascript');
+		
+		exit;
+	}
+	else
+		return true;
+}
 function comprobarAdmin($configuracion_diseno=false,$expulsar_no_admins=false){
 	
 	if (isset($_SESSION['device']))

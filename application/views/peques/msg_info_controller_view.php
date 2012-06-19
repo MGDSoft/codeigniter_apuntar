@@ -16,6 +16,9 @@ window.addEvent('domready', function() {
 			case 3:
 				printf(MSG_WATCHOUT,  $this->lang->line('error'),$this->lang->line('pagina_privada'));
 				break;
+			case 4:
+				printf(MSG_WATCHOUT,  $this->lang->line('error'),$this->lang->line('sesion_acabada'));
+				break;
 				
 		}
 	

@@ -10,6 +10,7 @@ class Configurar_web extends CI_Controller{
 		$this->load->model('Categorias_model');
 		$this->load->model('Noticias_model');
 		$this->load->model('Web_sobre_mi_model');
+		comprobar_session_activa_y_redirect();
 	}
 
 	function index()
