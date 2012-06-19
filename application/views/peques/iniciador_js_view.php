@@ -37,8 +37,6 @@ var obj_buscadorCategorias;
 var obj_buscador_sugerencias;
 window.addEvent('domready', function() {
 
-	
-	
 	cargarPaginaInit();
 
 	

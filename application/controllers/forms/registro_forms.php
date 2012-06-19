@@ -44,7 +44,7 @@ class Registro_forms extends CI_Controller {
 			{
 				$upd['id_zone_time']=$update['id_zone_time'];
 				$this->Usuario_configuracion_model->update($_SESSION['usuario']->id_usuario,$upd);
-				$user=$this->Usuario_model->login($update['correo'],null,false);
+				$user=$this->Usuario_model->login($update['correo'],null);
 				$_SESSION['usuario']=$user;
 				$_SESSION['timezone']=$user->tz;
 				
@@ -263,7 +263,7 @@ class Registro_forms extends CI_Controller {
 				
 				
 				$noticiaInsert['titulo']='Esta es una noticia de prueba';
-				$noticiaInsert['noticia']='Hola y bienvenido a '.URL_BASE.'.<br><br> Te mostramos una noticia de prueba para que la pruebes en cualquier dispositivo (móvil, tablet o escritorio).<br>Para los desarrolladores tienen una opción de copiar codigo de programación de forma que se vea mas claramente, como se puede ver mas abajo.'.
+				$noticiaInsert['noticia']='Hola y bienvenido a '.URL_BASE.'.<br><br> Te mostramos una noticia de prueba para que la pruebes en cualquier dispositivo.<br>Para los desarrolladores tienen una opción de copiar código de programación de forma que se vea mas claramente la sintaxis, como se puede ver mas abajo.'.
 						'<br><br><pre class="brush:cpp;">#include&lt;stdio.h&gt;
  
 int main()
@@ -286,7 +286,7 @@ int main()
     getch();
  
     return 0;
-}</pre><br>'.'Gracias por utilizar '.URL_BASE.' y recuerda que con la aplicación de escritorio podras agregar las noticias de una forma muy comoda y rápida para que no se te olvide nada.<br><br>Un saludo desde el equipo de '.URL_BASE.' !';
+}</pre><br>'.'Gracias por utilizar '.URL_BASE.' y recuerda que con la aplicación de escritorio podras agregar las noticias de una forma muy cómoda y rápida para que no se te olvide nada.<br><br>Un saludo desde el equipo de '.URL_BASE.' !';
 				
 				$this->Noticias_model->insert($noticiaInsert);
 				$insertSobremi=$insertBasico;

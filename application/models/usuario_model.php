@@ -32,11 +32,11 @@ class Usuario_model extends CI_Model {
 			return array();
 	}
 	
-	function login($email,$password,$preguntarPass=true){
+	function login($email,$password){
 		
 		$this->db->where('correo', $email);
 		
-		if ($preguntarPass)
+		if ($password)
 			$this->db->where('password', $password);
 		
 		$this->db->join('zone_time', 'zone_time.id_zone_time = usuario.id_zone_time');

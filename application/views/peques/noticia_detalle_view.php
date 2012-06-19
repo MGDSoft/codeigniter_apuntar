@@ -3,7 +3,7 @@
 		<div class="noticia_completa">
 			<div class="categoria_noticia">'
 				.(($admin)? '<span class="noticia_admin"> 
-				<a href="/'.$nombre_unico.'#!admin/modificar_noticia&id='.$noticia->id_noticia.'"><img ALIGN="absmiddle" src="'.PATH_IMG.'1x1.gif" class="modificar" width="32" height="32" title="'.$this->lang->line('modificar_noticia').'" ></a> 
+				<a href="/'.RUTA_PORTAL.'#!admin/modificar_noticia&id='.$noticia->id_noticia.'"><img ALIGN="absmiddle" src="'.PATH_IMG.'1x1.gif" class="modificar" width="32" height="32" title="'.$this->lang->line('modificar_noticia').'" ></a> 
 				<img ALIGN="absmiddle" title="'.$this->lang->line('borrar_noticia').'" src="'.PATH_IMG.'1x1.gif" class="borrar" width="32" height="32" onclick="request_simple_post(\'/forms/noticias_forms/delete_noticia\',\'&id='.$noticia->id_noticia.'\',\'\')"> </span>' : '')
 				.( ( ! isset($device) && ($noticia->comentable !=0 && !count($comentarios)==0 )) ? '<img ALIGN="absmiddle" title="'.$this->lang->line('ir_a_comentarios').'" class="anchorCom" height="32" width="32" src="'.PATH_IMG.'1x1.gif" onclick="scrolToElement(\'titulo_comentarios\')" > '.$this->lang->line('categoria').': <a href="javascript:nada()" onclick="buscarCategoria(this)">'.$noticia->nombre.'</a> ' : '' ).'
 			</div>

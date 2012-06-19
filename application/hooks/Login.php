@@ -55,7 +55,7 @@ class Login
 		if (isset($obj[0]) && isset($obj[1]))
 		{
 			
-			$user=$CI->Usuario_model->login($obj[0],$obj[1],true);
+			$user=$CI->Usuario_model->login($obj[0],$obj[1]);
 			
 			if ($user)
 				$_SESSION['usuario']=$user;

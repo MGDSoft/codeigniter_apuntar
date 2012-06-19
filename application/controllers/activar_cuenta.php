@@ -25,7 +25,7 @@
 		$usuario->activo=1;
 		if ($this->Usuario_model->update($id,$usuario))
 		{
-			$_SESSION['usuario']=$this->Usuario_model->login($usuario->correo,false,false);
+			$_SESSION['usuario']=$this->Usuario_model->login($usuario->correo,null);
 			redirect('/');
 		}else
 			$this->mostrarTexto($this->lang->line('error_db'));

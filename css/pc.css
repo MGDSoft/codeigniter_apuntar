@@ -67,6 +67,9 @@
 	.formulario_estandar textarea{
 		width: 340px !important;
 	}
+	.pantallas_grandes{
+		display:none;
+	}
 }
 h1{
 	font-size: 1.5em;
