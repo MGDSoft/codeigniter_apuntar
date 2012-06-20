@@ -16,6 +16,7 @@ class Login
 			$CI->load->helper('cookie');
 			$cookie=$CI->input->cookie('auto_login', TRUE);
 			//$cookie=cookie('auto_login');
+			
 				
 			if ($cookie)
 			{
