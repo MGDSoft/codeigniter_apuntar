@@ -45,7 +45,9 @@ if ($links!="")
 					hljs.highlightBlock(el,false,false);
 					
 				numberLines(el,1,true);
-				mycustom(el,'<?= $this->lang->line('copiar') ?>','<?= $this->lang->line('expandir') ?>','<?= $this->lang->line('contraer') ?>',false);
+				
+				if (nombre_unico != 'portal_devices')
+					mycustom(el,'<?= $this->lang->line('copiar') ?>','<?= $this->lang->line('expandir') ?>','<?= $this->lang->line('contraer') ?>',false);
 			
 			
 		}
