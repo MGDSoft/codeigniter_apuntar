@@ -2,7 +2,13 @@ var carpetaImg = "/img/";
 var iconoRapidoDefaultAjax = "<img src='" + carpetaImg + "ajax-loader.gif'>";
 
 function isIE()
-{return document.all?true:false;}
+{
+	if (Browser.ie6 || Browser.ie7 || Browser.ie8)
+		return true;
+	else
+		return false;
+	
+}
 
 function getHostname() {
 	return "http://" + window.location.hostname;

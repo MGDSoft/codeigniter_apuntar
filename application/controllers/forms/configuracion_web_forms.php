@@ -73,6 +73,11 @@
 	  	else
 	  		$update['visible']=0;
 	  	
+	  	if (isset($_POST['aviso_comentario']) && $_POST['aviso_comentario']=="1")
+	  		$update['aviso_comentario']=1;
+	  	else
+	  		$update['aviso_comentario']=0;
+	  	
 	  	$update['eslogan']=$this->input->post('eslogan');
 	  	
 	  	if (isset($_POST['logo_imagen']) && $_POST['logo_imagen']!="" && file_exists('.'.$this->input->post('logo_imagen')))

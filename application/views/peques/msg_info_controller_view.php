@@ -19,6 +19,9 @@ window.addEvent('domready', function() {
 			case 4:
 				printf(MSG_WATCHOUT,  $this->lang->line('error'),$this->lang->line('sesion_acabada'));
 				break;
+			case 5:
+				printf(MSG_INFO_URGENT,  $this->lang->line('correcto'),$this->lang->line('cuenta_recuperada'));
+				break;
 				
 		}
 	

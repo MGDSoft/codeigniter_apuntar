@@ -11,7 +11,8 @@ function comprobar_session_activa_y_redirect(){
 	else
 		return true;
 }
-function comprobarAdmin($configuracion_diseno=false,$expulsar_no_admins=false){
+function comprobarAdmin($configuracion_diseno=false,$expulsar_no_admins=false,$obtener_info_por_session=false){
+	
 	
 	if (isset($_SESSION['device']))
 	{
@@ -21,27 +22,35 @@ function comprobarAdmin($configuracion_diseno=false,$expulsar_no_admins=false){
 	}
 	$CI =& get_instance();
 	
-	if (isset($_POST['nombre_unico']))
+	if ($obtener_info_por_session && isset($_SESSION['usuario']))
 	{
-		$nombre_unico= $CI->input->post('nombre_unico');
+		$user_configuration=$CI->Usuario_configuracion_model->getById($_SESSION['usuario']->id_usuario,true);
+		$nombre_unico=$user_configuration->nombre_unico;
+		
 	}else{
 		
-		if($_SERVER['SERVER_NAME']!= base_url())
-	  	{
-	  		$array = explode('.',$_SERVER['SERVER_NAME']);
-	  	
-	  		if($array[0]!='www')
-	  			$nombre_unico=$array[0];
-	  		elseif($array[0]=='www')
-	  			$nombre_unico=$array[1];
-	 	
-	  	}
-	}
-	 	
-
+		if (isset($_POST['nombre_unico']))
+		{
+			$nombre_unico= $CI->input->post('nombre_unico');
+		}else{
+			
+			if($_SERVER['SERVER_NAME']!= base_url())
+		  	{
+		  		$array = explode('.',$_SERVER['SERVER_NAME']);
+		  	
+		  		if($array[0]!='www')
+		  			$nombre_unico=$array[0];
+		  		elseif($array[0]=='www')
+		  			$nombre_unico=$array[1];
+		 	
+		  	}
+		}
+		 	
 	
-  	$user_configuration=$CI->Usuario_configuracion_model->getByNombreUnico($nombre_unico,$configuracion_diseno);
-  	
+		
+	  	$user_configuration=$CI->Usuario_configuracion_model->getByNombreUnico($nombre_unico,$configuracion_diseno);
+	}
+	
   	$result['admin']=((isset($_SESSION['usuario']) 
   			&& isset($user_configuration) && $_SESSION['usuario']->id_usuario==$user_configuration->id_usuario)
   			? true : false);

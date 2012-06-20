@@ -14,6 +14,7 @@
 			} ?>
 		</select>
 		</td></tr>
+		<tr><th><?= $this->lang->line('aviso_respuesta_correo') ?></th><td><input type="checkbox" name="aviso_respuesta" id="aviso_respuesta" value="1" <?= (($usuario->aviso_respuesta==1 )? 'checked="checked"' : '' ) ?>></td></tr>
 		<tr><td colspan='2' align='right'><input type="submit" name="enviar" class='boton_standart' value="<?= $this->lang->line('enviar') ?>"></td></tr>
 		</table>
 		<input name="iehack" type="hidden" value="&#9760;" />

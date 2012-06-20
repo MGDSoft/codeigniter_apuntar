@@ -3,11 +3,12 @@
 		
 		<div class="titulo_l">Aplicación de escritorio</div>
 		<ul>
-			<li><a href="/descargas/win32.jar" target="_blank">Windows 32bits</a></li>
-			<li><a href="/descargas/win64.jar" target="_blank">Windows 64bits</a></li>
-			<li><a href="/descargas/lin32.jar" target="_blank">Linux 32bits</a></li>
-			<li><a href="/descargas/lin64.jar" target="_blank">Linux 64bits</a></li>
+			<li><a href="/descargas/apuntar_win32.jar" target="_blank">Windows 32bits</a></li>
+			<li><a href="/descargas/apuntar_win64.jar" target="_blank">Windows 64bits</a></li>
+			<li><a href="/descargas/apuntar_lin32.jar" target="_blank">Linux 32bits</a></li>
+			<li><a href="/descargas/apuntar_lin64.jar" target="_blank">Linux 64bits</a></li>
 		</ul>
+		<a href="https://www.java.com/es/download/" class="need_java" target="_blank" rel="nofollow">Es necesario tener instalado java 1.6 en adelante</a>
 		<div class="titulo_l">Blogs de ejemplo</div>
 		<ul>
 				<?php foreach ($ejemplos as $nuevo)

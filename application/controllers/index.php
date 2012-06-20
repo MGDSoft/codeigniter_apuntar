@@ -29,8 +29,8 @@
    $portal->contacto_facebook='';
    
    $datos['usuario_configuracion']=$portal;
-   $datos['nuevos']=$this->Usuario_model->getLast10();
-   $datos['ejemplos']=$this->Usuario_model->getLast10('ASC',3);
+   $datos['nuevos']=$this->Usuario_model->getLast(null,5);
+   $datos['ejemplos']=$this->Usuario_model->getLast('ASC',5);
    
    $this->load->view('subtemplates/metas_portada_view',$data);
    $this->load->view('peques/iniciador_portada_js_view');

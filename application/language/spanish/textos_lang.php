@@ -236,9 +236,25 @@ $lang['usuario_no_existe'] = 'El usuario no existe';
 
 $lang['usuario_ya_activo'] = 'El usuario ya esta activado..';
 $lang['activar_tu_cuenta'] = 'Revisa tu correo, deberás activar tu cuenta pulsando el link que te adjuntamos.';
+
 $lang['activar_tu_cuenta_correo_subject'] = 'Activar cuenta';
 $lang['activar_tu_cuenta_correo_texto'] = 'Bienvenido a '.URL_BASE.'!!!.<br><br>Para activar tu cuenta deberas pulsar la siguiente direccion:<br><b><a href="%s">%s</a></b> <br><br>Tus datos de usuario son: <br><br> Usuario: %s <br>Contraseña: %s';
 
+
+
+$lang['aviso_respuesta_correo'] = 'Enviar correo si me responden';
+$lang['aviso_comentario_correo'] = 'Enviar correo si comentan';
+$lang['aviso_subject_correo_respuesta_comentario'] = 'Han respondido a tu comentario';
+$lang['aviso_subject_correo_nuevo_comentario'] = 'Han escrito un nuevo comentario en tu noticia';
+$lang['aviso_correo_respuesta_comentario'] = 'Han respondido a tu comentario en la noticia %s<br><br>Comentario de %s: %s <br><br>Puedes verlo en %s';
+$lang['aviso_correo_nuevo_comentario'] = 'Tienes un nuevo comentario en la noticia %s<br><br>Comentario de %s: %s <br><br>Puedes verlo en %s';
+
+$lang['recuperar_tu_cuenta'] = 'Revisa tu correo, podrás recuperar tu cuenta pulsando el link que te adjuntamos.';
+$lang['recordar_usuario_texto_done'] = 'Tú contraseña ha sido modificada, los datos son.<br><br>Usuario: %s<br>Contraseña: %s<br><br>';
+$lang['recordar_usuario_texto'] = 'Ha olvidado su contraseña? si ha pedido usted recuperar la contraseña, sigua el siguiente link<br><br>%s';
+$lang['recordar_usuario_subject'] = 'Recuperar contraseña';
+
+$lang['cuenta_recuperada'] = 'Tu contraseña ha sido regenerada de manera aleatoria.<br>Puedes mirar la nueva contraseña en el correo.';
 
 $lang['sesion_acabada'] = 'La sesión ha finalizado, vuelve a logearte';
 

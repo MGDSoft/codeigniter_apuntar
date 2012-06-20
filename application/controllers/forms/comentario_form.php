@@ -253,6 +253,7 @@ class Comentario_form extends CI_Controller {
 			
 			$noticia=$this->Noticias_model->getById($insert['id_noticia']);
 			
+			
 			if (!$noticia || ($noticia->visible==0 && !isset($_SESSION['usuario']) && $noticia->id_usuario != $_SESSION['usuario']->id_usuario) )
 			{
 				printf(MSG_ERROR, $this->lang->line('trampeando'));
@@ -265,10 +266,50 @@ class Comentario_form extends CI_Controller {
 			else
 				$insert['id_usuario']= 0; // Anónimo
 			
+			$usuarioAdmin=$this->Usuario_model->getById($noticia->id_usuario,false,true);
 			
 			if ($id_comment=$this->Comentarios_model->insert($insert))
 			{
+				// Envio de correo si el comentarios es de una respuesta
+				if ($insert['id_respuesta']!= 0)
+				{
+					$comentario=$this->Comentarios_model->getById($insert['id_respuesta']);
+					
+					if ($comentario->id_usuario!= ID_ANONIMO)
+						$usuarioRespuesta=$this->Usuario_model->getById($comentario->id_usuario,false,true);
 
+					if (isset($usuarioRespuesta) && $usuarioRespuesta->aviso_respuesta==1)
+					{
+						$texto_correo=sprintf($this->lang->line('aviso_correo_respuesta_comentario')
+								,$noticia->titulo
+								, (isset($_SESSION['usuario']) ? $_SESSION['usuario']->nombre.' '.$_SESSION['usuario']->apellidos : $this->lang->line('anonimo'))
+								, $insert['comentario']
+								,"<a href='http//".$usuarioAdmin->nombre_unico.'.'.URL_BASE.'/portal#!news/'.url_title($noticia->titulo).'/'.$noticia->id_noticia.'/\'>'.$noticia->titulo.'</a>'
+						);
+						sendEmail($usuarioRespuesta->correo,$this->lang->line('aviso_subject_correo_respuesta_comentario'), $texto_correo);
+					}
+						
+				}
+				
+				// Envio de correo para el administrador de la página
+				
+				
+				if ($usuarioAdmin && $usuarioAdmin->aviso_comentario==1 
+						&& !(isset($usuarioRespuesta) && $usuarioRespuesta->aviso_respuesta==1 && $usuarioAdmin->aviso_comentario==1 
+								&& $usuarioRespuesta->id_usuario == $usuarioAdmin->id_usuario))
+				{
+
+					$texto_correo=sprintf($this->lang->line('aviso_correo_nuevo_comentario')
+							,$noticia->titulo
+							, (isset($_SESSION['usuario']) ? $_SESSION['usuario']->nombre.' '.$_SESSION['usuario']->apellidos : $this->lang->line('anonimo'))
+							, $insert['comentario']
+							,"<a href='http//".$usuarioAdmin->nombre_unico.'.'.URL_BASE.'/portal#!news/'.url_title($noticia->titulo).'/'.$noticia->id_noticia.'/\'>'.$noticia->titulo.'</a>'
+							);
+					sendEmail($usuarioAdmin->correo,$this->lang->line('aviso_subject_correo_nuevo_comentario'), $texto_correo);
+				}
+
+				// Fin de los envios de correo
+					
 				$update['comentarios']=$this->Comentarios_model->countByIdNoticia($noticia->id_noticia);
 				$this->Noticias_model->update($noticia->id_usuario,$noticia->id_noticia,$update);
 				

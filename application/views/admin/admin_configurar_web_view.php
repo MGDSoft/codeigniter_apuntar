@@ -45,8 +45,8 @@ $fontFamily[17]['nombre']='Verdana, Geneva, sans-serif';$fontFamily[17]['valor']
 						<tr><th><?= $this->lang->line('eslogan') ?></th><td><input MAXLENGTH='70' type="text" name="eslogan" onkeyup="$('descripcion').innerHTML=this.value" id="eslogan" value='<?= $usuario_configuracion->eslogan ?>' ></td></tr>
 						<tr><th><?= $this->lang->line('comentable_anonimos') ?></th><td><input type="checkbox" name="comentable_anonimos" id="comentable_anonimos" <?= (($usuario_configuracion->comentable_anonimos==1 )? 'checked="checked"' : '' ) ?> value="1"></td></tr>
 						<tr><th><?= $this->lang->line('publica') ?></th><td><input type="checkbox" name="visible" id="visible" value="1" <?= (($usuario_configuracion->visible==1 )? 'checked="checked"' : '' ) ?>></td></tr>
+						<tr><th><?= $this->lang->line('aviso_comentario_correo') ?></th><td><input type="checkbox" name="aviso_comentario" id="aviso_comentario" value="1" <?= (($usuario_configuracion->aviso_comentario==1 )? 'checked="checked"' : '' ) ?>></td></tr>
 						
-				
 						<tr><th class="separador"><?= $this->lang->line('titulo_logo') ?></th></tr>
 						<tr><th><?= $this->lang->line('logo') ?></th><td>
 						

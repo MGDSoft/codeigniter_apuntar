@@ -19,7 +19,7 @@ class Usuario_model extends CI_Model {
 		return 0;
 	}
 	
-	function getLast10($desc='DESC',$limit=10)
+	function getLast($desc='DESC',$limit=10)
 	{
 		$this->db->order_by('fecha',$desc);
 		$this->db->join('usuario_configuracion', 'usuario.id_usuario = usuario_configuracion.id_usuario');
@@ -52,15 +52,20 @@ class Usuario_model extends CI_Model {
 
 	}
 	 
-	function getById($id,$getZone=true){
+	function getById($id,$getZone=true,$usuarioConfiguracion=false){
 			
-		$this->db->where('id_usuario', $id);
+		
+		$this->db->where('usuario.id_usuario', $id);
 		
 		if ($getZone)
 			$this->db->join('zone_time', 'zone_time.id_zone_time = usuario.id_zone_time');
 		
+		if ($usuarioConfiguracion)
+			$this->db->join('usuario_configuracion', 'usuario_configuracion.id_usuario = usuario.id_usuario');
+		
 		$query = $this->db->get($this->table);
-
+		
+		
 		if ($query->num_rows() > 0)
 			return $query->row();
 		else

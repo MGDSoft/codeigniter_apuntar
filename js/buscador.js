@@ -138,7 +138,7 @@ llamadaBusqueda: function(){
    if (valor.length >= this.options.busqueda_caracteres)
    {
 	   
-	   vars='valor='+valor+'&id_web='+this.id_web +  ((this.buscador==1 &&  !$('buscador_tipo').hasClass(this.options.ghost_class) ) ? '&categoria=' + $('buscador_tipo').value : '');
+	   vars='valor='+encodeURIComponent(valor)+'&id_web='+this.id_web +  ((this.buscador==1 &&  !$('buscador_tipo').hasClass(this.options.ghost_class) ) ? '&categoria=' + encodeURIComponent($('buscador_tipo').value) : '');
 	   
 	   new Request({
 		    url: this.url_busqueda,

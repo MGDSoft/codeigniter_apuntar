@@ -15,7 +15,7 @@ class Registro_forms extends CI_Controller {
 		$this->load->model('Noticias_model');
 		$this->load->helper('string');
 		$this->load->helper('cookie');
-		
+		$this->load->helper('string');
 	 }
 	 public function update()
 	 {
@@ -30,7 +30,7 @@ class Registro_forms extends CI_Controller {
 	 		printf(MSG_ERROR, preg_replace('~[\r\n]+~', '', validation_errors()));
 	 	}else{
 	 			
-	 		$this->load->helper('string');
+	 		
 	 			
 	 		
 	 			
@@ -38,6 +38,11 @@ class Registro_forms extends CI_Controller {
 	 		$update['apellidos']= $this->input->post('apellidos');
 	 		$update['correo']= $this->input->post('correo');
 	 		$update['id_zone_time']= $this->input->post('uso_horario');
+	 		
+	 		if (isset($_POST['aviso_respuesta']) && $_POST['aviso_respuesta']=="1")
+	 			$update['aviso_respuesta']=1;
+	 		else
+	 			$update['aviso_respuesta']=0;
 	 			
 	 			
 	 		if ($this->Usuario_model->update($_SESSION['usuario']->id_usuario,$update))
@@ -110,7 +115,7 @@ class Registro_forms extends CI_Controller {
 	 		
 	 		$cookie=$this->input->cookie('exceso_recuperar', TRUE);
 	 		
-	 		if ($_SESSION['conteo']>3)
+	 		if ($_SESSION['conteo']>10 && $cookie)
 	 		{
 	 			printf(MSG_WATCHOUT, $this->lang->line('trampeando'), $this->lang->line('numero_de_peticiones_excesiva'));
 	 			$cookie = array(
@@ -126,17 +131,15 @@ class Registro_forms extends CI_Controller {
 	 		
 	 		$correo=$this->input->post('correo');
 	 		
-	 		if ($this->Usuario_model->existe_correo($correo))
+	 		if ($usuario=$this->Usuario_model->login($correo,null))
 			{
-				$update['password']=md5(strtoupper(random_string('alpha', 6)));
-				if ($this->Usuario_model->updateByCorreo($correo,$update))
-				{
-					// Mandar correo que falta
-					printf(MSG_INFO_URGENT, $this->lang->line('correcto'), $this->lang->line('password_cambiada'));
-					
-				}else
-					
-					printf(MSG_ERROR, $this->lang->line('error_db'));
+				
+				$urlActivarCuenta='http://'.URL_BASE.'/activar_cuenta/recuperar_contrasena?id='.$usuario->id_usuario.'&codigo='.$usuario->activar_cuenta;
+				$texto_correo=sprintf($this->lang->line('recordar_usuario_texto'),'<a href="'.$urlActivarCuenta.'">'.$urlActivarCuenta.'</a>');
+				sendEmail($correo,$this->lang->line('recordar_usuario_subject'), $texto_correo);
+				
+				printf(MSG_INFO_URGENT, $this->lang->line('correcto'), $this->lang->line('recuperar_tu_cuenta'));
+				printf(CARGAR_PAGINA_JS,((isset($_SESSION['device'])) ? 'bienvenido' : '' ));
 				
 			}else{
 				

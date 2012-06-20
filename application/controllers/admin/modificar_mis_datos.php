@@ -12,7 +12,7 @@ class Modificar_mis_datos extends CI_Controller{
 
 	function index()
 	{
-		$portal_ini=comprobarAdmin(false,true);
+		$portal_ini=comprobarAdmin(false,true,true);
 		
 		
 		$portal_ini['usuario']=$this->Usuario_model->getById($_SESSION['usuario']->id_usuario);
