@@ -156,7 +156,7 @@ function darAnchoContenedorVariable(){
 	var nuevoAncho;
 	
 	if (nombre_unico == 'portal_devices')
-		nuevoAncho=($('contenedor_titulo_buscador').getStyle('width').toInt() -30)+'px'; // para device en bienvenida
+		nuevoAncho=($('menu_device').getStyle('width').toInt() -30)+'px'; // para device en bienvenida
 	else
 		nuevoAncho=contenedor.getStyle('width');
 	

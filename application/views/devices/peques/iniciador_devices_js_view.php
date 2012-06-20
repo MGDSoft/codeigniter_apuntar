@@ -50,7 +50,7 @@ window.addEvent('domready', function() {
 		});
 	<? } ?>
 
-	cargarPaginaInit();
+	
 	
 	var HM = new HashListener();
 	var anteriorHas;
