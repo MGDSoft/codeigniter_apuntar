@@ -250,8 +250,8 @@ $lang['aviso_correo_respuesta_comentario'] = 'Han respondido a tu comentario en 
 $lang['aviso_correo_nuevo_comentario'] = 'Tienes un nuevo comentario en la noticia %s<br><br>Comentario de %s: %s <br><br>Puedes verlo en %s';
 
 $lang['recuperar_tu_cuenta'] = 'Revisa tu correo, podrás recuperar tu cuenta pulsando el link que te adjuntamos.';
-$lang['recordar_usuario_texto_done'] = 'Tú contraseña ha sido modificada, los datos son.<br><br>Usuario: %s<br>Contraseña: %s<br><br>';
-$lang['recordar_usuario_texto'] = 'Ha olvidado su contraseña? si ha pedido usted recuperar la contraseña, sigua el siguiente link<br><br>%s';
+$lang['recordar_usuario_texto_done'] = 'Tu contraseña ha sido modificada, los datos son.<br><br>Usuario: %s<br>Contraseña: %s<br><br>';
+$lang['recordar_usuario_texto'] = 'Ha olvidado su contraseña? si ha pedido usted recuperar la contraseña, siga el siguiente link<br><br>%s';
 $lang['recordar_usuario_subject'] = 'Recuperar contraseña';
 
 $lang['cuenta_recuperada'] = 'Tu contraseña ha sido regenerada de manera aleatoria.<br>Puedes mirar la nueva contraseña en el correo.';
