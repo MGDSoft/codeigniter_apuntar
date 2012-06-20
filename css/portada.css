@@ -274,7 +274,15 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#f6f8f9', end
 	float:right;
 	height: 368px;
 	margin-left:20px;
+}
+#video div{
+	text-align:center;
+	font-size:1.6em;
+	color:#FAFAFA;
+	text-shadow:1px 2px 0px #404;
+	width:400px;
 	
+	margin:45px 10px;
 }
 
 #galeria{

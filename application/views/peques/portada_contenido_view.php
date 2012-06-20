@@ -1,5 +1,6 @@
 	<div id="video">
-		<iframe width="420" height="315" src="http://www.youtube.com/embed/Mb_UlOfGJCE" frameborder="0" allowfullscreen></iframe>
+		
+		<div>Ten tu blog personal, tipo agenda, con tu información organizada en una sola web y accesible desde cualquier plataforma.<br><br> Con aplicación de escritorio para agilizar el proceso de escritura y mejorar el rendimiento en tu trabajo.</div>
 	</div>
 	
 		<h2>Descubre todo lo que puede hacer por ti <?= URL_BASE ?></h2>
