@@ -284,7 +284,7 @@ class Comentario_form extends CI_Controller {
 								,$noticia->titulo
 								, (isset($_SESSION['usuario']) ? $_SESSION['usuario']->nombre.' '.$_SESSION['usuario']->apellidos : $this->lang->line('anonimo'))
 								, $insert['comentario']
-								,"<a href='http://".$usuarioAdmin->nombre_unico.'.'.URL_BASE.'/portal'.urlencode('#!').'news/'.url_title($noticia->titulo).'/'.$noticia->id_noticia.'/\'>'.$noticia->titulo.'</a>'
+								,"<a href='http://".$usuarioAdmin->nombre_unico.'.'.URL_BASE.'/portal#xnews/'.url_title($noticia->titulo).'/'.$noticia->id_noticia.'/\'>'.$noticia->titulo.'</a>'
 						);
 						sendEmail($usuarioRespuesta->correo,$this->lang->line('aviso_subject_correo_respuesta_comentario'), $texto_correo);
 					}
@@ -303,7 +303,7 @@ class Comentario_form extends CI_Controller {
 							,$noticia->titulo
 							, (isset($_SESSION['usuario']) ? $_SESSION['usuario']->nombre.' '.$_SESSION['usuario']->apellidos : $this->lang->line('anonimo'))
 							, $insert['comentario']
-							,"<a href='http://".$usuarioAdmin->nombre_unico.'.'.URL_BASE.'/portal'.urlencode('#!').'news/'.url_title($noticia->titulo).'/'.$noticia->id_noticia.'/\'>'.$noticia->titulo.'</a>'
+							,"<a href='http://".$usuarioAdmin->nombre_unico.'.'.URL_BASE.'/portal#xnews/'.url_title($noticia->titulo).'/'.$noticia->id_noticia.'/\'>'.$noticia->titulo.'</a>'
 							);
 					sendEmail($usuarioAdmin->correo,$this->lang->line('aviso_subject_correo_nuevo_comentario'), $texto_correo);
 				}
