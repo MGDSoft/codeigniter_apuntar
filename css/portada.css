@@ -277,9 +277,9 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#f6f8f9', end
 }
 #video div{
 	text-align:center;
-	font-size:1.6em;
+	font-size:1.5em;
 	color:#FAFAFA;
-	text-shadow:1px 2px 0px #404;
+	text-shadow:1px 2px 2px #616161;
 	width:400px;
 	
 	margin:45px 10px;
