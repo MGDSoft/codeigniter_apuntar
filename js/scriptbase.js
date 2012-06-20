@@ -89,7 +89,7 @@ var enviar_form_ajax = function(formulario, url_envio, ver_resultado, ejecutar_s
 					$(ver_resultado).innerHTML = responseText;
 	
 				if (responseText != "OK") {
-					log("error: " + responseText + ".");
+					
 					if (ver_resultado != "" && $(ver_resultado)) {
 						$(ver_resultado).innerHTML = responseText;
 					} else
@@ -244,7 +244,9 @@ function cargar_pagina_stadart(url_txt, vars, caja_respuesta,evalToDo) {
 			}
 		},
 		onSuccess : function(responseText) {
-			new Fx.Scroll(window).toTop();
+			if (responseText.indexOf("scrol")==-1)
+				new Fx.Scroll(window).toTop();
+			
 			//log(responseText);
 			if (!isIE())
 				waiter_disable();
