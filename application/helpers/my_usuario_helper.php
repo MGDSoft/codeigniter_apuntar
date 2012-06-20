@@ -13,14 +13,15 @@ function comprobar_session_activa_y_redirect(){
 }
 function comprobarAdmin($configuracion_diseno=false,$expulsar_no_admins=false,$obtener_info_por_session=false){
 	
+	$CI =& get_instance();
 	
-	if (isset($_SESSION['device']))
+	if (isset($_SESSION['device']) || isset($_POST['device']))
 	{
 		
 		return comprobarAdminDevices($configuracion_diseno=false,$expulsar_no_admins=false);
 		exit;
 	}
-	$CI =& get_instance();
+	
 	
 	if ($obtener_info_por_session && isset($_SESSION['usuario']))
 	{

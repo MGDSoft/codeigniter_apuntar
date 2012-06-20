@@ -28,11 +28,16 @@ elseif($array[0]=='www')
 	$method=$array[1];
 
 if ($method=="devices")
+{
 	define ('RUTA_PORTAL','portal_devices');
+	$_SESSION['device']=true;
+}
 else if ($method.$extra==URL_BASE)
 	define ('RUTA_PORTAL','');
 else
 	define ('RUTA_PORTAL','portal');
+
+
 
 
 define ('URL_WEB_NOT_FOUND','/index.php?info=2');
