@@ -11,6 +11,7 @@
 	color: inherit;
 	margin:0;
 	padding:0;
+	width:150px;
 }
 #caja_login ul.qq-upload-list,#caja_login  .qq-upload-drop-area{
 	display: none;
