@@ -49,6 +49,9 @@ window.addEvent('domready', function() {
 			obj_buscadorCategorias.vaciarCajaSugerencias();
 		});
 	<? } ?>
+
+	cargarPaginaInit();
+	
 	var HM = new HashListener();
 	var anteriorHas;
 	HM.addEvent('hashChanged',function(new_hash){ 
