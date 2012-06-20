@@ -88,14 +88,14 @@
 		  		$update['logo']=str_replace(PATH_IMG."usuario/logo/", "", $update['logo']);	
 	  	}
 	  	
-  		$update['contacto_facebook']= $this->input->post('contacto_facebook');
-  		$update['contacto_google']= $this->input->post('contacto_google');
+  		$update['contacto_facebook']= (($this->input->post('contacto_facebook')=='http://')? '' : $this->input->post('contacto_facebook'));
+  		$update['contacto_google']= (($this->input->post('contacto_google')=='http://')? '' : $this->input->post('contacto_google'));$this->input->post('contacto_google');
   		$update['contacto_email']= $this->input->post('contacto_email');
-  		$update['contacto_steam']= $this->input->post('contacto_steam');
-  		$update['contacto_youtube']= $this->input->post('contacto_youtube');
-  		$update['contacto_twitter']= $this->input->post('contacto_twitter');
-  		$update['contacto_tuenti']= $this->input->post('contacto_tuenti');
-  		$update['contacto_pagina_personal']= $this->input->post('contacto_pagina_personal');
+  		$update['contacto_steam']= (($this->input->post('contacto_steam')=='http://')? '' : $this->input->post('contacto_steam'));
+  		$update['contacto_youtube']= (($this->input->post('contacto_youtube')=='http://')? '' : $this->input->post('contacto_youtube'));
+  		$update['contacto_twitter']= (($this->input->post('contacto_twitter')=='http://')? '' : $this->input->post('contacto_twitter'));
+  		$update['contacto_tuenti']= (($this->input->post('contacto_tuenti')=='http://')? '' : $this->input->post('contacto_tuenti'));
+  		$update['contacto_pagina_personal']= (($this->input->post('contacto_pagina_personal')=='http://')? '' : $this->input->post('contacto_pagina_personal'));
   		
   		if ($this->Usuario_configuracion_model->update($user_configuration->id_configuracion,$update))
   		{

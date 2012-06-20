@@ -1,6 +1,5 @@
 	<div id="video">
-		<!-- <iframe width="420" height="315" src="http://www.youtube.com/embed/Mb_UlOfGJCE" frameborder="0" allowfullscreen></iframe> -->
-		
+		<iframe width="420" height="315" src="http://www.youtube.com/embed/Mb_UlOfGJCE" frameborder="0" allowfullscreen></iframe>
 	</div>
 	
 		<h2>Descubre todo lo que puede hacer por ti <?= URL_BASE ?></h2>

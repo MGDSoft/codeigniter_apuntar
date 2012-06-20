@@ -106,7 +106,7 @@ $lang['bordes_grosor'] = 'Grosor del borde';
 
 $lang['fondo_color_pagina'] = 'Color de fondo';
 $lang['fondo_imagen'] = 'Imagen de fondo';
-
+$lang['fondo_imagen_estilo'] = 'Imagen de fondo alineacion';
 
 $lang['border_dashed'] = 'Rayado';
 $lang['border_dotted'] = 'Punteado';

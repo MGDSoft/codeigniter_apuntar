@@ -62,14 +62,14 @@ $fontFamily[17]['nombre']='Verdana, Geneva, sans-serif';$fontFamily[17]['valor']
 						
 						<tr><th class="separador"><?= $this->lang->line('contacto') ?></th></tr>
 						
-						<tr><th><?= $this->lang->line('contacto_pagina_personal') ?></th><td><input type="input" name="contacto_pagina_personal" id="contacto_pagina_personal" value="<?= $usuario_configuracion->contacto_pagina_personal ?>"></td></tr>
-						<tr><th>Email</th><td><input type="input" name="contacto_email" id="contacto_email" value="<?= $usuario_configuracion->contacto_email ?>"></td></tr>
-						<tr><th>Google+</th><td><input type="input" name="contacto_google" id="contacto_google" value="<?= $usuario_configuracion->contacto_google ?>"></td></tr>
-						<tr><th>Facebook</th><td><input type="input" name="contacto_facebook" id="contacto_facebook" value="<?= $usuario_configuracion->contacto_facebook ?>"></td></tr>
-						<tr><th>Steam</th><td><input type="input" name="contacto_steam" id="contacto_steam" value="<?= $usuario_configuracion->contacto_steam ?>"></td></tr>
-						<tr><th>You tube</th><td><input type="input" name="contacto_youtube" id="contacto_youtube" value="<?= $usuario_configuracion->contacto_youtube ?>"></td></tr>
-						<tr><th>Twitter</th><td><input type="input" name="contacto_twitter" id="contacto_twitter" value="<?= $usuario_configuracion->contacto_twitter ?>"></td></tr>
-						<tr><th>Tuenti</th><td><input type="input" name="contacto_tuenti" id="contacto_tuenti" value="<?= $usuario_configuracion->contacto_tuenti ?>"></td></tr>
+						<tr><th><?= $this->lang->line('contacto_pagina_personal') ?></th><td><input type="input" name="contacto_pagina_personal" id="contacto_pagina_personal" value="<?= (empty($usuario_configuracion->contacto_pagina_personal ) ? 'http://' : $usuario_configuracion->contacto_pagina_personal) ?>"></td></tr>
+						<tr><th>Email</th><td><input type="input" name="contacto_email" id="contacto_email" value="<?= (empty($usuario_configuracion->contacto_email) ? '' : $usuario_configuracion->contacto_email ) ?>"></td></tr>
+						<tr><th>Google+</th><td><input type="input" name="contacto_google" id="contacto_google" value="<?= (empty($usuario_configuracion->contacto_google) ? 'http://' : $usuario_configuracion->contacto_google) ?>"></td></tr>
+						<tr><th>Facebook</th><td><input type="input" name="contacto_facebook" id="contacto_facebook" value="<?= (empty($usuario_configuracion->contacto_facebook) ? 'http://' : $usuario_configuracion->contacto_facebook) ?>"></td></tr>
+						<tr><th>Steam</th><td><input type="input" name="contacto_steam" id="contacto_steam" value="<?= (empty($usuario_configuracion->contacto_steam) ? 'http://' : $usuario_configuracion->contacto_steam) ?>"></td></tr>
+						<tr><th>You tube</th><td><input type="input" name="contacto_youtube" id="contacto_youtube" value="<?= (empty($usuario_configuracion->contacto_youtube) ? 'http://' : $usuario_configuracion->contacto_youtube) ?>"></td></tr>
+						<tr><th>Twitter</th><td><input type="input" name="contacto_twitter" id="contacto_twitter" value="<?= (empty($usuario_configuracion->contacto_twitter) ? 'http://' : $usuario_configuracion->contacto_twitter) ?>"></td></tr>
+						<tr><th>Tuenti</th><td><input type="input" name="contacto_tuenti" id="contacto_tuenti" value="<?= (empty($usuario_configuracion->contacto_tuenti) ? 'http://' : $usuario_configuracion->contacto_tuenti) ?>"></td></tr>
 						
 						<tr><td></td><td align="right"><input type="submit" class='boton_standart' value="<?= $this->lang->line('enviar') ?>"></td></tr>
 									
@@ -117,7 +117,7 @@ $fontFamily[17]['nombre']='Verdana, Geneva, sans-serif';$fontFamily[17]['valor']
 							</div>
 							
 								</td></tr>
-						<tr><th><?= $this->lang->line('fondo_imagen') ?></th><td><select name="fondo_estilo" id="fondo_estilo" onchange="$$('body')[0].className=this.value">
+						<tr><th><?= $this->lang->line('fondo_imagen_estilo') ?></th><td><select name="fondo_estilo" id="fondo_estilo" onchange="$$('body')[0].className=this.value">
 									<?php
 			
 										foreach ($arrecorrer as $actu)
