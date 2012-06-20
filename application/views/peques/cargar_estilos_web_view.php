@@ -95,7 +95,7 @@ ul#menu li, .comentario_completo div.extras_comentario, .formulario_estandar fie
 	border-radius: 0 0 10px 10px;
 	border-bottom-right-radius: 10px;
 	border-bottom-left-radius: 10px;
-	font-size:0.9em !important;
+	font-size:13px !important;
 	-moz-box-shadow: 0px 8px 15px <?= $usuario_configuracion->bordes_color ?>;
 	-webkit-box-shadow: 0px 8px 15px <?= $usuario_configuracion->bordes_color ?>;
 	box-shadow: 0px 8px 15px <?= $usuario_configuracion->bordes_color ?>;

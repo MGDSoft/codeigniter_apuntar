@@ -1,3 +1,17 @@
+<?php function buscar_nombre_categoria($id,$categorias){
+	
+	if ($id==0)
+		return '';
+	
+	foreach ($categorias as $cat)
+	{
+		if ($cat->id_categoria == $id)
+		{
+			return $cat->nombre.' - ';	
+		}
+	}
+}
+?>
 <form id='nueva_noticia_form' class='formulario_estandar' name="nueva_noticia_form"  action="javascript:enviar_form_ajax('nueva_noticia_form','/forms/noticias_forms/<?= (($accion=='insert')? 'insertar_noticia' : 'update_noticia') ?>','','','/index.php?info=1')" method="post" >
 <fieldset>
 	<legend><?= (($accion == 'insert') ? $this->lang->line('admin_nueva_noticia') : $this->lang->line('admin_modificar_noticia')) ?></legend>
@@ -9,7 +23,7 @@
 			<tr><th><?= $this->lang->line('categoria') ?></th></tr>
 			<tr><td><select name="categoria_noticia" id="categoria_noticia">
 			<?php foreach($categorias as $categoria){
-				?><option <?= ((isset($noticia) && $noticia->id_categoria == $categoria->id_categoria)? 'selected="selected"' :'' ) ?> value="<?= $categoria->id_categoria ?>"><?= $categoria->nombre ?></option>  <?php 
+				?><option <?= ((isset($noticia) && $noticia->id_categoria == $categoria->id_categoria)? 'selected="selected"' :'' ) ?> value="<?= $categoria->id_categoria ?>"><?= buscar_nombre_categoria($categoria->id_padre,$categorias) . $categoria->nombre  ?></option>  <?php 
 			 } ?>
 			</select>
 			</td></tr>
