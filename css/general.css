@@ -120,9 +120,11 @@ html, body{
 	-moz-border-radius-topright: 10px;
 	-moz-border-radius-bottomright: 10px;
 	border-radius:0 10px 10px 0;
-	margin-left:10px\0/IE8;
-	:root margin-left: 0px\9;
+	margin-left:10px\0/IE8;	
 	behavior: url('/img/PIE.htc');
+}
+:root #contenedor_titulo_buscador #buscar_boton input{
+	margin-left: 0px\9;
 }
 #contenedor_titulo_buscador #buscador_tipo{
 	width:150px;
