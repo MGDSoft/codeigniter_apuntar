@@ -3,6 +3,7 @@
 	font-size: 1.2em !important;
 	padding:15px 0;
 	text-decoration: underline;
+	color: inherit;
 }
 .formulario_estandar fieldset{
 	padding:0 15px;
