@@ -47,6 +47,9 @@
 	  	
 	  }
 	  
+	  public function prueba_borrar_cat(){
+	  	print_r( $this->Categorias_model->obtenerIdsCategoriasHijas($_SESSION['usuario']->id_usuario,3));
+	  }
 	  function borrar_categoria()
 	  {
 

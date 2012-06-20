@@ -154,6 +154,8 @@ class Registro_forms extends CI_Controller {
 	public function index()
 	{
 		
+		$nombresProhibidos=array('devices','mobile','mgdsoftware');
+		
 		$this->form_validation->set_rules('correo','correo','required|valid_email|trim');
 		$this->form_validation->set_rules('contrasena','contrasena','required|trim|md5');
 		$this->form_validation->set_rules('recontrasena','recontrasena','required|matches[contrasena]|trim');
@@ -192,7 +194,12 @@ class Registro_forms extends CI_Controller {
 				printf(MSG_ERROR_CAMPO, 'correo',$this->lang->line('correo_error_repetido'));
 				exit;
 				
-			}else if ($this->Usuario_configuracion_model->existe_nombre_unico($insertConfiguracion['nombre_unico'])){
+			}else if(in_array($insertConfiguracion['nombre_unico'], $nombresProhibidos,true)){
+				
+				printf(MSG_ERROR_CAMPO, 'titulo_registro',$this->lang->line('titulo_error_restringido'));
+				exit;
+				
+			}else if ($this->Usuario_configuracion_model->existe_nombre_unico($insertConfiguracion['nombre_unico']) ){
 				
 				printf(MSG_ERROR_CAMPO, 'titulo_registro',$this->lang->line('titulo_error_repetido'));
 				exit;

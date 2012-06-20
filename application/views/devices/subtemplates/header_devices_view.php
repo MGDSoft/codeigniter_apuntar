@@ -1,3 +1,4 @@
+<?php   $this->load->view('peques/analitycs_view'); ?>
 </head>
 <body>
 <div id="contenedor_portal">

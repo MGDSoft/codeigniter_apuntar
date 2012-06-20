@@ -1,4 +1,5 @@
-<?php   $this->load->view('peques/cargar_estilos_web_view'); ?>
+<?php   $this->load->view('peques/cargar_estilos_web_view'); 
+   $this->load->view('peques/analitycs_view'); ?>
 </head>
 <body class="<?= $usuario_configuracion->fondo_estilo ?>">
 <?php   $this->load->view('peques/cargar_separadores_web_view'); ?>

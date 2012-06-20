@@ -172,7 +172,7 @@ $lang['categoria_modificada'] = 'Categoria modificada';
 $lang['js_categoria_modificar_titulo'] = 'Modificar categoria';
 
 $lang['js_categoria_borrar_titulo'] = 'Borrar categoria';
-$lang['js_categoria_borrar'] = 'Las noticias asociadas se borraran, desea borrar.';
+$lang['js_categoria_borrar'] = '!!OJO!! Las noticias y subcategorias asociadas se borraran, desea borrar?.';
 $lang['categoria_borrada'] = 'Categoria borrada';
 
 $lang['js_categoria_incluir_titulo'] = 'Nueva categoria';
@@ -217,6 +217,7 @@ $lang['uso_horario'] = 'Uso horario';
 
 $lang['correo_error_repetido'] = 'Este correo ya esta registrado';
 $lang['titulo_error_repetido'] = 'Este t&iacute;tulo ya esta registrado';
+$lang['titulo_error_restringido'] = 'Este t&iacute;tulo esta restringido';
 
 $lang['nota_media'] = 'Nota media';
 $lang['votos_totales'] = 'Votos totales';

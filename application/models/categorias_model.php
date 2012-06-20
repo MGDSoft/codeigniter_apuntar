@@ -88,9 +88,38 @@ class Categorias_model extends CI_Model {
 		 
 	}
 	
+	function obtenerIdsCategoriasHijas($id_usuario,$id_categoria){
+		$categorias=$this->getByIdUsuario($id_usuario);
+		
+		$in=0;
+		$nivel=999;
+		$result=array($id_categoria);
+		foreach($categorias as $cat)
+		{
+			if ($cat->id_padre==$id_categoria)
+			{
+				$in=1;
+				$nivel=$cat->nivel;
+			}
+				
+				
+			if ($in==1 && $nivel > $cat->nivel)
+			{
+				break;
+			}
+				
+			if ($in==1)
+				array_push($result,$cat->id_categoria);
+				
+		}
+		return $result;
+	}
+	
 	function delete($id_usuario,$id_categoria){
-			
-		$this->db->where('id_categoria', $id_categoria);
+		
+		$idsCategoriasHijas=$this->obtenerIdsCategoriasHijas($id_usuario,$id_categoria);
+		
+		$this->db->where_in('id_categoria', $idsCategoriasHijas);
 		$this->db->where('id_usuario', $id_usuario);
 	
 		if ($this->db->delete($this->table))

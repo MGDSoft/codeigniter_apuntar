@@ -122,13 +122,19 @@ class Cargar_archivos extends CI_Controller{
 	
 	private function header_js(){
 		Header("content-type: application/x-javascript; charset: UTF-8");
+		$this->cache_load(216000);
 	}
 	
 	private function header_css(){
 		Header("content-type: text/css; charset: UTF-8");
+		$this->cache_load(216000);
 	}
 	
-	
+	private function cache_load($time){
+		header ("cache-control: must-revalidate");
+		$expire = "expires: " . gmdate ("D, d M Y H:i:s", time() + $time) . " GMT";
+		header ($expire);
+	}
 	
 	
 }
