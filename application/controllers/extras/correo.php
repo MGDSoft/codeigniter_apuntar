@@ -20,7 +20,7 @@ class Correo extends CI_Controller {
 			printf(MSG_ERROR, preg_replace('~[\r\n]+~', '', validation_errors()));
 		}else{
 			$texto_correorecp=$this->input->post('texto_correo');
-			
+			$texto_correo="";
 			$id=$this->input->post('id');
 			
 			if (isset($_SESSION['usuario']))
