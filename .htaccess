@@ -2,9 +2,6 @@ Options +Indexes
 
 RewriteEngine ON
 
-RewriteCond %{HTTP_HOST} ^www.apuntar.net$
-RewriteRule ^/?$ "http://apuntar.net" [R=301,L]
-
 #GZIP#
 <ifModule mod_gzip.c>
   mod_gzip_on Yes
