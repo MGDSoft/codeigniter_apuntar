@@ -24,11 +24,11 @@ class Correo extends CI_Controller {
 			$id=$this->input->post('id');
 			
 			if (isset($_SESSION['usuario']))
-				$texto_correo='Te han enviado un mensaje el siguiente usuario: <br><br> '.$_SESSION['usuario']->nombre.' '.$_SESSION['usuario']->apellidos.' <br>email: '.$_SESSION['usuario']->correo.'<br><br>Mensaje: ';
+				$texto_correo='Te han enviado un mensaje el siguiente usuario: <br><br> '.$_SESSION['usuario']->nombre.' '.$_SESSION['usuario']->apellidos.' <br>email: '.$_SESSION['usuario']->correo;
 			else
 				$texto_correo='Te han enviado un mensaje un usuario Anónimo';
 			
-			$texto_correo.=$texto_correorecp;
+			$texto_correo.='<br><br>Mensaje: '.$texto_correorecp;
 			
 			$usuario=$this->Usuario_configuracion_model->getById($id);
 			if ($usuario)
