@@ -30,31 +30,6 @@ AddOutputFilterByType DEFLATE text/text text/html text/plain text/xml text/css a
 
 #FIN MANTENIMIENTO#
 
-A
-A
-A
-A
-A
-A
-A
-A
-A
-A
-A
-A
-A
-A
-A
-A
-A
-A
-A
-A
-A
-A
-A
-A
-
 
 RewriteCond $1 !^(index\.php|images|descargas|img|js|css|robots\.txt)
 RewriteRule ^(.*)$ /index.php/$1 [L]
