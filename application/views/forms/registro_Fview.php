@@ -30,12 +30,12 @@
 </script>
 <?php $TipoMessage=((isset($device)) ? 2 : 1) ?>
 <div class='<?= AUTO_EJECUTAR_JS ?>' style='display:none'>
-	creacionEventos('apellidos','','',<?= $TipoMessage ?>);
-	creacionEventos('nombre','','',<?= $TipoMessage ?>);
-	creacionEventos('correo','','email',<?= $TipoMessage ?>);
-	creacionEventos('titulo_registro','','',<?= $TipoMessage ?>);
-	creacionEventos('contrasena','','',<?= $TipoMessage ?>);
-	creacionEventos('recontrasena','','igual',<?= $TipoMessage ?>);
+	creacionEventos('apellidos','','',1,<?= $TipoMessage ?>);
+	creacionEventos('nombre','','',1,<?= $TipoMessage ?>);
+	creacionEventos('correo','','email',1,<?= $TipoMessage ?>);
+	creacionEventos('titulo_registro','','',1,<?= $TipoMessage ?>);
+	creacionEventos('contrasena','','',1,<?= $TipoMessage ?>);
+	creacionEventos('recontrasena','','igual',1,<?= $TipoMessage ?>);
 	
 	if ($('titulo_registro_result').getStyle('display')!="none")
 	{

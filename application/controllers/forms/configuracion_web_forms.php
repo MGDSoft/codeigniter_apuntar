@@ -55,6 +55,7 @@
 	  public function general_update()
 	  {
 	  
+	  	
 	  	$user_configuration=$this->Usuario_configuracion_model->getById($_SESSION['usuario']->id_usuario);
 	  	 
 	  	if (!$user_configuration || !$_POST)
@@ -78,6 +79,27 @@
 	  	else
 	  		$update['aviso_comentario']=0;
 	  	
+	  	$nombre_unico=$this->input->post('nombre_unico');
+	  	if ($user_configuration->titulo != $nombre_unico)
+	  	{
+	  		global $nombresProhibidos;
+	  		
+	  		$nombre_unico_un=url_title($nombre_unico);
+	  		if(in_array($nombre_unico_un, $nombresProhibidos)){
+	  		
+	  			printf(MSG_ERROR_CAMPO, 'nombre_unico',$this->lang->line('titulo_error_restringido'));
+	  			exit;
+	  		
+	  		}else if ($this->Usuario_configuracion_model->existe_nombre_unico($nombre_unico) ){
+	  		
+	  			printf(MSG_ERROR_CAMPO, 'nombre_unico',$this->lang->line('titulo_error_repetido'));
+	  			exit;
+	  		
+	  		}
+	  		$update['titulo']=$nombre_unico;
+	  		$update['nombre_unico']=$nombre_unico_un;
+	  	}
+	  	
 	  	$update['eslogan']=$this->input->post('eslogan');
 	  	
 	  	if (isset($_POST['logo_imagen']) && $_POST['logo_imagen']!="" && file_exists('.'.$this->input->post('logo_imagen')))
@@ -99,7 +121,10 @@
   		
   		if ($this->Usuario_configuracion_model->update($user_configuration->id_configuracion,$update))
   		{
-  			printf(MSG_INFO, $this->lang->line('correcto'), $this->lang->line('modificacion_incluida'));
+  			if (isset($update['nombre_unico']))
+  				echo "window.location = 'http://".$update['nombre_unico'].'.'.URL_BASE.'/portal#!admin/configurar_web/\'';
+  			else
+  				printf(MSG_INFO, $this->lang->line('correcto'), $this->lang->line('modificacion_incluida'));
   			
   		}else{
   			

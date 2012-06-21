@@ -14,6 +14,7 @@ else
 }
 
 
+$nombresProhibidos=array('devices','mobile','mgdsoftware','');
 
 define ('AUTO_EJECUTAR_JS','exec_js');
 

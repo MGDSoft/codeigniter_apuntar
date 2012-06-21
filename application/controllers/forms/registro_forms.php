@@ -154,7 +154,7 @@ class Registro_forms extends CI_Controller {
 	public function index()
 	{
 		
-		$nombresProhibidos=array('devices','mobile','mgdsoftware');
+		
 		
 		$this->form_validation->set_rules('correo','correo','required|valid_email|trim');
 		$this->form_validation->set_rules('contrasena','contrasena','required|trim|md5');
