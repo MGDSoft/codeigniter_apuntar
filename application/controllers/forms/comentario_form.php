@@ -275,7 +275,7 @@ class Comentario_form extends CI_Controller {
 				{
 					$comentario=$this->Comentarios_model->getById($insert['id_respuesta']);
 					
-					if ($comentario->id_usuario!= ID_ANONIMO)
+					if ($comentario->id_usuario!= ID_ANONIMO && $comentario->id_usuario != $_SESSION['usuario']->id_usuario)
 						$usuarioRespuesta=$this->Usuario_model->getById($comentario->id_usuario,false,true);
 
 					if (isset($usuarioRespuesta) && $usuarioRespuesta->aviso_respuesta==1)
@@ -294,7 +294,8 @@ class Comentario_form extends CI_Controller {
 				// Envio de correo para el administrador de la página
 				
 				
-				if ($usuarioAdmin && $usuarioAdmin->aviso_comentario==1 
+				if (isset($usuarioAdmin) && $usuarioAdmin->id_usuario!=$_SESSION['usuario'] 
+						&& $usuarioAdmin->aviso_comentario==1 
 						&& !(isset($usuarioRespuesta) && $usuarioRespuesta->aviso_respuesta==1 && $usuarioAdmin->aviso_comentario==1 
 								&& $usuarioRespuesta->id_usuario == $usuarioAdmin->id_usuario))
 				{
