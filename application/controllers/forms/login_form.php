@@ -39,6 +39,7 @@ class Login_form extends CI_Controller {
 				printf(MSG_WATCHOUT, $this->lang->line('error_form_estandar'),$this->lang->line('activar_tu_cuenta'));
 				exit;
 			}else{
+				$this->load->helper('cookie');
 				
 				if (isset($recordar))
 				{
@@ -47,9 +48,17 @@ class Login_form extends CI_Controller {
 							'value'  => $user->correo.';'.$user->password,
 							'expire' => '86500'
 					);
-					$this->load->helper('cookie');
+					
 					set_cookie($cookie);
 				}
+				
+				$cookie = array(
+						'name'   => 'conectado_ahora',
+						'value'  => $user->correo.';'.$user->password,
+						'expire' => '3600' // 1 hora
+				);
+					
+				$this->input->set_cookie($cookie);
 				
 				$this->load->model('Usuario_configuracion_model');
 				

@@ -191,3 +191,7 @@ function separadoresToDefault(){
 	$('separador_posicion').value='100px';
 }
 
+function enviar_correo_request(id){
+	request_simple_post("extras/correo/enviar_correo", 'id='+id+'&texto_correo='+encodeURIComponent(preguntar_input_value) , '');
+}
+

@@ -241,6 +241,11 @@ $lang['activar_tu_cuenta'] = 'Revisa tu correo, deberás activar tu cuenta pulsa
 $lang['activar_tu_cuenta_correo_subject'] = 'Activar cuenta';
 $lang['activar_tu_cuenta_correo_texto'] = 'Bienvenido a '.URL_BASE.'!!!.<br><br>Para activar tu cuenta deberas pulsar la siguiente direccion:<br><b><a href="%s">%s</a></b> <br><br>Tus datos de usuario son: <br><br> Usuario: %s <br>Contraseña: %s';
 
+$lang['envio_correo_subject'] = 'Te han enviado un correo';
+$lang['correo_enviado'] = 'El correo ha sido enviado';
+
+$lang['titulo_ventana_correo'] = 'Escribe tu mensaje';
+
 
 
 $lang['aviso_respuesta_correo'] = 'Enviar correo si me responden';

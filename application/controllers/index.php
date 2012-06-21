@@ -27,6 +27,8 @@
    $portal->contacto_steam='';
    $portal->contacto_twitter='';
    $portal->contacto_facebook='';
+   $portal->contacto_email='';
+   
    
    $datos['usuario_configuracion']=$portal;
    $datos['nuevos']=$this->Usuario_model->getLast(null,5);
@@ -74,9 +76,10 @@
   	// En el cambio de dominio desconectarlo si se da al logout
   	
   	$cookie=$this->input->cookie('conectado_ahora', TRUE);
+  	
   	if (!$cookie && isset($_SESSION['usuario']))
   		unset ($_SESSION['usuario']);
-  	
+  	  	
   }
  }
 ?>

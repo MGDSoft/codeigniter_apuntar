@@ -25,6 +25,11 @@ function preguntar_input(titulo,valor_default,objRequest)
 	
 }
 
+function preguntar_formulario(id,titulo,objRequest)
+{
+	<?= printf(MSG_FORMULARIO,'titulo',"'preguntar_input_value=$(\"commentTextemail\").value ;'+ objRequest"); ?>
+}
+
 function preguntar_si_no(titulo,descripcion,objRequest) 
 {
 	<?= printf(MSG_QUESTION_SI_NO_DEFAULT,'titulo','descripcion',"objRequest"); ?>	
