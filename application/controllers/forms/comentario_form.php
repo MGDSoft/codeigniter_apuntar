@@ -294,7 +294,7 @@ class Comentario_form extends CI_Controller {
 				// Envio de correo para el administrador de la página
 				
 				
-				if (isset($usuarioAdmin) && ($usuarioAdmin->id_usuario!=$insert['id_usuario']
+				if (isset($usuarioAdmin) && $usuarioAdmin->id_usuario!=$insert['id_usuario']
 						&& $usuarioAdmin->aviso_comentario==1 
 						&& !(isset($usuarioRespuesta) && $usuarioRespuesta->aviso_respuesta==1 && $usuarioAdmin->aviso_comentario==1 
 								&& $usuarioRespuesta->id_usuario == $usuarioAdmin->id_usuario))
