@@ -30,9 +30,15 @@ class Correo extends CI_Controller {
 			
 			$texto_correo.=$texto_correorecp;
 			
-			$usuario=$this->Usuario_configuracion_model->getById($_SESSION['usuario']->id_usuario);
-			sendEmail($usuario->contacto_email,$this->lang->line('envio_correo_subject'), $texto_correo);
-			printf(MSG_INFO, $this->lang->line('correcto'), $this->lang->line('correo_enviado'));
+			$usuario=$this->Usuario_configuracion_model->getById($id);
+			if ($usuario)
+			{
+				sendEmail($usuario->contacto_email,$this->lang->line('envio_correo_subject'), $texto_correo);
+				printf(MSG_INFO, $this->lang->line('correcto'), $this->lang->line('correo_enviado'));
+			}else{
+				printf(MSG_ERROR, $this->lang->line('error_db'));
+			}
+			
 			
 		}
 	}
