@@ -28,7 +28,7 @@
 	        <pubDate><?= date(DATE_RFC822, strtotime($post->fecha)) ?></pubDate>
 	        <category><![CDATA[<?=$post->nombre?>]]></category>
 	        <description>
-	        	<![CDATA[<?=  preg_replace('~[\r\n]+~', '<br>', $post->noticia) ?>]]>
+	        	<![CDATA[<?=  preg_replace('~[\r\n]+~', '', $post->noticia) ?>]]>
 	        </description>
 	    </item>    
 	<?php endforeach;?>
