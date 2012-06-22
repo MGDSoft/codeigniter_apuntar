@@ -10,7 +10,7 @@
 	<channel>
 	    <title><?=$titulo?></title>
 	    <link><?=$feed_url?>/extra/rss</link>
-	    <atom:link href="http://<?=$nombre_unico.'.'.URL_BASE ?>/extra/rss" rel="self" type="application/rss+xml"/>
+	    <atom:link href="http://<?=$nombre_unico.'.'.URL_BASE ?>/extra/rss" rel="self"/>
 	    <image>
 			<title><?=$titulo?></title>
 			<link>http://<?=$nombre_unico.'.'.URL_BASE ?></link>
