@@ -21,4 +21,3 @@ function my_create_captcha(){
   			return create_captcha($vals);
 	
 }   
-?>

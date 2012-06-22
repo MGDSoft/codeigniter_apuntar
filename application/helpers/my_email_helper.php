@@ -1,4 +1,5 @@
 <?php
+
 /* Auto Formato de correo */
 function sendEmail($address,$subject,$text){
 	$CI =& get_instance();
@@ -43,4 +44,3 @@ function sendEmail($address,$subject,$text){
     	$CI->email->send();
 	
 }   
-?>
