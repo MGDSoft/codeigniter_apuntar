@@ -32,6 +32,7 @@ $lang['separadores_desc'] = 'Añade barras laterales por posiciones, del color a
 
 $lang['modificacion_incluida'] = 'Modificacion incluida';
 
+$lang['diseno_pre'] = 'Diseño predefinidos';
 $lang['diseno_propio'] = 'Diseño propio';
 $lang['titulo_configuracion'] = 'Configuración y visibilidad';
 $lang['general'] = 'General';
@@ -45,7 +46,7 @@ $lang['titulo_logo'] = 'Logo';
 $lang['titulo_sobreti'] = 'Información sobre ti';
 $lang['imagen_sobreti'] = 'Foto personal';
 $lang['texto_sobreti'] = 'Contenido de la página';
-
+$lang['titulo_diseno_pre'] = 'Selecciona un diseño predefinido';
 
 $lang['logo'] = 'imagen';
 $lang['contacto'] = 'Contacto';
@@ -85,6 +86,13 @@ $lang['imagen_estirada'] = 'Estirada';
 $lang['imagen_mosaico'] = 'Mosaico';
 $lang['imagen_centrada'] = 'Centrada';
 $lang['imagen_fija'] = 'Fija';
+$lang['imagen_repite_x'] = 'Repite imagen horizontalmente';
+$lang['imagen_repite_y'] = 'Repite imagen verticalmente';
+
+$lang['hasta_no_guardado'] = 'Hasta que no le des a enviar no se haran efectivos los cambios!';
+
+
+$lang['separacion_vertical'] = 'Separación vertical';
 
 $lang['selecciona_imagen'] = 'Selecciona una imagen';
 $lang['selecciona_color'] = 'Selecciona un color';

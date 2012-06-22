@@ -152,7 +152,7 @@
 	  		$update['fondo_imagen']=null;
 	  	}
 	  	
-	  	if (count($update)>0 && isset($_SESSION['usuario']))
+	  	if (isset($update) && count($update)>0 && isset($_SESSION['usuario']))
 	  	{
 	  		$user_configuration=$this->Usuario_configuracion_model->getById($_SESSION['usuario']->id_usuario);
 	  		
@@ -299,5 +299,88 @@
 	  		}
 	  	}
 	  }
+	  
+	  public function cargar_diseno_azul(){
+	  	$json='{ 
+	  	bordes_color: "#005485",
+	  	botones_borde_color: "#000000",
+	  	botones_caja_sombra: "#999999",
+	  	botones_color: "#00244a",
+	  	botones_fondo: "#ffffff",
+	  	botones_sombra_letra: "#ebebeb",
+	  	botones_tipo_letra: "\'Comic Sans MS\',cursive",
+	  	eslogan_separacion_vertical: "6px",
+	  	fondo_color: "#ffffff",
+	  	fondo_estilo: "imagen_repite_x",
+	  	fondo_imagen: "'.PATH_IMG.'usuario/fondo/fondo_azul.jpg",
+	  	formulario_color: "#0d0d0d",
+	  	formulario_estilo: "Arial,\'DejaVu Sans\',\'Liberation Sans\',Freesans,sans-serif",
+	  	formulario_tamano: "15px",
+	  	link_color: "#22637d",
+	  	link_tamano: "15px",
+	  	link_visitado_color: "#014070",
+	  	otros_color: "#015170",
+	  	texto_color: "#000000",
+	  	texto_estilo: "\'Trebuchet MS\', Helvetica, sans-serif",
+	  	texto_tamano: "14px",
+	  	titulo_color: "#00244a",
+	  	titulo_estilo: "Times New Roman, Times, serif",
+	  	titulo_principal_tamano: "41px",
+	  	titulo_sombra: "#ffffff"
+	  	}';
+	  	
+	  	echo trim( '
+	  				modo_espera=true;
+	  				dar_valores_diseno('.$json.');
+	  				modo_espera=false;
+	  				carga_diseno_opciones('.$json.');
+	  				borrarTodos();');
+	  }
+	  
+	  public function cargar_diseno_gris(){
+	  	$json='{
+	  			bordes_color: "#9e9e9e",
+	  			botones_borde_color: "#5c5c5c",
+	  			botones_caja_sombra: "#999999",
+	  			botones_color: "#FFFFFF",
+	  			botones_fondo: "#dedede",
+	  			botones_sombra_letra: "#000000",
+	  			botones_tipo_letra: "Arial,\'DejaVu Sans\',\'Liberation Sans\',Freesans,sans-serif",
+	  			eslogan_separacion_vertical: "4px",
+	  			fondo_color: "#ffffff",
+	  			fondo_estilo: "centrado",
+	  			fondo_imagen: "none",
+	  			formulario_color: "#0D0D0D",
+	  			formulario_estilo: "Arial,\'DejaVu Sans\',\'Liberation Sans\',Freesans,sans-serif",
+	  			formulario_tamano: "15px",
+	  			link_color: "#00244A",
+	  			link_tamano: "17px",
+	  			link_visitado_color: "#015269",
+	  			otros_color: "#636363",
+	  			texto_color: "#303030",
+	  			texto_estilo: "Arial,\'DejaVu Sans\',\'Liberation Sans\',Freesans,sans-serif",
+	  			texto_tamano: "15px",
+	  			titulo_color: "#00244A",
+	  			titulo_estilo: "Arial,\'DejaVu Sans\',\'Liberation Sans\',Freesans,sans-serif",
+	  			titulo_principal_tamano: "35px",
+	  			titulo_sombra: "#EDEDED"
+	  }';
+	  	echo trim('modo_espera=true;
+	  			dar_valores_diseno('.$json.');
+	  			modo_espera=false;
+	  			carga_diseno_opciones('.$json.');
+	  			borrarTodos();
+	  			modificar_separados_json({  
+					separador_fondo: "#F5F5F5",
+					separador_color_borde: "#CCCCCC",
+					separador_posicion: "90px",
+					separador_grosor: "1px",
+					separador_estilo: "solid",
+					separador_altura: "60px"
+				});
+	  			cargarSeparadores();
+	  			');
+	  }
+	  
  }
 ?>

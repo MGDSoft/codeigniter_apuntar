@@ -7,7 +7,10 @@ function responder_visible(obj){
 }
 
 function cargarBordes(color,fondo){
-	var brillo1= new Color(color).mix(fondo,50);
+	if (fondo!="" && color!="")
+	{
+		var brillo1= new Color(color).mix(fondo,50);
+	
 	var brillo2= new Color(color).mix(fondo,85);
 
 	modificarAtributoCSS_borderColor('ul#menu li, .comentario_completo div.extras_comentario, .formulario_estandar fieldset, .contenedorTabs .contidoTabs, .contenedorTabs .opciontab, #contenido div.extras_noticia, .formulario_estandar input, .formulario_estandar select, .formulario_estandar textarea, #contenedor_portal #footer, div.paginado a, div.paginado strong, div.paginado',color );
@@ -16,6 +19,7 @@ function cargarBordes(color,fondo){
 
 	modificarAtributoCSS_borderColor('.comentario_completo img.avatar, span.volver a, #caja_login div.avatar',brillo1.hex);
 	modificarAtributoCSS_borderColor('.respuestas div.comentario_completo',brillo2.hex);
+	}
 	
 }
 function modificar_voto(id,accion){
@@ -102,23 +106,34 @@ function cargarSeparadores(){
 		obj=$("separador_"+separadorActu);
 	}
 	
-	obj.setStyles({
-		backgroundColor: $('separador_fondo').value,
-		borderColor: $('separador_color_borde').value, 
-		'border-top-width': (($('separador_posicion').value == "0px" ) ? '0px' : $('separador_grosor').value),
-	    'border-bottom-width': $('separador_grosor').value,
-	    'border-left-width': '0px',
-	    'border-right-width': '0px',
-	    borderStyle:  $('separador_estilo').value,
-	    width: '100%',
-	    height: $('separador_altura').value,
-	    position: 'absolute',
-	    top:  $('separador_posicion').value,
-	    left: 0,
-	    'z-index' : '-1'
-	});
+	
+	cargar_separadores(obj,obtener_json_separadores());
+	
 	
 }
+function obtener_json_separadores(){
+	return {  
+		separador_fondo: $('separador_fondo').value,
+		separador_color_borde: $('separador_color_borde').value,
+		separador_posicion: $('separador_posicion').value,
+		separador_grosor: $('separador_grosor').value,
+		separador_estilo: $('separador_estilo').value,
+		separador_altura: $('separador_altura').value,
+		separador_posicion: $('separador_posicion').value
+	};
+}
+
+function modificar_separados_json(json){
+	$('separador_fondo').value=json.separador_fondo;
+	$('separador_grosor').value=json.separador_grosor;
+	$('separador_estilo').value=json.separador_estilo;
+	
+	$('separador_color_borde').value=json.separador_color_borde;
+	$('separador_altura').value=json.separador_altura;
+	$('separador_posicion').value=json.separador_posicion;
+}
+
+
 function borrarTodos(){
 
 	$$("#separadores_guardados option").each(function(el) {
@@ -194,4 +209,129 @@ function separadoresToDefault(){
 function enviar_correo_request(id){
 	request_simple_post("extras/correo/enviar_correo", 'id='+id+'&texto_correo='+encodeURIComponent(preguntar_input_value) , '');
 }
+function carga_diseno_on_fly(){
+	carga_diseno_opciones(obtener_json_diseno());
+}
+function obtener_json_diseno(){
+	return {  
+		fondo_color: $('fondo_color').value,
+		fondo_imagen: $('fondo_imagen').value,
+		fondo_estilo: $('fondo_estilo').value,
+		texto_tamano: $('texto_tamano').value,
+		texto_color: $('texto_color').value,
+		texto_estilo: $('texto_estilo').value,
+		formulario_tamano: $('formulario_tamano').value,
+		formulario_color: $('formulario_color').value,
+		formulario_estilo: $('formulario_estilo').value,
+		botones_fondo: $('botones_fondo').value,
+		botones_color: $('botones_color').value,
+		botones_sombra_letra: $('botones_sombra_letra').value,
+		botones_borde_color: $('botones_borde_color').value,
+		botones_caja_sombra: $('botones_caja_sombra').value,
+		botones_tipo_letra: $('botones_tipo_letra').value,
+		titulo_color: $('titulo_color').value,
+		titulo_sombra: $('titulo_sombra').value,
+		titulo_principal_tamano: $('titulo_principal_tamano').value,
+		titulo_estilo: $('titulo_estilo').value,
+		separador_altura: $('titulo_estilo').value,
+		otros_color: $('otros_color').value,
+		eslogan_separacion_vertical: $('eslogan_separacion_vertical').value,
+		link_color: $('link_color').value,
+		link_visitado_color: $('link_visitado_color').value,
+		link_tamano: $('link_tamano').value,
+		bordes_color: $('bordes_color').value
+	};
+}
+function dar_valores_diseno(jsonObj){
+	 $('fondo_color').value= jsonObj.fondo_color ;
+	 $('fondo_imagen').value= jsonObj.fondo_imagen ;
+	 $('fondo_estilo').value= jsonObj.fondo_estilo ;
+	 $('texto_tamano').value= jsonObj.texto_tamano ;
+	 $('texto_color').value= jsonObj.texto_color ;
+	 $('texto_estilo').value= jsonObj.texto_estilo ;
+	 $('formulario_tamano').value= jsonObj.formulario_tamano ;
+	 $('formulario_color').value= jsonObj.formulario_color ;
+	 $('formulario_estilo').value= jsonObj.formulario_estilo ;
+	 $('botones_fondo').value= jsonObj.botones_fondo ;
+	 $('botones_color').value= jsonObj.botones_color ;
+	 $('botones_sombra_letra').value= jsonObj.botones_sombra_letra ;
+	 $('botones_borde_color').value= jsonObj.botones_borde_color ;
+	 $('botones_caja_sombra').value= jsonObj.botones_caja_sombra ;
+	 $('botones_tipo_letra').value= jsonObj.botones_tipo_letra ;
+	 $('titulo_color').value= jsonObj.titulo_color ;
+	 $('titulo_sombra').value= jsonObj.titulo_sombra ;
+	 $('titulo_principal_tamano').value= jsonObj.titulo_principal_tamano ;
+	 $('titulo_estilo').value= jsonObj.titulo_estilo ;
+	 $('titulo_estilo').value= jsonObj.titulo_estilo ;
+	 $('otros_color').value= jsonObj.otros_color ;
+	 $('eslogan_separacion_vertical').value= jsonObj.eslogan_separacion_vertical ;
+	 $('link_color').value= jsonObj.link_color ;
+	 $('link_visitado_color').value= jsonObj.link_visitado_color ;
+	 $('link_tamano').value= jsonObj.link_tamano ;
+	 $('bordes_color').value= jsonObj.bordes_color ;
 
+}
+
+function carga_diseno_opciones(jsonObj)
+{
+ if (modo_espera==false)
+	{
+	 
+	 console.log (jsonObj);
+	 
+   modificarAtributoCSS_fondo('body, #caja_login',jsonObj.fondo_color);
+   modificarAtributoCSS_fondoImagen('body',jsonObj.fondo_imagen);
+   $$('body')[0].className=jsonObj.fondo_estilo;
+   modificarAtributoCSS_size('body',jsonObj.texto_tamano);
+   modificarAtributoCSS_color('body',jsonObj.texto_color);
+   $('contenedor_portal').setStyle('font-family',jsonObj.texto_estilo); 
+   
+   modificarAtributoCSS_size('.formulario_estandar th',jsonObj.formulario_tamano);
+   modificarAtributoCSS_color('.formulario_estandar th',jsonObj.formulario_color);
+   modificarAtributoCSS_fontFamily('.formulario_estandar th',jsonObj.formulario_estilo) 
+   
+   modificarAtributoCSS_color('#contenedor_titulo_buscador #titulo, #titulo_comentarios, .formulario_estandar legend, .formulario_estandar th.separador, #contenedor_portal #footer #contacto_f strong',jsonObj.titulo_color);
+   modificarAtributoCSS_color('a:visited',jsonObj.link_visitado_color); 
+   modificarAtributoCSS_color('a',jsonObj.link_color);
+   modificarAtributoCSS_size('a',jsonObj.link_tamano);
+   
+   var botones_ids='#contenedor_titulo_buscador #buscar_boton input, .formulario_estandar .boton_standart, .boton_standart, #contenedor_titulo_buscador input[type="submit"]';
+   
+   modificarAtributoCSS_textShadow(botones_ids,'1px 1px 0px '+jsonObj.botones_sombra_letra);
+   modificarAtributoCSS_color(botones_ids,jsonObj.botones_color);
+   modificarAtributoCSS_fondo(botones_ids,jsonObj.botones_fondo);
+   modificarAtributoCSS_textBoxShadow(botones_ids,'3px 4px 0px '+jsonObj.botones_caja_sombra );
+   modificarAtributoCSS_textBoxShadow('.formulario_estandar .boton_standart:hover','1px 2px 1px '+jsonObj.botones_caja_sombra );
+   modificarAtributoCSS_fontFamily(botones_ids,jsonObj.botones_estilo);
+   modificarAtributoCSS_borderColor(botones_ids,jsonObj.botones_borde_color);
+   
+   var titulos_ids='#contenedor_titulo_buscador #titulo, #titulo_comentarios, .formulario_estandar legend, .formulario_estandar th.separador, #contenedor_portal #footer #contacto_f strong';
+   
+   modificarAtributoCSS_color(titulos_ids,jsonObj.titulos_color);
+   modificarAtributoCSS_textShadow('#contenedor_titulo_buscador #descripcion','0px 2px 0px '+jsonObj.titulo_sombra);
+   modificarAtributoCSS_size('#contenedor_titulo_buscador #descripcion',jsonObj.titulo_tamano);
+   modificarAtributoCSS_fontFamily(titulos_ids,jsonObj.titulo_estilo);
+   
+   modificarAtributoCSS_color('#contenedor_titulo_buscador #descripcion',jsonObj.otros_color);
+   generic_modificarAtributoCSS('#contenedor_titulo_buscador #descripcion',jsonObj.eslogan_separacion_vertical,'marginTop');
+   
+   cargarBordes(jsonObj.bordes_color,jsonObj.fondo_color);
+	}
+}
+function cargar_separadores(obj,jsonObj){
+	obj.setStyles({
+		backgroundColor: jsonObj.separador_fondo,
+		borderColor: jsonObj.separador_color_borde, 
+		'border-top-width': ((jsonObj.separador_posicion == "0px" ) ? '0px' : jsonObj.separador_grosor),
+	    'border-bottom-width':jsonObj.separador_grosor,
+	    'border-left-width': '0px',
+	    'border-right-width': '0px',
+	    borderStyle: jsonObj.separador_estilo,
+	    width: '100%',
+	    height: jsonObj.separador_altura,
+	    position: 'absolute',
+	    top:  jsonObj.separador_posicion,
+	    left: 0,
+	    'z-index' : '-1'
+	});
+}

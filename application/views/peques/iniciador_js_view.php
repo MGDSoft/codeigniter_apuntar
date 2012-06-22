@@ -6,6 +6,7 @@ var js_categoria_incluir_titulo = '<?= $this->lang->line('js_categoria_incluir_t
 var nombre_unico = '<?= $usuario_configuracion->nombre_unico ?>';
 var id_web = '<?= $usuario_configuracion->id_usuario ?>';
 var extra_vars = '';
+var modo_espera = false;
 
 var auto_ejecutar_js='<?= AUTO_EJECUTAR_JS ?>';
 

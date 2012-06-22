@@ -410,6 +410,14 @@ function modificarAtributoCSS_fondo(class_name,color_txt){
 	generic_modificarAtributoCSS(class_name,color_txt,'backgroundColor');
 }
 function modificarAtributoCSS_fondoImagen(class_name,color_txt){
+	if (color_txt == 'none')
+	{
+		generic_modificarAtributoCSS(class_name,"none",'backgroundImage');
+		return true;
+	}
+	if (color_txt.indexOf("/")==-1)
+		color_txt='/img/usuario/fondo/'+color_txt;
+	
 	generic_modificarAtributoCSS(class_name,"url('" + color_txt + "')",'backgroundImage');
 }
 function modificarAtributoCSS_borderSize(class_name,color_txt){

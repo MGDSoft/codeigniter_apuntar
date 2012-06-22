@@ -335,3 +335,84 @@ h2{
 .este_comentario:hover span.comentario_admin{
 	display: inline;
 }
+.expandido{
+	background-position: center;
+	background-attachment:fixed;
+	background-repeat: no-repeat;
+
+    -webkit-background-size: cover;
+    -o-background-size: cover;
+}
+.mosaico{
+	background-repeat: repeat;
+}
+.centrado{
+	background-position: center top;
+	background-repeat: no-repeat;
+}
+.fijo{
+	background-position: center;
+	background-attachment:fixed;
+	background-repeat: no-repeat;
+}
+.fondo_izquierda{
+	background-position: top left;
+	background-repeat: no-repeat;
+}
+.fondo_derecha{
+	background-position: top right;
+	background-repeat: no-repeat;
+}
+.imagen_repite_y{
+	background-repeat: repeat-y;
+	background-position: left;
+}
+.imagen_repite_x{
+	background-repeat: repeat-x;
+	background-position: top;
+}
+div.contenedorTabs{
+	margin-top:15px;
+}
+.contenedorTabs .opciontab{
+	float:left;
+	padding:5px 14px;
+	border-width: 1px;
+	border-style: dashed;
+	border-bottom: 0px;
+	margin:0 5px;
+	-webkit-border-top-left-radius: 5px;
+	-webkit-border-top-right-radius: 5px;
+	-moz-border-radius-topleft: 5px;
+	-moz-border-radius-topright: 5px;
+	border-radius:5px 5px 0 0;
+	cursor: pointer;
+	behavior: url('/img/PIE.htc');
+}
+.contenedorTabs .active,.contenedorTabs .opciontab:hover{
+	background:#cfe0fc;	
+	border-style: solid;
+}
+.contenedorTabs .active span,.contenedorTabs .opciontab:hover span{
+	font-weight: bold;
+}
+
+.contenedorTabs .contidoTabs{
+	clear: both;
+	border-width: 1px;
+
+	border-style: solid;
+	padding:16px;
+}
+div.contenedorTabs span{
+	display: block;
+	padding:10px 30px;
+	font-style: italic
+}
+div#diseno_pre td{
+	width:140px;
+	text-align:center;
+}
+div#diseno_pre img{
+	border:1px solid #ccc;
+}

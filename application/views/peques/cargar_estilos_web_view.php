@@ -45,7 +45,7 @@ a:visited{
 	margin:0px 0px 10px 20px;
 	color:#005396;
 	overflow: hidden;
-	
+	text-shadow:0px 2px 0px  <?= $usuario_configuracion->titulo_sombra ?>;
 }
 
 /* atributos para botones */
@@ -113,8 +113,8 @@ div.paginado a,div.paginado strong{
 	display:block;
 	font-style: italic;
 	padding: 0 10px;
-	
 	color: <?= $usuario_configuracion->otros_color ?>;
+	margin-top:0px;
 }
 </style>
 <script>
