@@ -7,7 +7,6 @@ var nombre_unico = '<?= $usuario_configuracion->nombre_unico ?>';
 var id_web = '<?= $usuario_configuracion->id_usuario ?>';
 var extra_vars = '';
 var modo_espera = false;
-
 var auto_ejecutar_js='<?= AUTO_EJECUTAR_JS ?>';
 
 var obj_menu_carpetas;

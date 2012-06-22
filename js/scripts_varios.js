@@ -277,7 +277,7 @@ function carga_diseno_opciones(jsonObj)
  if (modo_espera==false)
 	{
 	 
-	 console.log (jsonObj);
+	 
 	 
    modificarAtributoCSS_fondo('body, #caja_login',jsonObj.fondo_color);
    modificarAtributoCSS_fondoImagen('body',jsonObj.fondo_imagen);
