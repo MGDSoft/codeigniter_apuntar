@@ -16,7 +16,7 @@ class Rss extends CI_Controller{
 		$portal_ini=comprobarAdmin();
 		$portal_ini['noticias']=$this->Noticias_model->getByIdUsuario($portal_ini['usuario_configuracion']->id_usuario, 1 , 0);
 		
-		$portal_ini['titulo']='RSS Feed '.$portal_ini['usuario_configuracion']->titulo.': '.$portal_ini['usuario_configuracion']->eslogan;
+		$portal_ini['titulo']=$portal_ini['usuario_configuracion']->titulo.': '.$portal_ini['usuario_configuracion']->eslogan;
 		$portal_ini['feed_url']='http://'.$portal_ini['nombre_unico'].URL_BASE.'/rss';
 		$portal_ini['description']=$portal_ini['usuario_configuracion']->eslogan;
 		
