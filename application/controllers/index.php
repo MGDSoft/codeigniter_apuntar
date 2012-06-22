@@ -31,7 +31,7 @@
    
    
    $datos['usuario_configuracion']=$portal;
-   $datos['nuevos']=$this->Usuario_model->getLast(null,5);
+   $datos['nuevos']=$this->Usuario_model->getLast('DESC',5);
    $datos['ejemplos']=$this->Usuario_model->getLast('ASC',5);
    
    $this->load->view('subtemplates/metas_portada_view',$data);
