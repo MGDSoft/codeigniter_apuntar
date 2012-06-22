@@ -3,13 +3,11 @@ class Rss extends CI_Controller{
 
 	public function __construct()
 	{
-		
 		parent::__construct();
-		echo "firstline";die;
+		
 		$this->load->helper('my_usuario_helper');
 		$this->load->model('Usuario_configuracion_model');
 		$this->load->model('Noticias_model');
-		
 	}
 
 	function index()
