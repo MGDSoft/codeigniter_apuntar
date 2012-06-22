@@ -1,7 +1,4 @@
-<?php
-echo '<?xml version="1.0" encoding="UTF-8"?>' . "
-";
-?>
+<?php echo '<?xml version="1.0" encoding="utf-8"?>' ?>
 <rss version="2.0" 
 	xmlns:content="http://purl.org/rss/1.0/modules/content/"
 	xmlns:wfw="http://wellformedweb.org/CommentAPI/"
@@ -13,11 +10,11 @@ echo '<?xml version="1.0" encoding="UTF-8"?>' . "
 	<channel>
 	    <title><?=$titulo?></title>
 	    <link><?=$feed_url?>/extra/rss</link>
-	    <atom:link href="<?=$nombre_unico.'.'.URL_BASE ?>/extra/rss" rel="self" type="application/rss+xml" />
+	    <atom:link href="http://<?=$nombre_unico.'.'.URL_BASE ?>/extra/rss" rel="self" type="application/rss+xml"/>
 	    <image>
 			<title><?=$titulo?></title>
 			<link>http://<?=$nombre_unico.'.'.URL_BASE ?></link>
-			<url>http://<?=$nombre_unico.'.'.URL_BASE.PATH_IMG.'usuarios/logo/'.$usuario_configuracion->logo ?></url>
+			<url>http://<?=$nombre_unico.'.'.URL_BASE.PATH_IMG.'usuario/logo/'.$usuario_configuracion->logo ?></url>
 		</image>
 	    <description><?=$description?></description>
 	    <pubDate><?=  date(DATE_RFC822); ?></pubDate>
@@ -27,7 +24,7 @@ echo '<?xml version="1.0" encoding="UTF-8"?>' . "
 	        <title><?=$post->titulo?></title>
 	        <dc:creator><?= $titulo ?></dc:creator>
 	        <link>http://<?=$nombre_unico.'.'.URL_BASE.'/portal#!news/' . url_title($post->titulo).'/'.$post->id_noticia.'/' ?></link>
-	        <guid>http://<?=$nombre_unico.'.'.URL_BASE.'/portal#!news/' . url_title($post->titulo).'/'.$post->id_noticia.'/' ?></link>
+	        <guid>http://<?=$nombre_unico.'.'.URL_BASE.'/portal#!news/' . url_title($post->titulo).'/'.$post->id_noticia.'/' ?></guid>
 	        <pubDate><?= date(DATE_RFC822, strtotime($post->fecha)) ?></pubDate>
 	        <category><![CDATA[<?=$post->nombre?>]]></category>
 	        <description>
