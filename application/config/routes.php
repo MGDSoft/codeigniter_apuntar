@@ -48,7 +48,7 @@ $route['portada'] = 'index/portada';
 
 $route['buscador'] = 'extras/buscador/index/';
 
-$route['(:any)/rss'] = 'extras/rss/index';
+$route['rss'] = 'extras/rss/index';
 $route['calendario/(:num)/(:num)'] = 'portal/cargar_calendario';
 $route['news/fecha/(:num)/(:num)/(:num)'] = 'listado_noticias/por_fecha';
 $route['news/mes/(:num)/(:num)'] = 'listado_noticias/por_mes';
