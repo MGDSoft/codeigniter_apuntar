@@ -103,9 +103,15 @@ h2{
 
 #caja_login div.registro a{
 
-	padding: 0px 4px 0px 4px;
-	margin:0px 10px;
+	padding: 0px 2px;
+	margin:3px 2px 1px 2px;
 	background: #EDEDED;
+	display:  inline-block;
+}
+#login_social_devices{
+	padding:0px;
+	margin:0px;
+	height:0px;
 }
 #caja_login .formulario_estandar th,#caja_login a,#caja_login input[type="submit"]{
 	font-size:13px;
@@ -415,4 +421,8 @@ div#diseno_pre td{
 }
 div#diseno_pre img{
 	border:1px solid #ccc;
+}
+#login_social{
+	float:right;
+	margin-right:15px;
 }

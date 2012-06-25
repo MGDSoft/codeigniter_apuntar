@@ -18,6 +18,20 @@ class Usuario_model extends CI_Model {
 		}
 		return 0;
 	}
+	function get_by_correo_y_uid($email,$uid=null)
+	{
+		$this->db->select('correo');
+		$this->db->where('correo', $email);
+		
+		if ($uid!="" || $uid)
+			$this->db->or_where('id_social', $uid);
+		
+		$query = $this->db->get($this->table);
+		if ($query->num_rows() > 0){
+			return $query->row();
+		}
+		return null;
+	}
 	
 	function getLast($desc='DESC',$limit=10)
 	{

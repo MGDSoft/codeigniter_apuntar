@@ -38,7 +38,7 @@ function sendEmail($address,$subject,$text){
     
     if (ENVIRONMENT=='development')
     {
-    	echo 'enviado a '.$address.' titulo '.$subject.'<br><br>'.$text_top.$text.$text_bottom;
+    	//echo 'enviado a '.$address.' titulo '.$subject.'<br><br>'.$text_top.$text.$text_bottom;
     }
     else
     	$CI->email->send();

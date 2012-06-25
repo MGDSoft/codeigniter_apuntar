@@ -232,13 +232,14 @@ $lang['votos_totales'] = 'Votos totales';
 $lang['eslogan'] = 'Eslogan';
 $lang['registro'] = 'Registro';
 $lang['registrate'] = 'Registrate';
-$lang['recordar_password'] = 'Recordar contraseña';
+$lang['recordar_password'] = 'Recordar';
 $lang['correo_no_existe'] = 'El correo no existe';
 $lang['password_cambiada'] = 'La contraseña ha sido modificiada, se le ha enviado un correo con la nueva contraseña';
 $lang['numero_de_peticiones_excesiva'] = 'El numero de peticiones es excesivo por favor intentelo más tarde';
 $lang['descripcion_default'] = 'Tu página ya esta creada, sólo falta agregar contenido!';
 
 $lang['correcto']="Correcto";
+$lang['registro_correcto']="El registro se realizo correctamente";
 
 $lang['codigo_erroneo'] = 'El código o el usuario no son validos';
 $lang['usuario_no_existe'] = 'El usuario no existe';

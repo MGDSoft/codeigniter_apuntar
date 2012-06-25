@@ -150,11 +150,75 @@ class Registro_forms extends CI_Controller {
 	 	}
 	 
 	 }
+	 public function social()
+	 {
+	 	if (isset($_SESSION['usuario']))
+	 		exit;
+	 	
+	 	$insertUsuario['correo']=$this->input->get('email');
+	 	$insertUsuario['id_social']=$this->input->get('UID');
+	 	$insertUsuario['apellidos']=$this->input->get('lastName');
+	 	$insertUsuario['nombre']=$this->input->get('firstName');
+	
+	 	$insertUsuario['activo']=1;
+	 	$insertUsuario['password']=random_string('alnum', 16);
+	 	$insertUsuario['activar_cuenta']= random_string('alnum', 16);
+	 	
+	 	
+	 	
+	 	if ($user=$this->Usuario_model->get_by_correo_y_uid($insertUsuario['correo'],$insertUsuario['id_social']))
+	 	{
+	 		$_SESSION['usuario']=$user;
+	 		exit;
+	 	}
+
+	 	
+	 	$url = $this->input->get('thumbnailURL');
+	 	$nombre=url_title($insertUsuario['id_social'].'.jpg');
+	 	$img = '.'.PATH_IMG.'usuario/personal/'.$nombre;
+		
+		try{
+			
+		 	if ($imagen=file_get_contents($url))
+		 	{
+		 		if (file_put_contents($img, $imagen))
+			 	{
+			 		$insertUsuario['avatar']=$nombre;
+			 	}
+	 	}
+		}catch (Exception $e){
+			//no exite imagen
+		}
+	 	
+	 	
+		
+		$insertConfiguracion['id_zone_time']= 15;
+		$insertConfiguracion['titulo']= $this->input->get('nickname');
+		 
+		if ($insertConfiguracion['titulo']=='' || empty($insertConfiguracion['titulo']))
+			$insertConfiguracion['titulo']=$insertUsuario['nombre'].' '.$insertUsuario['apellidos'];
+		
+		$insertConfiguracion['nombre_unico']= url_title($insertConfiguracion['titulo']);
+		 
+		$insertConfiguracion['id_zone_time']=15;
+		
+	 	$valido=false;
+	 	
+	 	while($valido==true)
+	 	{
+	 		if ($this->Usuario_configuracion_model->existe_nombre_unico($insertConfiguracion['nombre_unico']) )
+	 			$insertConfiguracion['nombre_unico'].=strtolower(url_title($this->input->get('birthYear').'-'.random_string('alnum', 4)));
+	 		else
+	 			$valido=true;
+	 	}
+	 	
+	 	$this->insertaUsuario($insertUsuario,$insertConfiguracion);
+	 	
+	 	
+	 }
 	 
 	public function index()
 	{
-		
-		
 		
 		$this->form_validation->set_rules('correo','correo','required|valid_email|trim');
 		$this->form_validation->set_rules('contrasena','contrasena','required|trim|md5');
@@ -184,10 +248,11 @@ class Registro_forms extends CI_Controller {
 			
 			$insertConfiguracion['id_zone_time']= $insertUsuario['id_zone_time'];
 			$insertConfiguracion['titulo']= $this->input->post('titulo');
-			$insertConfiguracion['nombre_unico']= url_title($this->input->post('titulo'));
+			$insertConfiguracion['nombre_unico']= strtolower(url_title($this->input->post('titulo')));
 			
 			
 			/*Validaciones de BD*/
+			GLOBAL $nombresProhibidos;
 			
 			if ($this->Usuario_model->existe_correo($insertUsuario['correo']))
 			{
@@ -206,137 +271,152 @@ class Registro_forms extends CI_Controller {
 				
 			}else{
 				
-				$this->db->trans_begin();
-				
-				$id_user=$this->Usuario_model->insert($insertUsuario);
-				$insertConfiguracion['id_usuario']= ($id_user) ? $id_user : null;
-				$insertConfiguracion['eslogan']=$this->lang->line('descripcion_default');
-				
-				$id_configuracion=$this->Usuario_configuracion_model->insert($insertConfiguracion);
-				
-				$insertBasico['id_configuracion']=$id_configuracion;
-				
-				$this->Web_configuracion_diseno_model->insert($insertBasico);
-				
-				
-
-				// Separador por defecto
-				$insertSeparador['id_configuracion']=$id_configuracion;
-				$insertSeparador['id_separador']=1;
-				$insertSeparador['fondo']='#e8e8e8';
-				$insertSeparador['grosor']='1px';
-				$insertSeparador['estilo']='solid';
-				$insertSeparador['color_borde']='#969696';
-				$insertSeparador['altura']='60px';
-				$insertSeparador['posicion']='90px';
-				
-				$this->Web_configuracion_separadores_model->insert($insertSeparador);
-				
-				
-				$insertCategoria['nombre']='Trabajo';
-				$insertCategoria['id_usuario']=$id_user;
-				$insertCategoria['id_padre']=0;
-				
-				$id_trabajo=$this->Categorias_model->insert($insertCategoria);
-				
-				$insertCategoria['nombre']='Ocio';
-				$this->Categorias_model->insert($insertCategoria);
-				
-				$insertCategoria['nombre']='Links interesantes';
-				$id_links=$id_links=$this->Categorias_model->insert($insertCategoria);
-				
-				$insertCategoria['nombre']='Personal';
-				$this->Categorias_model->insert($insertCategoria);
-				
-				
-				$insertCategoria['nombre']='Otros';
-				$id_otros=$this->Categorias_model->insert($insertCategoria);
-				
-				$insertCategoria['id_padre']=$id_links;
-				$insertCategoria['nombre']='Ocio';
-				$this->Categorias_model->insert($insertCategoria);
-				
-				$insertCategoria['nombre']='Trabajo';
-				$this->Categorias_model->insert($insertCategoria);
-				
-				$insertCategoria['id_padre']=$id_trabajo;
-				$insertCategoria['nombre']='Pendiente';
-				$this->Categorias_model->insert($insertCategoria);
-				
-				$insertCategoria['nombre']='Finalizado';
-				$this->Categorias_model->insert($insertCategoria);
-				
-				
-				$noticiaInsert['id_usuario']=$id_user;
-				$noticiaInsert['id_categoria']=$id_otros;
-				
-				
-				
-				$noticiaInsert['titulo']='Esta es una noticia de prueba';
-				$noticiaInsert['noticia']='Hola y bienvenido a '.URL_BASE.'.<br><br> Te mostramos una noticia de prueba para que la pruebes el funcionamiento de la página.<br>Para los desarrolladores tienen una opción de copiar código de programación de forma que se vea mas claramente su sintaxis, como se puede ver mas abajo.'.
-						'<br><br><pre class="brush:cpp;">#include&lt;stdio.h&gt;
- 
-int main()
-{
-    int radio;
-    float area, perimetro;
- 
-    // SALIDA: mensaje un pantalla
-    printf(&quot;Introduce el radio del circulo: &quot;);
- 
-    //ENTRADA: recibir dato desde teclado
-    scanf(&quot;%d&quot;, &amp;radio);
- 
-    // calculos
-    area = 3.1416 * radio * radio;
-    perimetro = 3.1416 * radio * 2;
- 
-    //SALIDA: resultado en pantalla
-    printf(&quot;El area es %.2f y el perimetro %.2f&quot;, area, perimetro);
-    getch();
- 
-    return 0;
-}</pre><br>'.'Gracias por utilizar '.URL_BASE.' y recuerda que con la aplicación de escritorio podras agregar las noticias de una forma muy cómoda y rápida para que no se te olvide nada, lo puedes descargar en la portada y es necesario tener instalado java version 1.6 el 99% de pcs esta ya instalado sino hay un lick para descargarlo también.<br><br>Un saludo desde el equipo de '.URL_BASE.' !';
-				
-				$this->Noticias_model->insert($noticiaInsert);
-				$insertSobremi=$insertBasico;
-				$insertSobremi['sobre_mi']='Rellena información sobre ti en las configuraciones de la página.<br> Es importante darte a conocer en este mundo y sobre todo si tienes tu propia página, que menos conocer quién escribe !!';
-				
-				$this->Web_sobre_mi_model->insert($insertSobremi);
-				
-				
-				//echo $this->db->last_query();
-				//echo $this->db->trans_status();
-				
-				if ($this->db->trans_status() === FALSE)
-				{
+				// Insertando usuario
+				$this->insertaUsuario($insertUsuario,$insertConfiguracion,true);
 					
-					$this->db->trans_rollback();
-					printf(MSG_ERROR, $this->lang->line('error_db'));
-					
-				}else{
-					
-					$this->db->trans_commit();
-					
-					// correo se envia despues ya que sino afecta a la transaccion y se queda la pagina colgada . No me digas xq... 
-					$urlActivarCuenta='http://'.URL_BASE.'/activar_cuenta?id='.$id_user.'&codigo='.$insertUsuario['activar_cuenta'];
-					$texto_correo=sprintf($this->lang->line('activar_tu_cuenta_correo_texto'),$urlActivarCuenta,$urlActivarCuenta,$insertUsuario['correo'],$this->input->post('recontrasena'));
-					sendEmail($insertUsuario['correo'],$this->lang->line('activar_tu_cuenta_correo_subject'), $texto_correo);
-						
-					
-					printf(HIDE_REQUEST, 'forms/categorias_forms/reordenamientoPost','id_usuario='.$id_user);
-					printf(MSG_INFO_URGENT,  $this->lang->line('correcto'),$this->lang->line('activar_tu_cuenta'));
-					printf(CARGAR_PAGINA_JS,((isset($_SESSION['device'])) ? 'bienvenido' : '' ));
-					
-				}
-				
-			}
-				
-				
-					
-				
+			}		
 		}
 			 
+	}
+	
+	private function insertaUsuario($insertUsuario,$insertConfiguracion,$ajax=false){
+		
+		$this->db->trans_begin();
+		
+		$id_user=$this->Usuario_model->insert($insertUsuario);
+		
+		$insertConfiguracion['id_usuario']= ($id_user) ? $id_user : null;
+		$insertConfiguracion['eslogan']=$this->lang->line('descripcion_default');
+		
+		$id_configuracion=$this->Usuario_configuracion_model->insert($insertConfiguracion);
+		
+		$insertBasico['id_configuracion']=$id_configuracion;
+		
+		$this->Web_configuracion_diseno_model->insert($insertBasico);
+		
+		
+		
+		// Separador por defecto
+		$insertSeparador['id_configuracion']=$id_configuracion;
+		$insertSeparador['id_separador']=1;
+		$insertSeparador['fondo']='#e8e8e8';
+		$insertSeparador['grosor']='1px';
+		$insertSeparador['estilo']='solid';
+		$insertSeparador['color_borde']='#969696';
+		$insertSeparador['altura']='60px';
+		$insertSeparador['posicion']='90px';
+		
+		$this->Web_configuracion_separadores_model->insert($insertSeparador);
+		
+		
+		$insertCategoria['nombre']='Trabajo';
+		$insertCategoria['id_usuario']=$id_user;
+		$insertCategoria['id_padre']=0;
+		
+		$id_trabajo=$this->Categorias_model->insert($insertCategoria);
+		
+		$insertCategoria['nombre']='Ocio';
+		$this->Categorias_model->insert($insertCategoria);
+		
+		$insertCategoria['nombre']='Links interesantes';
+		$id_links=$id_links=$this->Categorias_model->insert($insertCategoria);
+		
+		$insertCategoria['nombre']='Personal';
+		$this->Categorias_model->insert($insertCategoria);
+		
+		
+		$insertCategoria['nombre']='Otros';
+		$id_otros=$this->Categorias_model->insert($insertCategoria);
+		
+		$insertCategoria['id_padre']=$id_links;
+		$insertCategoria['nombre']='Ocio';
+		$this->Categorias_model->insert($insertCategoria);
+		
+		$insertCategoria['nombre']='Trabajo';
+		$this->Categorias_model->insert($insertCategoria);
+		
+		$insertCategoria['id_padre']=$id_trabajo;
+		$insertCategoria['nombre']='Pendiente';
+		$this->Categorias_model->insert($insertCategoria);
+		
+		$insertCategoria['nombre']='Finalizado';
+		$this->Categorias_model->insert($insertCategoria);
+		
+		
+		$noticiaInsert['id_usuario']=$id_user;
+		$noticiaInsert['id_categoria']=$id_otros;
+		
+		
+		
+		$noticiaInsert['titulo']='Esta es una noticia de prueba';
+		$noticiaInsert['noticia']='Hola y bienvenido a '.URL_BASE.'.<br><br> Te mostramos una noticia de prueba para que la pruebes el funcionamiento de la página.<br>Para los desarrolladores tienen una opción de copiar código de programación de forma que se vea mas claramente su sintaxis, como se puede ver mas abajo.'.
+				'<br><br><pre class="brush:cpp;">#include&lt;stdio.h&gt;
+		
+				int main()
+				{
+				int radio;
+				float area, perimetro;
+		
+				// SALIDA: mensaje un pantalla
+				printf(&quot;Introduce el radio del circulo: &quot;);
+		
+				//ENTRADA: recibir dato desde teclado
+				scanf(&quot;%d&quot;, &amp;radio);
+		
+				// calculos
+				area = 3.1416 * radio * radio;
+				perimetro = 3.1416 * radio * 2;
+		
+				//SALIDA: resultado en pantalla
+				printf(&quot;El area es %.2f y el perimetro %.2f&quot;, area, perimetro);
+				getch();
+		
+				return 0;
+		}</pre><br>'.'Gracias por utilizar '.URL_BASE.' y recuerda que con la aplicación de escritorio podras agregar las noticias de una forma muy cómoda y rápida para que no se te olvide nada, lo puedes descargar en la portada y es necesario tener instalado java version 1.6 el 99% de pcs esta ya instalado sino hay un lick para descargarlo también.<br><br>Un saludo desde el equipo de '.URL_BASE.' !';
+		
+		$this->Noticias_model->insert($noticiaInsert);
+		$insertSobremi=$insertBasico;
+		$insertSobremi['sobre_mi']='Rellena información sobre ti en las configuraciones de la página.<br> Es importante darte a conocer en este mundo y sobre todo si tienes tu propia página, que menos conocer quién escribe !!';
+		
+		$this->Web_sobre_mi_model->insert($insertSobremi);
+		
+		
+		//echo $this->db->last_query();
+		//echo $this->db->trans_status();
+		
+		if ($this->db->trans_status() === FALSE)
+		{
+				
+			$this->db->trans_rollback();
+			
+			if ($ajax)
+				printf(MSG_ERROR, $this->lang->line('error_db'));
+			else
+				echo $this->lang->line('error_db');
+				
+		}else{
+				
+			$this->db->trans_commit();
+				
+			if ($ajax)
+			{
+				// correo se envia despues ya que sino afecta a la transaccion y se queda la pagina colgada . No me digas xq...
+				$urlActivarCuenta='http://'.URL_BASE.'/activar_cuenta?id='.$id_user.'&codigo='.$insertUsuario['activar_cuenta'];
+				$texto_correo=sprintf($this->lang->line('activar_tu_cuenta_correo_texto'),$urlActivarCuenta,$urlActivarCuenta,$insertUsuario['correo'],$this->input->post('recontrasena'));
+				sendEmail($insertUsuario['correo'],$this->lang->line('activar_tu_cuenta_correo_subject'), $texto_correo);
+			
+					
+				printf(HIDE_REQUEST, 'forms/categorias_forms/reordenamientoPost','id_usuario='.$id_user);
+				printf(MSG_INFO_URGENT,  $this->lang->line('correcto'),$this->lang->line('activar_tu_cuenta'));
+				printf(CARGAR_PAGINA_JS,((isset($_SESSION['device'])) ? 'bienvenido' : '' ));
+				
+			}else{
+				echo $this->lang->line('registro_correcto');
+			}				
+		}
+		
+		
+		
 	}
 			
 }
