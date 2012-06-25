@@ -183,22 +183,6 @@ class Registro_forms extends CI_Controller {
 			//redirect($visitante,'refresh');
 	 	}
 	 	
-	 	$url = $this->input->get('thumbnailURL');
-	 	$nombre=url_title($insertUsuario['id_social']).'.jpg';
-	 	$img = '.'.PATH_IMG.'usuario/personal/'.$nombre;
-		
-		try{
-			
-		 	if ($imagen=file_get_contents($url))
-		 	{
-		 		if (file_put_contents($img, $imagen))
-			 	{
-			 		$insertUsuario['avatar']=$nombre;
-			 	}
-	 	}
-		}catch (Exception $e){
-			//no exite imagen
-		}
 	 	
 	 	
 		
@@ -221,6 +205,25 @@ class Registro_forms extends CI_Controller {
 	 		else
 	 			$valido=true;
 	 	}
+	 	
+	 	
+	 	$url = $this->input->get('thumbnailURL');
+	 	$nombre=$insertConfiguracion['nombre_unico'].'.jpg';
+	 	$img = '.'.PATH_IMG.'usuario/personal/'.$nombre;
+	 	
+	 	try{
+	 			
+	 		if ($imagen=file_get_contents($url))
+	 		{
+	 			if (file_put_contents($img, $imagen))
+	 			{
+	 				$insertUsuario['avatar']=$nombre;
+	 			}
+	 		}
+	 	}catch (Exception $e){
+	 		//no exite imagen
+	 	}
+	 	 
 	 	
 	 	$this->insertaUsuario($insertUsuario,$insertConfiguracion);
 	 	
