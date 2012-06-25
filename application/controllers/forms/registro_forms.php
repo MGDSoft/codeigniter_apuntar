@@ -150,7 +150,7 @@ class Registro_forms extends CI_Controller {
 	 public function social()
 	 {
 	 	
-	 	if (!empty($visitante) && isset($_SERVER['HTTP_REFERER']))
+	 	if (isset($_SERVER['HTTP_REFERER']))
 	 		$visitante=$_SERVER['HTTP_REFERER'];
 	 	else
 	 		$visitante='http://'.URL_BASE.'/';
@@ -180,7 +180,7 @@ class Registro_forms extends CI_Controller {
 	 		);
 	 			
 	 		$this->input->set_cookie($cookie);
-			//redirect($visitante,'refresh');
+			redirect($visitante,'refresh');
 	 	}
 	 	
 	 	
