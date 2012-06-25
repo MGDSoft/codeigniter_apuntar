@@ -20,7 +20,6 @@ class Usuario_model extends CI_Model {
 	}
 	function get_by_correo_y_uid($email,$uid=null)
 	{
-		$this->db->select('correo');
 		$this->db->where('correo', $email);
 		
 		if ($uid!="" || $uid)

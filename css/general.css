@@ -452,7 +452,7 @@ div.paginado a.next{
 }
 
 .my_code_collapse{
-	height:55px;
+	max-height:55px;
 	overflow:hidden;
 	overflow-x:hidden !important;
 	padding-left:0px;

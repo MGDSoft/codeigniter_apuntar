@@ -241,6 +241,9 @@ $lang['descripcion_default'] = 'Tu página ya esta creada, sólo falta agregar c
 $lang['correcto']="Correcto";
 $lang['registro_correcto']="El registro se realizo correctamente";
 
+$lang['bienvenida_social']="Bienvenido a apuntar.net puedes cambiar el nombre de tu dominio el las configuraciones.";
+
+
 $lang['codigo_erroneo'] = 'El código o el usuario no son validos';
 $lang['usuario_no_existe'] = 'El usuario no existe';
 

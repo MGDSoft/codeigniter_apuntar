@@ -22,6 +22,9 @@ window.addEvent('domready', function() {
 			case 5:
 				printf(MSG_INFO_URGENT,  $this->lang->line('correcto'),$this->lang->line('cuenta_recuperada'));
 				break;
+			case 6:
+				printf(MSG_INFO_URGENT,  $this->lang->line('correcto'),$this->lang->line('bienvenida_social'));
+				break;
 				
 		}
 	

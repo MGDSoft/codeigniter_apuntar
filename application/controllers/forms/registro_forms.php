@@ -149,8 +149,14 @@ class Registro_forms extends CI_Controller {
 	 }
 	 public function social()
 	 {
+	 	
+	 	if (!empty($visitante) && isset($_SERVER['HTTP_REFERER']))
+	 		$visitante=$_SERVER['HTTP_REFERER'];
+	 	else
+	 		$visitante='http://'.URL_BASE.'/';
+	 	
 	 	if (isset($_SESSION['usuario']))
-	 		exit;
+	 		redirect($visitante);
 	 	
 	 	$insertUsuario['correo']=$this->input->get('email');
 	 	$insertUsuario['id_social']=$this->input->get('UID');
@@ -160,17 +166,15 @@ class Registro_forms extends CI_Controller {
 	 	$insertUsuario['activo']=1;
 	 	$insertUsuario['password']=random_string('alnum', 16);
 	 	$insertUsuario['activar_cuenta']= random_string('alnum', 16);
+	 	$insertUsuario['id_zone_time']= 15;
 	 	
 	 	
 	 	
 	 	if ($user=$this->Usuario_model->get_by_correo_y_uid($insertUsuario['correo'],$insertUsuario['id_social']))
 	 	{
-	 		print_r($user);
 	 		$_SESSION['usuario']=$user;
-	 		exit;
+			redirect($visitante);
 	 	}
-	print_r($user);
-	 	echo $this->db->last_query();
 	 	
 	 	$url = $this->input->get('thumbnailURL');
 	 	$nombre=url_title($insertUsuario['id_social'].'.jpg');
@@ -283,15 +287,18 @@ class Registro_forms extends CI_Controller {
 		$this->db->trans_begin();
 		
 		$id_user=$this->Usuario_model->insert($insertUsuario);
+		//echo $this->db->last_query();
 		
 		$insertConfiguracion['id_usuario']= ($id_user) ? $id_user : null;
 		$insertConfiguracion['eslogan']=$this->lang->line('descripcion_default');
 		
 		$id_configuracion=$this->Usuario_configuracion_model->insert($insertConfiguracion);
+		//echo $this->db->last_query();
 		
 		$insertBasico['id_configuracion']=$id_configuracion;
 		
 		$this->Web_configuracion_diseno_model->insert($insertBasico);
+		//echo $this->db->last_query();
 		
 		
 		
@@ -378,9 +385,9 @@ class Registro_forms extends CI_Controller {
 		$insertSobremi['sobre_mi']='Rellena información sobre ti en las configuraciones de la página.<br> Es importante darte a conocer en este mundo y sobre todo si tienes tu propia página, que menos conocer quién escribe !!';
 		
 		$this->Web_sobre_mi_model->insert($insertSobremi);
-		
-		
 		//echo $this->db->last_query();
+		
+
 		//echo $this->db->trans_status();
 		
 		if ($this->db->trans_status() === FALSE)
@@ -411,8 +418,8 @@ class Registro_forms extends CI_Controller {
 				
 			}else{
 				$_SESSION['usuario']=$this->Usuario_model->get_by_correo_y_uid('no_existe',$insertUsuario['id_social']);
-				print_r($_SESSION['usuario']);
-				echo $this->lang->line('registro_correcto');
+				redirect("http://".$insertConfiguracion['nombre_unico'].'.'.URL_BASE.'/portal?info=6');
+				
 			}				
 		}
 		
