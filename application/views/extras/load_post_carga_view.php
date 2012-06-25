@@ -1,5 +1,6 @@
 <!-- Post carga de archivos innecesarios de primeras y que relentizan la pagina -->
 <script src="<?= PATH_JS ?>ckeditor/ckeditor.js" type="text/javascript"></script>
+<!--
 <?php if (!isset($_SESSION['usuario'])) 
 {	?>
 	<script type="text/javascript" lang="javascript"
@@ -11,4 +12,4 @@
 		showTermsLink:false, hideGigyaLink:true // remove 'Terms' and 'Gigya' links
 		});	
 	</script>
-<?php } ?>
+<?php } ?> -->

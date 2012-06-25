@@ -30,10 +30,7 @@ class Registro_forms extends CI_Controller {
 	 		printf(MSG_ERROR, preg_replace('~[\r\n]+~', '', validation_errors()));
 	 	}else{
 	 			
-	 		
-	 			
-	 		
-	 			
+
 	 		$update['nombre']= $this->input->post('nombre');
 	 		$update['apellidos']= $this->input->post('apellidos');
 	 		$update['correo']= $this->input->post('correo');
@@ -168,10 +165,12 @@ class Registro_forms extends CI_Controller {
 	 	
 	 	if ($user=$this->Usuario_model->get_by_correo_y_uid($insertUsuario['correo'],$insertUsuario['id_social']))
 	 	{
+	 		print_r($user);
 	 		$_SESSION['usuario']=$user;
 	 		exit;
 	 	}
-
+	print_r($user);
+	 	echo $this->db->last_query();
 	 	
 	 	$url = $this->input->get('thumbnailURL');
 	 	$nombre=url_title($insertUsuario['id_social'].'.jpg');
@@ -411,7 +410,8 @@ class Registro_forms extends CI_Controller {
 				printf(CARGAR_PAGINA_JS,((isset($_SESSION['device'])) ? 'bienvenido' : '' ));
 				
 			}else{
-				$_SESSION['usuario']=get_by_correo_y_uid('no_existe',$insertUsuario['id_social']);
+				$_SESSION['usuario']=$this->Usuario_model->get_by_correo_y_uid('no_existe',$insertUsuario['id_social']);
+				print_r($_SESSION['usuario']);
 				echo $this->lang->line('registro_correcto');
 			}				
 		}

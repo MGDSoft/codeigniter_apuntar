@@ -30,10 +30,11 @@ class Usuario_model extends CI_Model {
 		$this->db->join('usuario_configuracion', 'usuario_configuracion.id_usuario = usuario.id_usuario');
 		
 		$query = $this->db->get($this->table);
-		if ($query->num_rows() > 0){
+		
+		if ($query->num_rows() > 0)
 			return $query->row();
-		}
-		return null;
+		else
+			return null;
 	}
 	
 	function getLast($desc='DESC',$limit=10)
