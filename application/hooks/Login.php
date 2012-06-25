@@ -28,7 +28,7 @@ class Login
 	function login_diferentes_dominios(){
 		$CI =& get_instance();
 		$CI->load->helper('cookie');
-		/*$cookie=$CI->input->cookie('conectado_ahora', TRUE);
+		$cookie=$CI->input->cookie('conectado_ahora', TRUE);
 		
 		if (!$cookie && isset($_SESSION['usuario']))
 		{
@@ -44,7 +44,6 @@ class Login
 		}else if ($cookie && !isset($_SESSION['usuario'])){
 			$this->agregar_valores_session($cookie);
 		}
-		*/
 	}
 	
 	function agregar_valores_session($cookie){

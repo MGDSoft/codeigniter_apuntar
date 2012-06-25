@@ -63,22 +63,23 @@
  }
   	
   private function logout_(){
+  	// En el cambio de dominio desconectarlo si se da al logout
+  	$cookie=$this->input->cookie('conectado_ahora', TRUE);
+  	 
+  	if (!$cookie && isset($_SESSION['usuario']))
+  		unset ($_SESSION['usuario']);
+  	
   	if (isset($_GET['logout']))
   	{
   		unset ($_SESSION['usuario']);
   		//session_unset();
   		$this->load->helper('cookie');
   		delete_cookie('auto_login');
-  		//delete_cookie('conectado_ahora');
+  		delete_cookie('conectado_ahora');
   		redirect('/', 'refresh');
   	}
   	
-  	// En el cambio de dominio desconectarlo si se da al logout
   	
-  	//$cookie=$this->input->cookie('conectado_ahora', TRUE);
-  	
-  	//if (!$cookie && isset($_SESSION['usuario']))
-  	//	unset ($_SESSION['usuario']);
   	  	
   }
  }
