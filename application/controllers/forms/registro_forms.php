@@ -184,7 +184,7 @@ class Registro_forms extends CI_Controller {
 	 	}
 	 	
 	 	$url = $this->input->get('thumbnailURL');
-	 	$nombre=url_title($insertUsuario['id_social'].'.jpg');
+	 	$nombre=url_title($insertUsuario['id_social']).'.jpg';
 	 	$img = '.'.PATH_IMG.'usuario/personal/'.$nombre;
 		
 		try{
