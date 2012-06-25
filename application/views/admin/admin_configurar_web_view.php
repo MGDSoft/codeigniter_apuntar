@@ -40,7 +40,8 @@ $fontFamily[17]['nombre']='Verdana, Geneva, sans-serif';$fontFamily[17]['valor']
 	<div id="opt_dise" class="opciontab" onclick="activarTab('diseno_propio',$('opt_dise'))"><?= $this->lang->line('diseno_propio') ?></div>
 	<div id="opt_separa" class="opciontab" onclick="activarTab('diseno_separadores',$('opt_separa'))"><?= $this->lang->line('titulo_separadores') ?></div>
 	<div class="contidoTabs">
-		<span><?= $this->lang->line('hasta_no_guardado') ?> </span>
+		<span class="inidica"><?= $this->lang->line('hasta_no_guardado') ?> </span>
+		
 		<div id="general" class="tabcontenido">
 			<form id='general_form' class='formulario_estandar' name="general_form"  action="javascript:enviar_form_ajax('general_form','/forms/configuracion_web_forms/general_update','','','')" method="post" accept-charset="utf-8">
 				<table class='formulario_estandar' >
@@ -81,31 +82,7 @@ $fontFamily[17]['nombre']='Verdana, Geneva, sans-serif';$fontFamily[17]['valor']
 					<input name="iehack" type="hidden" value="&#9760;" />
 			</form>
 		</div>
-		<div id="sobre_mi" class="tabcontenido" style="display: none">
-			<form id='sobre_mi_form' class='formulario_estandar' name="sobre_mi_form"  action="javascript:enviar_form_ajax('sobre_mi_form','/forms/configuracion_web_forms/sobre_mi_update','','','')" method="post" accept-charset="utf-8">
-				<table class='formulario_estandar' >
-				<tr><th class="separador"><?= $this->lang->line('titulo_sobreti') ?></th></tr>
-					<tr><th><?= $this->lang->line('imagen_sobreti') ?></th><td>
-					<img src="<?= PATH_IMG ?>borrar.png" style="position:absolute;z-index:5;margin:16px 0px 0px 120px" onclick="$('imagen_sobreti').value='borrar';">
-						<div id="imagen_sobreti-uploader">       
-						    <noscript>          
-						        <p>Please enable JavaScript to use file uploader.</p>
-						        <!-- or put a simple form for upload here -->
-						    </noscript>         
-						</div>
-						
-						<input type="hidden" name="imagen_sobreti" id="imagen_sobreti" value="">
-						
-					</td></tr>
-					<tr><th><?= $this->lang->line('texto_sobreti') ?></th><th><textarea name="texto_sobre_ti" id="texto_sobre_ti"  ><?= htmlspecialchars($web_sobre_mi->sobre_mi)  ?></textarea>
-					
-					</td></tr>
-					<tr><td></td><td align="right"><input type="submit" class='boton_standart' value="<?= $this->lang->line('enviar') ?>"></td></tr>
-								
-				</table>
-				<input name="iehack" type="hidden" value="&#9760;" />
-			</form>
-		</div>
+		
 		<div id="diseno_pre" class="tabcontenido" style="display: none">
 			<form id='opt_pre_form' class='formulario_estandar' name="opt_pre_form"  action="javascript:enviar_form_ajax('opt_pre_form','/forms/configuracion_web_forms/diseno_propio_update','','','')" method="post" accept-charset="utf-8">
 				<table class='formulario_estandar' >
@@ -352,6 +329,31 @@ $fontFamily[17]['nombre']='Verdana, Geneva, sans-serif';$fontFamily[17]['valor']
 			
 		</form>
 		</div>
+		<div id="sobre_mi" class="tabcontenido" style="display: none">
+			<form id='sobre_mi_form' class='formulario_estandar' name="sobre_mi_form"  action="javascript:enviar_form_ajax('sobre_mi_form','/forms/configuracion_web_forms/sobre_mi_update','','','')" method="post" accept-charset="utf-8">
+				<table class='formulario_estandar' >
+				<tr><th class="separador"><?= $this->lang->line('titulo_sobreti') ?></th></tr>
+					<tr><th><?= $this->lang->line('imagen_sobreti') ?></th><td>
+					<img src="<?= PATH_IMG ?>borrar.png" style="position:absolute;z-index:5;margin:16px 0px 0px 120px" onclick="$('imagen_sobreti').value='borrar';">
+						<div id="imagen_sobreti-uploader">       
+						    <noscript>          
+						        <p>Please enable JavaScript to use file uploader.</p>
+						        <!-- or put a simple form for upload here -->
+						    </noscript>         
+						</div>
+						
+						<input type="hidden" name="imagen_sobreti" id="imagen_sobreti" value="">
+						
+					</td></tr>
+					<tr><th><?= $this->lang->line('texto_sobreti') ?></th><td><textarea name="texto_sobre_ti" id="texto_sobre_ti"  ><?= $web_sobre_mi->sobre_mi  ?></textarea>
+					
+					</td></tr>
+					<tr><td></td><td align="right"><input type="submit" class='boton_standart' value="<?= $this->lang->line('enviar') ?>"></td></tr>
+								
+				</table>
+				<input name="iehack" type="hidden" value="&#9760;" />
+			</form>
+		</div>
 </div>
 	
 </div>
@@ -359,19 +361,11 @@ $fontFamily[17]['nombre']='Verdana, Geneva, sans-serif';$fontFamily[17]['valor']
 <?php $this->load->view('admin/volver_view'); ?>
 
 <div class='<?= AUTO_EJECUTAR_JS ?>' style='display:none'>
-	
 	creacionEventos('nombre_unico','','',1,2);
 	if ( typeof CKEDITOR == 'undefined' )
 	{
-	document.write(
-		'<strong><span style="color: #ff0000">Error</span>: CKEditor not found</strong>.' +
-		'This sample assumes that CKEditor (not included with CKFinder) is installed in' +
-		'the "/ckeditor/" path. If you have it installed in a different place, just edit' +
-		'this file, changing the wrong paths in the &lt;head&gt; (line 5) and the "BasePath"' +
-		'value (line 32).' ) ;
-	}
-	else
-	{
+		
+	}else{
 		var instance = CKEDITOR.instances['texto_sobre_ti'];
 	    if(instance)
 	    {
@@ -379,8 +373,8 @@ $fontFamily[17]['nombre']='Verdana, Geneva, sans-serif';$fontFamily[17]['valor']
 	    }
 		CKEDITOR.replace( 'texto_sobre_ti',
 			 {
-			 toolbar: [['Source','-','Bold', 'Italic', '-', 'NumberedList', 'BulletedList', '-', 'Link', 'Unlink', 'UIColor'],[ 'TextColor','BGColor' , 'Styles','Format','Font','FontSize' ]],
-			 width:  600
+			 toolbar: [['Source','Bold', 'Italic', '-', 'NumberedList', 'BulletedList', '-', 'Link', 'Unlink', 'UIColor'],[ 'TextColor','BGColor' ],[ 'Code']],
+			 width:   '600'
 			 
 			});	
 		
@@ -421,7 +415,7 @@ $fontFamily[17]['nombre']='Verdana, Geneva, sans-serif';$fontFamily[17]['valor']
     action: '/extras/imagenes/sobreti',
     titulo: '<?= $this->lang->line('modificar_imagen') ?>',
     onComplete: function(id, fileName, responseJSON){
-    	
+    	console.log(responseJSON);
   	 		if (responseJSON.success)
   	 		{
   	 			$('imagen_sobreti').value=responseJSON.directory;
@@ -609,6 +603,4 @@ $fontFamily[17]['nombre']='Verdana, Geneva, sans-serif';$fontFamily[17]['valor']
 	<?= ((count($web_configuracion_separadores) > 0)? '' : 'separadoresToDefault(); borrarTodos();') ?>
 	modo_espera=false;
 	carga_diseno_on_fly();
-
-	
 </div>

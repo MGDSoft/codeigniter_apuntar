@@ -410,7 +410,7 @@ div.contenedorTabs{
 	border-style: solid;
 	padding:16px;
 }
-div.contenedorTabs span{
+div.contenedorTabs span.indica{
 	display: block;
 	padding:10px 30px;
 	font-style: italic

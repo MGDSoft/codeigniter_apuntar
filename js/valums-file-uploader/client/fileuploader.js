@@ -618,6 +618,8 @@ qq.extend(qq.FileUploader.prototype, {
         qq.remove(this._find(item, 'cancel'));
         qq.remove(this._find(item, 'spinner'));
         
+        
+        
         if (result.success){
             qq.addClass(item, this._classes.success);    
         } else {
