@@ -209,7 +209,7 @@ class Registro_forms extends CI_Controller {
 	 	
 	 	$url = $this->input->get('thumbnailURL');
 	 	$nombre=$insertConfiguracion['nombre_unico'].'.jpg';
-	 	$img = '.'.PATH_IMG.'usuario/personal/'.$nombre;
+	 	$img = '.'.PATH_IMG.'usuario/avatar/'.$nombre;
 	 	
 	 	try{
 	 			
