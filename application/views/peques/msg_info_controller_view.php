@@ -24,6 +24,7 @@ window.addEvent('domready', function() {
 				break;
 			case 6:
 				printf(MSG_INFO_URGENT,  $this->lang->line('correcto'),$this->lang->line('bienvenida_social'));
+				break;
 			case 7:
 				printf(MSG_WATCHOUT,  $this->lang->line('error'),$this->lang->line('error_correo_social'));
 				break;
