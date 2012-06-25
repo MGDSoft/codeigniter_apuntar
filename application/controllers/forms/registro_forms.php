@@ -149,8 +149,8 @@ class Registro_forms extends CI_Controller {
 	 }
 	 public function social()
 	 {
-	 	$print_r($_POST);
-	 	$print_r($_GET);
+	 	print_r($_POST);
+	 	print_r($_GET);
 	 	
 	 	if (isset($_SERVER['HTTP_REFERER']))
 	 		$visitante=$_SERVER['HTTP_REFERER'];
