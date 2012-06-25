@@ -175,11 +175,6 @@ class Registro_forms extends CI_Controller {
 	 	$insertUsuario['activar_cuenta']= random_string('alnum', 16);
 	 	$insertUsuario['id_zone_time']= 15;
 	 	
-	 	// Error cuenta no tiene asignado nigun correo
-	 	if (empty($insertUsuario['correo']))
-	 		redirect('http://'.URL_BASE.'/?info=7','refresh');
-	 	
-	 	
 	 	
 	 	if ($user=$this->Usuario_model->get_by_correo_y_uid($insertUsuario['correo'],$insertUsuario['id_social']))
 	 	{
@@ -192,9 +187,15 @@ class Registro_forms extends CI_Controller {
 	 			
 	 		$this->input->set_cookie($cookie);
 			redirect($visitante,'refresh');
+			exit;
 	 	}
 	 	
-	 	
+	 	// Error cuenta no tiene asignado nigun correo
+	 	if (empty($insertUsuario['correo']))
+	 	{
+	 		redirect('http://'.URL_BASE.'/?info=7','refresh');
+	 		exit;
+	 	}
 	 	
 		
 		$insertConfiguracion['id_zone_time']= 15;
