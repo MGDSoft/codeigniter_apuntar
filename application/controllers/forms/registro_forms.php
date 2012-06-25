@@ -149,12 +149,13 @@ class Registro_forms extends CI_Controller {
 	 }
 	 public function social()
 	 {
-	 	print_r($_POST);
-	 	print_r($_GET);
-	 	die;
+	 	
 	 	/*twitter
 	 	Array ( [provider] => twitter [UIDSig] => LhOwZ1Alw9/LfP4D8fZRxanggRc= [timestamp] => 2012-06-25 08:45:44 [UIDSignature] => TGgjPnIpWIR7aV/fCcRn4SaRyzU= [signatureTimestamp] => 1340613944 [signature] => LhOwZ1Alw9/LfP4D8fZRxanggRc= [UID] => _guid_6H2RaX9BnU25mYfLpQRbkw== [nickname] => Lauradelmar23 [photoURL] => http://a0.twimg.com/sticky/default_profile_images/default_profile_1.png [thumbnailURL] => http://a0.twimg.com/sticky/default_profile_images/default_profile_1_normal.png [gender] => [email] => [proxiedEmail] => [country] => [state] => [city] => [zip] => [firstName] => lauradelmar [lastName] => [profileURL] => http://twitter.com/Lauradelmar23 [isSiteUID] => false [isLoggedIn] => true [isConnected] => true [isSiteUser] => true [loginProvider] => twitter [loginProviderUID] => 89212740 [isTempUser] => false ) 
 	 	*/
+	 	/* gmail
+	 	 Array ( [provider] => google [UIDSig] => rjz2jFdVMOr0C31UQbxhS0cwMec= [timestamp] => 2012-06-25 08:52:05 [UIDSignature] => 8toUzoDKRRe9MR4vFZp1fj+Dhmk= [signatureTimestamp] => 1340614325 [signature] => rjz2jFdVMOr0C31UQbxhS0cwMec= [UID] => _guid_I2YLBIuXWTJSvNJhApe3zL8KMGRZgdGeoZfCmytWcgE= [nickname] => Laura Delgado [photoURL] => [thumbnailURL] => [gender] => [email] => lauradg1986@gmail.com [proxiedEmail] => [country] => [state] => [city] => [zip] => [firstName] => Laura [lastName] => Delgado [profileURL] => [isSiteUID] => false [isLoggedIn] => true [isConnected] => true [isSiteUser] => true [loginProvider] => google [loginProviderUID] => 104617904131323549750 [isTempUser] => false )
+	 	 * */
 	 	
 	 	if (isset($_SERVER['HTTP_REFERER']))
 	 		$visitante=$_SERVER['HTTP_REFERER'];
@@ -173,6 +174,10 @@ class Registro_forms extends CI_Controller {
 	 	$insertUsuario['password']=random_string('alnum', 16);
 	 	$insertUsuario['activar_cuenta']= random_string('alnum', 16);
 	 	$insertUsuario['id_zone_time']= 15;
+	 	
+	 	// Error cuenta no tiene asignado nigun correo
+	 	if (empty($insertUsuario['correo']))
+	 		redirect('http://'.URL_BASE.'/?info=7','refresh');
 	 	
 	 	
 	 	
