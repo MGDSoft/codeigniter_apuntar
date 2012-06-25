@@ -274,12 +274,18 @@ class Noticias_model extends Master_model {
 			return false;
 		 
 	}
-	function getData()
+	function getData($usuario_configuracion=false)
 	{
 		//Query the data table for every record and row
-		$this->db->join('zone_time', 'zone_time.id_zone_time = usuario.id_zone_time');
+		
+		if ($usuario_configuracion)
+			$this->db->join('usuario_configuracion', 'usuario_configuracion.id_usuario = noticias.id_usuario');
+		
+		
+		
 		$query = $this->db->get($this->table);
-		 
+
+		//echo $this->db->last_query();
 		if ($query->num_rows() > 0)
 		{
 			return $query->result();
