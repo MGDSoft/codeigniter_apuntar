@@ -425,7 +425,19 @@ class Registro_forms extends CI_Controller {
 		}else{
 				
 			$this->db->trans_commit();
-				
+			
+			/* Reordenamiento de las categorias */
+			$ch = curl_init();
+			
+			$data = array('id_usuario' => $id_user,);
+			
+			curl_setopt($ch, CURLOPT_URL, 'http://'.URL_BASE.'/forms/categorias_forms/reordenamientoPost');
+			curl_setopt($ch, CURLOPT_POST, 1);
+			curl_setopt($ch, CURLOPT_POSTFIELDS, $data);
+			
+			curl_exec($ch);
+			
+			
 			if ($ajax)
 			{
 				// correo se envia despues ya que sino afecta a la transaccion y se queda la pagina colgada . No me digas xq...
@@ -434,7 +446,7 @@ class Registro_forms extends CI_Controller {
 				sendEmail($insertUsuario['correo'],$this->lang->line('activar_tu_cuenta_correo_subject'), $texto_correo);
 			
 					
-				printf(HIDE_REQUEST, 'forms/categorias_forms/reordenamientoPost','id_usuario='.$id_user);
+				//printf(HIDE_REQUEST, 'forms/categorias_forms/reordenamientoPost','id_usuario='.$id_user);
 				printf(MSG_INFO_URGENT,  $this->lang->line('correcto'),$this->lang->line('activar_tu_cuenta'));
 				printf(CARGAR_PAGINA_JS,((isset($_SESSION['device'])) ? 'bienvenido' : '' ));
 				
