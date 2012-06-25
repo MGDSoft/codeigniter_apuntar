@@ -52,13 +52,6 @@ class Login_form extends CI_Controller {
 					set_cookie($cookie);
 				}
 				
-				$cookie = array(
-						'name'   => 'conectado_ahora',
-						'value'  => $user->correo.';'.$user->password,
-						'expire' => '3600' // 1 hora
-				);
-					
-				$this->input->set_cookie($cookie);
 				
 				$this->load->model('Usuario_configuracion_model');
 				

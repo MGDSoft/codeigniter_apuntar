@@ -173,7 +173,9 @@ class Registro_forms extends CI_Controller {
 	 	if ($user=$this->Usuario_model->get_by_correo_y_uid($insertUsuario['correo'],$insertUsuario['id_social']))
 	 	{
 	 		$_SESSION['usuario']=$user;
-			redirect($visitante);
+	 		
+	 		$this->input->set_cookie($cookie);
+			redirect($visitante,'refresh');
 	 	}
 	 	
 	 	$url = $this->input->get('thumbnailURL');
