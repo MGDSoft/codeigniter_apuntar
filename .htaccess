@@ -1,8 +1,8 @@
 Options +Indexes
 
 RewriteEngine ON
-RewriteCond %{HTTP_HOST} ^www\.([^\.]*)\.apuntar\.net$ [NC]
-RewriteRule (.*) http://%1.apuntar.net$1 [R=301,L]
+RewriteCond %{HTTP_HOST} ^www\.([^\.]*)([\.]*)apuntar\.net$ [NC]
+RewriteRule (.*) http://%1%2apuntar.net$1 [R=301,L]
 
 
 #GZIP#
