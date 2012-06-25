@@ -10,7 +10,7 @@ class Sitemap extends CI_Controller{
 	}
 	public function index()
 	{
-		$ahora=date(DateTime::ISO8601);
+		$ahora=date('c', time());
 		$this->cabecera($ahora);
 		$this->urls_paginas('0.95',$ahora);
 		$this->urls_noticias('0.59',$ahora);
