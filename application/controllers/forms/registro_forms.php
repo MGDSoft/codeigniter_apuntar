@@ -151,6 +151,10 @@ class Registro_forms extends CI_Controller {
 	 {
 	 	print_r($_POST);
 	 	print_r($_GET);
+	 	die;
+	 	/*twitter
+	 	Array ( [provider] => twitter [UIDSig] => LhOwZ1Alw9/LfP4D8fZRxanggRc= [timestamp] => 2012-06-25 08:45:44 [UIDSignature] => TGgjPnIpWIR7aV/fCcRn4SaRyzU= [signatureTimestamp] => 1340613944 [signature] => LhOwZ1Alw9/LfP4D8fZRxanggRc= [UID] => _guid_6H2RaX9BnU25mYfLpQRbkw== [nickname] => Lauradelmar23 [photoURL] => http://a0.twimg.com/sticky/default_profile_images/default_profile_1.png [thumbnailURL] => http://a0.twimg.com/sticky/default_profile_images/default_profile_1_normal.png [gender] => [email] => [proxiedEmail] => [country] => [state] => [city] => [zip] => [firstName] => lauradelmar [lastName] => [profileURL] => http://twitter.com/Lauradelmar23 [isSiteUID] => false [isLoggedIn] => true [isConnected] => true [isSiteUser] => true [loginProvider] => twitter [loginProviderUID] => 89212740 [isTempUser] => false ) 
+	 	*/
 	 	
 	 	if (isset($_SERVER['HTTP_REFERER']))
 	 		$visitante=$_SERVER['HTTP_REFERER'];
