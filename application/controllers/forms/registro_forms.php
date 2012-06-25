@@ -411,6 +411,7 @@ class Registro_forms extends CI_Controller {
 				printf(CARGAR_PAGINA_JS,((isset($_SESSION['device'])) ? 'bienvenido' : '' ));
 				
 			}else{
+				$_SESSION['usuario']=get_by_correo_y_uid('no_existe',$insertUsuario['id_social']);
 				echo $this->lang->line('registro_correcto');
 			}				
 		}
