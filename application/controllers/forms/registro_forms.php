@@ -173,9 +173,14 @@ class Registro_forms extends CI_Controller {
 	 	if ($user=$this->Usuario_model->get_by_correo_y_uid($insertUsuario['correo'],$insertUsuario['id_social']))
 	 	{
 	 		$_SESSION['usuario']=$user;
-	 		
+	 		$cookie = array(
+	 				'name'   => 'conectado_ahora',
+	 				'value'  => $user->correo.';'.$user->password,
+	 				'expire' => '3600' // 1 hora
+	 		);
+	 			
 	 		$this->input->set_cookie($cookie);
-			redirect($visitante,'refresh');
+			//redirect($visitante,'refresh');
 	 	}
 	 	
 	 	$url = $this->input->get('thumbnailURL');
@@ -420,6 +425,13 @@ class Registro_forms extends CI_Controller {
 				
 			}else{
 				$_SESSION['usuario']=$this->Usuario_model->get_by_correo_y_uid('no_existe',$insertUsuario['id_social']);
+				$cookie = array(
+						'name'   => 'conectado_ahora',
+						'value'  => $_SESSION['usuario']->correo.';'.$_SESSION['usuario']->password,
+						'expire' => '3600' // 1 hora
+				);
+					
+				$this->input->set_cookie($cookie);
 				redirect("http://".$insertConfiguracion['nombre_unico'].'.'.URL_BASE.'/portal?info=6');
 				
 			}				
