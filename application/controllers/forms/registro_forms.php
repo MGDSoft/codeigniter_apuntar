@@ -406,7 +406,7 @@ class Registro_forms extends CI_Controller {
 				getch();
 		
 				return 0;
-		}</pre><br>'.'Gracias por utilizar '.URL_BASE.' y recuerda que con la aplicación de escritorio podras agregar las noticias de una forma muy cómoda y rápida para que no se te olvide nada, lo puedes descargar en la portada y es necesario tener instalado java version 1.6 el 99% de pcs esta ya instalado sino hay un link para descargarlo también.<br><br>Un saludo desde el equipo de '.URL_BASE.' !';
+		}</pre><br>'.'Gracias por utilizar '.URL_BASE.' y recuerda que con la aplicación de escritorio podras agregar las noticias de una forma muy cómoda y rápida para que no se te olvide nada, lo puedes descargar en la portada y es necesario tener instalado java version 1.6 o superior, en el 99% de pcs esta ya instalado sino hay un link para descargarlo también.<br><br>Un saludo desde el equipo de '.URL_BASE.' !';
 		
 		$this->Noticias_model->insert($noticiaInsert);
 		$insertSobremi=$insertBasico;
