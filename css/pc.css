@@ -108,16 +108,9 @@ h2{
 	background: #EDEDED;
 	display:  inline-block;
 }
-#login_social_devices{
-	padding:0px;
-	margin:0px;
-	height:0px;
-}
 #caja_login .formulario_estandar th,#caja_login a,#caja_login input[type="submit"]{
 	font-size:13px;
 }
-
-
 #caja_login .formulario_estandar{
 	
 	margin-top:10px;
@@ -425,4 +418,7 @@ div#diseno_pre img{
 #login_social{
 	float:right;
 	margin-right:15px;
+}
+#login_form .formulario_estandar{
+	margin-top:6px;
 }
