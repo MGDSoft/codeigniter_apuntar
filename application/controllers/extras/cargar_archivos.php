@@ -27,7 +27,7 @@ class Cargar_archivos extends CI_Controller{
 		
 		
 		include '.'.PATH_CSS.'devices_general.css';
-		include '.'.PATH_CSS.'highlight/styles/googlecode.css';
+		include '.'.PATH_JS.'highlight/styles/googlecode.css';
 		include '.'.PATH_CSS.'arbol.css';
 		include '.'.PATH_CSS.'formularios_devices.css';
 	}
