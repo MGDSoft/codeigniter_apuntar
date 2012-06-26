@@ -26,9 +26,9 @@
 	 			<span id="titulo">
 		 			<a href="<?= RUTA_PORTAL ?>#!"><?= URL_BASE ?></a>
 		 		</span>
-		 		<span id="descripcion">
-		 			Apunta todo lo que necesites rápido y para cualquier entorno
-		 		</span>
+		 		
+		 		<h1 id="descripcion">Apunta todo lo que necesites rápido y para cualquier entorno</h1>
+		 		
 	 		</div>
 	 		
 			<div id="buscador">
