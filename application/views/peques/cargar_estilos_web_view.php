@@ -87,7 +87,7 @@ ul#menu li, .comentario_completo div.extras_comentario, .formulario_estandar fie
 	border-top: 0px;
 	border-style: solid;
 	border-color: <?= $usuario_configuracion->bordes_color ?>;
-	padding: 7px 0px 0px 0px;
+	padding-top: 3px;
 	-webkit-border-bottom-right-radius: 10px;
 	-webkit-border-bottom-left-radius: 10px;
 	-moz-border-radius-bottomright: 10px;
