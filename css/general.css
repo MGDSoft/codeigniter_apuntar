@@ -479,13 +479,11 @@ ol.linenums{
 	overflow-x: visible;
 	padding-left:50px;
 }
-
 .custom_code{
 	float:right;
 	margin-top: 8px;
 
 }
-
 .custom_code span{
 	padding: 5px 8px;
 	font-size:1.1em;
