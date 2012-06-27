@@ -102,8 +102,8 @@ var enviar_form_ajax = function(formulario, url_envio, ver_resultado, ejecutar_s
 					else if (redirect_url != "ok")
 						redirect(redirect_url);
 				}
-			}
-		},
+			},
+		
 		onFailure : function() {
 			submit_cargado(formulario);
 			mensajeNoREsponse();
