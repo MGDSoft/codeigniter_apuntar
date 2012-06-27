@@ -12,8 +12,6 @@
 */
 {
 ?>
-<script id="js_devices" src="/extras/cargar_archivos/js_devices" type="text/javascript"></script>
-<link id="css_devices" href="/extras/cargar_archivos/css_devices" media="screen" rel="stylesheet"  type="text/css" />
 <script type="text/javascript">
 //parent.getElementById('js_devices').innerHTML;
 parent.getElementById('js_devices').innerHTML;
