@@ -156,7 +156,7 @@ span.volver a{
 	width:100%;
 }
 #contenido div.extras_noticia span.extra_fecha_noticia{
-	
+	display: none;
 }
 #contenido .noticia_admin{
 	display: inline;

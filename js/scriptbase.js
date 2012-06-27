@@ -161,7 +161,7 @@ function darAnchoContenedorVariable(){
 		nuevoAncho=contenedor.getStyle('width').toInt();
 	
 	if (nuevoAncho< 460)
-		nuevoAncho=460;
+		nuevoAncho=460+'px';
 	
 	contenedor.setStyle('width',nuevoAncho);
 	
