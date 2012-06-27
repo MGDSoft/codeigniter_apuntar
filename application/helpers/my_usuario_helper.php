@@ -151,10 +151,33 @@ function comprobarAdminDevices($configuracion_diseno=false,$expulsar_no_admins=f
 }
 
 function iniVarsDevices(){
+	$CI =& get_instance();
+	
 	if (!isset($_SESSION['device']))
 	{
 		$_SESSION['device']=true;
 	}
+	
+	if (isset($_GET['app'])) // Guardar cookie para aplicación android
+	{
+		$_SESSION['app']=true;
+		$cookie = array(
+				'name'   => 'is_app',
+				'value'  => '1',
+				'expire' => '86500' // 1 hora
+		);
+	}else if (!isset($_SESSION['app'])){ // Carga cookie para aplicación android
+		
+		$CI->load->helper('cookie');
+		$cookie=$CI->input->cookie('is_app', TRUE);
+			
+		if ($cookie)
+		{
+			$_SESSION['app']=true;
+		}
+		
+	}
+	
 	$portal_ini['nombre_unico']="portal_devices";
 	$portal_ini['device']=true;
 	return $portal_ini;

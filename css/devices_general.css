@@ -163,7 +163,8 @@ span.volver a{
 }
 #contenido div.categoria_noticia{
 	float:right;
-	
+	height:0px;
+	width:0px;
 }
 #contenido .noticia_admin,.este_comentario span.comentario_admin{
 	position:absolute;

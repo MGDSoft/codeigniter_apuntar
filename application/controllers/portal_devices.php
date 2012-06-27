@@ -25,7 +25,7 @@
   	
 	  	$data['titulo']=$this->lang->line('titulo_portada_device');
 	  	$data['descripcion']=$this->lang->line('descripcion_portada_meta');
-	 
+	  	
   		if (!isset($_SESSION['usuario']))
   		{
 	  		$portal_ini=iniVarsDevices();
