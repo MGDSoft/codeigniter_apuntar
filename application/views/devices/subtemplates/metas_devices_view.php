@@ -7,13 +7,14 @@
 
 <?php if (isset($_SESSION['app']))
 
-/*<script src="file:///android_asset/www/js_devices" type="text/javascript"></script>
-<link href="file:///android_asset/www/css_devices" media="screen" rel="stylesheet"  type="text/css" />
+/*
+<script src="file:///android_asset/www/js_devices.js" type="text/javascript"></script>
+<link href="file:///android_asset/www/css_devices.css" media="screen" rel="stylesheet"  type="text/css" />
 */
 {
 ?>
-<script src="file:///android_asset/www/js_devices" type="text/javascript"></script>
-<link href="file:///android_asset/www/css_devices" media="screen" rel="stylesheet"  type="text/css" />
+<script src="file:///android_asset/www/js_devices.js" type="text/javascript"></script>
+<link href="file:///android_asset/www/css_devices.css" media="screen" rel="stylesheet"  type="text/css" />
 <?php 	
 }else{
 	?>
