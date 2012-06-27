@@ -15,7 +15,7 @@
 <script type="text/javascript">
 //parent.getElementById('js_devices').innerHTML;
 parent.getElementById('js_devices').innerHTML;
-document.write('<style>'+parent.getElementById('css_devices')+'</style>');
+document.write('<style>'+parent.getElementById('css_devices').innerHTML+'</style>');
 
 </script>
 <?php 	
