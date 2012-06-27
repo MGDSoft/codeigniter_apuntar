@@ -12,12 +12,8 @@
 */
 {
 ?>
-<script type="text/javascript">
-//parent.getElementById('js_devices').innerHTML;
-eval(parent.getElementById('js_devices').innerHTML);
-document.write('<style>'+parent.getElementById('css_devices').innerHTML+'</style>');
-
-</script>
+<script src="file:///android_asset/www/js_devices" type="text/javascript"></script>
+<link href="file:///android_asset/www/css_devices" media="screen" rel="stylesheet"  type="text/css" />
 <?php 	
 }else{
 	?>
