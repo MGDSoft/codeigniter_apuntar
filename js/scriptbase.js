@@ -107,6 +107,7 @@ var enviar_form_ajax = function(formulario, url_envio, ver_resultado, ejecutar_s
 		onFailure : function() {
 			submit_cargado(formulario);
 			mensajeNoREsponse();
+		}
 	}).send();
 	
 	$(formulario).eliminate('send');
