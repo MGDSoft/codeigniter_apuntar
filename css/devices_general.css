@@ -150,16 +150,13 @@ span.volver a{
 	padding-top:25px;
 	padding-left:4px !important;
 }
-#contenido div.noticia_completa .limite{
-	
-}
 #contenido div.extras_noticia{
 	padding-left:0px !important;
 	clear:both;
 	width:100%;
 }
 #contenido div.extras_noticia span.extra_fecha_noticia{
-	display: none;
+	
 }
 #contenido .noticia_admin{
 	display: inline;
