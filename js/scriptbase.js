@@ -103,13 +103,14 @@ var enviar_form_ajax = function(formulario, url_envio, ver_resultado, ejecutar_s
 						redirect(redirect_url);
 				}
 			}
-		}).send();
+		},
+		onFailure : function() {
+			submit_cargado(formulario);
+			mensajeNoREsponse();
+	}).send();
 	
 	$(formulario).eliminate('send');
 	
-	
-	
-		
 	}
 }
 
@@ -142,7 +143,7 @@ function request_simple_post(url_txt, vars, eval_to_do) {
 
 		},
 		onFailure : function() {
-			alert('error no response');
+			mensajeNoREsponse();
 			if (!isIE())
 				waiter_disable();
 			}
@@ -276,7 +277,7 @@ function cargar_pagina_stadart(url_txt, vars, caja_respuesta,evalToDo) {
 			if (!isIE())
 				waiter_disable();
 			
-			alert('error no response');
+			mensajeNoREsponse();
 
 		}
 	}).send(vars);
@@ -291,6 +292,9 @@ function runJS(caja_respuesta_txt) {
 			});
 	});
 
+}
+function mensajeNoREsponse(){
+	new Message({icon: "cautionMedium.png",title: "Error",message: "No respode"}).say();
 }
 
 function cargarPaginaInit(evalToDo) {
