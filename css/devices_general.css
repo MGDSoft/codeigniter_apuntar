@@ -222,6 +222,9 @@ div.paginado a,div.paginado strong{
 	text-align:center !important;
 	margin-right:15px;
 }
+#contenedor_portal{
+	min-width: 475px;
+}
 #login_social_devices{
 text-align:center;
 }
