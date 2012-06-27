@@ -6,10 +6,45 @@
 
 
 <?php if (isset($_SESSION['app']))
-{
+
 /*<script src="file:///android_asset/www/js_devices" type="text/javascript"></script>
 <link href="file:///android_asset/www/css_devices" media="screen" rel="stylesheet"  type="text/css" />
 */
+{
+?>
+<script type="text/javascript">
+function cargaJS(path){
+        var request = new XMLHttpRequest();
+        request.open("GET", path, true);
+        request.onreadystatechange = function(){//Call a function when the state changes.
+            console.log("state = " + request.readyState);
+            if (request.readyState == 4) {
+                if (request.status == 200 || request.status == 0) {
+                    console.log("*" + request.responseText + "*");
+                    Config = eval(request.responseText);
+                }
+            }
+        }
+        request.send();
+}
+    
+function cargaCSS(path){
+    var request = new XMLHttpRequest();
+    request.open("GET", path, true);
+    request.onreadystatechange = function(){//Call a function when the state changes.
+        console.log("state = " + request.readyState);
+        if (request.readyState == 4) {
+            if (request.status == 200 || request.status == 0) {
+            	document.write('<style>'+request.responseText+'</style>');
+            }
+        }
+    }
+    request.send();
+}
+cargaJS('file:///android_asset/www/js_devices');
+cargaCSS('file:///android_asset/www/css_devices');
+</script>
+<?php 	
 }else{
 	?>
 <script src="/extras/cargar_archivos/js_devices" type="text/javascript"></script>
