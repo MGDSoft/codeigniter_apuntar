@@ -156,10 +156,12 @@ function darAnchoContenedorVariable(){
 	var nuevoAncho;
 	
 	if (nombre_unico == 'portal_devices')
-		nuevoAncho=($('menu_device').getStyle('width').toInt() -30)+'px'; // para device en bienvenida
+		nuevoAncho=($('menu_device').getStyle('width').toInt() -30); // para device en bienvenida
 	else
-		nuevoAncho=contenedor.getStyle('width');
+		nuevoAncho=contenedor.getStyle('width').toInt();
 	
+	if (nuevoAncho< 460)
+		nuevoAncho=460;
 	
 	contenedor.setStyle('width',nuevoAncho);
 	
@@ -356,7 +358,7 @@ function createNewCaptcha() {
 	request_simple_post('extras/captcha/nuevo_captcha', '', '');
 }
 function setPosBottom(){
-	if (!isIE() && extra_vars == "")
+	if (!isIE() && extra_vars == "" && spy)
 	{ 
 		var posFooter=$('footer').getCoordinates();
 		spy.options.min=posFooter.top-600;
