@@ -48,7 +48,7 @@
 	  			$this->load->view('devices/peques/iniciador_devices_js_view',$portal_ini);
   			}
   			
-  			$this->load->view('devices/subtemplates/header_devices_view');
+  			$this->load->view('devices/subtemplates/header_devices_view',$portal_ini);
   
   			$this->load->view('devices/subtemplates/footer_devices_view');
   		}	

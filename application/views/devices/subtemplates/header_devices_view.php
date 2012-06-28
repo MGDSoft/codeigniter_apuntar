@@ -4,6 +4,9 @@ if (!isset($_SESSION['app']))
 $this->load->view('peques/analitycs_view'); 
 echo '</head>
 <body>';
+}else{
+	
+	echo '<div class="'. AUTO_EJECUTAR_JS .'">id_web=' .((isset($id_web))? $id_web : 'null').';</div>';
 }
 ?>
 <div id="contenedor_portal">

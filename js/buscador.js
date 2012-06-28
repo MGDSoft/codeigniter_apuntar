@@ -155,7 +155,7 @@ llamadaBusqueda: function(){
 		    	
 		    },
 		    onFailure: function(){
-		    	alert("error search");
+		    	//mensajeNoREsponse();
 		    }
 		}).send(vars);
    }

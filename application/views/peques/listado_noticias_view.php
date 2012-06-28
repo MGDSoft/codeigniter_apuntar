@@ -1,4 +1,5 @@
 <?php
+
 if (!$noticias)
 	echo '<div id="no_noticias"><img src="'.PATH_IMG.'vacio.png"><h1>'.$this->lang->line('no_noticias').'</h1></div>'; 
 	

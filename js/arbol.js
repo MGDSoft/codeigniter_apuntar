@@ -126,7 +126,7 @@ var menuCarpetas=new Class({
 		    },
 		    onFailure: function(){
 		    	//waiter_disable();
-		    	alert('error no response');
+		    	mensajeNoREsponse();
 		    	
 		    }
 		}).send();
