@@ -67,9 +67,9 @@
 		el.addEvent("swipe", function(event){
 		    result=event.start - event.end ;
 		    if (result < 0 )
-		       	this.margin-left=0;
+		       	this.setStyle('margin-left': '0px');
 		    else
-		    	this.margin-left=-(result);
+		    	this.setStyle('margin-left': = -(result) +'px')
 		});
 		<?php } ?>
 	});
