@@ -69,7 +69,7 @@
 		    if (result < 0 )
 		       	this.setStyle('margin-left': '0px');
 		    else
-		    	this.setStyle('margin-left': = -(result) +'px')
+		    	this.setStyle('margin-left': -(result) +'px')
 		});
 		<?php } ?>
 	});
