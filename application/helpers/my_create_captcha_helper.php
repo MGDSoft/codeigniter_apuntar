@@ -10,9 +10,9 @@ function my_create_captcha(){
   			
   			 $vals = array(
 		    'word'	 => $captchaValue,
-		    'img_path'	 => '.'.PATH_IMG.'captcha/',
-		    'img_url'	 => PATH_IMG.'captcha/',
-		    'font_path'	 => '.'.PATH_IMG.'default_text.ttf',
+		    'img_path'	 => './'.PATH_IMG.'captcha/',
+		    'img_url'	 => '/'.PATH_IMG.'captcha/',
+		    'font_path'	 => './'.PATH_IMG.'default_text.ttf',
 		    'img_width'	 => '110',
 		    'img_height' => 32,
 		    'expiration' => 7200
