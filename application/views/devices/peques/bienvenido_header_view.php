@@ -1,5 +1,5 @@
 <?php  
-$exec="cargar_pagina_stadart('bienvenido','');";
+$exec="cargar_pagina_stadart('bienvenido','','','');";
 if (!isset($_SESSION['app']))
 {
 	echo '<script>window.addEvent(\'domready\', function() {'.$exec.'});</script>';
