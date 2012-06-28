@@ -24,7 +24,7 @@ function write_comment($comentario,$comentarios_hijos,$comentarios,$admin,$nombr
 	echo 
 		'<div id="comentario'.$comentario->id_comentario.'" class="comentario_completo ">
 			<span class="este_comentario '.(($id_web == $comentario->id_usuario) ? 'propietario' : '' ).'">
-				<img class="avatar" src="'.PATH_IMG.'usuario/avatar/'.$comentario->avatar.'" title="'.$comentario->nombre.' '.$comentario->apellidos.'">
+				<img class="avatar" src="http://'.URL_BASE.'/'.PATH_IMG.'usuario/avatar/'.$comentario->avatar.'" title="'.$comentario->nombre.' '.$comentario->apellidos.'">
 				<div class="categoria_noticia">
 					'.(((isset($_SESSION['usuario']) && $_SESSION['usuario']->id_usuario== $comentario->id_usuario && $comentario->mute == 0 ) || ($admin)) ? '<span class="comentario_admin"> '
 						.((isset($_SESSION['usuario']) && $_SESSION['usuario']->id_usuario== $comentario->id_usuario && $comentario->mute == 0 ) ? '<img ALIGN="absmiddle" src="'.PATH_IMG.'1x1.gif" class="modificar" width="32" height="32"  onclick="toggleModificarComentario('.$comentario->id_comentario.')" title="'.$thiss->lang->line('modificar_noticia').'" >' : '' )
