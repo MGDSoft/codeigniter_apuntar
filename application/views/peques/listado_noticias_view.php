@@ -10,11 +10,11 @@ $i=1;
 		<div class="noticia_completa listado">
 			<div class="categoria_noticia">'
 				.(($admin)? '<span class="noticia_admin"> 
-				<a href="/'.RUTA_PORTAL.'#!admin/modificar_noticia&id='.$noticia->id_noticia.'"><img ALIGN="absmiddle" src="'.PATH_IMG.'1x1.gif" class="modificar" width="32" height="32" title="'.$this->lang->line('modificar_noticia').'" ></a> 
+				<a href="'.RUTA_PORTAL.'#!admin/modificar_noticia&id='.$noticia->id_noticia.'"><img ALIGN="absmiddle" src="'.PATH_IMG.'1x1.gif" class="modificar" width="32" height="32" title="'.$this->lang->line('modificar_noticia').'" ></a> 
 				<img ALIGN="absmiddle" title="'.$this->lang->line('borrar_noticia').'" src="'.PATH_IMG.'1x1.gif" class="borrar" width="32" height="32"  onclick="request_simple_post(\'/forms/noticias_forms/delete_noticia\',\'&id='.$noticia->id_noticia.'\',\'\')"> </span>' : '')
 				.((!isset($device))? $this->lang->line('categoria').': <a href="javascript:nada()" onclick="buscarCategoria(this)">'.$noticia->nombre.'</a>' : '' ).'
 			</div>
-			<span class="titulo_noticia"><a href="/'.RUTA_PORTAL.'#!news/'.url_title($noticia->titulo).'/'.$noticia->id_noticia.'/"><h2>'.$noticia->titulo.'</h2></a></span>
+			<span class="titulo_noticia"><a href="'.RUTA_PORTAL.'#!news/'.url_title($noticia->titulo).'/'.$noticia->id_noticia.'/"><h2>'.$noticia->titulo.'</h2></a></span>
 			<div class="contenido_noticia">'.parse_smileys( $noticia->noticia, PATH_IMG."smileys/").'<br></div>
 			<div class="extras_noticia '.((count($noticias) == $i ) ? 'last' : '').'">
 				<span class="extra_fecha_noticia">
