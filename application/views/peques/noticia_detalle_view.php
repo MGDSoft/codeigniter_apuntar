@@ -62,6 +62,19 @@
 		numberLines(el,1,true);
 		mycustom(el,'<?= $this->lang->line('copiar') ?>','<?= $this->lang->line('expandir') ?>','<?= $this->lang->line('contraer') ?>',true);
 		
+		<? if (isset($_SESSION['app']))
+		{ ?>
+		el.addEvent("swipe", function(event){
+		    event.direction // "left" or "right"
+		    event.start // {x: Number, y: Number} Swipe start position
+		    event.end // {x: Number, y: Number} Swipe end position
+		    result=event.start - event.end ;
+		    if (result < 0 )
+		       	this.margin-left=0;
+		    else
+		    	this.margin-left=-(result);
+		});
+		<?php } ?>
 	});
 	var basicRating = new MooStarRating({ form: 'basic',imageFolder : '<?=substr( PATH_JS,1 )?>MooStarRating/Graphics',imageHover: 'star_hover_.png',imageFull: 'star.png',imageEmpty: 'star_empty_.png',width:32,height:32 }); 
 	basicRating.addEvent('click', function (value) { 
