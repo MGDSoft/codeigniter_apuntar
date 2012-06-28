@@ -48,7 +48,7 @@ define ('URL_WEB_SESION_FINALIZADA','/index.php?info=4');
 define ('ID_ANONIMO','0');
 define ('PATH_JS','/js/');
 define ('PATH_CSS','/css/');
-define ('PATH_IMG','/img/');
+define ('PATH_IMG','img/');
 
 
 
