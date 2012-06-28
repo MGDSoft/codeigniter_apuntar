@@ -64,9 +64,9 @@
 		
 		<? if (isset($_SESSION['app']))
 		{ ?>
+		
 		el.addEvent("swipe", function(event){
-		    resultOverflow=-(event.start - event.end);
-		    calculoScroll(el,resultOverflow);
+		    calculoScroll(el,event);
 		});
 		<? } ?>
 	});
