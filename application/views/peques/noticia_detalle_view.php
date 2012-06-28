@@ -65,9 +65,6 @@
 		<? if (isset($_SESSION['app']))
 		{ ?>
 		el.addEvent("swipe", function(event){
-		    event.direction // "left" or "right"
-		    event.start // {x: Number, y: Number} Swipe start position
-		    event.end // {x: Number, y: Number} Swipe end position
 		    result=event.start - event.end ;
 		    if (result < 0 )
 		       	this.margin-left=0;
