@@ -63,7 +63,7 @@
 		mycustom(el,'<?= $this->lang->line('copiar') ?>','<?= $this->lang->line('expandir') ?>','<?= $this->lang->line('contraer') ?>',true);
 		
 	});
-	var basicRating = new MooStarRating({ form: 'basic',imageFolder : '<?= PATH_JS ?>MooStarRating/Graphics',imageHover: 'star_hover_.png',imageFull: 'star.png',imageEmpty: 'star_empty_.png',width:32,height:32 }); 
+	var basicRating = new MooStarRating({ form: 'basic',imageFolder : '<?=substr( PATH_JS,1 )?>MooStarRating/Graphics',imageHover: 'star_hover_.png',imageFull: 'star.png',imageEmpty: 'star_empty_.png',width:32,height:32 }); 
 	basicRating.addEvent('click', function (value) { 
 	    enviarVotoNoticia(<?= $noticia->id_noticia ?>,value) ;
 	}); 
