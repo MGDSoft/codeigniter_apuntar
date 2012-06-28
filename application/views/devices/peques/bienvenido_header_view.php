@@ -1,10 +1,16 @@
-<script>
-window.addEvent('domready', function() {
-	cargar_pagina_stadart('bienvenido','');
-});
-</script>
-</head>
-<body>
+<?php  
+$exec="<script>window.addEvent('domready', function() {cargar_pagina_stadart('bienvenido','');});</script>";
+if (!isset($_SESSION['app']))
+{
+	echo $exec;
+?>
+	
+	</head>
+	<body>
+<?php }else{
+	echo '<div class="'.AUTO_EJECUTAR_JS.'">'.$exec.'</div>';
+}
+?>
 <div id="contenedor_portal">
 	<a href="<?= RUTA_PORTAL.'#!bienvenido' ?>">
 	<div id="menu_device" >

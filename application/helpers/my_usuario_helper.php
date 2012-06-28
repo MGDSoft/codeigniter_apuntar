@@ -160,12 +160,18 @@ function iniVarsDevices(){
 	
 	if (isset($_GET['app'])) // Guardar cookie para aplicación android
 	{
-		$_SESSION['app']=true;
-		$cookie = array(
-				'name'   => 'is_app',
-				'value'  => '1',
-				'expire' => '86500' // 1 hora
-		);
+		if ($_GET['app']==0)
+		{
+			unset($_SESSION['app']);
+			delete_cookie('is_app');
+		}else{
+			$_SESSION['app']=true;
+			$cookie = array(
+					'name'   => 'is_app',
+					'value'  => '1',
+					'expire' => '86500' // 1 hora
+			);
+		}
 	}else if (!isset($_SESSION['app'])){ // Carga cookie para aplicación android
 		
 		$CI->load->helper('cookie');

@@ -29,17 +29,25 @@
   		if (!isset($_SESSION['usuario']))
   		{
 	  		$portal_ini=iniVarsDevices();
+	  		
+		  	if (!isset($_SESSION['app']))
+		  	{
+		  		$this->load->view('devices/subtemplates/metas_devices_view',$data);
+		  		$this->load->view('devices/peques/iniciador_devices_js_view');
+		  	}
 		  	
-	  		$this->load->view('devices/subtemplates/metas_devices_view',$data);
-	  		$this->load->view('devices/peques/iniciador_devices_js_view');
-	  		$this->load->view('devices/peques/bienvenido_header_view');
-	  		$this->load->view('devices/subtemplates/footer_devices_view');
+		  	$this->load->view('devices/peques/bienvenido_header_view');
+		  	$this->load->view('devices/subtemplates/footer_devices_view');
 	  		
   		}else{
   			$portal_ini=comprobarAdminDevices();
   			
-  			$this->load->view('devices/subtemplates/metas_devices_view',$data);
-  			$this->load->view('devices/peques/iniciador_devices_js_view',$portal_ini);
+  			if (!isset($_SESSION['app']))
+  			{
+	  			$this->load->view('devices/subtemplates/metas_devices_view',$data);
+	  			$this->load->view('devices/peques/iniciador_devices_js_view',$portal_ini);
+  			}
+  			
   			$this->load->view('devices/subtemplates/header_devices_view');
   
   			$this->load->view('devices/subtemplates/footer_devices_view');

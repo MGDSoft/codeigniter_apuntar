@@ -1,6 +1,11 @@
-<?php   $this->load->view('peques/analitycs_view'); ?>
-</head>
-<body>
+<?php  
+if (!isset($_SESSION['app']))
+{
+$this->load->view('peques/analitycs_view'); 
+echo '</head>
+<body>';
+}
+?>
 <div id="contenedor_portal">
 	<div id="menu_device" >
 		<ul>
