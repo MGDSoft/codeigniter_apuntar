@@ -6,7 +6,7 @@ echo '</head>
 <body>';
 }else{
 	
-	echo '<div class="'. AUTO_EJECUTAR_JS .'">id_web=' .((isset($id_web))? $id_web : 'null').';</div>';
+	echo '<div class="'. AUTO_EJECUTAR_JS .'">id_web=' .((isset($id_web))? $id_web : 'null').';cargar_pagina_stadart(\'listado_noticias\', \'\', \'\',\'\');</div>';
 }
 ?>
 <div id="contenedor_portal">
