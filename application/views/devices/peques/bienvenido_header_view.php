@@ -1,8 +1,8 @@
 <?php  
-$exec="window.addEvent('domready', function() {cargar_pagina_stadart('bienvenido','');});";
+$exec="cargar_pagina_stadart('bienvenido','');";
 if (!isset($_SESSION['app']))
 {
-	echo '<script>'.$exec.'</script>';
+	echo '<script>window.addEvent(\'domready\', function() {'.$exec.'});</script>';
 ?>
 	
 	</head>
