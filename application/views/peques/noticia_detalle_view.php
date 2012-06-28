@@ -65,13 +65,10 @@
 		<? if (isset($_SESSION['app']))
 		{ ?>
 		el.addEvent("swipe", function(event){
-		    result=event.start - event.end ;
-		    if (result < 0 )
-		     {el.setStyle('margin-left': '0px');}
-		    else
-		    {el.setStyle('margin-left': -(result) +'px');}
+		    resultOverflow=-(event.start - event.end);
+		    calculoScroll(el,resultOverflow);
 		});
-		<?php } ?>
+		<? } ?>
 	});
 	var basicRating = new MooStarRating({ form: 'basic',imageFolder : '<?=substr( PATH_JS,1 )?>MooStarRating/Graphics',imageHover: 'star_hover_.png',imageFull: 'star.png',imageEmpty: 'star_empty_.png',width:32,height:32 }); 
 	basicRating.addEvent('click', function (value) { 
