@@ -76,7 +76,11 @@
   		$this->load->helper('cookie');
   		delete_cookie('auto_login');
   		delete_cookie('conectado_ahora');
-  		redirect('/', 'refresh');
+  		
+  		if (isset($_SESSION['app']))
+  			printf(REDIRECT_URL_JS, RUTA_PORTAL);
+  		else
+  			redirect('/', 'refresh');
   	}
   	
   	
