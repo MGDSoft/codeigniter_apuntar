@@ -60,7 +60,7 @@
 			hljs.highlightBlock(el,false,false);
 			
 		numberLines(el,1,true);
-		mycustom(el,'<?= $this->lang->line('copiar') ?>','<?= $this->lang->line('expandir') ?>','<?= $this->lang->line('contraer') ?>',true);
+		
 		
 		<? if (isset($_SESSION['app']))
 		{ ?>
@@ -68,7 +68,11 @@
 		el.addEvent("swipe", function(event){
 		    calculoScroll(el,event);
 		});
-		<? } ?>
+		<? }else{
+			?>
+			mycustom(el,'<?= $this->lang->line('copiar') ?>','<?= $this->lang->line('expandir') ?>','<?= $this->lang->line('contraer') ?>',true);
+			<?php 
+		} ?>
 	});
 	var basicRating = new MooStarRating({ form: 'basic',imageFolder : '<?=substr( PATH_JS,1 )?>MooStarRating/Graphics',imageHover: 'star_hover_.png',imageFull: 'star.png',imageEmpty: 'star_empty_.png',width:32,height:32 }); 
 	basicRating.addEvent('click', function (value) { 
