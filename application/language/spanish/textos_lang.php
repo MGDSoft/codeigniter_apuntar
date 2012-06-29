@@ -14,7 +14,7 @@ $lang['descripcion_portada_meta'] ='Apunta todo lo que necesites rápido, gráti
 $lang['ir_a_mi_web'] = 'Ir a mi página';
 $lang['no_noticias'] = 'No hay noticias para esta búsqueda';
 
-$lang['informativo_bienvenida'] = 'Apunta todo lo que desees en un tiempo óptimo!<br>Puedes encontrar mas información el la página oficial '.URL_BASE.'<br><br>Introduce el usuario y contraseña para acceder a tu cuenta';
+$lang['informativo_bienvenida'] = 'Apunta todo lo que desees en un tiempo óptimo, para aplicación es escritorio, web o móvil!<br>Puedes encontrar mas información el la página oficial '.URL_BASE.'<br><br>Introduce el usuario y contraseña para acceder a tu cuenta';
 $lang['recordar'] = 'Recordar';
 $lang['bienvenido'] = 'Bienvenido a '.URL_BASE;
 $lang['busqueda'] = 'Busqueda';
