@@ -46,7 +46,7 @@ $fontFamily[17]['nombre']='Verdana, Geneva, sans-serif';$fontFamily[17]['valor']
 			<form id='general_form' class='formulario_estandar' name="general_form"  action="javascript:enviar_form_ajax('general_form','/forms/configuracion_web_forms/general_update','','','')" method="post" accept-charset="utf-8">
 				<table class='formulario_estandar' >
 						<tr><th class="separador"><?= $this->lang->line('titulo_configuracion') ?></th></tr>
-						<tr><th><?= $this->lang->line('nombre_unico') ?></th><td><input MAXLENGTH='70' type="text" name="nombre_unico" onkeyup="$$('#titulo_desc a')[0].innerHTML=this.value" id="nombre_unico" value='<?= $usuario_configuracion->nombre_unico ?>' ></td></tr>
+						<tr><th><?= $this->lang->line('nombre_unico') ?></th><td><input MAXLENGTH='70' type="text" name="nombre_unico" onkeyup="$$('#titulo_desc a')[0].innerHTML=this.value" id="nombre_unico" value='<?= $usuario_configuracion->titulo ?>' ></td></tr>
 						<tr><th><?= $this->lang->line('eslogan') ?></th><td><input MAXLENGTH='70' type="text" name="eslogan" onkeyup="$('descripcion').innerHTML=this.value" id="eslogan" value='<?= $usuario_configuracion->eslogan ?>' ></td></tr>
 						<tr><th><?= $this->lang->line('comentable_anonimos') ?></th><td><input type="checkbox" name="comentable_anonimos" id="comentable_anonimos" <?= (($usuario_configuracion->comentable_anonimos==1 )? 'checked="checked"' : '' ) ?> value="1"></td></tr>
 						<tr><th><?= $this->lang->line('publica') ?></th><td><input type="checkbox" name="visible" id="visible" value="1" <?= (($usuario_configuracion->visible==1 )? 'checked="checked"' : '' ) ?>></td></tr>
