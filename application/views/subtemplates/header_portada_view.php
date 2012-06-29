@@ -12,7 +12,7 @@
 	<div id="cabecera">
 		<div id="logo">
 			<div>
-	 			<a href="<?= RUTA_PORTAL ?>#!"><img src="<?= PATH_IMG.'portada/logo_apuntes.png' ?>"></a>
+	 			<a href="<?= RUTA_PORTAL ?>#!"><img src="<?= PATH_IMG.'portada/logo_apuntes2.png' ?>" width="140" height="112"></a>
 	 		</div>
 	 	</div>
 	 	<div id="caja_login">
@@ -34,8 +34,8 @@
 			<div id="buscador">
 		 		<div id="galeria">
 					<span>Necesitas un sitio donde puedas apuntar todo lo que necesitas y tener un acceso rápido y fácil a cualquier plataforma ?!</span>
-					<span style="display:none">Es visible en cualquier plataforma, con aplicación de escritorio y en breves, aplicación para móviles</span>
-					<span style="display:none">Esta es tu página, con multiples opciones tanto visuales como configuración de tu "blog"!</span>
+					<span style="display:none">Es visible en cualquier plataforma, con aplicación de escritorio y en móvil, aplicación para móviles</span>
+					<span style="display:none">Pudiendo hacer tu página tanto privada como pública "blog"!</span>
 				</div>
 		 	</div>
 	 	</div>
