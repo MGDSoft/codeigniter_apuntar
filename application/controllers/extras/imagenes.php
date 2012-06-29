@@ -26,7 +26,7 @@ class Imagenes extends CI_Controller {
 		$sizeLimit = 1 * 1024 * 1024;
 	
 		$uploader = new qqFileUploader($allowedExtensions, $sizeLimit);
-		$result = $uploader->handleUpload('.'.PATH_IMG.'usuario/logo/','prueba'.$_SESSION['usuario']->id_usuario);
+		$result = $uploader->handleUpload('./'.PATH_IMG.'usuario/logo/','prueba'.$_SESSION['usuario']->id_usuario);
 		
 		if (isset($result['success']))
 		{
@@ -56,7 +56,7 @@ class Imagenes extends CI_Controller {
 		$sizeLimit = 1 * 1024 * 1024;
 	
 		$uploader = new qqFileUploader($allowedExtensions, $sizeLimit);
-		$result = $uploader->handleUpload('.'.PATH_IMG.'usuario/avatar/',$_SESSION['usuario']->id_usuario);
+		$result = $uploader->handleUpload('./'.PATH_IMG.'usuario/avatar/',$_SESSION['usuario']->id_usuario);
 	
 		if (isset($result['success']))
 		{
@@ -89,7 +89,7 @@ class Imagenes extends CI_Controller {
 		$sizeLimit = 1 * 1024 * 1024;
 	
 		$uploader = new qqFileUploader($allowedExtensions, $sizeLimit);
-		$result = $uploader->handleUpload('.'.PATH_IMG.'usuario/personal/','prueba'.$_SESSION['usuario']->id_usuario);
+		$result = $uploader->handleUpload('./'.PATH_IMG.'usuario/personal/','prueba'.$_SESSION['usuario']->id_usuario);
 		
 		if (isset($result['success']))
 		{
@@ -119,7 +119,7 @@ class Imagenes extends CI_Controller {
 		$sizeLimit = 1 * 1024 * 1024;
 		
 		$uploader = new qqFileUploader($allowedExtensions, $sizeLimit);
-		$result = $uploader->handleUpload('.'.PATH_IMG.'usuario/fondo/','prueba'.$_SESSION['usuario']->id_usuario);
+		$result = $uploader->handleUpload('./'.PATH_IMG.'usuario/fondo/','prueba'.$_SESSION['usuario']->id_usuario);
 		// to pass data through iframe you will need to encode all html tags
 		
 		echo htmlspecialchars(json_encode($result), ENT_NOQUOTES);
