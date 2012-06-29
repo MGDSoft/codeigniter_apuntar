@@ -84,7 +84,7 @@
 	  	{
 	  		global $nombresProhibidos;
 	  		
-	  		$nombre_unico_un=url_title($nombre_unico);
+	  		$nombre_unico_un=strtolower(url_title($nombre_unico));
 	  		if(in_array($nombre_unico_un, $nombresProhibidos)){
 	  		
 	  			printf(MSG_ERROR_CAMPO, 'nombre_unico',$this->lang->line('titulo_error_restringido'));
