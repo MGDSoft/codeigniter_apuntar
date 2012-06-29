@@ -69,7 +69,7 @@
   	if (!$cookie && isset($_SESSION['usuario']))
   		unset ($_SESSION['usuario']);
   	
-  	if (isset($_GET['logout']))
+  	if (isset($_GET['logout']) || isset($_POST['logout']))
   	{
   		unset ($_SESSION['usuario']);
   		//session_unset();
