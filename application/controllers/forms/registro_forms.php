@@ -386,8 +386,8 @@ class Registro_forms extends CI_Controller {
 		$noticiaInsert['noticia']='Hola y bienvenido a '.URL_BASE.'.<br><br> Te mostramos una noticia de prueba para que la compruebes el funcionamiento de la página.<br>Para los desarrolladores hay una opción de copiar código de programación de forma que se vea mas claramente su sintaxis, como se puede ver mas abajo.'.
 				'<br><br><pre class="brush:cpp;">#include&lt;stdio.h&gt;
 		
-	int main()
-	{
+int main()
+{
 	int radio;
 	float area, perimetro;
 
