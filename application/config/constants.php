@@ -20,24 +20,29 @@ define ('AUTO_EJECUTAR_JS','exec_js');
 
 define ('HTACCESS_WEB_USUARIO_TERMINACION','.html');
 
-
-$array = explode('.',$_SERVER['SERVER_NAME']);
-
-if($array[0]!='www')
-	$method=$array[0];
-elseif($array[0]=='www')
-	$method=$array[1];
-
-if ($method=="devices")
+if (isset($_SERVER['SERVER_NAME']))
 {
-	define ('RUTA_PORTAL','portal_devices');
-	$_SESSION['device']=true;
-}
-else if ($method.$extra==URL_BASE)
-	define ('RUTA_PORTAL','');
-else
-	define ('RUTA_PORTAL','portal');
+	$array = explode('.',$_SERVER['SERVER_NAME']);
 
+
+	if($array[0]!='www')
+		$method=$array[0];
+	elseif($array[0]=='www')
+		$method=$array[1];
+	
+	if ($method=="devices")
+	{
+		define ('RUTA_PORTAL','portal_devices');
+		$_SESSION['device']=true;
+	}
+	else if ($method.$extra==URL_BASE)
+		define ('RUTA_PORTAL','');
+	else
+		define ('RUTA_PORTAL','portal');
+	
+}else{
+	define ('RUTA_PORTAL','portal');
+}
 
 
 

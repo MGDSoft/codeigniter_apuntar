@@ -40,8 +40,8 @@
 
 $route['default_controller'] = 'index';
 $route['web/(.+?)'] = 'portal_inicio/index/$1';
-$route['(.+)/nueva_noticia(.*)'] = 'admin/noticia/nueva_noticia';
-$route['(.+)/modificar_noticia(.*)'] = 'admin/noticia/modificar_noticia';
+$route['admin/nueva_noticia(.*)'] = 'admin/noticia/nueva_noticia';
+$route['admin/modificar_noticia(.*)'] = 'admin/noticia/modificar_noticia';
 $route['bienvenido'] = 'portal_devices/bienvenido';
 $route['recordar'] = 'registro/recordar';
 $route['portada'] = 'index/portada';
