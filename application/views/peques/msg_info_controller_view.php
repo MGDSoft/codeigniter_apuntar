@@ -12,6 +12,7 @@ window.addEvent('domready', function() {
 				break;
 			case 2:
 				printf(MSG_WATCHOUT,  $this->lang->line('error'),$this->lang->line('js_pagina_no_encontrada'));
+				
 				break;
 			case 3:
 				printf(MSG_WATCHOUT,  $this->lang->line('error'),$this->lang->line('pagina_privada'));

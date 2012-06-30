@@ -248,6 +248,9 @@ function cargar_pagina_stadart(url_txt, vars, caja_respuesta,evalToDo) {
 			}
 		},
 		onSuccess : function(responseText) {
+			
+			log(responseText+"xxx");
+			
 			if (responseText.indexOf("scrol")==-1)
 				new Fx.Scroll(window).toTop();
 			
@@ -282,6 +285,7 @@ function cargar_pagina_stadart(url_txt, vars, caja_respuesta,evalToDo) {
 
 		}
 	}).send(vars);
+
 }
 function copyToClipboard (text) {
 	  window.prompt ("Copy to clipboard: Ctrl+C, Enter", text);

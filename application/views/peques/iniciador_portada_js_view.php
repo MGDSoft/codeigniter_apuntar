@@ -48,9 +48,12 @@ window.addEvent('domready', function() {
 		    } 
 		});
 	}
-	
-	cargarPaginaInit();
-	
+	<?php 
+	if (isset($_GET['info']) && $_GET['info']==2)
+		echo 'cargar_pagina_stadart("pagina-no-encontrada", "", "","");';
+	else
+		echo 'cargarPaginaInit();';
+	?>
 	var gal=new galeriaMGD('galeria');
 
 	var HM = new HashListener();

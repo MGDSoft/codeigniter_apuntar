@@ -19,6 +19,11 @@ class Varios extends CI_Controller{
 		}
 	}
 	
+	public function error_404()
+	{
+		echo '<div style="text-align:center"><img src="'.PATH_IMG.'404.jpg"></div>';
+	}
+	
 	
 }
 ?>

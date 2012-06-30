@@ -11,14 +11,25 @@
 	{
 		$this->load->view('peques/portada_contenido_view');
 	}
+	public function error_404(){
+		$_GET['info']=2;
+		$this->index();
+	}
 	
    public function index()
     {
   	$this->logout_();
   	$this->redirect_web();
-
-  	$data['titulo']=$this->lang->line('titulo_portada_meta');
-    $data['descripcion']=$this->lang->line('descripcion_portada_meta');
+  	
+	if (!isset($_GET['info']))
+	{
+		$data['titulo']=$this->lang->line('titulo_portada_meta');
+		$data['descripcion']=$this->lang->line('descripcion_portada_meta');
+	}else{
+		$data['titulo']=$this->lang->line('js_pagina_no_encontrada') . '|' .URL_BASE;
+		$data['descripcion']=$this->lang->line('js_pagina_no_encontrada') . '|' .URL_BASE;
+	}
+  	
     
    $portal->contacto_pagina_personal='';
    $portal->contacto_steam='';
@@ -31,7 +42,7 @@
    
    
    $datos['usuario_configuracion']=$portal;
-   $datos['nuevos']=$this->Usuario_model->getLast('DESC',5);
+   $datos['nuevos']=$this->Usuario_model->getLast('DESC',10);
    $datos['ejemplos']=$this->Usuario_model->getLast('ASC',4);
    
    $this->load->view('subtemplates/metas_portada_view',$data);

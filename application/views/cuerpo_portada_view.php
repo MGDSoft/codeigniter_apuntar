@@ -9,14 +9,14 @@
 			<li><a href="/descargas/apuntar_lin64.rar" target="_blank">Linux 64bits</a></li>
 		</ul>
 		<a href="https://www.java.com/es/download/" class="need_java" target="_blank" rel="nofollow">Es necesario tener instalado java 1.6 en adelante</a>
-		<div class="titulo_l">Blogs de ejemplo</div>
+		<!-- <div class="titulo_l">Blogs de ejemplo</div>
 		<ul>
 				<?php foreach ($ejemplos as $nuevo)
 				{
 					echo '<li><a target="_blank" href="http://'.$nuevo->nombre_unico.'.'.URL_BASE.'">'.$nuevo->titulo.'</a></li>';
 				}?>
 		</ul>
-		
+		 -->
 		<div class="titulo_l">Blogs nuevos</div>
 			<ul>
 				<?php foreach ($nuevos as $nuevo)
