@@ -92,13 +92,24 @@ h2{
 	display: none;
 	position: fixed;
 	top:10px;
-	right: 10px;
+	left: 91%;
+	text-align:center;
+	border:1px solid #000;
+	background-color:#ccc;
+	text-shadow:1px 1px 0px #fff;
+	padding:2px 4px;
+    cursor: pointer;
+    z-index: 5;
+    -webkit-border-radius:30px;
+	border-radius: 30px;
+	-moz-border-radius: 30px;
+	box-shadow: 3px 4px 6px #707070;
+}
+#mostarLogin img{
 	background-image: url("/img/sprites.png");
     background-repeat: no-repeat;
     border: 0 none;
     background-position: 0 -114px;
-    cursor: pointer;
-    z-index: 5;
 }
 
 #caja_login div.registro a{

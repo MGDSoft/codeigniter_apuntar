@@ -13,7 +13,9 @@
 <input name="iehack" type="hidden" value="&#9760;" />
 
 </form>
-<img width="32" height="32" align="absmiddle" src="<?= PATH_IMG ?>1x1.gif" id="mostarLogin" onclick="toggleLogin(this)">
+<div id="mostarLogin" onclick="toggleLogin(this)">
+	<img width="24" height="26" align="absmiddle" src="<?= PATH_IMG ?>1x1.gif" >
+</div>
 <script>
 creacionEventos('correo_autentificacion','','',1,2);
 creacionEventos('password_autentificacion','','',1,2);

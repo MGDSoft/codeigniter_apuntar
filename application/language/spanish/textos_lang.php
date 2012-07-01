@@ -183,6 +183,8 @@ $lang['js_categoria_borrar_titulo'] = 'Borrar categoria';
 $lang['js_categoria_borrar'] = '!!OJO!! Las noticias y subcategorias asociadas se borraran, desea borrar?.';
 $lang['categoria_borrada'] = 'Categoria borrada';
 
+$lang['login_para_moviles']='Acceso al login ';
+
 $lang['js_categoria_incluir_titulo'] = 'Nueva categoria';
 $lang['categoria_incluida'] = 'Categoria agregada';
 $lang['js_pagina_no_encontrada'] = 'Página no encontrada';

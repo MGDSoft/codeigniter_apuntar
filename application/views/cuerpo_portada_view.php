@@ -8,7 +8,7 @@
 			<li><a href="/descargas/apuntar_lin32.rar" target="_blank">Linux 32bits</a></li>
 			<li><a href="/descargas/apuntar_lin64.rar" target="_blank">Linux 64bits</a></li>
 		</ul>
-		<a href="https://www.java.com/es/download/" class="need_java" target="_blank" rel="nofollow">Es necesario tener instalado java 1.6 en adelante</a>
+		<a href="https://www.java.com/es/download/" class="need_java" target="_blank" rel="nofollow">Es necesario tener instalado java 1.6 en adelante, para el 99% ya esta instalado</a>
 		<!-- <div class="titulo_l">Blogs de ejemplo</div>
 		<ul>
 				<?php foreach ($ejemplos as $nuevo)
@@ -17,6 +17,13 @@
 				}?>
 		</ul>
 		 -->
+		 <div class="titulo_l">Aplicación para móvil</div>
+		 	<ul>
+		 		<li><a href="https://play.google.com/store/apps/details?id=com.mgd.apuntar&feature=search_result#?t=W251bGwsMSwxLDEsImNvbS5tZ2QuYXB1bnRhciJd" rel="nofollow">Android</a></li>
+		 		<li><a>iPhone IOS</a> pendiente</li>
+		 		<li><a>Blackberry</a> pendiente</li>
+		 	</ul>
+		 
 		<div class="titulo_l">Blogs nuevos</div>
 			<ul>
 				<?php foreach ($nuevos as $nuevo)
