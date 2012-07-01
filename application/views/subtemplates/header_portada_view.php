@@ -33,7 +33,7 @@
 	 		
 			<div id="buscador">
 		 		<div id="galeria">
-					<span>Necesitas un sitio donde puedas apuntar todo lo que necesitas y tener un acceso rápido desde cualquier plataforma ?!</span>
+					<span>Necesitas un sitio donde puedas apuntar todo lo que necesitas y tener un acceso rápido desde cualquier plataforma!</span>
 					<span style="display:none">Es visible en cualquier plataforma, con aplicación de escritorio y en móvil, aplicación para móviles</span>
 					<span style="display:none">Pudiendo hacer tu página tanto privada como pública o individualmente cada noticia!</span>
 				</div>
