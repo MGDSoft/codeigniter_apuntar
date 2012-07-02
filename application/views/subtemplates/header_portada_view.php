@@ -12,7 +12,7 @@
 	<div id="cabecera">
 		<div id="logo">
 			<div>
-	 			<a href="<?= RUTA_PORTAL ?>#!"><img src="<?= PATH_IMG.'portada/logo_apuntes2.png' ?>" width="140" height="112"></a>
+	 			<a href="<?= RUTA_PORTAL ?>#!"><img src="<?= PATH_IMG.'portada/logo_apuntes_128.png' ?>" width="128" height=""128""></a>
 	 		</div>
 	 	</div>
 	 	<div id="caja_login">
