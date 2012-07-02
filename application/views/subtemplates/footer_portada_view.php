@@ -1,7 +1,7 @@
 	<div id="footer">
 		<div id="degradado_footer"></div>
 		
-		<img src="<?= PATH_IMG.'portada/logo_mgd_oval_400.png' ?>" width="400" height="218" >
+		<img src="<?= PATH_IMG.'portada/logo_mgd_oval_300.png' ?>" width="300" height="169" >
 		<div class="tags">
 				
 				
