@@ -25,6 +25,7 @@ var spy;
 window.addEvent('domready', function() {
 	if (!isIE())
 	{
+		/* my "Go To Top" link element 
 		spy = new ScrollSpy({ 
 		    min: 1000, 
 		    onEnter: function() { 
@@ -35,9 +36,9 @@ window.addEvent('domready', function() {
 		    } 
 		});
 
-		/* my "Go To Top" link element */ 
+		
 		var link = document.id('gototop'); 
-		/* scrollspy instance */ 
+		
 		var ss = new ScrollSpy({ 
 		    min: 300, 
 		    onEnter: function() { 
@@ -46,7 +47,7 @@ window.addEvent('domready', function() {
 		    onLeave: function() { 
 		        link.fade('out'); //hide the "Go To Top" link 
 		    } 
-		});
+		});*/ 
 	}
 	<?php 
 	if (isset($_GET['info']) && $_GET['info']==2)

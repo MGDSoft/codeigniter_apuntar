@@ -249,7 +249,7 @@ function cargar_pagina_stadart(url_txt, vars, caja_respuesta,evalToDo) {
 		},
 		onSuccess : function(responseText) {
 			
-			log(responseText+"xxx");
+			//log(responseText+"xxx");
 			
 			if (responseText.indexOf("scrol")==-1)
 				new Fx.Scroll(window).toTop();
