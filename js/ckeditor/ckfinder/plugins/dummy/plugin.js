@@ -1,5 +1,5 @@
 ﻿/**
- * Copyright (c) 2003-2010, CKSource - Frederico Knabben. All rights reserved.
+ * Copyright (c) 2003-2012, CKSource - Frederico Knabben. All rights reserved.
  * For licensing, see LICENSE.html or http://ckeditor.com/license
  *
  * CKFinder 2.x - sample "dummy" plugin.
@@ -33,6 +33,7 @@ CKFinder.addPlugin( 'dummy', {
 						}
 						else {
 							alert( "You have entered: " + value );
+							return true;
 						}
 					},
 					contents : [
@@ -63,7 +64,7 @@ CKFinder.addPlugin( 'dummy', {
 				return dialogDefinition;
 			} );
 
-		api.addFileContextMenuOption( { label : api.lang.dummy.menuItem, command : "dummycommand"} , function( api, file )
+		api.addFileContextMenuOption( { label : api.lang.dummy.menuItem, command : "dummycommand" } , function( api, file )
 		{
 			api.openDialog('dummydialog');
 		});

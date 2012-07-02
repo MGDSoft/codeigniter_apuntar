@@ -1,9 +1,22 @@
 ﻿var HTMLMixedParser = Editor.Parser = (function() {
-  if (!(CSSParser && JSParser && XMLParser))
-    throw new Error("CSS, JS, and XML parsers must be loaded for HTML mixed mode to work.");
-  XMLParser.configure({useHTMLKludges: true});
+
+  // tags that trigger seperate parsers
+  var triggers = {
+    "script": "JSParser",
+    "style":  "CSSParser"
+  };
+
+  function checkDependencies() {
+    var parsers = ['XMLParser'];
+    for (var p in triggers) parsers.push(triggers[p]);
+    for (var i in parsers) {
+      if (!window[parsers[i]]) throw new Error(parsers[i] + " parser must be loaded for HTML mixed mode to work.");
+    }
+    XMLParser.configure({useHTMLKludges: true});
+  }
 
   function parseMixed(stream) {
+    checkDependencies();
     var htmlParser = XMLParser.make(stream), localParser = null, inTag = false;
     var iter = {next: top, copy: copy};
 
@@ -14,14 +27,14 @@
       else if (token.style == "xml-tagname" && inTag === true)
         inTag = token.content.toLowerCase();
       else if (token.content == ">") {
-        if (inTag == "script")
-          iter.next = local(JSParser, "</script");
-        else if (inTag == "style")
-          iter.next = local(CSSParser, "</style");
+        if (triggers[inTag]) {
+          var parser = window[triggers[inTag]];
+          iter.next = local(parser, "</" + inTag);
+        }
         inTag = false;
-     }
+      }
       return token;
-   }
+    }
     function local(parser, tag) {
       var baseIndent = htmlParser.indentation();
       localParser = parser.make(stream, baseIndent + indentUnit);
@@ -30,7 +43,7 @@
           localParser = null;
           iter.next = top;
           return top();
-       }
+        }
 
         var token = localParser.next();
         var lt = token.value.lastIndexOf("<"), sz = Math.min(token.value.length - lt, tag.length);
@@ -38,7 +51,7 @@
             stream.lookAhead(tag.slice(sz), false, false, true)) {
           stream.push(token.value.slice(lt));
           token.value = token.value.slice(0, lt);
-       }
+        }
 
         if (token.indentation) {
           var oldIndent = token.indentation;
@@ -47,12 +60,12 @@
               return baseIndent;
             else
               return oldIndent(chars);
-         }
-       }
+          };
+        }
 
         return token;
-     };
-   }
+      };
+    }
 
     function copy() {
       var _html = htmlParser.copy(), _local = localParser && localParser.copy(),
@@ -64,11 +77,17 @@
         iter.next = _next;
         inTag = _inTag;
         return iter;
-     };
-   }
+      };
+    }
     return iter;
- }
+  }
 
-  return {make: parseMixed, electricChars: "{}/:"};
+  return {
+    make: parseMixed,
+    electricChars: "{}/:",
+    configure: function(obj) {
+      if (obj.triggers) triggers = obj.triggers;
+    }
+  };
 
 })();

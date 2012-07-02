@@ -1,4 +1,15 @@
-﻿CKFinder.addPlugin( 'imageresize', {
+﻿/*
+ * Copyright (c) 2003-2012, CKSource - Frederico Knabben. All rights reserved.
+ * For licensing, see LICENSE.html or http://CKFINDER.com/license
+ *
+ * The software, this file and its contents are subject to the CKFinder
+ * License. Please read the license.txt file before using, installing, copying,
+ * modifying or distribute this file or part of its contents. The contents of
+ * this file is part of the Source Code of CKFinder.
+ */
+
+CKFinder.addPlugin( 'imageresize', {
+	readOnly: false,
 	connectorInitialized : function( api, xml ) {
 		var node = xml.selectSingleNode( 'Connector/PluginsInfo/imageresize/@smallThumb' );
 		if ( node )
@@ -17,7 +28,7 @@
 		regexFileName = /^(.*?)(?:_\d+x\d+)?\.([^\.]+)$/,
 		regexGetSize = /^\s*(\d+)(px)?\s*$/i,
 		regexGetSizeOrEmpty = /(^\s*(\d+)(px)?\s*$)|^$/i,
-		imageDimension = { width : 0, height : 0},
+		imageDimension = { width : 0, height : 0 },
 		file,
 		doc;
 
@@ -45,7 +56,9 @@
 			maxHeight = api.config.imagesMaxHeight,
 			aMatch  =  value.match( regexGetSize ),
 			width = imageDimension.width,
-			height = imageDimension.height;
+			height = imageDimension.height,
+			newHeight,
+			newWidth;
 
 		if ( aMatch )
 			value = aMatch[1];
@@ -197,7 +210,7 @@
 					imageDimension.width = width;
 					imageDimension.height = height;
 					sizeSpan.setText( width + " x " + height + " px" );
-					CKFinder.tools.setTimeout( function(){ switchLockRatio( dialog, 'check' );}, 0, dialog );
+					CKFinder.tools.setTimeout( function(){ switchLockRatio( dialog, 'check' ); }, 0, dialog );
 				};
 
 				api.connector.sendCommand( "ImageResizeInfo", {
@@ -207,7 +220,8 @@
 						if ( xml.checkError() )
 							return;
 						var width = xml.selectSingleNode( 'Connector/ImageInfo/@width' ),
-							height = xml.selectSingleNode( 'Connector/ImageInfo/@height' );
+							height = xml.selectSingleNode( 'Connector/ImageInfo/@height' ),
+							result;
 
 						if ( width && height )
 						{
@@ -523,8 +537,8 @@
 														}
 													},
 													html : '<div style="margin-top:4px">'+
-														'<a href="javascript:void(0)" tabindex="-1" title="Lock ration" class="ckf_btn_locked ckf_btn_unlocked" id="btnLockSizes"></a>' +
-														'<a href="javascript:void(0)" tabindex="-1" title="Reset size" class="ckf_btn_reset" id="btnResetSize"></a>'+
+														'<a href="javascript:void(0)" tabindex="-1" title="' + api.lang.Imageresize.lockRatio + '" class="ckf_btn_locked ckf_btn_unlocked" id="btnLockSizes"></a>' +
+														'<a href="javascript:void(0)" tabindex="-1" title="' + api.lang.Imageresize.resetSize + '" class="ckf_btn_reset" id="btnResetSize"></a>'+
 														'</div>'
 												}
 											]
@@ -590,7 +604,7 @@
 		};
 	} );
 
-	api.addFileContextMenuOption( { label : api.lang.Imageresize.contextMenuName, command : "resizeImage"} , function( api, file )
+	api.addFileContextMenuOption( { label : api.lang.Imageresize.contextMenuName, command : "resizeImage" } , function( api, file )
 			{
 				api.openDialog( 'resizeDialog' );
 			},

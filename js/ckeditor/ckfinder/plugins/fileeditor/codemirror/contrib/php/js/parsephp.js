@@ -1,5 +1,5 @@
 ﻿/*
-Copyright (c) 2008-2010 Yahoo! Inc. All rights reserved.
+Copyright (c) 2008-2009 Yahoo! Inc. All rights reserved.
 The copyrights embodied in the content of this file are licensed by
 Yahoo! Inc. under the BSD (revised) open source license
 
@@ -44,9 +44,9 @@ if (!Array.prototype.indexOf)
       if (from in this &&
           this[from] === elt)
         return from;
-   }
+    }
     return -1;
- };
+  };
 }
 
 
@@ -54,7 +54,7 @@ var PHPParser = Editor.Parser = (function() {
   // Token types that can be considered to be atoms, part of operator expressions
   var atomicTypes = {
     "atom": true, "number": true, "variable": true, "string": true
- };
+  };
   // Constructor for the lexical context objects.
   function PHPLexical(indented, column, type, align, prev, info) {
     // indentation at start of this line
@@ -71,7 +71,7 @@ var PHPParser = Editor.Parser = (function() {
     // Parent scope, if any.
     this.prev = prev;
     this.info = info;
- }
+  }
 
   // PHP indentation rules
   function indentPHP(lexical) {
@@ -88,8 +88,8 @@ var PHPParser = Editor.Parser = (function() {
         return lexical.column - (closing ? 1 : 0);
       else
         return lexical.indented + (closing ? 0 : indentUnit);
-   };
- }
+    };
+  }
 
   // The parser-iterator-producing function itself.
   function parsePHP(input, basecolumn) {
@@ -139,7 +139,7 @@ var PHPParser = Editor.Parser = (function() {
         // Newline tokens get an indentation function associated with
         // them.
         token.indentation = indentPHP(lexical);
-     }
+      }
       // No more processing for meaningless tokens.
       if (token.type == "whitespace" || token.type == "comment"
         || token.type == "string_not_terminated" )
@@ -162,10 +162,10 @@ var PHPParser = Editor.Parser = (function() {
             token.style = marked;
           // Here we differentiate between local and global variables.
           return token;
-       }
-     }
+        }
+      }
       return 1; // Firebug workaround for http://code.google.com/p/fbug/issues/detail?id=1239#c1
-   }
+    }
 
     // This makes a copy of the parser state. It stores all the
     // stateful variables in a closure, and returns a function that
@@ -182,47 +182,48 @@ var PHPParser = Editor.Parser = (function() {
         column = indented = 0;
         tokens = tokenizePHP(input, _tokenState);
         return parser;
-     };
-   }
+      };
+    }
 
     // Helper function for pushing a number of actions onto the cc
     // stack in reverse order.
     function push(fs){
       for (var i = fs.length - 1; i >= 0; i--)
         cc.push(fs[i]);
-   }
+    }
     // cont and pass are used by the action functions to add other
     // actions to the stack. cont will cause the current token to be
     // consumed, pass will leave it for the next action.
     function cont(){
       push(arguments);
       consume = true;
-   }
+    }
     function pass(){
       push(arguments);
       consume = false;
-   }
+    }
     // Used to change the style of the current token.
     function mark(style){
       marked = style;
-   }
+    }
     // Add a lyer of style to the current token, for example syntax-error
     function mark_add(style){
       marked = marked + ' ' + style;
-   }
+    }
 
     // Push a new lexical context of the given type.
     function pushlex(type, info) {
       var result = function pushlexing() {
         lexical = new PHPLexical(indented, column, type, null, lexical, info)
-     };
+      };
       result.lex = true;
       return result;
-   }
+    }
     // Pop off the current lexical context.
     function poplex(){
-      lexical = lexical.prev;
-   }
+      if (lexical.prev)
+        lexical = lexical.prev;
+    }
     poplex.lex = true;
     // The 'lex' flag on these actions is used by the 'next' function
     // to know they can (and have to) be ran before moving on to the
@@ -235,9 +236,9 @@ var PHPParser = Editor.Parser = (function() {
         if (token.type == wanted) cont();  // consume the token
         else {
           cont(arguments.callee);  // continue expecting() - call itself
-       }
-     };
-   }
+        }
+      };
+    }
 
     // Require a specific token type, or one of the tokens passed in the 'wanted' array
     // Used to detect blatant syntax errors. 'execute' is used to pass extra code
@@ -252,35 +253,36 @@ var PHPParser = Editor.Parser = (function() {
         else
           ok = wanted.indexOf(type);
         if (ok >= 0) {
-          if (execute && typeof(execute[ok]) == "function")
-            execute[ok](token);
-            cont();  // just consume the token
-       }
+          if (execute && typeof(execute[ok]) == "function") pass(execute[ok]);
+          else cont();
+        }
         else {
           if (!marked) mark(token.style);
           mark_add("syntax-error");
           cont(arguments.callee);
-       }
-     };
-   }
+        }
+      };
+    }
 
     // Looks for a statement, and then calls itself.
     function statements(token){
       return pass(statement, statements);
-   }
+    }
     // Dispatches various types of statements based on the type of the current token.
     function statement(token){
       var type = token.type;
-      if (type == "keyword a") cont(pushlex("form"), expression, statement, poplex);
-      else if (type == "keyword b") cont(pushlex("form"), statement, poplex);
+      if (type == "keyword a") cont(pushlex("form"), expression, altsyntax, statement, poplex);
+      else if (type == "keyword b") cont(pushlex("form"), altsyntax, statement, poplex);
       else if (type == "{") cont(pushlex("}"), block, poplex);
       else if (type == "function") funcdef();
       // technically, "class implode {...}" is correct, but we'll flag that as an error because it overrides a predefined function
-      else if (type == "class") cont(require("t_string"), expect("{"), pushlex("}"), block, poplex);
-      else if (type == "foreach") cont(pushlex("form"), require("("), pushlex(")"), expression, require("as"), require("variable"), /* => $value */ expect(")"), poplex, statement, poplex);
-      else if (type == "for") cont(pushlex("form"), require("("), pushlex(")"), expression, require(";"), expression, require(";"), expression, require(")"), poplex, statement, poplex);
+      else if (type == "class") classdef();
+      else if (type == "foreach") cont(pushlex("form"), require("("), pushlex(")"), expression, require("as"), require("variable"), /* => $value */ expect(")"), altsyntax, poplex, statement, poplex);
+      else if (type == "for") cont(pushlex("form"), require("("), pushlex(")"), expression, require(";"), expression, require(";"), expression, require(")"), altsyntax, poplex, statement, poplex);
       // public final function foo(), protected static $bar;
-      else if (type == "modifier") cont(require(["modifier", "variable", "function"], [null, null, funcdef]));
+      else if (type == "modifier") cont(require(["modifier", "variable", "function", "abstract"],
+                                                [null, commasep(require("variable")), funcdef, absfun]));
+      else if (type == "abstract") abs();
       else if (type == "switch") cont(pushlex("form"), require("("), expression, require(")"), pushlex("}", "switch"), require([":", "{"]), block, poplex, poplex);
       else if (type == "case") cont(expression, require(":"));
       else if (type == "default") cont(require(":"));
@@ -290,18 +292,19 @@ var PHPParser = Editor.Parser = (function() {
       else if (type == "namespace") cont(namespacedef, require(";"));
       // $variables may be followed by operators, () for variable function calls, or [] subscripts
       else pass(pushlex("stat"), expression, require(";"), poplex);
-   }
+    }
     // Dispatch expression types.
     function expression(token){
       var type = token.type;
       if (atomicTypes.hasOwnProperty(type)) cont(maybeoperator);
       else if (type == "<<<") cont(require("string"), maybeoperator);  // heredoc/nowdoc
       else if (type == "t_string") cont(maybe_double_colon, maybeoperator);
-      else if (type == "keyword c") cont(expression);
+      else if (type == "keyword c" || type == "operator") cont(expression);
+      // lambda
+      else if (type == "function") lambdadef();
       // function call or parenthesized expression: $a = ($b + 1) * 2;
       else if (type == "(") cont(pushlex(")"), commasep(expression), require(")"), poplex, maybeoperator);
-      else if (type == "operator") cont(expression);
-   }
+    }
     // Called for places where operators, function calls, or subscripts are
     // valid. Will skip on to the next action if none is found.
     function maybeoperator(token){
@@ -309,10 +312,10 @@ var PHPParser = Editor.Parser = (function() {
       if (type == "operator") {
         if (token.content == "?") cont(expression, require(":"), expression);  // ternary operator
         else cont(expression);
-     }
+      }
       else if (type == "(") cont(pushlex(")"), expression, commasep(expression), require(")"), poplex, maybeoperator /* $varfunc() + 3 */);
       else if (type == "[") cont(pushlex("]"), expression, require("]"), maybeoperator /* for multidimensional arrays, or $func[$i]() */, poplex);
-   }
+    }
     // A regular use of the double colon to specify a class, as in self::func() or myclass::$var;
     // Differs from `namespace` or `use` in that only one class can be the parent; chains (A::B::$var) are a syntax error.
     function maybe_double_colon(token) {
@@ -322,49 +325,94 @@ var PHPParser = Editor.Parser = (function() {
       else {
         // a t_string wasn't followed by ::, such as in a function call: foo()
         pass(expression)
-     }
-   }
+      }
+    }
     // the declaration or definition of a function
     function funcdef() {
       cont(require("t_string"), require("("), pushlex(")"), commasep(funcarg), require(")"), poplex, block);
-   }
+    }
+    // the declaration or definition of a lambda
+    function lambdadef() {
+      cont(require("("), pushlex(")"), commasep(funcarg), require(")"), maybe_lambda_use, poplex, require("{"), pushlex("}"), block, poplex);
+    }
+    // optional lambda 'use' statement
+    function maybe_lambda_use(token) {
+      if(token.type == "namespace") {
+        cont(require('('), commasep(funcarg), require(')'));
+      }
+      else {
+        pass(expression);
+      }
+    }
+    // the definition of a class
+    function classdef() {
+      cont(require("t_string"), expect("{"), pushlex("}"), block, poplex);
+    }
+    // either funcdef if the current token is "function", or the keyword "function" + funcdef
+    function absfun(token) {
+      if(token.type == "function") funcdef();
+      else cont(require(["function"], [funcdef]));
+    }
+    // the abstract class or function (with optional modifier)
+    function abs(token) {
+      cont(require(["modifier", "function", "class"], [absfun, funcdef, classdef]));
+    }
     // Parses a comma-separated list of the things that are recognized
     // by the 'what' argument.
     function commasep(what){
       function proceed(token) {
         if (token.type == ",") cont(what, proceed);
-     }
+      }
       return function commaSeparated() {
         pass(what, proceed);
-     };
-   }
+      };
+    }
     // Look for statements until a closing brace is found.
     function block(token) {
       if (token.type == "}") cont();
       else pass(statement, block);
-   }
+    }
+    function empty_parens_if_array(token) {
+      if(token.content == "array")
+        cont(require("("), require(")"));
+    }
     function maybedefaultparameter(token){
-      if (token.content == "=") cont(expression);
-   }
+      if (token.content == "=") cont(require(["t_string", "string", "number", "atom"], [empty_parens_if_array, null, null]));
+    }
+    function var_or_reference(token) {
+      if(token.type == "variable") cont(maybedefaultparameter);
+      else if(token.content == "&") cont(require("variable"), maybedefaultparameter);
+    }
     // support for default arguments: http://us.php.net/manual/en/functions.arguments.php#functions.arguments.default
     function funcarg(token){
-      // function foo(myclass $obj) {...}
-      if (token.type == "t_string") cont(require("variable"), maybedefaultparameter);
-      // function foo($string) {...}
-      else if (token.type == "variable") cont(maybedefaultparameter);
-   }
+      // function foo(myclass $obj) {...} or function foo(myclass &objref) {...}
+      if (token.type == "t_string") cont(var_or_reference);
+      // function foo($var) {...} or function foo(&$ref) {...}
+      else var_or_reference(token);
+    }
 
     // A namespace definition or use
     function maybe_double_colon_def(token) {
       if (token.type == "t_double_colon")
         cont(namespacedef);
-   }
+    }
     function namespacedef(token) {
       pass(require("t_string"), maybe_double_colon_def);
-   }
+    }
+
+    function altsyntax(token){
+    	if(token.content==':')
+    		cont(altsyntaxBlock,poplex);
+    }
+
+    function altsyntaxBlock(token){
+    	if (token.type == "altsyntaxend") cont(require(';'));
+      else pass(statement, altsyntaxBlock);
+    }
+
 
     return parser;
- }
+  }
 
   return {make: parsePHP, electricChars: "{}:"};
 

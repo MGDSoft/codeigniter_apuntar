@@ -23,15 +23,15 @@ var indentUnit = 2;
     for (var line = 0; line < lines.length; line++) {
       if (line != 0) parts.push("\n");
       parts.push(lines[line]);
-   }
+    }
 
     return {
       next: function() {
         if (pos < parts.length) return parts[pos++];
         else throw StopIteration;
-     }
-   };
- }
+      }
+    };
+  }
 
   window.highlightText = function(string, callback, parser) {
     parser = (parser || Editor.Parser).make(stringStream(normaliseString(string)));
@@ -41,9 +41,9 @@ var indentUnit = 2;
       callback = function(line) {
         for (var i = 0; i < line.length; i++)
           node.appendChild(line[i]);
-        node.appendChild(document.createElement("BR"));
-     };
-   }
+        node.appendChild(document.createElement("br"));
+      };
+    }
 
     try {
       while (true) {
@@ -51,18 +51,18 @@ var indentUnit = 2;
         if (token.value == "\n") {
           callback(line);
           line = [];
-       }
+        }
         else {
-          var span = document.createElement("SPAN");
+          var span = document.createElement("span");
           span.className = token.style;
           span.appendChild(document.createTextNode(token.value));
           line.push(span);
-       }
-     }
-   }
+        }
+      }
+    }
     catch (e) {
       if (e != StopIteration) throw e;
-   }
+    }
     if (line.length) callback(line);
- }
+  }
 })();

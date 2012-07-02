@@ -27,7 +27,7 @@
 		 			<a href="<?= RUTA_PORTAL ?>#!"><?= URL_BASE ?></a>
 		 		</span>
 		 		
-		 		<h1 id="descripcion">Crea tu blog privado o público accesible desde móvil, web y escritorio</h1>
+		 		<h1 id="descripcion">Crea tu blog para desarrolladores, con apps móvil, web y escritorio</h1>
 		 		
 	 		</div>
 	 		

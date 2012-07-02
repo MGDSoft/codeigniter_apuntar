@@ -3,7 +3,7 @@
  * CKFinder
  * ========
  * http://ckfinder.com
- * Copyright (C) 2007-2010, CKSource - Frederico Knabben. All rights reserved.
+ * Copyright (C) 2007-2012, CKSource - Frederico Knabben. All rights reserved.
  *
  * The software, this file and its contents are subject to the CKFinder
  * License. Please read the license.txt file before using, installing, copying,
@@ -34,7 +34,7 @@ class CKFinder_Connector_Core_Factory
     function initFactory()
     {
         $GLOBALS['CKFinder_Connector_Factory']=array();
-   }
+    }
 
     /**
      * Get instance of specified class
@@ -60,8 +60,8 @@ class CKFinder_Connector_Core_Factory
         if (!isset($GLOBALS['CKFinder_Connector_Factory'][$className])) {
             require_once CKFINDER_CONNECTOR_LIB_DIR . "/" . str_replace("_","/",$baseName).".php";
             $GLOBALS['CKFinder_Connector_Factory'][$className] =& new $className;
-       }
+        }
 
         return $GLOBALS['CKFinder_Connector_Factory'][$className];
-   }
+    }
 }

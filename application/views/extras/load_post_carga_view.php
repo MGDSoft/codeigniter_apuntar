@@ -1,5 +1,4 @@
 <!-- Post carga de archivos innecesarios de primeras y que relentizan la pagina -->
-<script src="<?= PATH_JS ?>ckeditor/ckeditor.js" type="text/javascript"></script>
 <?php if (!isset($_SESSION['usuario'])) 
 {	?>
 	<script type="text/javascript" lang="javascript"
@@ -12,4 +11,7 @@
 		,enabledProviders: 'facebook,twitter,google,messenger,openid,digg,wordpress'
 		});	
 	</script>
-<?php } ?> 
+<?php }else{ ?> 
+<script src="<?= PATH_JS ?>ckeditor/ckeditor.js" type="text/javascript"></script>
+<script type="text/javascript" src="<?= PATH_JS ?>ckeditor/ckfinder/ckfinder.js"></script>
+<?php } ?>

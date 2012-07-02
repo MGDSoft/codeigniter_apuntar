@@ -19,7 +19,7 @@ function tokenizer(source, state) {
     // The messy regexp is because IE's regexp matcher is of the
     // opinion that non-breaking spaces are no whitespace.
     return ch != "\n" && /^[\s\u00a0]*$/.test(ch);
- }
+  }
 
   var tokenizer = {
     state: state,
@@ -33,7 +33,7 @@ function tokenizer(source, state) {
         source.nextWhile(isWhiteSpace);
       type.value = type.content + source.get();
       return type;
-   },
+    },
 
     next: function () {
       if (!source.more()) throw StopIteration;
@@ -42,7 +42,7 @@ function tokenizer(source, state) {
       if (source.equals("\n")) {
         source.next();
         return this.take("whitespace");
-     }
+      }
 
       if (source.applies(isWhiteSpace))
         type = "whitespace";
@@ -51,7 +51,7 @@ function tokenizer(source, state) {
           type = this.state(source, function(s) {tokenizer.state = s;});
 
       return this.take(type);
-   }
- };
+    }
+  };
   return tokenizer;
 }

@@ -3,7 +3,7 @@
  * CKFinder
  * ========
  * http://ckfinder.com
- * Copyright (C) 2007-2010, CKSource - Frederico Knabben. All rights reserved.
+ * Copyright (C) 2007-2012, CKSource - Frederico Knabben. All rights reserved.
  *
  * The software, this file and its contents are subject to the CKFinder
  * License. Please read the license.txt file before using, installing, copying,
@@ -56,7 +56,7 @@ class CKFinder_Connector_CommandHandler_CommandHandlerBase
         $this->_currentFolder =& CKFinder_Connector_Core_Factory::getInstance("Core_FolderHandler");
         $this->_connector =& CKFinder_Connector_Core_Factory::getInstance("Core_Connector");
         $this->_errorHandler =& $this->_connector->getErrorHandler();
-   }
+    }
 
     /**
      * Get Folder Handler
@@ -68,10 +68,10 @@ class CKFinder_Connector_CommandHandler_CommandHandlerBase
     {
         if (is_null($this->_currentFolder)) {
             $this->_currentFolder =& CKFinder_Connector_Core_Factory::getInstance("Core_FolderHandler");
-       }
+        }
 
         return $this->_currentFolder;
-   }
+    }
 
     /**
      * Check whether Connector is enabled
@@ -83,8 +83,8 @@ class CKFinder_Connector_CommandHandler_CommandHandlerBase
         $_config =& CKFinder_Connector_Core_Factory::getInstance("Core_Config");
         if (!$_config->getIsEnabled()) {
             $this->_errorHandler->throwError(CKFINDER_CONNECTOR_ERROR_CONNECTOR_DISABLED);
-       }
-   }
+        }
+    }
 
     /**
      * Check request
@@ -95,13 +95,13 @@ class CKFinder_Connector_CommandHandler_CommandHandlerBase
     {
         if (preg_match(CKFINDER_REGEX_INVALID_PATH, $this->_currentFolder->getClientPath())) {
             $this->_errorHandler->throwError(CKFINDER_CONNECTOR_ERROR_INVALID_NAME);
-       }
+        }
 
         $_resourceTypeConfig = $this->_currentFolder->getResourceTypeConfig();
 
         if (is_null($_resourceTypeConfig)) {
             $this->_errorHandler->throwError(CKFINDER_CONNECTOR_ERROR_INVALID_TYPE);
-       }
+        }
 
 
         $_clientPath = $this->_currentFolder->getClientPath();
@@ -110,9 +110,9 @@ class CKFinder_Connector_CommandHandler_CommandHandlerBase
             foreach ($_clientPathParts as $_part) {
                 if ($_resourceTypeConfig->checkIsHiddenFolder($_part)) {
                     $this->_errorHandler->throwError(CKFINDER_CONNECTOR_ERROR_INVALID_REQUEST);
-               }
-           }
-       }
+                }
+            }
+        }
 
         if (!is_dir($this->_currentFolder->getServerPath())) {
             if ($_clientPath == "/") {
@@ -120,11 +120,11 @@ class CKFinder_Connector_CommandHandler_CommandHandlerBase
                     /**
                      * @todo handle error
                      */
-               }
-           }
+                }
+            }
             else {
                 $this->_errorHandler->throwError(CKFINDER_CONNECTOR_ERROR_FOLDER_NOT_FOUND);
-           }
-       }
-   }
+            }
+        }
+    }
 }

@@ -3,7 +3,7 @@
  * CKFinder
  * ========
  * http://ckfinder.com
- * Copyright (C) 2007-2010, CKSource - Frederico Knabben. All rights reserved.
+ * Copyright (C) 2007-2012, CKSource - Frederico Knabben. All rights reserved.
  *
  * The software, this file and its contents are subject to the CKFinder
  * License. Please read the license.txt file before using, installing, copying,
@@ -124,6 +124,13 @@ class CKFinder_Connector_Core_Config
      */
     private $_checkDoubleExtension = true;
     /**
+     * Disallow unsafe characters in file and folder names
+     *
+     * @var boolean
+     * @access private
+     */
+    private $_disallowUnsafeCharacters = false;
+    /**
      * If set to true, validate image size
      *
      * @var boolean
@@ -182,7 +189,7 @@ class CKFinder_Connector_Core_Config
     function __construct()
     {
         $this->loadValues();
-   }
+    }
 
     /**
 	 * Get file system encoding, returns null if encoding is not set
@@ -193,7 +200,7 @@ class CKFinder_Connector_Core_Config
     public function getFilesystemEncoding()
     {
         return $this->_filesystemEncoding;
-   }
+    }
 
     /**
 	 * Get "secureImageUploads" value
@@ -204,7 +211,7 @@ class CKFinder_Connector_Core_Config
     public function getSecureImageUploads()
     {
         return $this->_secureImageUploads;
-   }
+    }
 
     /**
 	 * Get "checkSizeAfterScaling" value
@@ -215,7 +222,7 @@ class CKFinder_Connector_Core_Config
     public function checkSizeAfterScaling()
     {
         return $this->_checkSizeAfterScaling;
-   }
+    }
 
     /**
 	 * Get "htmlExtensions" value
@@ -226,7 +233,7 @@ class CKFinder_Connector_Core_Config
     public function getHtmlExtensions()
     {
         return $this->_htmlExtensions;
-   }
+    }
 
     /**
 	 * Get "forceAscii" value
@@ -237,7 +244,7 @@ class CKFinder_Connector_Core_Config
     public function forceAscii()
     {
         return $this->_forceAscii;
-   }
+    }
 
     /**
 	 * Get regular expression to hide folders
@@ -256,14 +263,14 @@ class CKFinder_Connector_Core_Config
                 $folderRegex = preg_quote($folderRegex, "/");
                 $folderRegex = strtr($folderRegex, array("__QMK__" => ".", "__AST__" => ".*", "__PIP__" => "|"));
                 $folderRegex = "/^(?:" . $folderRegex . ")$/uim";
-           }
+            }
             else {
                 $folderRegex = "";
-           }
-       }
+            }
+        }
 
         return $folderRegex;
-   }
+    }
 
     /**
 	 * Get regular expression to hide files
@@ -282,14 +289,14 @@ class CKFinder_Connector_Core_Config
                 $fileRegex = preg_quote($fileRegex, "/");
                 $fileRegex = strtr($fileRegex, array("__QMK__" => ".", "__AST__" => ".*", "__PIP__" => "|"));
                 $fileRegex = "/^(?:" . $fileRegex . ")$/uim";
-           }
+            }
             else {
                 $fileRegex = "";
-           }
-       }
+            }
+        }
 
         return $fileRegex;
-   }
+    }
 
     /**
 	 * Get "Check double extension" value
@@ -300,7 +307,18 @@ class CKFinder_Connector_Core_Config
     public function getCheckDoubleExtension()
     {
         return $this->_checkDoubleExtension;
-   }
+    }
+
+    /**
+	 * Get "Disallow unsafe characters" value
+	 *
+	 * @access public
+	 * @return boolean
+	 */
+    public function getDisallowUnsafeCharacters()
+    {
+        return $this->_disallowUnsafeCharacters;
+    }
 
     /**
 	 * Get default resource types
@@ -311,7 +329,7 @@ class CKFinder_Connector_Core_Config
     public function getDefaultResourceTypes()
     {
         return $this->_defaultResourceTypes;
-   }
+    }
 
     /**
 	 * Is CKFinder enabled
@@ -322,7 +340,7 @@ class CKFinder_Connector_Core_Config
     public function getIsEnabled()
     {
         return $this->_isEnabled;
-   }
+    }
 
     /**
 	 * Get license key
@@ -333,7 +351,7 @@ class CKFinder_Connector_Core_Config
     public function getLicenseKey()
     {
         return $this->_licenseKey;
-   }
+    }
 
     /**
 	* Get license name
@@ -344,7 +362,7 @@ class CKFinder_Connector_Core_Config
     public function getLicenseName()
     {
         return $this->_licenseName;
-   }
+    }
 
     /**
 	* Get chmod settings for uploaded files
@@ -355,7 +373,7 @@ class CKFinder_Connector_Core_Config
     public function getChmodFiles()
     {
         return $this->_chmodFiles;
-   }
+    }
 
     /**
 	* Get chmod settings for created directories
@@ -366,7 +384,7 @@ class CKFinder_Connector_Core_Config
     public function getChmodFolders()
     {
         return $this->_chmodFolders;
-   }
+    }
 
     /**
 	 * Get role sesion variable name
@@ -377,7 +395,7 @@ class CKFinder_Connector_Core_Config
     public function getRoleSessionVar()
     {
         return $this->_roleSessionVar;
-   }
+    }
 
     /**
 	 * Get resourceTypeName config
@@ -392,11 +410,11 @@ class CKFinder_Connector_Core_Config
 
         if (isset($this->_resourceTypeConfigCache[$resourceTypeName])) {
             return $this->_resourceTypeConfigCache[$resourceTypeName];
-       }
+        }
 
         if (!isset($GLOBALS['config']['ResourceType']) || !is_array($GLOBALS['config']['ResourceType'])) {
             return $_null;
-       }
+        }
 
         reset($GLOBALS['config']['ResourceType']);
         while (list($_key,$_resourceTypeNode) = each($GLOBALS['config']['ResourceType'])) {
@@ -404,11 +422,11 @@ class CKFinder_Connector_Core_Config
                 $this->_resourceTypeConfigCache[$resourceTypeName] = new CKFinder_Connector_Core_ResourceTypeConfig($_resourceTypeNode);
 
                 return $this->_resourceTypeConfigCache[$resourceTypeName];
-           }
-       }
+            }
+        }
 
         return $_null;
-   }
+    }
 
     /**
      * Get thumbnails config
@@ -420,10 +438,10 @@ class CKFinder_Connector_Core_Config
     {
         if (!isset($this->_thumbnailsConfigCache)) {
             $this->_thumbnailsConfigCache = new CKFinder_Connector_Core_ThumbnailsConfig(isset($GLOBALS['config']['Thumbnails']) ? $GLOBALS['config']['Thumbnails'] : array());
-       }
+        }
 
         return $this->_thumbnailsConfigCache;
-   }
+    }
 
     /**
      * Get images config
@@ -435,10 +453,10 @@ class CKFinder_Connector_Core_Config
     {
         if (!isset($this->_imagesConfigCache)) {
             $this->_imagesConfigCache = new CKFinder_Connector_Core_ImagesConfig(isset($GLOBALS['config']['Images']) ? $GLOBALS['config']['Images'] : array());
-       }
+        }
 
         return $this->_imagesConfigCache;
-   }
+    }
 
     /**
      * Get access control config
@@ -450,10 +468,10 @@ class CKFinder_Connector_Core_Config
     {
         if (!isset($this->_accessControlConfigCache)) {
             $this->_accessControlConfigCache = new CKFinder_Connector_Core_AccessControlConfig(isset($GLOBALS['config']['AccessControl']) ? $GLOBALS['config']['AccessControl'] : array());
-       }
+        }
 
         return $this->_accessControlConfigCache;
-   }
+    }
 
     /**
      * Load values from config
@@ -464,53 +482,56 @@ class CKFinder_Connector_Core_Config
     {
         if (function_exists('CheckAuthentication')) {
             $this->_isEnabled = CheckAuthentication();
-       }
+        }
         if (isset($GLOBALS['config']['LicenseName'])) {
             $this->_licenseName = (string)$GLOBALS['config']['LicenseName'];
-       }
+        }
         if (isset($GLOBALS['config']['LicenseKey'])) {
             $this->_licenseKey = (string)$GLOBALS['config']['LicenseKey'];
-       }
+        }
         if (isset($GLOBALS['config']['FilesystemEncoding'])) {
             $this->_filesystemEncoding = (string)$GLOBALS['config']['FilesystemEncoding'];
-       }
+        }
         if (isset($GLOBALS['config']['RoleSessionVar'])) {
             $this->_roleSessionVar = (string)$GLOBALS['config']['RoleSessionVar'];
-       }
+        }
         if (isset($GLOBALS['config']['CheckDoubleExtension'])) {
             $this->_checkDoubleExtension = CKFinder_Connector_Utils_Misc::booleanValue($GLOBALS['config']['CheckDoubleExtension']);
-       }
+        }
+        if (isset($GLOBALS['config']['DisallowUnsafeCharacters'])) {
+            $this->_disallowUnsafeCharacters = CKFinder_Connector_Utils_Misc::booleanValue($GLOBALS['config']['DisallowUnsafeCharacters']);
+        }
         if (isset($GLOBALS['config']['SecureImageUploads'])) {
             $this->_secureImageUploads = CKFinder_Connector_Utils_Misc::booleanValue($GLOBALS['config']['SecureImageUploads']);
-       }
+        }
         if (isset($GLOBALS['config']['CheckSizeAfterScaling'])) {
             $this->_checkSizeAfterScaling = CKFinder_Connector_Utils_Misc::booleanValue($GLOBALS['config']['CheckSizeAfterScaling']);
-       }
+        }
         if (isset($GLOBALS['config']['ForceAscii'])) {
             $this->_forceAscii = CKFinder_Connector_Utils_Misc::booleanValue($GLOBALS['config']['ForceAscii']);
-       }
+        }
         if (isset($GLOBALS['config']['HtmlExtensions'])) {
             $this->_htmlExtensions = (array)$GLOBALS['config']['HtmlExtensions'];
-       }
+        }
         if (isset($GLOBALS['config']['HideFolders'])) {
             $this->_hideFolders = (array)$GLOBALS['config']['HideFolders'];
-       }
+        }
         if (isset($GLOBALS['config']['HideFiles'])) {
             $this->_hideFiles = (array)$GLOBALS['config']['HideFiles'];
-       }
+        }
         if (isset($GLOBALS['config']['ChmodFiles'])) {
             $this->_chmodFiles = $GLOBALS['config']['ChmodFiles'];
-       }
+        }
         if (isset($GLOBALS['config']['ChmodFolders'])) {
             $this->_chmodFolders = $GLOBALS['config']['ChmodFolders'];
-       }
+        }
         if (isset($GLOBALS['config']['DefaultResourceTypes'])) {
             $_defaultResourceTypes = (string)$GLOBALS['config']['DefaultResourceTypes'];
             if (strlen($_defaultResourceTypes)) {
                 $this->_defaultResourceTypes = explode(",", $_defaultResourceTypes);
-           }
-       }
-   }
+            }
+        }
+    }
 
     /**
      * Get all resource type names defined in config
@@ -522,15 +543,15 @@ class CKFinder_Connector_Core_Config
     {
         if (!isset($GLOBALS['config']['ResourceType']) || !is_array($GLOBALS['config']['ResourceType'])) {
             return array();
-       }
+        }
 
         $_names = array();
         foreach ($GLOBALS['config']['ResourceType'] as $key => $_resourceType) {
             if (isset($_resourceType['name'])) {
                 $_names[] = (string)$_resourceType['name'];
-           }
-       }
+            }
+        }
 
         return $_names;
-   }
+    }
 }

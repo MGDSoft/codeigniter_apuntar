@@ -6,7 +6,6 @@
 <div id="gototop" style="visibility:hidden;">
 	<img src="<?= PATH_IMG ?>1x1.gif" class="arriba" height="100" width="91" onclick="new Fx.Scroll(window).toTop();">
 	<img id="gotodown" src="<?= PATH_IMG ?>1x1.gif" class="abajo" height="100" width="91" onclick="new Fx.Scroll(window).toBottom();">
-	
 </div>
 
 <div id="contenedor_portal">

@@ -13,11 +13,11 @@ function forEach(iter, f) {
   if (iter.next) {
     try {while (true) f(iter.next());}
     catch (e) {if (e != StopIteration) throw e;}
- }
+  }
   else {
     for (var i = 0; i < iter.length; i++)
       f(iter[i]);
- }
+  }
 }
 
 // Map a function over a sequence, producing an array of results.
@@ -34,11 +34,14 @@ function matcher(regexp){
   return function(value){return regexp.test(value);};
 }
 
-// Test whether a DOM node has a certain CSS class. Much faster than
-// the MochiKit equivalent, for some reason.
-function hasClass(element, className){
+// Test whether a DOM node has a certain CSS class.
+function hasClass(element, className) {
   var classes = element.className;
   return classes && new RegExp("(^| )" + className + "($| )").test(classes);
+}
+function removeClass(element, className) {
+  element.className = element.className.replace(new RegExp(" " + className + "\\b", "g"), "");
+  return element;
 }
 
 // Insert a DOM node after another node.
@@ -63,7 +66,7 @@ function isAncestor(node, child) {
   while (child = child.parentNode) {
     if (node == child)
       return true;
- }
+  }
   return false;
 }
 
@@ -77,18 +80,18 @@ function normalizeEvent(event) {
   if (!event.stopPropagation) {
     event.stopPropagation = function() {this.cancelBubble = true;};
     event.preventDefault = function() {this.returnValue = false;};
- }
+  }
   if (!event.stop) {
     event.stop = function() {
       this.stopPropagation();
       this.preventDefault();
-   };
- }
+    };
+  }
 
   if (event.type == "keypress") {
     event.code = (event.charCode == null) ? event.keyCode : event.charCode;
     event.character = String.fromCharCode(event.code);
- }
+  }
   return event;
 }
 
@@ -96,15 +99,15 @@ function normalizeEvent(event) {
 function addEventHandler(node, type, handler, removeFunc) {
   function wrapHandler(event) {
     handler(normalizeEvent(event || window.event));
- }
+  }
   if (typeof node.addEventListener == "function") {
     node.addEventListener(type, wrapHandler, false);
     if (removeFunc) return function() {node.removeEventListener(type, wrapHandler, false);};
- }
+  }
   else {
     node.attachEvent("on" + type, wrapHandler);
     if (removeFunc) return function() {node.detachEvent("on" + type, wrapHandler);};
- }
+  }
 }
 
 function nodeText(node) {
@@ -116,7 +119,7 @@ function nodeTop(node) {
   while (node.offsetParent) {
     top += node.offsetTop;
     node = node.offsetParent;
- }
+  }
   return top;
 }
 

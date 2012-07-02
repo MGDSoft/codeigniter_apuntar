@@ -3,7 +3,7 @@
  * CKFinder
  * ========
  * http://ckfinder.com
- * Copyright (C) 2007-2010, CKSource - Frederico Knabben. All rights reserved.
+ * Copyright (C) 2007-2012, CKSource - Frederico Knabben. All rights reserved.
  *
  * The software, this file and its contents are subject to the CKFinder
  * License. Please read the license.txt file before using, installing, copying,
@@ -50,14 +50,14 @@ class CKFinder_Connector_CommandHandler_GetFolders extends CKFinder_Connector_Co
         $_config =& CKFinder_Connector_Core_Factory::getInstance("Core_Config");
         if (!$this->_currentFolder->checkAcl(CKFINDER_CONNECTOR_ACL_FOLDER_VIEW)) {
             $this->_errorHandler->throwError(CKFINDER_CONNECTOR_ERROR_UNAUTHORIZED);
-       }
+        }
 
         // Map the virtual path to the local server path.
         $_sServerDir = $this->_currentFolder->getServerPath();
 
         if (!is_dir($_sServerDir)) {
             $this->_errorHandler->throwError(CKFINDER_CONNECTOR_ERROR_FOLDER_NOT_FOUND);
-       }
+        }
 
         // Create the "Folders" node.
         $oFoldersNode = new Ckfinder_Connector_Utils_XmlNode("Folders");
@@ -68,12 +68,12 @@ class CKFinder_Connector_CommandHandler_GetFolders extends CKFinder_Connector_Co
             while (($file = readdir($dh)) !== false) {
                 if ($file != "." && $file != ".." && is_dir($_sServerDir . $file)) {
                     $files[] = $file;
-               }
-           }
+                }
+            }
             closedir($dh);
-       } else {
+        } else {
             $this->_errorHandler->throwError(CKFINDER_CONNECTOR_ERROR_ACCESS_DENIED);
-       }
+        }
 
         $resourceTypeInfo = $this->_currentFolder->getResourceTypeConfig();
 
@@ -86,10 +86,10 @@ class CKFinder_Connector_CommandHandler_GetFolders extends CKFinder_Connector_Co
 
                 if (($aclMask & CKFINDER_CONNECTOR_ACL_FOLDER_VIEW) != CKFINDER_CONNECTOR_ACL_FOLDER_VIEW) {
                     continue;
-               }
+                }
                 if ($resourceTypeInfo->checkIsHiddenFolder($file)) {
                     continue;
-               }
+                }
 
                 // Create the "Folder" node.
                 $oFolderNode[$i] = new Ckfinder_Connector_Utils_XmlNode("Folder");
@@ -99,7 +99,7 @@ class CKFinder_Connector_CommandHandler_GetFolders extends CKFinder_Connector_Co
                 $oFolderNode[$i]->addAttribute("acl", $aclMask);
 
                 $i++;
-           }
-       }
-   }
+            }
+        }
+    }
 }

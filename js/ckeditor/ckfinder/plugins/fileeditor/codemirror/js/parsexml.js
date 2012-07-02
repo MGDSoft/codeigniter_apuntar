@@ -11,7 +11,7 @@ var XMLParser = Editor.Parser = (function() {
     autoSelfClosers: {"br": true, "img": true, "hr": true, "link": true, "input": true,
                       "meta": true, "col": true, "frame": true, "base": true, "area": true},
     doNotIndent: {"pre": true, "!cdata": true}
- };
+  };
   var NoKludges = {autoSelfClosers: {}, doNotIndent: {"!cdata": true}};
   var UseKludges = Kludges;
   var alignCDATA = false;
@@ -29,67 +29,72 @@ var XMLParser = Editor.Parser = (function() {
             if (source.lookAhead("[CDATA[", true)) {
               setState(inBlock("xml-cdata", "]]>"));
               return null;
-           }
+            }
             else {
               return "xml-text";
-           }
-         }
+            }
+          }
           else if (source.lookAhead("--", true)) {
             setState(inBlock("xml-comment", "-->"));
             return null;
-         }
+          }
+          else if (source.lookAhead("DOCTYPE", true)) {
+            source.nextWhileMatches(/[\w\._\-]/);
+            setState(inBlock("xml-doctype", ">"));
+            return "xml-doctype";
+          }
           else {
             return "xml-text";
-         }
-       }
+          }
+        }
         else if (source.equals("?")) {
           source.next();
           source.nextWhileMatches(/[\w\._\-]/);
           setState(inBlock("xml-processing", "?>"));
           return "xml-processing";
-       }
+        }
         else {
           if (source.equals("/")) source.next();
           setState(inTag);
           return "xml-punctuation";
-       }
-     }
+        }
+      }
       else if (ch == "&") {
         while (!source.endOfLine()) {
           if (source.next() == ";")
             break;
-       }
+        }
         return "xml-entity";
-     }
+      }
       else {
         source.nextWhileMatches(/[^&<\n]/);
         return "xml-text";
-     }
-   }
+      }
+    }
 
     function inTag(source, setState) {
       var ch = source.next();
       if (ch == ">") {
         setState(inText);
         return "xml-punctuation";
-     }
+      }
       else if (/[?\/]/.test(ch) && source.equals(">")) {
         source.next();
         setState(inText);
         return "xml-punctuation";
-     }
+      }
       else if (ch == "=") {
         return "xml-punctuation";
-     }
+      }
       else if (/[\'\"]/.test(ch)) {
         setState(inAttribute(ch));
         return null;
-     }
+      }
       else {
         source.nextWhileMatches(/[^\s\u00a0=<>\"\'\/?]/);
         return "xml-name";
-     }
-   }
+      }
+    }
 
     function inAttribute(quote) {
       return function(source, setState) {
@@ -97,11 +102,11 @@ var XMLParser = Editor.Parser = (function() {
           if (source.next() == quote) {
             setState(inTag);
             break;
-         }
-       }
+          }
+        }
         return "xml-attribute";
-     };
-   }
+      };
+    }
 
     function inBlock(style, terminator) {
       return function(source, setState) {
@@ -109,17 +114,17 @@ var XMLParser = Editor.Parser = (function() {
           if (source.lookAhead(terminator, true)) {
             setState(inText);
             break;
-         }
+          }
           source.next();
-       }
+        }
         return style;
-     };
-   }
+      };
+    }
 
     return function(source, startState) {
       return tokenizer(source, startState || inText);
-   };
- })();
+    };
+  })();
 
   // The parser. The structure of this function largely follows that of
   // parseJavaScript in parsejavascript.js (there is actually a bit more
@@ -134,33 +139,33 @@ var XMLParser = Editor.Parser = (function() {
     function push(fs) {
       for (var i = fs.length - 1; i >= 0; i--)
         cc.push(fs[i]);
-   }
+    }
     function cont() {
       push(arguments);
       consume = true;
-   }
+    }
     function pass() {
       push(arguments);
       consume = false;
-   }
+    }
 
     function markErr() {
       token.style += " xml-error";
-   }
+    }
     function expect(text) {
       return function(style, content) {
         if (content == text) cont();
         else {markErr(); cont(arguments.callee);}
-     };
-   }
+      };
+    }
 
     function pushContext(tagname, startOfLine) {
       var noIndent = UseKludges.doNotIndent.hasOwnProperty(tagname) || (context && context.noIndent);
       context = {prev: context, name: tagname, indent: indented, startOfLine: startOfLine, noIndent: noIndent};
-   }
+    }
     function popContext() {
       context = context.prev;
-   }
+    }
     function computeIndentation(baseContext) {
       return function(nextChars, current) {
         var context = baseContext;
@@ -176,13 +181,13 @@ var XMLParser = Editor.Parser = (function() {
           return context.indent + indentUnit;
         else
           return 0;
-     };
-   }
+      };
+    }
 
     function base() {
       return pass(element, base);
-   }
-    var harmlessTokens = {"xml-text": true, "xml-entity": true, "xml-comment": true, "xml-processing": true};
+    }
+    var harmlessTokens = {"xml-text": true, "xml-entity": true, "xml-comment": true, "xml-processing": true, "xml-doctype": true};
     function element(style, content) {
       if (content == "<") cont(tagname, attributes, endtag(tokenNr == 1));
       else if (content == "</") cont(closetagname, expect(">"));
@@ -190,49 +195,49 @@ var XMLParser = Editor.Parser = (function() {
         if (!context || context.name != "!cdata") pushContext("!cdata");
         if (/\]\]>$/.test(content)) popContext();
         cont();
-     }
+      }
       else if (harmlessTokens.hasOwnProperty(style)) cont();
       else {markErr(); cont();}
-   }
+    }
     function tagname(style, content) {
       if (style == "xml-name") {
         currentTag = content.toLowerCase();
         token.style = "xml-tagname";
         cont();
-     }
+      }
       else {
         currentTag = null;
         pass();
-     }
-   }
+      }
+    }
     function closetagname(style, content) {
       if (style == "xml-name") {
         token.style = "xml-tagname";
         if (context && content.toLowerCase() == context.name) popContext();
         else markErr();
-     }
+      }
       cont();
-   }
+    }
     function endtag(startOfLine) {
       return function(style, content) {
         if (content == "/>" || (content == ">" && UseKludges.autoSelfClosers.hasOwnProperty(currentTag))) cont();
         else if (content == ">") {pushContext(currentTag, startOfLine); cont();}
         else {markErr(); cont(arguments.callee);}
-     };
-   }
+      };
+    }
     function attributes(style) {
       if (style == "xml-name") {token.style = "xml-attname"; cont(attribute, attributes);}
       else pass();
-   }
+    }
     function attribute(style, content) {
       if (content == "=") cont(value);
       else if (content == ">" || content == "/>") pass(endtag);
       else pass();
-   }
+    }
     function value(style) {
       if (style == "xml-attribute") cont(value);
       else pass();
-   }
+    }
 
     return {
       indentation: function() {return indented;},
@@ -246,7 +251,7 @@ var XMLParser = Editor.Parser = (function() {
         if (token.content == "\n") {
           indented = tokenNr = 0;
           token.indentation = computeIndentation(context);
-       }
+        }
 
         if (token.style == "whitespace" || token.type == "xml-comment")
           return token;
@@ -255,8 +260,8 @@ var XMLParser = Editor.Parser = (function() {
           consume = false;
           cc.pop()(token.style, token.content);
           if (consume) return token;
-       }
-     },
+        }
+      },
 
       copy: function(){
         var _cc = cc.concat([]), _tokenState = tokens.state, _context = context;
@@ -268,10 +273,10 @@ var XMLParser = Editor.Parser = (function() {
           context = _context;
           tokens = tokenizeXML(input, _tokenState);
           return parser;
-       };
-     }
-   };
- }
+        };
+      }
+    };
+  }
 
   return {
     make: parseXML,
@@ -281,6 +286,6 @@ var XMLParser = Editor.Parser = (function() {
         UseKludges = config.useHTMLKludges ? Kludges : NoKludges;
       if (config.alignCDATA)
         alignCDATA = config.alignCDATA;
-   }
- };
+    }
+  };
 })();

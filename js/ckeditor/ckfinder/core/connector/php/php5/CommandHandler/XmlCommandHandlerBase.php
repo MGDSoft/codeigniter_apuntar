@@ -3,7 +3,7 @@
 * CKFinder
 * ========
 * http://ckfinder.com
-* Copyright (C) 2007-2010, CKSource - Frederico Knabben. All rights reserved.
+* Copyright (C) 2007-2012, CKSource - Frederico Knabben. All rights reserved.
 *
 * The software, this file and its contents are subject to the CKFinder
 * License. Please read the license.txt file before using, installing, copying,
@@ -59,12 +59,12 @@ abstract class CKFinder_Connector_CommandHandler_XmlCommandHandlerBase extends C
         $this->checkConnector();
         if ($this->mustCheckRequest()) {
             $this->checkRequest();
-       }
+        }
 
         $resourceTypeName = $this->_currentFolder->getResourceTypeName();
         if (!empty($resourceTypeName)) {
             $this->_connectorNode->addAttribute("resourceType", $this->_currentFolder->getResourceTypeName());
-       }
+        }
 
         if ($this->mustAddCurrentFolderNode()) {
             $_currentFolder = new Ckfinder_Connector_Utils_XmlNode("CurrentFolder");
@@ -77,7 +77,7 @@ abstract class CKFinder_Connector_CommandHandler_XmlCommandHandlerBase extends C
             $this->_errorHandler->setCatchAllErros(false);
 
             $_currentFolder->addAttribute("acl", $this->_currentFolder->getAclMask());
-       }
+        }
 
         $this->buildXml();
 
@@ -86,7 +86,7 @@ abstract class CKFinder_Connector_CommandHandler_XmlCommandHandlerBase extends C
 
         echo $this->_connectorNode->asXML();
         exit;
-   }
+    }
 
     /**
      * Must check request?
@@ -97,7 +97,7 @@ abstract class CKFinder_Connector_CommandHandler_XmlCommandHandlerBase extends C
     protected function mustCheckRequest()
     {
         return true;
-   }
+    }
 
     /**
      * Must add CurrentFolder node?
@@ -108,7 +108,7 @@ abstract class CKFinder_Connector_CommandHandler_XmlCommandHandlerBase extends C
     protected function mustAddCurrentFolderNode()
     {
         return true;
-   }
+    }
 
     /**
      * @access protected

@@ -1,8 +1,8 @@
-<?php
+<?php 
+ini_set('session.cookie_domain','.apuntar.net');
+ini_get('session.cookie_domain');
 session_start();
-include_once "../../../../../../nucleo/base.php";
-	include_once RAIZ."/nucleo/seguridad.php";
-	include_once RAIZ."/nucleo/database.class.php";
+
 /*
  * ### CKFinder : Configuration File - Basic Instructions
  *
@@ -24,18 +24,19 @@ include_once "../../../../../../nucleo/base.php";
  */
 function CheckAuthentication()
 {
-	
-	
-	$db = DataBase::getInstance();
-	$sql=administradorUno($_SESSION['idEquipo'],$_SESSION['user']->id_usuario);
+	// WARNING : DO NOT simply return "true". By doing so, you are allowing
+	// "anyone" to upload and list the files in your server. You must implement
+	// some kind of session validation here. Even something very simple as...
 
-	 $db->setQuery($sql);
-	 
-	 if ($rsDatos = $db->loadObjectlist()){
-	 	return true;
-	}	
-	
-	return false;
+	// return isset($_SESSION['IsAuthorized']) && $_SESSION['IsAuthorized'];
+
+	// ... where $_SESSION['IsAuthorized'] is set to "true" as soon as the
+	// user logs in your system. To be able to use session variables don't
+	// forget to add session_start() at the top of this file.
+	if (isset($_SESSION['usuario']))
+		return true;
+	else
+		return false;
 }
 
 // LicenseKey : Paste your license key here. If left blank, CKFinder will be
@@ -65,9 +66,10 @@ Examples:
 
 ATTENTION: The trailing slash is required.
 */
-$baseUrl = '/fotos/noticias/'.$_SESSION['idEquipo'].'/';
-
-
+if (isset($_SESSION['usuario']))
+	$baseUrl = '/img/usuario/noticias/'.$_SESSION['usuario']->id_usuario.'/';
+else
+	$baseUrl = '/img/usuario/noticias/0/';
 /*
 $baseDir : the path to the local directory (in the server) which points to the
 above $baseUrl URL. This is the path used by CKFinder to handle the files in
@@ -110,8 +112,8 @@ Set the maximum size of uploaded images. If an uploaded image is larger, it
 gets scaled down proportionally. Set to 0 to disable this feature.
 */
 $config['Images'] = Array(
-		'maxWidth' => 500,
-		'maxHeight' => 300,
+		'maxWidth' => 1600,
+		'maxHeight' => 1200,
 		'quality' => 80);
 
 /*
@@ -193,7 +195,7 @@ Example: 'maxSize' => "8M",
 $config['DefaultResourceTypes'] = '';
 
 $config['ResourceType'][] = Array(
-		//'name' => 'Files',				// Single quotes not allowed
+		'name' => 'Files',				// Single quotes not allowed
 		'url' => $baseUrl . 'files',
 		'directory' => $baseDir . 'files',
 		'maxSize' => 0,
@@ -204,15 +206,15 @@ $config['ResourceType'][] = Array(
 		'name' => 'Images',
 		'url' => $baseUrl . 'images',
 		'directory' => $baseDir . 'images',
-		'maxSize' => "1M",
-		'allowedExtensions' => 'gif,jpeg,jpg,mp3',
+		'maxSize' => 0,
+		'allowedExtensions' => 'gif,jpeg,jpg,png',
 		'deniedExtensions' => '');
 
 $config['ResourceType'][] = Array(
 		'name' => 'Flash',
 		'url' => $baseUrl . 'flash',
 		'directory' => $baseDir . 'flash',
-		'maxSize' => "1M",
+		'maxSize' => 0,
 		'allowedExtensions' => 'swf,flv',
 		'deniedExtensions' => '');
 
@@ -239,6 +241,13 @@ denied, because "php" is on the denied extensions list.
 $config['CheckDoubleExtension'] = true;
 
 /*
+Increases the security on an IIS web server.
+If enabled, CKFinder will disallow creating folders and uploading files whose names contain characters
+that are not safe under an IIS web server.
+*/
+$config['DisallowUnsafeCharacters'] = false;
+
+/*
 If you have iconv enabled (visit http://php.net/iconv for more information),
 you can use this directive to specify the encoding of file names in your
 system. Acceptable values can be found at:
@@ -248,7 +257,7 @@ Examples:
 	$config['FilesystemEncoding'] = 'CP1250';
 	$config['FilesystemEncoding'] = 'ISO-8859-2';
 */
-$config['FilesystemEncoding'] = 'ISO-8859-1';
+$config['FilesystemEncoding'] = 'UTF-8';
 
 /*
 Perform additional checks for image files

@@ -3,7 +3,7 @@
  * CKFinder
  * ========
  * http://ckfinder.com
- * Copyright (C) 2007-2010, CKSource - Frederico Knabben. All rights reserved.
+ * Copyright (C) 2007-2012, CKSource - Frederico Knabben. All rights reserved.
  *
  * The software, this file and its contents are subject to the CKFinder
  * License. Please read the license.txt file before using, installing, copying,
@@ -98,26 +98,26 @@ class CKFinder_Connector_Core_FolderHandler
     {
         if (isset($_GET["type"])) {
             $this->_resourceTypeName = (string)$_GET["type"];
-       }
+        }
 
         if (isset($_GET["currentFolder"])) {
             $this->_clientPath = CKFinder_Connector_Utils_FileSystem::convertToFilesystemEncoding((string)$_GET["currentFolder"]);
-       }
+        }
 
         if (!strlen($this->_clientPath)) {
             $this->_clientPath = "/";
-       }
+        }
         else {
             if (substr($this->_clientPath, -1, 1) != "/") {
                 $this->_clientPath .= "/";
-           }
+            }
             if (substr($this->_clientPath, 0, 1) != "/") {
                 $this->_clientPath = "/" . $this->_clientPath;
-           }
-       }
+            }
+        }
 
         $this->_aclMask = -1;
-   }
+    }
 
     /**
      * Get resource type config
@@ -130,16 +130,16 @@ class CKFinder_Connector_Core_FolderHandler
         if (!isset($this->_resourceTypeConfig)) {
             $_config =& CKFinder_Connector_Core_Factory::getInstance("Core_Config");
             $this->_resourceTypeConfig = $_config->getResourceTypeConfig($this->_resourceTypeName);
-       }
+        }
 
         if (is_null($this->_resourceTypeConfig)) {
             $connector =& CKFinder_Connector_Core_Factory::getInstance("Core_Connector");
             $oErrorHandler =& $connector->getErrorHandler();
             $oErrorHandler->throwError(CKFINDER_CONNECTOR_ERROR_INVALID_TYPE);
-       }
+        }
 
         return $this->_resourceTypeConfig;
-   }
+    }
 
     /**
      * Get resource type name
@@ -150,7 +150,7 @@ class CKFinder_Connector_Core_FolderHandler
     public function getResourceTypeName()
     {
         return $this->_resourceTypeName;
-   }
+    }
 
     /**
      * Get Client path
@@ -161,7 +161,7 @@ class CKFinder_Connector_Core_FolderHandler
     public function getClientPath()
     {
         return $this->_clientPath;
-   }
+    }
 
     /**
      * Get Url
@@ -178,14 +178,14 @@ class CKFinder_Connector_Core_FolderHandler
                 $oErrorHandler =& $connector->getErrorHandler();
                 $oErrorHandler->throwError(CKFINDER_CONNECTOR_ERROR_INVALID_TYPE);
                 $this->_url = "";
-           }
+            }
             else {
                 $this->_url = $this->_resourceTypeConfig->getUrl() . ltrim($this->getClientPath(), "/");
-           }
-       }
+            }
+        }
 
         return $this->_url;
-   }
+    }
 
     /**
      * Get server path
@@ -198,10 +198,10 @@ class CKFinder_Connector_Core_FolderHandler
         if (is_null($this->_serverPath)) {
             $this->_resourceTypeConfig = $this->getResourceTypeConfig();
             $this->_serverPath = CKFinder_Connector_Utils_FileSystem::combinePaths($this->_resourceTypeConfig->getDirectory(), ltrim($this->_clientPath, "/"));
-       }
+        }
 
         return $this->_serverPath;
-   }
+    }
 
     /**
      * Get server path to thumbnails directory
@@ -229,12 +229,12 @@ class CKFinder_Connector_Core_FolderHandler
                      * @todo  Ckfinder_Connector_Utils_Xml::raiseError(); perhaps we should return error
                      *
                      */
-               }
-           }
-       }
+                }
+            }
+        }
 
         return $this->_thumbsServerPath;
-   }
+    }
 
     /**
      * Get ACL Mask
@@ -249,10 +249,10 @@ class CKFinder_Connector_Core_FolderHandler
 
         if ($this->_aclMask == -1) {
             $this->_aclMask = $_aclConfig->getComputedMask($this->_resourceTypeName, $this->_clientPath);
-       }
+        }
 
         return $this->_aclMask;
-   }
+    }
 
     /**
      * Check ACL
@@ -267,5 +267,5 @@ class CKFinder_Connector_Core_FolderHandler
 
         $maska = $this->getAclMask();
         return (($maska & $aclToCkeck) == $aclToCkeck);
-   }
+    }
 }

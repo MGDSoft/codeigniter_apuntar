@@ -4,7 +4,7 @@
  */
 
 function MirrorFrame(place, options) {
-  this.home = document.createElement("DIV");
+  this.home = document.createElement("div");
   if (place.appendChild)
     place.appendChild(this.home);
   else
@@ -12,12 +12,12 @@ function MirrorFrame(place, options) {
 
   var self = this;
   function makeButton(name, action) {
-    var button = document.createElement("INPUT");
+    var button = document.createElement("input");
     button.type = "button";
     button.value = name;
     self.home.appendChild(button);
     button.onclick = function(){self[action].call(self);};
- }
+  }
 
   makeButton("Search", "search");
   makeButton("Replace", "replace");
@@ -36,15 +36,15 @@ MirrorFrame.prototype = {
 
     var first = true;
     do {
-      var cursor = this.mirror.getSearchCursor(text, first, true);
+      var cursor = this.mirror.getSearchCursor(text, first);
       first = false;
       while (cursor.findNext()) {
         cursor.select();
         if (!confirm("Search again?"))
           return;
-     }
-   } while (confirm("End of document reached. Start over?"));
- },
+      }
+    } while (confirm("End of document reached. Start over?"));
+  },
 
   replace: function() {
     // This is a replace-all, but it is possible to implement a
@@ -56,26 +56,26 @@ MirrorFrame.prototype = {
     var cursor = this.mirror.getSearchCursor(from, false);
     while (cursor.findNext())
       cursor.replace(to);
- },
+  },
 
   jump: function() {
     var line = prompt("Jump to line:", "");
     if (line && !isNaN(Number(line)))
       this.mirror.jumpToLine(Number(line));
- },
+  },
 
   line: function() {
     alert("The cursor is currently at line " + this.mirror.currentLine());
     this.mirror.focus();
- },
+  },
 
   macro: function() {
     var name = prompt("Name your constructor:", "");
     if (name)
       this.mirror.replaceSelection("function " + name + "() {\n  \n}\n\n" + name + ".prototype = {\n  \n};\n");
- },
+  },
 
   reindent: function() {
     this.mirror.reindent();
- }
+  }
 };

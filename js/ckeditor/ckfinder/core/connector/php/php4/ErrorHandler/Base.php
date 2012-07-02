@@ -3,7 +3,7 @@
  * CKFinder
  * ========
  * http://ckfinder.com
- * Copyright (C) 2007-2010, CKSource - Frederico Knabben. All rights reserved.
+ * Copyright (C) 2007-2012, CKSource - Frederico Knabben. All rights reserved.
  *
  * The software, this file and its contents are subject to the CKFinder
  * License. Please read the license.txt file before using, installing, copying,
@@ -51,7 +51,7 @@ class CKFinder_Connector_ErrorHandler_Base
     function setCatchAllErros($newValue)
     {
         $this->_catchAllErrors = $newValue ? true : false;
-   }
+    }
 
     /**
      * Set which errors should be ignored
@@ -62,8 +62,8 @@ class CKFinder_Connector_ErrorHandler_Base
     {
         if (is_array($newArray)) {
             $this->_skipErrorsArray = $newArray;
-       }
-   }
+        }
+    }
 
     /**
      * Throw connector error, return true if error has been thrown, false if error has been catched
@@ -76,11 +76,11 @@ class CKFinder_Connector_ErrorHandler_Base
     {
         if ($this->_catchAllErrors || in_array($number, $this->_skipErrorsArray)) {
             return false;
-       }
+        }
 
         $_xml =& CKFinder_Connector_Core_Factory::getInstance("Core_Xml");
         $_xml->raiseError($number,$text);
 
         exit;
-   }
+    }
 }

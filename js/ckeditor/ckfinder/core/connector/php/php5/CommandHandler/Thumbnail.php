@@ -3,7 +3,7 @@
 * CKFinder
 * ========
 * http://ckfinder.com
-* Copyright (C) 2007-2010, CKSource - Frederico Knabben. All rights reserved.
+* Copyright (C) 2007-2012, CKSource - Frederico Knabben. All rights reserved.
 *
 * The software, this file and its contents are subject to the CKFinder
 * License. Please read the license.txt file before using, installing, copying,
@@ -42,9 +42,10 @@ class CKFinder_Connector_CommandHandler_Thumbnail extends CKFinder_Connector_Com
      */
     public function sendResponse()
     {
-        if (!function_exists('ob_list_handlers') || ob_list_handlers()) {
-            @ob_end_clean();
-       }
+        // Get rid of BOM markers
+        if (ob_get_level()) {
+            while (@ob_end_clean() && ob_get_level());
+        }
         header("Content-Encoding: none");
 
         $this->checkConnector();
@@ -55,28 +56,28 @@ class CKFinder_Connector_CommandHandler_Thumbnail extends CKFinder_Connector_Com
         $_thumbnails = $_config->getThumbnailsConfig();
         if (!$_thumbnails->getIsEnabled()) {
             $this->_errorHandler->throwError(CKFINDER_CONNECTOR_ERROR_THUMBNAILS_DISABLED);
-       }
+        }
 
         if (!$this->_currentFolder->checkAcl(CKFINDER_CONNECTOR_ACL_FILE_VIEW)) {
             $this->_errorHandler->throwError(CKFINDER_CONNECTOR_ERROR_UNAUTHORIZED);
-       }
+        }
 
         if (!isset($_GET["FileName"])) {
             $this->_errorHandler->throwError(CKFINDER_CONNECTOR_ERROR_INVALID_REQUEST);
-       }
+        }
 
         $fileName = CKFinder_Connector_Utils_FileSystem::convertToFilesystemEncoding($_GET["FileName"]);
         $_resourceTypeInfo = $this->_currentFolder->getResourceTypeConfig();
 
         if (!CKFinder_Connector_Utils_FileSystem::checkFileName($fileName)) {
             $this->_errorHandler->throwError(CKFINDER_CONNECTOR_ERROR_INVALID_REQUEST);
-       }
+        }
 
         $sourceFilePath = CKFinder_Connector_Utils_FileSystem::combinePaths($this->_currentFolder->getServerPath(), $fileName);
 
         if ($_resourceTypeInfo->checkIsHiddenFile($fileName) || !file_exists($sourceFilePath)) {
             $this->_errorHandler->throwError(CKFINDER_CONNECTOR_ERROR_FILE_NOT_FOUND);
-       }
+        }
 
         $thumbFilePath = CKFinder_Connector_Utils_FileSystem::combinePaths($this->_currentFolder->getThumbsServerPath(), $fileName);
 
@@ -84,8 +85,8 @@ class CKFinder_Connector_CommandHandler_Thumbnail extends CKFinder_Connector_Com
         if (!file_exists($thumbFilePath)) {
             if(!$this->createThumb($sourceFilePath, $thumbFilePath, $_thumbnails->getMaxWidth(), $_thumbnails->getMaxHeight(), $_thumbnails->getQuality(), true, $_thumbnails->getBmpSupported())) {
                 $this->_errorHandler->throwError(CKFINDER_CONNECTOR_ERROR_ACCESS_DENIED);
-           }
-       }
+            }
+        }
 
         $size = filesize($thumbFilePath);
         $sourceImageAttr = getimagesize($thumbFilePath);
@@ -99,15 +100,15 @@ class CKFinder_Connector_CommandHandler_Thumbnail extends CKFinder_Connector_Com
 
         if (isset($_SERVER["HTTP_IF_NONE_MATCH"]) && $_SERVER["HTTP_IF_NONE_MATCH"] === $etag) {
             $is304 = true;
-       }
+        }
         else if($rtime == $mtime) {
             $is304 = true;
-       }
+        }
 
         if ($is304) {
             header("HTTP/1.0 304 Not Modified");
             exit();
-       }
+        }
 
         //header("Cache-Control: cache, must-revalidate");
         //header("Pragma: public");
@@ -121,7 +122,7 @@ class CKFinder_Connector_CommandHandler_Thumbnail extends CKFinder_Connector_Com
         header("Content-Length: ".$size);
         readfile($thumbFilePath);
         exit;
-   }
+    }
 
     /**
      * Create thumbnail
@@ -141,7 +142,7 @@ class CKFinder_Connector_CommandHandler_Thumbnail extends CKFinder_Connector_Com
         $sourceImageAttr = @getimagesize($sourceFile);
         if ($sourceImageAttr === false) {
             return false;
-       }
+        }
         $sourceImageWidth = isset($sourceImageAttr[0]) ? $sourceImageAttr[0] : 0;
         $sourceImageHeight = isset($sourceImageAttr[1]) ? $sourceImageAttr[1] : 0;
         $sourceImageMime = isset($sourceImageAttr["mime"]) ? $sourceImageAttr["mime"] : "";
@@ -150,7 +151,7 @@ class CKFinder_Connector_CommandHandler_Thumbnail extends CKFinder_Connector_Com
 
         if (!$sourceImageWidth || !$sourceImageHeight || !$sourceImageMime) {
             return false;
-       }
+        }
 
         $iFinalWidth = $maxWidth == 0 ? $sourceImageWidth : $maxWidth;
         $iFinalHeight = $maxHeight == 0 ? $sourceImageHeight : $maxHeight;
@@ -158,18 +159,18 @@ class CKFinder_Connector_CommandHandler_Thumbnail extends CKFinder_Connector_Com
         if ($sourceImageWidth <= $iFinalWidth && $sourceImageHeight <= $iFinalHeight) {
             if ($sourceFile != $targetFile) {
                 copy($sourceFile, $targetFile);
-           }
+            }
             return true;
-       }
+        }
 
         if ($preserverAspectRatio)
         {
             // Gets the best size for aspect ratio resampling
             $oSize = CKFinder_Connector_CommandHandler_Thumbnail::GetAspectRatioSize($iFinalWidth, $iFinalHeight, $sourceImageWidth, $sourceImageHeight );
-       }
+        }
         else {
             $oSize = array('Width' => $iFinalWidth, 'Height' => $iFinalHeight);
-       }
+        }
 
         CKFinder_Connector_Utils_Misc::setMemoryForImage($sourceImageWidth, $sourceImageHeight, $sourceImageBits, $sourceImageChannels);
 
@@ -179,37 +180,37 @@ class CKFinder_Connector_CommandHandler_Thumbnail extends CKFinder_Connector_Com
                 {
                     if (@imagetypes() & IMG_GIF) {
                         $oImage = @imagecreatefromgif($sourceFile);
-                   } else {
+                    } else {
                         $ermsg = 'GIF images are not supported';
-                   }
-               }
+                    }
+                }
                 break;
             case 'image/jpeg':
                 {
                     if (@imagetypes() & IMG_JPG) {
                         $oImage = @imagecreatefromjpeg($sourceFile) ;
-                   } else {
+                    } else {
                         $ermsg = 'JPEG images are not supported';
-                   }
-               }
+                    }
+                }
                 break;
             case 'image/png':
                 {
                     if (@imagetypes() & IMG_PNG) {
                         $oImage = @imagecreatefrompng($sourceFile) ;
-                   } else {
+                    } else {
                         $ermsg = 'PNG images are not supported';
-                   }
-               }
+                    }
+                }
                 break;
             case 'image/wbmp':
                 {
                     if (@imagetypes() & IMG_WBMP) {
                         $oImage = @imagecreatefromwbmp($sourceFile);
-                   } else {
+                    } else {
                         $ermsg = 'WBMP images are not supported';
-                   }
-               }
+                    }
+                }
                 break;
             case 'image/bmp':
                 {
@@ -221,24 +222,33 @@ class CKFinder_Connector_CommandHandler_Thumbnail extends CKFinder_Connector_Com
                     */
                     if ($bmpSupported && (@imagetypes() & IMG_JPG) && $sourceFile != $targetFile) {
                         $oImage = CKFinder_Connector_Utils_Misc::imageCreateFromBmp($sourceFile);
-                   } else {
+                    } else {
                         $ermsg = 'BMP/JPG images are not supported';
-                   }
-               }
+                    }
+                }
                 break;
             default:
                 $ermsg = $sourceImageAttr['mime'].' images are not supported';
                 break;
-       }
+        }
 
         if (isset($ermsg) || false === $oImage) {
             return false;
-       }
+        }
 
 
         $oThumbImage = imagecreatetruecolor($oSize["Width"], $oSize["Height"]);
+
+        if ($sourceImageAttr['mime'] == 'image/png')
+        {
+            $bg = imagecolorallocatealpha($oThumbImage, 255, 255, 255, 127); // (PHP 4 >= 4.3.2, PHP 5)
+            imagefill($oThumbImage, 0, 0 , $bg);
+            imagealphablending($oThumbImage, false);
+            imagesavealpha($oThumbImage, true);
+        }
+
         //imagecopyresampled($oThumbImage, $oImage, 0, 0, 0, 0, $oSize["Width"], $oSize["Height"], $sourceImageWidth, $sourceImageHeight);
-        CKFinder_Connector_Utils_Misc::fastImageCopyResampled($oThumbImage, $oImage, 0, 0, 0, 0, $oSize["Width"], $oSize["Height"], $sourceImageWidth, $sourceImageHeight, (int)max(floor($quality/20), 1));
+        CKFinder_Connector_Utils_Misc::fastImageCopyResampled($oThumbImage, $oImage, 0, 0, 0, 0, $oSize["Width"], $oSize["Height"], $sourceImageWidth, $sourceImageHeight, (int)max(floor($quality/20), 6));
 
         switch ($sourceImageAttr['mime'])
         {
@@ -255,20 +265,20 @@ class CKFinder_Connector_CommandHandler_Thumbnail extends CKFinder_Connector_Com
             case 'image/wbmp':
                 imagewbmp($oThumbImage, $targetFile);
                 break;
-       }
+        }
 
         $_config =& CKFinder_Connector_Core_Factory::getInstance("Core_Config");
         if (file_exists($targetFile) && ($perms = $_config->getChmodFiles())) {
             $oldUmask = umask(0);
             chmod($targetFile, $perms);
             umask($oldUmask);
-       }
+        }
 
         imageDestroy($oImage);
         imageDestroy($oThumbImage);
 
         return true;
-   }
+    }
 
 
 
@@ -304,20 +314,20 @@ class CKFinder_Connector_CommandHandler_Thumbnail extends CKFinder_Connector_Com
             // Uses the lower Factor to scale the oposite size
             if ($iFactorX < $iFactorY) {
                 $oSize["Height"] = (int)round($actualHeight * $iFactorX);
-           }
+            }
             else if ($iFactorX > $iFactorY) {
                 $oSize["Width"] = (int)round($actualWidth * $iFactorY);
-           }
-       }
+            }
+        }
 
         if ($oSize["Height"] <= 0) {
             $oSize["Height"] = 1;
-       }
+        }
         if ($oSize["Width"] <= 0) {
             $oSize["Width"] = 1;
-       }
+        }
 
         // Returns the Size
         return $oSize;
-   }
+    }
 }

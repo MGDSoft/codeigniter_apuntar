@@ -10,9 +10,9 @@ var tokenizeJavaScript = (function() {
       if (next == end && !escaped)
         return false;
       escaped = !escaped && next == "\\";
-   }
+    }
     return escaped;
- }
+  }
 
   // A map of JavaScript's keywords. The a/b/c keyword distinction is
   // very rough, but it gives the parser enough information to parse
@@ -23,7 +23,7 @@ var tokenizeJavaScript = (function() {
   var keywords = function(){
     function result(type, style){
       return {type: type, style: "js-" + style};
-   }
+    }
     // keywords that take a parenthised expression, and then a
     // statement (if)
     var keywordA = result("keyword a", "keyword");
@@ -43,8 +43,8 @@ var tokenizeJavaScript = (function() {
       "for": result("for", "keyword"), "switch": result("switch", "keyword"),
       "case": result("case", "keyword"), "default": result("default", "keyword"),
       "true": atom, "false": atom, "null": atom, "undefined": atom, "NaN": atom, "Infinity": atom
-   };
- }();
+    };
+  }();
 
   // Some helper regexps
   var isOperatorChar = /[+\-*&%=<>!?|]/;
@@ -62,10 +62,10 @@ var tokenizeJavaScript = (function() {
       if (newRegexp != regexp || newInside != inside)
         setState(jsTokenState(newInside, newRegexp));
       return type;
-   };
- }
+    };
+  }
 
-  // The token reader, inteded to be used by the tokenizer from
+  // The token reader, intended to be used by the tokenizer from
   // tokenize.js (through jsTokenState). Advances the source stream
   // over a token, and returns an object containing the type and style
   // of that token.
@@ -74,22 +74,22 @@ var tokenizeJavaScript = (function() {
       source.next(); // skip the 'x'
       source.nextWhileMatches(isHexDigit);
       return {type: "number", style: "js-atom"};
-   }
+    }
 
     function readNumber() {
       source.nextWhileMatches(/[0-9]/);
       if (source.equals(".")){
         source.next();
         source.nextWhileMatches(/[0-9]/);
-     }
+      }
       if (source.equals("e") || source.equals("E")){
         source.next();
         if (source.equals("-"))
           source.next();
         source.nextWhileMatches(/[0-9]/);
-     }
+      }
       return {type: "number", style: "js-atom"};
-   }
+    }
     // Read a word, look it up in keywords. If not found, it is a
     // variable, otherwise it is a keyword of the type found.
     function readWord() {
@@ -98,12 +98,12 @@ var tokenizeJavaScript = (function() {
       var known = keywords.hasOwnProperty(word) && keywords.propertyIsEnumerable(word) && keywords[word];
       return known ? {type: known.type, style: known.style, content: word} :
       {type: "variable", style: "js-variable", content: word};
-   }
+    }
     function readRegexp() {
       nextUntilUnescaped(source, "/");
-      source.nextWhileMatches(/[gi]/);
+      source.nextWhileMatches(/[gimy]/); // 'y' is "sticky" option in Mozilla
       return {type: "regexp", style: "js-string"};
-   }
+    }
     // Mutli-line comments are tricky. We want to return the newlines
     // embedded in them as regular newline tokens, and then continue
     // returning a comment token for every line of the comment. So
@@ -119,21 +119,21 @@ var tokenizeJavaScript = (function() {
         if (next == "/" && maybeEnd){
           newInside = null;
           break;
-       }
+        }
         maybeEnd = (next == "*");
-     }
+      }
       setInside(newInside);
       return {type: "comment", style: "js-comment"};
-   }
+    }
     function readOperator() {
       source.nextWhileMatches(isOperatorChar);
       return {type: "operator", style: "js-operator"};
-   }
+    }
     function readString(quote) {
       var endBackSlash = nextUntilUnescaped(source, quote);
       setInside(endBackSlash ? quote : null);
       return {type: "string", style: "js-string"};
-   }
+    }
 
     // Fetch the next token. Dispatches on first character in the
     // stream, or first two characters when the first is a slash.
@@ -153,22 +153,22 @@ var tokenizeJavaScript = (function() {
       return readNumber();
     else if (ch == "/"){
       if (source.equals("*"))
-      { source.next(); return readMultilineComment(ch);}
+      { source.next(); return readMultilineComment(ch); }
       else if (source.equals("/"))
       { nextUntilUnescaped(source, null); return {type: "comment", style: "js-comment"};}
       else if (regexp)
         return readRegexp();
       else
         return readOperator();
-   }
+    }
     else if (isOperatorChar.test(ch))
       return readOperator();
     else
       return readWord();
- }
+  }
 
   // The external interface to the tokenizer.
   return function(source, startState) {
     return tokenizer(source, startState || jsTokenState(false, true));
- };
+  };
 })();

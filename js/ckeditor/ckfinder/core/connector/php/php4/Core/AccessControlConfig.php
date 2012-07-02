@@ -3,7 +3,7 @@
  * CKFinder
  * ========
  * http://ckfinder.com
- * Copyright (C) 2007-2010, CKSource - Frederico Knabben. All rights reserved.
+ * Copyright (C) 2007-2012, CKSource - Frederico Knabben. All rights reserved.
  *
  * The software, this file and its contents are subject to the CKFinder
  * License. Please read the license.txt file before using, installing, copying,
@@ -86,8 +86,8 @@ class CKFinder_Connector_Core_AccessControlConfig
             $_fileDelete ? 0 : CKFINDER_CONNECTOR_ACL_FILE_DELETE,
             )
             );
-       }
-   }
+        }
+    }
 
     /**
      * Add ACL entry
@@ -104,16 +104,16 @@ class CKFinder_Connector_Core_AccessControlConfig
 
         if (!strlen($folderPath)) {
             $folderPath = '/';
-       }
+        }
         else {
             if (substr($folderPath,0,1) != '/') {
                 $folderPath = '/' . $folderPath;
-           }
+            }
 
             if (substr($folderPath,-1,1) != '/') {
                 $folderPath .= '/';
-           }
-       }
+            }
+        }
 
         $_entryKey = $role . "#@#" . $resourceType;
 
@@ -122,18 +122,18 @@ class CKFinder_Connector_Core_AccessControlConfig
                 $_rulesMasks = $this->_aclEntries[$folderPath][$_entryKey];
                 foreach ($_rulesMasks[0] as $key => $value) {
                     $allowRulesMask[$key] |= $value;
-               }
+                }
                 foreach ($_rulesMasks[1] as $key => $value) {
                     $denyRulesMask[$key] |= $value;
-               }
-           }
-       }
+                }
+            }
+        }
         else {
             $this->_aclEntries[$folderPath] = array();
-       }
+        }
 
         $this->_aclEntries[$folderPath][$_entryKey] = array($allowRulesMask, $denyRulesMask);
-   }
+    }
 
 
     /**
@@ -153,10 +153,10 @@ class CKFinder_Connector_Core_AccessControlConfig
         $_userRole = null;
         if (strlen($_roleSessionVar) && isset($_SESSION[$_roleSessionVar])) {
             $_userRole = (string)$_SESSION[$_roleSessionVar];
-       }
+        }
         if (!is_null($_userRole) && !strlen($_userRole)) {
             $_userRole = null;
-       }
+        }
 
         $folderPath = trim($folderPath, "/");
         $_pathParts = explode("/", $folderPath);
@@ -167,21 +167,21 @@ class CKFinder_Connector_Core_AccessControlConfig
             if ($i >= 0) {
                 if (!strlen($_pathParts[$i])) {
                     continue;
-               }
+                }
 
                 if (array_key_exists($_currentPath . '*/', $this->_aclEntries))
                 $_computedMask = $this->mergePathComputedMask( $_computedMask, $resourceType, $_userRole, $_currentPath . '*/' );
 
                 $_currentPath .= $_pathParts[$i] . '/';
-           }
+            }
 
             if (array_key_exists($_currentPath, $this->_aclEntries)) {
                 $_computedMask = $this->mergePathComputedMask( $_computedMask, $resourceType, $_userRole, $_currentPath );
-           }
-       }
+            }
+        }
 
         return $_computedMask;
-   }
+    }
 
     /**
      * merge current mask with folder entries
@@ -206,7 +206,7 @@ class CKFinder_Connector_Core_AccessControlConfig
         {
             $_possibleEntries[2] = $userRole . "#@#*";
             $_possibleEntries[3] = $userRole . "#@#" . $resourceType;
-       }
+        }
 
         for ($r = 0; $r < sizeof($_possibleEntries); $r++)
         {
@@ -217,9 +217,9 @@ class CKFinder_Connector_Core_AccessControlConfig
 
                 $currentMask |= array_sum($_rulesMasks[0]);
                 $currentMask ^= ($currentMask & array_sum($_rulesMasks[1]));
-           }
-       }
+            }
+        }
 
         return $currentMask;
-   }
+    }
 }

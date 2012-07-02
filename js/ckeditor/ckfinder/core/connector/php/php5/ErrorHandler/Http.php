@@ -3,7 +3,7 @@
  * CKFinder
  * ========
  * http://ckfinder.com
- * Copyright (C) 2007-2010, CKSource - Frederico Knabben. All rights reserved.
+ * Copyright (C) 2007-2012, CKSource - Frederico Knabben. All rights reserved.
  *
  * The software, this file and its contents are subject to the CKFinder
  * License. Please read the license.txt file before using, installing, copying,
@@ -43,7 +43,7 @@ class CKFinder_Connector_ErrorHandler_Http extends CKFinder_Connector_ErrorHandl
     {
         if ($this->_catchAllErrors || in_array($number, $this->_skipErrorsArray)) {
             return false;
-       }
+        }
 
         switch ($number)
         {
@@ -64,10 +64,10 @@ class CKFinder_Connector_ErrorHandler_Http extends CKFinder_Connector_ErrorHandl
                 header("HTTP/1.0 404 Not Found");
                 header("X-CKFinder-Error: ". $number);
                 break;
-       }
+        }
 
         if ($exit) {
             exit;
-       }
-   }
+        }
+    }
 }

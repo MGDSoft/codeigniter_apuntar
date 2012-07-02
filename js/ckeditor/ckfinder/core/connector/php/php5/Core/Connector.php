@@ -3,7 +3,7 @@
  * CKFinder
  * ========
  * http://ckfinder.com
- * Copyright (C) 2007-2010, CKSource - Frederico Knabben. All rights reserved.
+ * Copyright (C) 2007-2012, CKSource - Frederico Knabben. All rights reserved.
  *
  * The software, this file and its contents are subject to the CKFinder
  * License. Please read the license.txt file before using, installing, copying,
@@ -39,7 +39,7 @@ class CKFinder_Connector_Core_Connector
     {
         $this->_registry =& CKFinder_Connector_Core_Factory::getInstance("Core_Registry");
         $this->_registry->set("errorHandler", "ErrorHandler_Base");
-   }
+    }
 
     /**
      * Generic handler for invalid commands
@@ -50,7 +50,7 @@ class CKFinder_Connector_Core_Connector
     {
         $oErrorHandler =& $this->getErrorHandler();
         $oErrorHandler->throwError(CKFINDER_CONNECTOR_ERROR_INVALID_COMMAND);
-   }
+    }
 
     /**
      * Execute command
@@ -62,7 +62,7 @@ class CKFinder_Connector_Core_Connector
     {
         if (!CKFinder_Connector_Core_Hooks::run('BeforeExecuteCommand', array(&$command))) {
             return;
-       }
+        }
 
         switch ($command)
         {
@@ -92,6 +92,7 @@ class CKFinder_Connector_Core_Connector
             case 'GetFiles':
             case 'GetFolders':
             case 'Init':
+            case 'LoadCookies':
             case 'MoveFiles':
             case 'RenameFile':
             case 'RenameFolder':
@@ -102,8 +103,8 @@ class CKFinder_Connector_Core_Connector
             default:
             $this->handleInvalidCommand();
             break;
-       }
-   }
+        }
+    }
 
     /**
      * Get error handler
@@ -116,5 +117,5 @@ class CKFinder_Connector_Core_Connector
         $_errorHandler = $this->_registry->get("errorHandler");
         $oErrorHandler =& CKFinder_Connector_Core_Factory::getInstance($_errorHandler);
         return $oErrorHandler;
-   }
+    }
 }

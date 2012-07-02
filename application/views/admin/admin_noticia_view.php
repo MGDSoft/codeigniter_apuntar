@@ -61,14 +61,14 @@
 	        CKEDITOR.remove(instance);
 	    }
 			
-		CKEDITOR.replace( 'texto_noticia',
+		var editorCK =CKEDITOR.replace( 'texto_noticia',
 			 {
-			 toolbar: [['Source','Bold', 'Italic', '-', 'NumberedList', 'BulletedList', '-', 'Link', 'Unlink', 'UIColor'],[ 'TextColor','BGColor' ],[ 'Code']],
+			 toolbar: [['Source','Bold', 'Italic', '-', 'NumberedList', 'BulletedList', '-', 'Link', 'Unlink', 'UIColor'],['JustifyLeft','JustifyCenter','JustifyRight','TextColor','BGColor' ],['Code'],['Image']],
 			 width:  <?= ((isset($_SESSION['device'])) ? '(window.getSize().x - 80)' : '600') ?>
-			 
 			});
+			
+		CKFinder.setupCKEditor( editorCK, { basePath : '<?= PATH_JS ?>ckeditor/ckfinder/', skin : 'v1' } ) ;
 		
-
 	}			
 	document.title="<?= $titulo ?>";
 	document.description="<?= $descripcion ?>";	  
