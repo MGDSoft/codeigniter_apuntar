@@ -12,7 +12,6 @@
 				<span>Bloc de notas online</span>
 				<h2>blog privado</h2>
 		</div>
-		
 	</div>
 </div>
 </body>
