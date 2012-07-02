@@ -6,6 +6,7 @@ CKEDITOR.dialog.add('syntaxhighlight', function(editor)
         htmlString = htmlString.replace(/&lt;/g, '<');
         htmlString = htmlString.replace(/&gt;/g, '>');
         htmlString = htmlString.replace(/&quot;/g, '"');
+        htmlString = htmlString.replace(/&#63;/g, '?');
         return htmlString;
     }
     
