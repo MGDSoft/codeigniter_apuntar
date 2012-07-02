@@ -2,7 +2,7 @@
 Language: JavaScript
 */
 
-hljs.LANGUAGES.javascript = {
+hljs.LANGUAGES.jscript = {
   defaultMode: {
     keywords: {
       'keyword': {
