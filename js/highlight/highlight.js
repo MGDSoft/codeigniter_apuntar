@@ -50,7 +50,7 @@ var hljs = new function() {
   function blockLanguage(block) {
     var lenguaje=block.className();
     lenguaje=lenguaje.substring(5, lenguaje.indexOf(";";);
-    log (lenguaje+"asdsad");
+    log (lenguaje+"");
     return languaje;
     
   }
