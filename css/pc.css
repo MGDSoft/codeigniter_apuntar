@@ -2,6 +2,10 @@
   #contenidos_extra span {
       display:block !important;
     }
+    .contenido_noticia img{
+		max-width:1000px;
+		max-height:400px;
+	}
 
 }
 @media all and (max-width: 1000px) , all and (max-device-width: 1200px) {
@@ -24,6 +28,10 @@
 	#descripcion{
 		font-size:0.5em !important;
 		margin-top:5px;
+	}
+	.contenido_noticia img{
+		max-width:600px;
+		max-height:400px;
 	}
 
 }
@@ -70,7 +78,12 @@
 	.pantallas_grandes{
 		display:none;
 	}
+	.contenido_noticia img{
+		max-width:400px;
+		max-height:300px;
+	}
 }
+
 h1{
 	font-size: 1.5em;
 }
