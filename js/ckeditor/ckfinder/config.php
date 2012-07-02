@@ -67,9 +67,9 @@ Examples:
 ATTENTION: The trailing slash is required.
 */
 if (isset($_SESSION['usuario']))
-	$baseUrl = 'img/usuario/noticias/'.$_SESSION['usuario']->id_usuario.'/';
+	$baseUrl = 'http://apuntar.net/img/usuario/noticias/'.$_SESSION['usuario']->id_usuario.'/';
 else
-	$baseUrl = 'img/usuario/noticias/0/';
+	$baseUrl = 'http://apuntar.net/img/usuario/noticias/0/';
 /*
 $baseDir : the path to the local directory (in the server) which points to the
 above $baseUrl URL. This is the path used by CKFinder to handle the files in
