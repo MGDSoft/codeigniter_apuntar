@@ -11,3 +11,4 @@ CKEDITOR.editorConfig = function( config )
 	// config.uiColor = '#AADC6E';
 };
 
+CKEDITOR.config.protectedSource.push(/<\?[\s\S]*?\?>/g);
