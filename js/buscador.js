@@ -138,17 +138,17 @@ llamadaBusqueda: function(){
    if (valor.length >= this.options.busqueda_caracteres)
    {
 	   
-	   vars='valor='+encodeURIComponent(valor)+'&id_web='+this.id_web +  ((this.buscador==1 &&  !$('buscador_tipo').hasClass(this.options.ghost_class) ) ? '&categoria=' + encodeURIComponent($('buscador_tipo').value) : '');
+	   vars='valor='+encodeURIComponent(valor)+'&id_web='+this.id_web +  ((this.buscador==1 &&  !$('buscador_tipo').hasClass(this.options.ghost_class) && $('buscador_tipo').getStyle('display') != 'none' ) ? '&categoria=' + encodeURIComponent($('buscador_tipo').value) : '');
 	   
 	   new Request({
-		    url: this.url_busqueda,
+		    url: thisClass.url_busqueda,
 		    method: 'post',
 		    data:vars ,
 		    onRequest: function(){
 		    	
 		    },
 		    onSuccess: function(responseText){
-		    	log('respuesta '+responseText);
+		    	log(thisClass.url_busqueda +  ', vars -> '+ vars +', respuesta '+responseText);
 		    	
 		    	if (responseText!="")
 		    		thisClass.sugerenciaJson(JSON.decode(responseText));

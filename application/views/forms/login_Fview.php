@@ -1,7 +1,5 @@
 <div id="login_social"></div>
-<div id="mostarLogin" onclick="toggleLogin(this)">
-	<img width="24" height="26" align="absmiddle" src="<?= PATH_IMG ?>1x1.gif" >
-</div>
+
 <div class="registro"><a href="<?= RUTA_PORTAL ?>#!registro"><?= $this->lang->line('registrate') ?></a> <a href="<?= RUTA_PORTAL ?>#!recordar"><?= $this->lang->line('recordar_password') ?></a></div>
 
 <form id='login_form' action="javascript:enviar_form_ajax('login_form','/forms/login_form','','','')" method="post" accept-charset="utf-8">
@@ -18,6 +16,18 @@
 </form>
 
 <script>
+window.addEvent('domready', function() {
+	new Element('div', {
+		'id' : 'mostarLogin',
+		'html' : '<img width="24" height="26" align="absmiddle" src="<?= PATH_IMG ?>1x1.gif" >',
+		events: {
+			click: function(event){
+				event.stop();
+				toggleLogin(this);
+			}
+		}
+	   }).inject($(document.body),'top').fade(1);
+});
 creacionEventos('correo_autentificacion','','',1,2);
 creacionEventos('password_autentificacion','','',1,2);
 </script>

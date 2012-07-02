@@ -362,8 +362,7 @@ div.extras_comentario img.negativo{
 
 #contenedor_portal #footer{
 	clear: both;
-	width:100%;
-	padding-top:30px;
+	padding:30px 30px;
 	min-height: 110px;
 	padding-bottom:20px;
 	margin-top:30px;

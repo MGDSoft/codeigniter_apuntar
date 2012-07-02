@@ -90,9 +90,9 @@ h2{
 }
 #mostarLogin{
 	display: none;
-	position: fixed;
+	position: absolute;
 	top:10px;
-	left: 435px;
+	left: 430px;
 	text-align:center;
 	border:1px solid #000;
 	background-color:#ccc;
@@ -296,7 +296,7 @@ h2{
 }
 #img_sobremi{
 	float:left;
-	margin: 0 20px 0 40px;
+	margin: 0 20px 10px 0px;
 	display: block;
 }
 #calendario td{
