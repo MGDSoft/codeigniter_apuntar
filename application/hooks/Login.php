@@ -32,6 +32,7 @@ class Login
 		
 		if (!$cookie && isset($_SESSION['usuario']))
 		{
+			/*
 			$user=$_SESSION['usuario'];
 			$cookie = array(
 					'name'   => 'conectado_ahora',
@@ -39,7 +40,8 @@ class Login
 					'expire' => '3600' // 1 hora
 			);
 			
-			$CI->input->set_cookie($cookie);
+			$CI->input->set_cookie($cookie);*/
+			unset($_SESSION['usuario']);
 			
 		}else if ($cookie && !isset($_SESSION['usuario'])){
 			$this->agregar_valores_session($cookie);
