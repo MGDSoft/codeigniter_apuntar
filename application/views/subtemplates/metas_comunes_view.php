@@ -14,4 +14,4 @@
 <meta name="resource-type" content="document"/>
 <meta name="fragment" content="!">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<link rel="shortcut icon" href="/img/favicon.ico" /> 
+<link rel="shortcut icon" href="/img/favicon_apuntes.ico" /> 

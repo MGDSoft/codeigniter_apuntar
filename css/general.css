@@ -354,7 +354,10 @@ div.extras_comentario img.negativo{
 #contenido #admin .nueva_noticia img{
 	background-position: -136px -35px;
 }
-
+.contenido_noticia img{
+	margin: 0 auto;
+  	display: block;
+}
 #contenido #admin .config_Web img{
 	background-position: -103px -35px;
 }
