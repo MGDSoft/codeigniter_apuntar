@@ -34,8 +34,8 @@
 			<div id="buscador">
 		 		<div id="galeria">
 					<span>Necesitas un sitio donde puedas apuntar todo lo que necesitas y tener un acceso rápido desde cualquier plataforma!</span>
-					<span style="display:none">Es visible en cualquier plataforma, con aplicación de escritorio y en móvil, aplicación para móviles</span>
-					<span style="display:none">Pudiendo hacer tu página tanto privada como pública o individualmente cada noticia!</span>
+					<span style="display:none">Agrega tu código de programación para y se resalte su sintaxis . Sube tus screens!</span>
+					<span style="display:none">Pudiendo hacer tu página o cada noticia tanto privada como pública</span>
 				</div>
 		 	</div>
 	 	</div>
