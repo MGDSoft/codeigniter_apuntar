@@ -13,6 +13,17 @@ hljs.LANGUAGES.javascript = {
       'literal': {'true': 1, 'false': 1, 'null': 1}
     },
     contains: [
+               hljs.C_LINE_COMMENT_MODE,
+               hljs.HASH_COMMENT_MODE,
+               {
+                 className: 'comment',
+                 begin: '/\\*', end: '\\*/',
+                 contains: [{
+                     className: 'phpdoc',
+                     begin: '\\s@[A-Za-z]+'
+                 }]
+     },
+    contains: [
       hljs.APOS_STRING_MODE,
       hljs.QUOTE_STRING_MODE,
       hljs.C_LINE_COMMENT_MODE,
