@@ -357,6 +357,10 @@ div.extras_comentario img.negativo{
 .contenido_noticia img{
 	margin: 0 auto;
   	display: block;
+  	-webkit-border-radius: 2px;
+	-moz-border-radius: 2px;
+	border-radius: 2px;
+	box-shadow: 0px 3px 2px #575757;
 }
 #contenido #admin .config_Web img{
 	background-position: -103px -35px;
