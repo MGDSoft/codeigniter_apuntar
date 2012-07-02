@@ -23,6 +23,11 @@ hljs.LANGUAGES.javascript = {
                      begin: '\\s@[A-Za-z]+'
                  }]
      },
+     {
+         className: 'comment',
+         excludeBegin: true,
+         begin: '__halt_compiler[^;]+;', end: '[\\n\\r]$'
+     },
     contains: [
       hljs.APOS_STRING_MODE,
       hljs.QUOTE_STRING_MODE,
