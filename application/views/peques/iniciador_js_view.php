@@ -54,8 +54,13 @@ window.addEvent('domready', function() {
 		obj_buscadorCategorias=new buscadorCategorias($('buscador_tipo'),<?= $usuario_configuracion->id_usuario ?>,'/extras/buscador/buscar_categorias',0);
 
 	$$('#buscar_boton input')[0].addEvent('click', function(){
+
+		extra='';
 		
-		var parametros='&id_web=' + id_web + '&categoria=' + obj_buscadorCategorias.getValorInput() + '&valor=' + obj_buscador_sugerencias.getValorInput() + '';
+		if (obj_buscadorCategorias)
+			extra='&categoria=' + obj_buscadorCategorias.getValorInput();
+		
+		var parametros='&id_web=' + id_web + extra + '&valor=' + obj_buscador_sugerencias.getValorInput() + '';
 		cargar_pagina_stadart('buscador',parametros,'','');
 		obj_buscador_sugerencias.vaciarCajaSugerencias();
 		obj_buscadorCategorias.vaciarCajaSugerencias();
