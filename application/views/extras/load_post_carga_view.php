@@ -8,7 +8,7 @@
 	gigya.socialize.showLoginUI({containerID: <?= ((RUTA_PORTAL == 'portal_devices') ? '"login_social_devices", width:210, height:50' : '"login_social", width:120, height:20')?>, cid:'',
 		redirectURL: getHostname()+"/forms/registro_forms/social",
 		showTermsLink:false, hideGigyaLink:true
-		,enabledProviders: 'facebook,twitter,google,messenger,openid,digg,wordpress'
+		,enabledProviders: 'facebook,twitter,google,openid,digg,wordpress'
 		});	
 	</script>
 <?php }else{ ?> 
