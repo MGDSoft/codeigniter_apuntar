@@ -1,10 +1,6 @@
 	<div id="footer">
-		<div id="degradado_footer"></div>
-		
 		<img src="<?= PATH_IMG.'portada/logo_mgd_oval_300.png' ?>" width="300" height="169" >
 		<div class="tags">
-				
-				
 				<h3>Agenda personal</h2>
 				<strong>Programa para apuntar o anotar</strong>
 				<h2>bloc de notas desarrolladores</h2>
