@@ -33,7 +33,7 @@
 			<tr><th><?= $this->lang->line('noticia') ?></th></tr>
 			<tr><td>
 			
-			<textarea name="texto_noticia" id="texto_noticia" ><?= ((isset($noticia))? $noticia->noticia :'' ) ?></textarea></td></tr>
+			<textarea name="texto_noticia" id="texto_noticia" ><?= ((isset($noticia))? htmlentities($noticia->noticia) :'' ) ?></textarea></td></tr>
 			<tr><th><?= $this->lang->line('visible') ?></th></tr>
 			<tr><td><input type="checkbox" name="visible_noticia" id="visible_noticia" value="si" <?= ((isset($noticia) && $noticia->visible == 0)? '' :'checked="checked"' ) ?> ></td></tr>
 			<tr><th><?= $this->lang->line('comentable') ?></th></tr>
@@ -66,7 +66,7 @@
 			 toolbar: [['Source','Bold', 'Italic', '-', 'NumberedList', 'BulletedList', '-', 'Link', 'Unlink', 'UIColor'],['JustifyLeft','JustifyCenter','JustifyRight','TextColor','BGColor' ],['Code'],['Image']],
 			 width:  <?= ((isset($_SESSION['device'])) ? '(window.getSize().x - 80)' : '600') ?>
 			});
-			
+		
 		CKFinder.setupCKEditor( editorCK, { basePath : '<?= PATH_JS ?>ckeditor/ckfinder/', skin : 'v1' } ) ;
 		
 	}			
