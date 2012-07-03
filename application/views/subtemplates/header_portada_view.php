@@ -34,8 +34,8 @@
 			<div id="buscador">
 		 		<div id="galeria">
 					<span>Necesitas un sitio donde puedas apuntar todo lo que necesitas y tener un acceso rápido desde cualquier plataforma!</span>
-					<span style="display:none">Agrega tu código de programación para y se resalte su sintaxis . Sube tus screens!</span>
-					<span style="display:none">Pudiendo hacer tu página o cada noticia tanto privada como pública</span>
+					<span style="display:none">Agrega tu código de programación para y se resalte su sintaxis y Sube tus screens para temas de configuración!</span>
+					<span style="display:none">Puedes hacer tu página o cada noticia privada como pública para que sea tipo blog o tipo agenda personal</span>
 				</div>
 		 	</div>
 	 	</div>
