@@ -12,14 +12,27 @@ class Cargar_archivos extends CI_Controller{
 	
 			
 	}
-	private function cache(){
+	private function ini_cache($time=21000){
 		
+		header ("cache-control: must-revalidate");
+		$expire = "expires: " . gmdate ("D, d M Y H:i:s", time() + $time) . " GMT";
+		header ($expire);
+		
+		if(extension_loaded('zlib')){
+			ob_start('ob_gzhandler');
+		}
+	}
+	
+	private function fin_cache(){
+		if(extension_loaded('zlib')){
+			ob_end_flush();
+		}
 	}
 	
 	public function css_devices()
 	{
 		$this->header_css();
-		$this->cache();
+		$this->ini_cache();
 		
 		include '.'.PATH_JS .'validacion/css/main.css';
 		include '.'.PATH_CSS.'general.css';
@@ -30,13 +43,15 @@ class Cargar_archivos extends CI_Controller{
 		include '.'.PATH_JS.'highlight/styles/googlecode.css';
 		include '.'.PATH_CSS.'arbol.css';
 		include '.'.PATH_CSS.'formularios_devices.css';
+		
+		$this->fin_cache();
 	}
 	
 	public function js_devices()
 	{
 		
 		$this->header_js();
-		$this->cache();
+		$this->ini_cache();
 		
 		include '.'.PATH_JS .'mootools-core-1.4.2.js';
 		include '.'.PATH_JS .'mootools-more.js';
@@ -65,11 +80,14 @@ class Cargar_archivos extends CI_Controller{
 		include '.'.PATH_JS .'arieh-historymanager/Source/HashListener.js';
 		
 		include '.'.PATH_JS .'arbol.js';
+		
+		$this->fin_cache();
 	}
 	
 	public function css_comun()
 	{
 		$this->header_css();
+		$this->ini_cache();
 		
 		include '.'.PATH_JS.'validacion/css/main.css';
 		include '.'.PATH_CSS.'arbol.css';
@@ -81,12 +99,15 @@ class Cargar_archivos extends CI_Controller{
 		include '.'.PATH_JS.'mooRainbow/Assets/mooRainbow.css';
 		include '.'.PATH_JS.'valums-file-uploader/client/fileuploader.css';
 		
+		$this->fin_cache();
+		
 	}
 	
 	public function js_comun()
 	{
 		
 		$this->header_js();
+		$this->ini_cache();
 		
 		include '.'.PATH_JS.'mootools-core-1.4.2.js';
 		include '.'.PATH_JS.'mootools-more.js';
@@ -117,25 +138,24 @@ class Cargar_archivos extends CI_Controller{
 		include '.'.PATH_JS.'MooStarRating/Source/moostarrating.js';
 		
 		include '.'.PATH_JS.'ScrollSpy/Source/ScrollSpy-yui-compressed.js';
-			
+		
+		$this->fin_cache();
 	}
 	
 	private function header_js(){
 		Header("content-type: application/x-javascript; charset: UTF-8");
-		$this->cache_load(216000);
 	}
 	
 	private function header_css(){
 		Header("content-type: text/css; charset: UTF-8");
-		$this->cache_load(216000);
 	}
-	
+	/*
 	private function cache_load($time){
 		header ("cache-control: must-revalidate");
 		$expire = "expires: " . gmdate ("D, d M Y H:i:s", time() + $time) . " GMT";
 		header ($expire);
 	}
-	
+	*/
 	
 }
 ?>
