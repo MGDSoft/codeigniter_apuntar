@@ -302,14 +302,17 @@ function carga_diseno_opciones(jsonObj)
    modificarAtributoCSS_fondo(botones_ids,jsonObj.botones_fondo);
    modificarAtributoCSS_textBoxShadow(botones_ids,'3px 4px 0px '+jsonObj.botones_caja_sombra );
    modificarAtributoCSS_textBoxShadow('.formulario_estandar .boton_standart:hover','1px 2px 1px '+jsonObj.botones_caja_sombra );
-   modificarAtributoCSS_fontFamily(botones_ids,jsonObj.botones_estilo);
+   modificarAtributoCSS_fontFamily(botones_ids,jsonObj.botones_tipo_letra);
    modificarAtributoCSS_borderColor(botones_ids,jsonObj.botones_borde_color);
    
    var titulos_ids='#contenedor_titulo_buscador #titulo, #titulo_comentarios, .formulario_estandar legend, .formulario_estandar th.separador, #contenedor_portal #footer #contacto_f strong';
    
    modificarAtributoCSS_color(titulos_ids,jsonObj.titulos_color);
    modificarAtributoCSS_textShadow('#contenedor_titulo_buscador #descripcion','0px 2px 0px '+jsonObj.titulo_sombra);
+   modificarAtributoCSS_textShadow('#contenedor_titulo_buscador #titulo_desc','0px 2px 0px '+jsonObj.titulo_sombra);
    modificarAtributoCSS_size('#contenedor_titulo_buscador #descripcion',jsonObj.titulo_tamano);
+   modificarAtributoCSS_size('#contenedor_titulo_buscador #titulo_desc',jsonObj.titulo_principal_tamano);
+   
    modificarAtributoCSS_fontFamily(titulos_ids,jsonObj.titulo_estilo);
    
    modificarAtributoCSS_color('#contenedor_titulo_buscador #descripcion',jsonObj.otros_color);
