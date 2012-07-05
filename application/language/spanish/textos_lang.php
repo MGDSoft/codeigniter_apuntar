@@ -243,6 +243,7 @@ $lang['descripcion_default'] = 'Tu página ya esta creada, sólo falta agregar c
 $lang['correcto']="Correcto";
 $lang['registro_correcto']="El registro se realizo correctamente";
 
+$lang['bienvenida_normal']="Gracias por registrarte y bienvenido !!";
 $lang['bienvenida_social']="Bienvenido a apuntar.net puedes cambiar el nombre de tu dominio el las configuraciones.";
 $lang['error_correo_social']="Esta cuenta no tiene un correo asociado. Pruebe con otro social login o sino cree la cuenta a mano.";
 
