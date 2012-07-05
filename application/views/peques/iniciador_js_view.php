@@ -58,9 +58,9 @@ window.addEvent('domready', function() {
 		extra='';
 		
 		if (obj_buscadorCategorias)
-			extra='&categoria=' + obj_buscadorCategorias.getValorInput();
+			extra='&categoria=' + encodeURIComponent(obj_buscadorCategorias.getValorInput());
 		
-		var parametros='&id_web=' + id_web + extra + '&valor=' + obj_buscador_sugerencias.getValorInput() + '';
+		var parametros='&id_web=' + id_web + extra + '&valor=' + encodeURIComponent(obj_buscador_sugerencias.getValorInput()) + '';
 		cargar_pagina_stadart('buscador',parametros,'','');
 		obj_buscador_sugerencias.vaciarCajaSugerencias();
 		obj_buscadorCategorias.vaciarCajaSugerencias();
