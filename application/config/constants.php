@@ -66,7 +66,7 @@ define ('MSG_INFO','new Message({icon:"okMedium.png",title: "%s",message: "%s"})
 define ('MSG_WATCHOUT','new Message({icon: "cautionMedium.png",title: "%s",message: "%s"}).say();');
 define ('MSG_WATCHOUT_URGENT','new Message({isUrgent: true, icon: "cautionMedium.png",title: "%s",message: "%s"}).say();');
 define ('MSG_QUESTION','new Message({icon: "speakMedium.png.png", title: "%s", message: "%s", callback: "%s"}).ask();');
-define ('MSG_QUESTION_DEFAULT','new Message({isUrgent: true,icon: "speakMedium.png",width: 300,fontSize: 14,autoDismiss: false,title: %s ,message: "<input type=\'text\' id=\'js_commentText\' value=%s>",callback: %s}).say();');
+define ('MSG_QUESTION_DEFAULT','new Message({isUrgent: true,icon: "speakMedium.png",width: 300,fontSize: 14,autoDismiss: false,title: %s ,message: "<input type=\'text\' id=\'js_commentText\' value=\'%s\'>",callback: %s}).say();');
 define ('MSG_FORMULARIO',' new Message({ icon: "speakMedium.png", width: 300, fontSize: 14, autoDismiss: false, title: %s ,  message: \'<textarea id="commentTextemail" cols="5" rows="8" class="msgEditable"></textarea>\',callback: %s}).say();');
 define ('HIDE_REQUEST','new Request({url : "%s", method : "post", data: "%s", onRequest : function() {},	onSuccess : function(responseText) { log(responseText) }}).send();');
 

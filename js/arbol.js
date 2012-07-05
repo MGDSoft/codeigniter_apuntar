@@ -240,7 +240,7 @@ var menuCarpetas=new Class({
 				events: {
 					click: function(event){
 						event.stop();
-						
+					
 						preguntar_input(js_categoria_modificar_titulo,(liPadre.getChildren('span.cont')).get('html'),"obj_menu_carpetas.modificar_categoria('"+liPadre.get('categoria')+"');"); 
 					}
 				}
@@ -333,10 +333,10 @@ var menuCarpetas=new Class({
    },
    
     agregar_categoria: function(padre){
-			request_simple_post('/forms/categorias_forms/nueva_categoria','nombre_categoria='+preguntar_input_value+'&id_padre='+padre,'obj_menu_carpetas.refrescarArbol();');
+			request_simple_post('/forms/categorias_forms/nueva_categoria','nombre_categoria='+encodeURIComponent(preguntar_input_value)+'&id_padre='+padre,'obj_menu_carpetas.refrescarArbol();');
 	},
 	modificar_categoria: function(id){
-		request_simple_post('/forms/categorias_forms/modificar_categoria','nombre_categoria='+preguntar_input_value+'&id='+id,'obj_menu_carpetas.refrescarArbol();');
+		request_simple_post('/forms/categorias_forms/modificar_categoria','nombre_categoria='+encodeURIComponent(preguntar_input_value)+'&id='+id,'obj_menu_carpetas.refrescarArbol();');
 		
 	},
 	borrar_categoria: function(id){

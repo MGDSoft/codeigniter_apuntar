@@ -1,10 +1,11 @@
 <?php
-function comprobar_session_activa_y_redirect(){
+function comprobar_session_activa_y_redirect($redirectHTML=true){
 	$CI =& get_instance();
 	if (!isset($_SESSION['usuario']))
 	{
 		//echo sprintf(CARGAR_JS_AUTO,sprintf(MSG_WATCHOUT_URGENT,'Error','Session finalizada'));
-		redirect('', 'javascript');
+		if ($redirectHTML)
+			redirect('', 'javascript');
 		
 		exit;
 	}
