@@ -68,7 +68,6 @@
 			});
 		
 		CKFinder.setupCKEditor( editorCK, { basePath : '<?= PATH_JS ?>ckeditor/ckfinder/', skin : 'v1' } ) ;
-		CKEDITOR.timestamp = ( new Date() ).valueOf();
 		
 	}			
 	document.title="<?= $titulo ?>";
