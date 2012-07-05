@@ -63,7 +63,16 @@ class Login
 			$user=$CI->Usuario_model->login($obj[0],$obj[1]);
 			
 			if ($user)
+			{
 				$_SESSION['usuario']=$user;
+				$cookie = array(
+						'name'   => 'conectado_ahora',
+						'value'  => $user->correo.';'.$user->password,
+						'expire' => '3600' // 1 hora
+				);
+				
+				$CI->input->set_cookie($cookie);
+			}
 		}
 		
 	}
