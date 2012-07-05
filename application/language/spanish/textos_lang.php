@@ -6,8 +6,8 @@ $lang['descripcion_portada_meta'] ='Versión plataforma reducida, Apunta todo lo
 $lang['titulo_registro_meta'] ='Registrate | '.URL_BASE;
 $lang['descripcion_registro_meta'] ='Registrate es muy rápido y gratis';
 
-$lang['titulo_portada_meta'] ='Apunta todo lo que necesitas de una manera rápida y facil en '.URL_BASE;
-$lang['descripcion_portada_meta'] ='Apunta todo lo que necesites rápido, grátis y para cualquier plataforma. Con multiples opciones de configuración y diseño';
+$lang['titulo_portada_meta'] ='Guarda fragmentos de tu código desde movil, web o escritorio '.URL_BASE;
+$lang['descripcion_portada_meta'] ='Guarda fragmentos de tu código desde movil, web o escritorio. Almacena tu código y ahorra tiempo en su búsqueda!';
 
 /* Fin metas */
 
