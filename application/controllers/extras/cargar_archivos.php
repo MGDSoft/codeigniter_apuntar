@@ -127,7 +127,9 @@ class Cargar_archivos extends CI_Controller{
 		include '.'.PATH_JS.'Message-Class/js/message_src.js';
 		
 		include '.'.PATH_JS.'highlight/highlight.pack.js';
+
 		include '.'.PATH_JS.'highlight/numberLines.js';
+		
 		
 		include '.'.PATH_JS.'arieh-historymanager/Source/HashListener.js';
 		

@@ -40,11 +40,12 @@ var modificadorStylos;
 var spy;
 var obj_buscadorCategorias;
 var obj_buscador_sugerencias;
-window.addEvent('domready', function() {
-
-	cargarPaginaInit();
 
 	
+	
+window.addEvent('domready', function() {
+	cargarPaginaInit();
+
 	if ($('bloque_izq').getStyle('display')!='none')
 		obj_menu_carpetas=new menuCarpetas('menu',<?= $usuario_configuracion->id_usuario ?>,'<?= $this->lang->line('opciones_txt') ?>','<?= $this->lang->line('carpeta_hija_txt') ?>','<?= $this->lang->line('modificar_nombre_txt') ?>','<?= $this->lang->line('borrar_txt') ?>');
 	
