@@ -48,10 +48,14 @@ var hljs = new function() {
   }
 
   function blockLanguage(block) {
-    var lenguaje=block.className();
-    lenguaje=lenguaje.substring(5, lenguaje.indexOf(";";);
-    log (lenguaje+"");
-    return languaje;
+	  var classes = block.className.split(/\s+/);
+	    classes = classes.concat(block.parentNode.className.split(/\s+/));
+	    for (var i = 0; i < classes.length; i++) {
+	      var class_ = classes[i].replace(/^language-/, '');
+	      if (languages[class_] || class_ == 'no-highlight') {
+	        return class_;
+	      }
+	    }
     
   }
 
