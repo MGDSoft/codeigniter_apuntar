@@ -27,6 +27,14 @@
 		if ($this->Usuario_model->update($id,$usuario))
 		{
 			$_SESSION['usuario']=$this->Usuario_model->login($usuario->correo,null);
+			$this->load->helper('cookie');
+			$cookie = array(
+					'name'   => 'conectado_ahora',
+					'value'  => $_SESSION['usuario']->correo.';'.$_SESSION['usuario']->password,
+					'expire' => '3600' // 1 hora
+			);
+			
+			$this->input->set_cookie($cookie);
 			redirect('/index.php?info=8');
 		}else
 			$this->mostrarTexto($this->lang->line('error_db'));
