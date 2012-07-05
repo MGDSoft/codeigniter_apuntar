@@ -1,5 +1,7 @@
 	<div id="footer">
-		<img src="<?= PATH_IMG.'portada/logo_mgd_oval_300.png' ?>" width="300" height="169">
+		<a href="http://www.mgdsoftware.es" target="_blank">
+			<img src="<?= PATH_IMG.'portada/logo_mgd_oval_300.png' ?>" width="300" height="169" border="0">
+		</a>
 		<div class="tags">
 				<h3>Agenda personal</h2>
 				<strong>Programa para apuntar o anotar especial desarrolladores</strong>
