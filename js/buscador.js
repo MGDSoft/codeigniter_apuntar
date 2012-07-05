@@ -162,7 +162,7 @@ llamadaBusqueda: function(){
 	
 },
 getValorInput:function(){
-	if (this.obj && this.obj.value == this.ghost_text || this.obj.getStyle('display')=='none')
+	if ((this.obj && this.obj.value == this.ghost_text) || ( this.obj && this.obj.getStyle('display')=='none'))
 	{
 		return '';
 	}else{
