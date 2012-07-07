@@ -9,8 +9,6 @@
 		$this->load->model('Usuario_configuracion_model');
 		$this->load->model('Categorias_model');
 		$this->load->library('form_validation');
-		$this->load->helper('my_usuario_helper');
-		comprobar_session_activa_y_redirect(false);
 	}
 	  function index()
 	  {
