@@ -42,7 +42,7 @@
    
    
    $datos['usuario_configuracion']=$portal;
-   $datos['nuevos']=$this->Usuario_model->getLast('ASC',10);
+   $datos['nuevos']=$this->Usuario_model->getLast('DESC',4);
    $datos['ejemplos']=$this->Usuario_model->getLast('ASC',4);
    
    $this->load->view('subtemplates/metas_portada_view',$data);
