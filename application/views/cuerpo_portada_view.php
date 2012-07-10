@@ -12,14 +12,14 @@
 			
 		</ul>
 		<a href="https://www.java.com/es/download/" class="need_java" target="_blank" rel="nofollow">Es necesario tener instalado java 1.6 en adelante, para el 99% ya esta instalado</a>
-		<!-- <div class="titulo_l">Blogs de ejemplo</div>
+		 <div class="titulo_l">Blogs de ejemplo</div>
 		<ul>
 				<?php foreach ($ejemplos as $nuevo)
 				{
 					echo '<li><a target="_blank" href="http://'.$nuevo->nombre_unico.'.'.URL_BASE.'">'.$nuevo->titulo.'</a></li>';
 				}?>
 		</ul>
-		 -->
+		
 		 <div class="titulo_l">Aplicación para móvil</div>
 		 	<ul>
 		 		<li><a href="https://play.google.com/store/apps/details?id=com.mgd.apuntar&feature=search_result#?t=W251bGwsMSwxLDEsImNvbS5tZ2QuYXB1bnRhciJd" rel="nofollow">Android</a></li>
