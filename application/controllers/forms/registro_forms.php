@@ -74,7 +74,7 @@ class Registro_forms extends CI_Controller {
 	 	}else{
 	 	 	
 	 		$usuario=$this->Usuario_model->getById($_SESSION['usuario']->id_usuario);
-	 		if (!$this->Usuario_model->login($usuario->correo,md5($this->input->post('anteriorcontrasena'))))
+	 		if ($usuario->id_social == "" &&  !$this->Usuario_model->login($usuario->correo,md5($this->input->post('anteriorcontrasena'))))
 	 		{
 	 			printf(MSG_WATCHOUT, $this->lang->line('error_form_estandar'),$this->lang->line('contrasena_invalida'));
 	 			exit;
