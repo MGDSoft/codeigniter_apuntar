@@ -28,7 +28,9 @@
 	<legend><?= $this->lang->line('cambiar_contrasena') ?></legend>
 			
 	<table class='formulario_estandar' >
+		<?php if ($usuario->id_social == ""){ ?>
 		<tr><th><?= $this->lang->line('anterior_contrasena') ?></th><td><input type="password" name="anteriorcontrasena" value="" id="anteriorcontrasena"></td></tr>
+		<?php } ?>
 		<tr><th><?= $this->lang->line('contrasena_nueva') ?></th><td><input type="password" name="contrasena" value="" id="contrasena"></td></tr>
 		<tr><th><?= $this->lang->line('recontrasena') ?></th><td><input type="password" name="recontrasena" value="" id="recontrasena"></td></tr>
 		<tr><td colspan='2' align='right'><input type="submit" name="enviar" class='boton_standart' value="<?= $this->lang->line('enviar') ?>"></td></tr>
@@ -42,8 +44,9 @@
 creacionEventos('apellidos','','',1);
 creacionEventos('nombre','','',1);
 creacionEventos('correo','','email',1);
-
+<?php if ($usuario->id_social == ""){ ?>
 creacionEventos('anteriorcontrasena','','',1);
+<?php } ?>
 creacionEventos('contrasena','','',1);
 creacionEventos('recontrasena','','',1);
 document.title="<?= $titulo ?>";

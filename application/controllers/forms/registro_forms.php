@@ -63,7 +63,7 @@ class Registro_forms extends CI_Controller {
 	 
 	 public function password()
 	 {
-	 	$this->form_validation->set_rules('anteriorcontrasena','anteriorcontrasena','required|trim');
+	 	//$this->form_validation->set_rules('anteriorcontrasena','anteriorcontrasena','required|trim');
 	 	$this->form_validation->set_rules('contrasena','contrasena','required|trim');
 	 	$this->form_validation->set_rules('recontrasena','recontrasena','required|trim|matches[contrasena]');
 	 	 
