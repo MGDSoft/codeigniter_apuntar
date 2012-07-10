@@ -12,7 +12,7 @@
 			
 		</ul>
 		<a href="https://www.java.com/es/download/" class="need_java" target="_blank" rel="nofollow">Es necesario tener instalado java 1.6 en adelante, para el 99% ya esta instalado</a>
-		<div class="titulo_l">Aplicación para móvil</div>
+		<div class="titulo_l" style="margin-top:20px">Aplicación para móvil</div>
 		 	<ul>
 		 		<li><a href="https://play.google.com/store/apps/details?id=com.mgd.apuntar&feature=search_result#?t=W251bGwsMSwxLDEsImNvbS5tZ2QuYXB1bnRhciJd" rel="nofollow">Android</a></li>
 		 		<li><a>iPhone IOS</a> pendiente</li>

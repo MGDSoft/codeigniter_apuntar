@@ -42,8 +42,8 @@
    
    
    $datos['usuario_configuracion']=$portal;
-   $datos['nuevos']=$this->Usuario_model->getLast('DESC',4);
-   $datos['ejemplos']=$this->Usuario_model->getLast('ASC',4);
+   $datos['nuevos']=$this->Usuario_model->getLast('DESC',3);
+   $datos['ejemplos']=$this->Usuario_model->getLast('ASC',3);
    
    $this->load->view('subtemplates/metas_portada_view',$data);
    $this->load->view('peques/iniciador_portada_js_view');
