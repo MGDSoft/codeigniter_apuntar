@@ -54,7 +54,7 @@
   
   private function redirect_web(){
   	
-  	if($_SERVER['SERVER_NAME']!= base_url())
+  	if(isset($_SERVER['SERVER_NAME']) && $_SERVER['SERVER_NAME']!= base_url())
   	{
  			
   		$array = explode('.',$_SERVER['SERVER_NAME']);
