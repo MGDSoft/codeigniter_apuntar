@@ -20,6 +20,7 @@ $lang['bienvenido'] = 'Bienvenido a '.URL_BASE;
 $lang['busqueda'] = 'Busqueda';
 $lang['busqueda_fecha'] = 'Busqueda por fecha';
 $lang['salir'] = 'Salir';
+$lang['modificar'] = 'Modificar';
 $lang['modificar_avatar'] = 'Modificar avatar';
 $lang['modificar_datos_usuario'] = 'Modificar datos de la cuenta';
 

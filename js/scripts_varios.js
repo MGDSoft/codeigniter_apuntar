@@ -338,7 +338,14 @@ function cargar_separadores(obj,jsonObj){
 	    'z-index' : '-1'
 	});
 }
-function noticia_cambio_modificar($id_nueva,$texto_modificar,$url){
-	$('nueva_noticia_form').innerHTML+="<input name='id' type='hidden' value='"+$id_nueva+"' />'";
+function noticia_cambio_modificar($id_nueva,$texto_boton,$texto_modificar,$url){
+	
+	var obj=new Element('input', {
+		'name': 'id',
+		type : 'hidden',
+		value : $id_nueva
+	}).inject($('nueva_noticia_form'),'bottom');
 	$$('#nueva_noticia_form legend')[0].innerHTML=$texto_modificar;
+	$$('#nueva_noticia_form .boton_standart')[0].value=$texto_modificar;
+	boton_standart
 }

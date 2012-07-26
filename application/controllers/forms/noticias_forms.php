@@ -19,7 +19,7 @@
 
 	  function insertar_noticia()
 	  {
-	  	if (isset($_POST['id_noticia']))
+	  	if (isset($_POST['id']))
 	  	{
 	  		$this->update_noticia();
 	  		exit;
@@ -46,7 +46,7 @@
 	  		if ($id_nueva=$this->Noticias_model->insert($insert))
 	  		{
 	  			printf(MSG_INFO, $this->lang->line('correcto'), $this->lang->line('noticia_incluida'));
-	  			echo "noticia_cambio_modificar($id_nueva,'".$this->lang->line('admin_modificar_noticia')."','news/".url_title($insert['titulo'])."/$id_nueva/')";
+	  			echo "noticia_cambio_modificar($id_nueva,'".$this->lang->line('modificar')."','".$this->lang->line('admin_modificar_noticia')."','news/".url_title($insert['titulo'])."/$id_nueva/')";
 	  		}else{
 	  			printf(MSG_ERROR, $this->lang->line('error_db'));
 	  		}
