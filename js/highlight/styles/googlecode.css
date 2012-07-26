@@ -29,7 +29,7 @@ pre .setting .value,
 pre .winutils,
 pre .tex .command {
   color: #326AC9;
-  font-weight: bold;
+  font-style: italic;
 }
 
 pre .envvar,
