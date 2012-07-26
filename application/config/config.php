@@ -267,7 +267,12 @@ $config['sess_time_to_update']	= 300;
 |
 */
 $config['cookie_prefix']	= "";
-$config['cookie_domain']	= '.'.URL_BASE;
+
+if (ENVIRONMENT == 'development')
+	$config['cookie_domain']	= "";
+else
+	$config['cookie_domain']	= '.'.URL_BASE;
+
 $config['cookie_path']		= "/";
 $config['cookie_secure']	= FALSE;
 

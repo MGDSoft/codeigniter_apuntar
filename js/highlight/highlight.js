@@ -46,17 +46,29 @@ var hljs = new function() {
     
     return result;
   }
-
+/* 
+ * var r=s.className.split(/\s+/);r=r.concat(s.parentNode.className.split(/\s+/));for(var q=0;q<r.length;q++){var p=r[q].replace(/^language-/,"");if(e[p]||p=="no-highlight"){return p}}
+ * 
   function blockLanguage(block) {
 	  var classes = block.className.split(/\s+/);
 	    classes = classes.concat(block.parentNode.className.split(/\s+/));
 	    for (var i = 0; i < classes.length; i++) {
 	      var class_ = classes[i].replace(/^language-/, '');
+	      console.log(class_);
 	      if (languages[class_] || class_ == 'no-highlight') {
+	    	console.log(class_);
 	        return class_;
 	      }
 	    }
     
+  }
+  */
+  function blockLanguage(block) {
+	  var r = (s.className.substring(6)).replace(/(;| )/gm,"");
+	  console.log(r);
+	      if (e[class_] || r == 'no-highlight') {
+	        return r;
+	    }
   }
 
   /* Stream merging */
@@ -478,7 +490,7 @@ var hljs = new function() {
       });
     }
     if (useBR) {
-      value = value.replace(/\n/g, '\r\n\');
+      value = value.replace(/\n/g,"");
     }
     return value;
   }
@@ -491,6 +503,7 @@ var hljs = new function() {
 	  
     var text = blockText(block, useBR);
     var language = blockLanguage(block);
+    console.log(language);
     var result, pre;
     if (language == 'no-highlight')
         return;
