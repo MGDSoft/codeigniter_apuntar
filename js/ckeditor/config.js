@@ -9,7 +9,10 @@ CKEDITOR.editorConfig = function( config )
 	config.protectedSource.push( /<\?[\s\S]*?\?>/g );   // PHP Code
 	config.protectedSource.push( /<%[\s\S]*?%>/g );   // ASP Code
 	config.protectedSource.push( /(]+>[\s|\S]*?<\/asp:[^\>]+>)|(]+\/>)/gi );   // ASP.Net Code
+	config.entities = false;
 	// Define changes to default configuration here. For example:
 	// config.language = 'fr';
 	// config.uiColor = '#AADC6E';
 };
+
+

@@ -347,5 +347,4 @@ function noticia_cambio_modificar($id_nueva,$texto_boton,$texto_modificar,$url){
 	}).inject($('nueva_noticia_form'),'bottom');
 	$$('#nueva_noticia_form legend')[0].innerHTML=$texto_modificar;
 	$$('#nueva_noticia_form .boton_standart')[0].value=$texto_modificar;
-	boton_standart
 }

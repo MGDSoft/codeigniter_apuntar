@@ -69,7 +69,8 @@
 		
 		CKFinder.setupCKEditor( editorCK, { basePath : '<?= PATH_JS ?>ckeditor/ckfinder/', skin : 'v1' } ) ;
 		
-	}			
+	}	
+
 	document.title="<?= $titulo ?>";
 	document.description="<?= $descripcion ?>";	  
 </div>

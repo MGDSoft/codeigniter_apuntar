@@ -509,7 +509,7 @@ div.sugerencias_helper div{
 	overflow:hidden;
 }
 
-.custom_code span:hover,div.sugerencias_helper div:hover{
+.custom_code span:hover,div.sugerencias_helper div:hover,div.sugerencias_helper div.active{
 	background: #FFFFBF !important;
 	border:1px solid #000 !important;
 }
