@@ -18,6 +18,7 @@ pre .comment * {
 }
 
 pre .keyword,
+pre .flow,
 pre .ruby .function .keyword,
 pre .function .keyword,
 pre .sub .keyword,
@@ -27,7 +28,8 @@ pre .tag .title,
 pre .setting .value,
 pre .winutils,
 pre .tex .command {
-  color: #008;
+  color: #326AC9;
+  font-weight: bold;
 }
 
 pre .envvar,
@@ -43,7 +45,7 @@ pre .attr_selector,
 pre .apache .cbracket,
 pre .date,
 pre .regexp {
-  color: #007CC9;
+  color: #00446E;
 }
 
 pre .sub .identifier,
