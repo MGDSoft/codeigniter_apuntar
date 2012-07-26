@@ -29,8 +29,9 @@ class Login
 		$CI =& get_instance();
 		$CI->load->helper('cookie');
 		$cookie=$CI->input->cookie('conectado_ahora', TRUE);
+		$cookie_auto=$CI->input->cookie('auto_login', TRUE);
 		
-		if (!$cookie && isset($_SESSION['usuario']))
+		if (!$cookie && !$cookie_auto  && isset($_SESSION['usuario']))
 		{
 			if (ENVIRONMENT == 'development')
 			{

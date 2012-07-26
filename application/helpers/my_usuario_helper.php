@@ -18,7 +18,6 @@ function comprobarAdmin($configuracion_diseno=false,$expulsar_no_admins=false,$o
 	
 	if (isset($_SESSION['device']) || isset($_POST['device']) || RUTA_PORTAL=='portal_devices')
 	{
-		
 		return comprobarAdminDevices($configuracion_diseno=false,$expulsar_no_admins=false);
 		exit;
 	}

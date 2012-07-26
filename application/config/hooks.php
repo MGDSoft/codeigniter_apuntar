@@ -24,10 +24,10 @@ $hook['post_controller_constructor'] =  array(
 									'filepath' => 'hooks'
                                 )
 								,array(
-										'class'    => 'Huso_horario',
-										'function' => 'auto_load_huso_horario',
-										'filename' => 'Huso_horario.php',
-										'filepath' => 'hooks'
+									'class'    => 'Huso_horario',
+									'function' => 'auto_load_huso_horario',
+									'filename' => 'Huso_horario.php',
+									'filepath' => 'hooks'
 								)
                                 );
 
