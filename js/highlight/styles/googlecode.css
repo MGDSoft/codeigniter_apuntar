@@ -114,8 +114,8 @@ pre .nginx .built_in {
 
 pre .preprocessor,
 pre .preprocessor * {
-  color: #005285;
-  font-style: italic;
+	color: #F33;
+	font-weight: bold;
 }
 
 pre .tex .formula {
