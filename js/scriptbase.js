@@ -63,6 +63,7 @@ function comprobar_estado_form(form) {
 }
 var enviar_form_ajax = function(formulario, url_envio, ver_resultado, ejecutar_si_ok ,redirect_url) {
 
+	
 	valido = comprobar_estado_form(formulario);
 
 	if ($(ver_resultado)) {

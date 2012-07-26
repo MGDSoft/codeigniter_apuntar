@@ -338,3 +338,7 @@ function cargar_separadores(obj,jsonObj){
 	    'z-index' : '-1'
 	});
 }
+function noticia_cambio_modificar($id_nueva,$texto_modificar,$url){
+	$('nueva_noticia_form').innerHTML+="<input name='id' type='hidden' value='"+$id_nueva+"' />'";
+	$$('#nueva_noticia_form legend')[0].innerHTML=$texto_modificar;
+}

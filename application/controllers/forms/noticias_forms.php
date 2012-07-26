@@ -19,6 +19,11 @@
 
 	  function insertar_noticia()
 	  {
+	  	if (isset($_POST['id_noticia']))
+	  	{
+	  		$this->update_noticia();
+	  		exit;
+	  	}
 	  	
 	  	$this->form_validation->set_rules('titulo_noticia', $this->lang->line('titulo_noticia'),'required|trim');
 	  	$this->form_validation->set_rules('categoria_noticia','categoria_noticia','required|trim');
@@ -41,9 +46,8 @@
 	  		if ($id_nueva=$this->Noticias_model->insert($insert))
 	  		{
 	  			printf(MSG_INFO, $this->lang->line('correcto'), $this->lang->line('noticia_incluida'));
-	  			
+	  			echo "noticia_cambio_modificar($id_nueva,'".$this->lang->line('admin_modificar_noticia')."','news/".url_title($insert['titulo'])."/$id_nueva/')";
 	  		}else{
-	  			echo $this->db->_error_message();
 	  			printf(MSG_ERROR, $this->lang->line('error_db'));
 	  		}
 	  	}

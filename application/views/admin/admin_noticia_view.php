@@ -12,7 +12,7 @@
 	}
 }
 ?>
-<form id='nueva_noticia_form' class='formulario_estandar' name="nueva_noticia_form"  action="javascript:enviar_form_ajax('nueva_noticia_form','/forms/noticias_forms/<?= (($accion=='insert')? 'insertar_noticia' : 'update_noticia') ?>','','','/index.php?info=1')" method="post" >
+<form id='nueva_noticia_form' class='formulario_estandar' name="nueva_noticia_form"  action="javascript:enviar_form_ajax('nueva_noticia_form','/forms/noticias_forms/<?= (($accion=='insert')? 'insertar_noticia' : 'update_noticia') ?>','','','')" method="post" >
 <fieldset>
 	<legend><?= (($accion == 'insert') ? $this->lang->line('admin_nueva_noticia') : $this->lang->line('admin_modificar_noticia')) ?></legend>
 			

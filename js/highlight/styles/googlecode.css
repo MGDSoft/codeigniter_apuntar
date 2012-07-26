@@ -17,6 +17,7 @@ pre .comment * {
 }
 
 pre .keyword,
+pre .flow,
 pre .method,
 pre .list .title,
 pre .nginx .title,
