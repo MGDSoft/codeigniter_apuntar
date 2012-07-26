@@ -6,7 +6,6 @@ Google Code style (c) Aahan Krish <geekpanth3r@gmail.com>
 
 pre code {
   display: block; padding: 0.5em;
-  
   background: white; color: black;
 }
 
@@ -14,22 +13,22 @@ pre .comment,
 pre .template_comment,
 pre .javadoc,
 pre .comment * {
-  color: #080;
+  color: #800;
 }
 
 pre .keyword,
-pre .flow,
-pre .ruby .function .keyword,
-pre .function .keyword,
-pre .sub .keyword,
 pre .method,
 pre .list .title,
+pre .nginx .title,
 pre .tag .title,
 pre .setting .value,
 pre .winutils,
-pre .tex .command {
-  color: #326AC9;
-  font-style: italic;
+pre .tex .command,
+pre .http .title,
+pre .request,
+pre .status {
+	color: #326AC9;
+	font-style: italic;
 }
 
 pre .envvar,
@@ -45,7 +44,7 @@ pre .attr_selector,
 pre .apache .cbracket,
 pre .date,
 pre .regexp {
-  color: #00446E;
+  color: #080;
 }
 
 pre .sub .identifier,
@@ -70,7 +69,7 @@ pre .css .function {
 }
 
 pre .class .title,
-pre .haskell .label,
+pre .haskell .type,
 pre .smalltalk .class,
 pre .javadoctag,
 pre .yardoctag,
@@ -114,8 +113,7 @@ pre .nginx .built_in {
 
 pre .preprocessor,
 pre .preprocessor * {
-	color: #F33;
-	font-weight: bold;
+  color: #F33;
 }
 
 pre .tex .formula {
