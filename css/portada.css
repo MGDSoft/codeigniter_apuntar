@@ -1,3 +1,13 @@
+@media all and (min-width: 1500px), all and (min-device-width: 1800px) {
+	#logo_fondo{
+		margin:0 0 0 90px !important;
+	}
+}
+@media all and (max-width: 1499px), all and (max-device-width: 1799px) {
+	#logo_fondo{
+		  margin: 0 0 0 -100px !important;
+	}
+}
 @media all and (max-width: 1000px), all and (max-device-width: 1000px) {
 	#galeria{
 		margin-left:20px !important;
@@ -73,7 +83,7 @@ body{
   -ms-animation-timing-function: linear;
   position:absolute;
   z-index: -2;
-  margin: 0 0 0 -100px !important;
+
 	
 }
 #bloque_izq{
@@ -247,6 +257,10 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#f6f8f9', end
 	display: inline;
 	margin:0 4px;
 }
+#cuerpo_max{
+	max-width:1500px;
+	margin:0 auto;
+}
 #cuerpo{
 	min-height: 260px;
 	background: rgb(255,255,255); /* Old browsers */
@@ -264,8 +278,8 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#f6f8f9', end
 	box-shadow: -2px 0px 15px #9e9e9e;
 }
 #cabecera{
-	
-	
+	max-width:1500px;
+	margin:0 auto;
 }
 #contenido_portada{
 	margin:20px 10px;
