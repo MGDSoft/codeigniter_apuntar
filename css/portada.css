@@ -7,6 +7,14 @@
 		border-left: 1px #ccc dashed;
 		padding-left:40px;
 	}
+	#contenido_portada
+	{
+		margin-top:30px !important;
+	}
+	#video
+	{
+		margin-left:40px !important;
+	}
 	
 }
 @media all and (max-width: 1499px), all and (max-device-width: 1799px) {
@@ -305,9 +313,9 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#f6f8f9', end
 
 #video{
 	background: url('/img/portada/monitor.jpg') no-repeat;
-	padding:20px;
+	padding:20px 20px 50px 20px;
 	float:right;
-	height: 368px;
+	
 	margin-left:20px;
 }
 #video div{

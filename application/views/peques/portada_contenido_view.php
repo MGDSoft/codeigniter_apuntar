@@ -9,7 +9,7 @@
 		</object>
 	</div>
 	
-		<h2 style="margin-top:20px">Guarda tu código y ahorrate tiempo en <?= URL_BASE ?></h2>
+		<h2 style="margin-top:10px">Guarda tu código y ahorrate tiempo en <?= URL_BASE ?></h2>
 		<ul style="margin-top:30px">
 			<li>Recopila todos tus fragmentos de código para que no se te olvide en el futuro</li>
 			<li>Sintaxis de programación coloreada</li>
@@ -22,6 +22,5 @@
 			<li>Puedes registrarte mediante redes sociales arriba a la derecha</li>
 			<li>Es gratis, sin publicidad y teniendo espacio gratis para subir imagenes que más quieres?</li>
 		</ul>
-		<br>
-		<a href="#!registro" style="margin-left:150px;">No esperes más y registrate !!!</a>
+		
 	
