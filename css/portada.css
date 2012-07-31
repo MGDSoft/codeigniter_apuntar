@@ -2,6 +2,12 @@
 	#logo_fondo{
 		margin:0 0 0 90px !important;
 	}
+	#bloque_izq{
+		margin-right:50px;
+		border-left: 1px #ccc dashed;
+		padding-left:40px;
+	}
+	
 }
 @media all and (max-width: 1499px), all and (max-device-width: 1799px) {
 	#logo_fondo{
@@ -87,7 +93,7 @@ body{
 	
 }
 #bloque_izq{
-	padding-top:30px;
+	margin-top:30px;
 	width:230px !important;
 	padding-right:0px !important;
 }
