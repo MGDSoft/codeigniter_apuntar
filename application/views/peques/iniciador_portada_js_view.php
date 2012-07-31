@@ -23,32 +23,7 @@ var waiter_run = function(){if (msg_waiter.isDisplayed) msg_waiter.dismiss();  m
 var waiter_disable = function(){msg_waiter.dismiss() };
 var spy;
 window.addEvent('domready', function() {
-	if (!isIE())
-	{
-		/* my "Go To Top" link element 
-		spy = new ScrollSpy({ 
-		    min: 1000, 
-		    onEnter: function() { 
-		        $('gotodown').fade('out');
-		    }, 
-		    onLeave: function() { 
-		    	$('gotodown').fade('in'); 
-		    } 
-		});
-
-		
-		var link = document.id('gototop'); 
-		
-		var ss = new ScrollSpy({ 
-		    min: 300, 
-		    onEnter: function() { 
-		        link.fade('in'); //show the "Go To Top" link 
-		    }, 
-		    onLeave: function() { 
-		        link.fade('out'); //hide the "Go To Top" link 
-		    } 
-		});*/ 
-	}
+	
 	<?php 
 	if (isset($_GET['info']) && $_GET['info']==2)
 		echo 'cargar_pagina_stadart("pagina-no-encontrada", "", "","");';

@@ -1,20 +1,26 @@
 	<div id="video">
-		
-		<div>Ten tu blog personal, tipo agenda, con tu información organizada en una sola web y accesible desde cualquier plataforma.<br><br> Con aplicación de escritorio para agilizar el proceso de escritura y mejorar el rendimiento en tu trabajo.</div>
+		<object id="player" classid="clsid:D27CDB6E-AE6D-11cf-96B8-444553540000" name="player" width="420" height="315">
+			<param name="movie" value="img/mediaplayer/player.swf"> 
+			<param name="allowfullscreen" value="true">
+			<param name="allowscriptaccess" value="always">
+	
+			<param name="flashvars" value="file=http://www.youtube.com/watch?v=NF4wqk1F21o"> 
+			<embed type="application/x-shockwave-flash" id="player2" name="player2" src="img/mediaplayer/player.swf" width="420" height="315" allowscriptaccess="always" allowfullscreen="true" flashvars="file=http://www.youtube.com/watch?v=NF4wqk1F21o&image=/img/apuntes_512.png">
+		</object>
 	</div>
 	
-		<h2>Guarda tu código y ahorrate tiempo en <?= URL_BASE ?></h2>
+		<h2 style="margin-top:20px">Guarda tu código y ahorrate tiempo en <?= URL_BASE ?></h2>
 		<ul style="margin-top:30px">
-			<li><strong>Guarda todo el código que quieras</strong> rápidamente, muy fácil, intuitivo y gratis.</li>
-			<li>Sin necesidad de tener el navegador abierto puedes descargar nuestra aplicación para escritorio, compatible con Windows, Linux y Mac (Necesario tener instalado java 1.6).</li>
-			<li>Si necesitas acceder desde otros elementos ,como móvil o tablets.., es accesible de manera web y también de momento en Android en breves con aplicación para movil (iPhone, blackberry)</li>
-			<li>Editor de texto con opción especial para desarrolladores para que pueda pegar su código de programación y lo puedas ver con su sintaxis coloreada</li>
-			<li>Puedes subir tus screens o imagenes que quieras</li>
-			<li>La dirección de tu propio blog de código sería &#60;Tu título&#62;.<?= URL_BASE ?>, fácil de recordar no?</li>
-			<li>Puedes hacer público o privado tu blog e incluso cada noticia pudiendo ser también comentable o no.</li>
+			<li>Recopila todos tus fragmentos de código para que no se te olvide en el futuro</li>
+			<li>Sintaxis de programación coloreada</li>
+			<li>Opción de subir screens e imagenes</li>
+			<li>Aplicación accesible desde web,móvil o escritorio (bajandote el programa)</li>
+			<li>Máxima rápidez con el programa de escritorio, pudiendo configurar una hotkey para maximizar e iconizar.</li>
+			<li>Tús código de programación pueden ser público o privados o incluso toda tu página puede ser privada</li>
 			<li>Opciones de decoración de tu blog para que sea único</li>
-			
-			<li>Observa otros "blogs" y si te gusta registrate!</li>
+			<li>Si necesitas acceder desde otros elementos ,como móvil o tablets.., es accesible de manera web y también de momento en Android en breves con aplicación para movil (iPhone, blackberry)</li>
+			<li>Puedes registrarte mediante redes sociales arriba a la derecha</li>
+			<li>Es gratis, sin publicidad y teniendo espacio gratis para subir imagenes que más quieres?</li>
 		</ul>
 		<br>
 		<a href="#!registro" style="margin-left:150px;">No esperes más y registrate !!!</a>
