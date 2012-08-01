@@ -46,7 +46,7 @@ class Login_form extends CI_Controller {
 					$cookie = array(
 							'name'   => 'auto_login',
 							'value'  => $user->correo.';'.$user->password,
-							'expire' => '86500'
+							'expire' => '2595000'
 					);
 					
 					set_cookie($cookie);
