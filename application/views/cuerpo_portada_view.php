@@ -4,8 +4,8 @@
 			
 			<div class="titulo_l">Aplicación de escritorio</div>
 			<ul>
-				<li><a href="/descargas/setup-apuntar.exe" target="_blank">Windows</a></li>
-				<li><a href="/descargas/apuntar.zip" target="_blank">Linux / Mac</a></li>
+				<li><a href="/descargas/apuntar_win.zip" target="_blank">Windows</a></li>
+				<li><a href="/descargas/apuntar_all.zip" target="_blank">Linux / Mac</a></li>
 			</ul>
 			<a href="https://www.java.com/es/download/" class="need_java" target="_blank" rel="nofollow">Es necesario tener instalado java 1.6 en adelante, para el 99% ya esta instalado</a>
 			<div class="titulo_l" style="margin-top:20px">Aplicación para móvil</div>
