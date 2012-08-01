@@ -27,7 +27,7 @@
 		 			<a href="<?= RUTA_PORTAL ?>#!"><?= URL_BASE ?></a>
 		 		</span>
 		 		
-		 		<h1 id="descripcion">Guardar fragmentos de código, desde móvil, web y escritorio</h1>
+		 		<h1 id="descripcion">Guardar fragmentos de código desde móvil, web y escritorio</h1>
 		 		
 	 		</div>
 	 		

@@ -143,7 +143,7 @@ class Noticias_model extends Master_model {
 		
 		$this->db->select('titulo');
 		//$this->db->select('noticias.titulo, MATCH( noticias.titulo , noticias.noticia ) AGAINST ("'.$valor.'") as score  ', NULL, FALSE);
-		$this->db->where('(`titulo`  LIKE "%'.$this->db->escape_str($valor).'%" OR  `noticia`  LIKE "%'.$this->db->escape_str($valor).'%")',NULL, FALSE);
+		$this->db->where('(`titulo`  LIKE "%'.$this->db->escape_str(str_replace ( " ","%",$valor)).'%" OR  `noticia`  LIKE "%'.$this->db->escape_str(str_replace ( " ","%",$valor)).'%")',NULL, FALSE);
 
 		//$this->db->where('MATCH (noticias.titulo,noticias.noticia) AGAINST ("'.$valor.'") ', NULL, FALSE);
 		$this->db->where('noticias.visible >=', $busqueda_visible);
@@ -168,6 +168,15 @@ class Noticias_model extends Master_model {
 	}
 	
 	
+	/**
+	 * @param unknown_type $valor
+	 * @param unknown_type $id_usuario
+	 * @param unknown_type $categoria
+	 * @param unknown_type $busqueda_visible
+	 * @param unknown_type $pagina
+	 * @param unknown_type $count
+	 * @return multitype:
+	 */
 	function getNoticiasBusqueda($valor,$id_usuario,$categoria,$busqueda_visible,$pagina=0,$count=false)
 	{
 		//Query the data table for every record and row
@@ -184,12 +193,14 @@ class Noticias_model extends Master_model {
 		if (!empty($valor))
 		{
 			
+			
 				//$this->db->select('* , MATCH( noticias.titulo , noticias.noticia ) AGAINST ("'.$this->db->escape($valor).'") as score  ', NULL, FALSE);
 				//$this->db->order_by('score','desc');
 			
-			$this->db->like("titulo",$valor);
-			$this->db->or_like("noticia",$valor);
+			$this->db->where('(`titulo`  LIKE "%'.$this->db->escape_str(str_replace ( " ","%",$valor)).'%" OR  `noticia`  LIKE "%'.$this->db->escape_str(str_replace ( " ","%",$valor)).'%")',NULL, FALSE);
+			
 			//$this->db->where('MATCH (noticias.titulo,noticias.noticia) AGAINST ("'.$this->db->escape($valor).'") ', NULL, FALSE);
+			 
 		}
 			
 		$this->db->where('noticias.visible >=', $busqueda_visible);
@@ -197,17 +208,17 @@ class Noticias_model extends Master_model {
 		$this->db->join('categorias', 'categorias.id_categoria = noticias.id_categoria');
 		if (!empty($categoria))
 		{
-			
 			$this->db->where('categorias.nombre', $categoria);
 		}
 		$this->db->order_by('noticias.fecha','DESC');
 		
 		$query = $this->db->get($this->table);
 		
-	
+		
 		if ($count)
 			return $query->num_rows();
 		
+		//echo $this->db->last_query();
 		
 		
 		if ($query->num_rows() > 0)
@@ -215,7 +226,6 @@ class Noticias_model extends Master_model {
 			return $query->result();
 		}else{
 			return array();
-			//show_error('Database is empty!');
 		}
 	}
 	
