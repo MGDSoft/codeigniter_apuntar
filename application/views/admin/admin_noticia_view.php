@@ -33,7 +33,7 @@
 			<tr><th><?= $this->lang->line('noticia') ?></th></tr>
 			<tr><td>
 			
-			<textarea name="texto_noticia" id="texto_noticia" ><?= ((isset($noticia))? htmlentities($noticia->noticia) :'' ) ?></textarea></td></tr>
+			<textarea name="texto_noticia" id="texto_noticia" ><?= ((isset($noticia))? htmlentities(utf8_decode($noticia->noticia)) :'' ) ?></textarea></td></tr>
 			<tr><th><?= $this->lang->line('visible') ?></th></tr>
 			<tr><td><input type="checkbox" name="visible_noticia" id="visible_noticia" value="si" <?= ((isset($noticia) && $noticia->visible == 0)? '' :'checked="checked"' ) ?> ></td></tr>
 			<tr><th><?= $this->lang->line('comentable') ?></th></tr>
