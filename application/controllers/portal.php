@@ -35,10 +35,7 @@
 	  	$portal_ini['web_sobre_mi']=$this->Web_sobre_mi_model->getById($portal_ini['usuario_configuracion']->id_configuracion);
 	   
 	  	
-	   $this->load->view('subtemplates/metas_view',$portal_ini);
-	   $this->load->view('peques/iniciador_js_view',$arbol);
-	   $this->load->view('subtemplates/header_inicio_view',$portal_ini);
-	   $this->load->view('portal_inicio_view',$portal_ini);
+	   
 	   
 	  
 	   if (isset($_GET['_escaped_fragment_']))
@@ -60,7 +57,6 @@
 	   			$portal_ini['titulo']=str_replace(array('"', "'"), "", $portal_ini['nombre_unico'].' - '.$this->lang->line('noticias'));
 	   			$portal_ini['descripcion']=str_replace(array('"', "'"), "", $portal_ini['nombre_unico'].' - '.$this->lang->line('noticias').' '. $this->lang->line('pagina') .' '.($pagina+1) );
 	   			
-	   			$this->load->view('peques/listado_noticias_view',$portal_ini);
 	   		}else if(preg_match("/news\/.+?\/([0-9]+)/", $_GET['_escaped_fragment_'], $coincidencias)){
 	   			
 	   			$id_noticia=$coincidencias[1];
@@ -108,14 +104,30 @@
 	   			$portal_ini['descripcion']=str_replace(array('"', "'"), "", $portal_ini['nombre_unico'].' - '.$portal_ini['noticia']->titulo);
 	   			
 	   			
-	   			$this->load->view('peques/noticia_detalle_view',$portal_ini);
-	   			$this->load->view('peques/listado_comentarios_view',$portal_ini);
+	   			
 	   				
 	   			$portal_ini['id_respuesta']=null;$portal_ini['comentario']=null;$portal_ini['accion']='insert';$portal_ini['fieldset']=true;
-	   			$this->load->view('forms/comentario_fview',$portal_ini);
+	   			
 	   		}
 	   		
 	   		
+	   }
+	   
+	   
+	   $this->load->view('subtemplates/metas_view',$portal_ini);
+	   $this->load->view('peques/iniciador_js_view',$arbol);
+	   $this->load->view('subtemplates/header_inicio_view',$portal_ini);
+	   $this->load->view('portal_inicio_view',$portal_ini);
+	   
+	   if (isset($_GET['_escaped_fragment_']))
+	   {
+		   	if ($_GET['_escaped_fragment_']=='listado_noticias')
+		   	{
+		   		$this->load->view('peques/listado_noticias_view',$portal_ini);
+		   	}else if(preg_match("/news\/.+?\/([0-9]+)/", $_GET['_escaped_fragment_'], $coincidencias)){
+		   		$this->load->view('peques/noticia_detalle_view',$portal_ini);
+	   			$this->load->view('peques/listado_comentarios_view',$portal_ini);
+		   	}
 	   }
 	   
 	   $this->load->view('subtemplates/footer_inicio_view',$portal_ini);
