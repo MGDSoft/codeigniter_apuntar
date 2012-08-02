@@ -9,7 +9,10 @@
 		$this->load->model('Categorias_model');
 		$this->load->model('Noticias_model');
 		$this->load->model('Web_sobre_mi_model');
+		$this->load->model('Comentarios_model');
 		$this->load->helper('my_usuario_helper');
+		$this->load->library('pagination');
+		$this->load->helper('smiley');
 	}
 
 	
@@ -27,24 +30,96 @@
 	  	
 	  	$portal_ini['calendario']= $this->load_calendar(date('m'),date('y'),$portal_ini['usuario_configuracion']->id_usuario,$portal_ini['nombre_unico'],$busqueda_visible);
 
-	  	$data['titulo']=str_replace(array('"', "'"), "", $portal_ini['usuario_configuracion']->titulo);
-	  	$data['descripcion']=str_replace(array('"', "'"), "", $portal_ini['nombre_unico'].' - '.$portal_ini['usuario_configuracion']->eslogan);
+	  	$portal_ini['titulo']=str_replace(array('"', "'"), "", $portal_ini['usuario_configuracion']->titulo);
+	  	$portal_ini['descripcion']=str_replace(array('"', "'"), "", $portal_ini['nombre_unico'].' - '.$portal_ini['usuario_configuracion']->eslogan);
 	  	$portal_ini['web_sobre_mi']=$this->Web_sobre_mi_model->getById($portal_ini['usuario_configuracion']->id_configuracion);
 	   
-	  	if (isset($_GET['ishash']))
-	  	{
 	  	
-	  		$this->load->view('peques/listado_noticias_view',$portal_ini);
-	  	
-	  	}else{
-	  	   
-			
-		   $this->load->view('subtemplates/metas_view',$data);
-		   $this->load->view('peques/iniciador_js_view',$arbol);
-		   $this->load->view('subtemplates/header_inicio_view',$portal_ini);
-		   $this->load->view('portal_inicio_view',$portal_ini);
-		   $this->load->view('subtemplates/footer_inicio_view',$portal_ini);
-  		}
+	   $this->load->view('subtemplates/metas_view',$portal_ini);
+	   $this->load->view('peques/iniciador_js_view',$arbol);
+	   $this->load->view('subtemplates/header_inicio_view',$portal_ini);
+	   $this->load->view('portal_inicio_view',$portal_ini);
+	   
+	  
+	   if (isset($_GET['_escaped_fragment_']))
+	   {
+	   		if ($_GET['_escaped_fragment_']=='listado_noticias')
+	   		{
+	   			$pagina=0;
+	   			$portal_ini['noticias']=$this->Noticias_model->getByIdUsuario($portal_ini['usuario_configuracion']->id_usuario, $busqueda_visible , $pagina);
+	   			 
+	   			$config['base_url'] = RUTA_PORTAL.'#!listado_noticias&pag=';
+	   			$config['total_rows'] = $this->Noticias_model->getByIdUsuario($portal_ini['usuario_configuracion']->id_usuario,$busqueda_visible,null,true);
+	   			$config['per_page'] = NUMERO_POR_PAGINA;
+	   			$config['num_links'] = NUMERO_POR_PAGINA;
+	   			$config['cur_page'] = $pagina;
+	   			
+	   			//iniciamos la paginacion
+	   			$this->pagination->initialize($config);
+	   			
+	   			$portal_ini['titulo']=str_replace(array('"', "'"), "", $portal_ini['nombre_unico'].' - '.$this->lang->line('noticias'));
+	   			$portal_ini['descripcion']=str_replace(array('"', "'"), "", $portal_ini['nombre_unico'].' - '.$this->lang->line('noticias').' '. $this->lang->line('pagina') .' '.($pagina+1) );
+	   			
+	   			$this->load->view('peques/listado_noticias_view',$portal_ini);
+	   		}else if(preg_match("/news\/.+?\/([0-9]+)/", $_GET['_escaped_fragment_'], $coincidencias)){
+	   			
+	   			$id_noticia=$coincidencias[1];
+	   			
+	   			$portal_ini['noticia']=$this->Noticias_model->getById($id_noticia);
+	   			if (!$portal_ini['noticia'])
+	   			{
+	   				//no existe
+	   				exit;
+	   			}
+	   			$portal_ini['comentarios']=$this->Comentarios_model->getByIdNoticia($id_noticia);
+	   			
+	   			// Noticia privada
+	   			if ($portal_ini['noticia']->visible == 0 && $portal_ini['admin']==0)
+	   			{
+	   				$toexec=sprintf(CARGAR_PAGINA_JS, '');
+	   				printf(CARGAR_JS_AUTO, $toexec);
+	   				exit;
+	   			}
+	   			
+	   			if (!isset($_SESSION['usuario'])){
+	   				$this->load->helper('my_create_captcha');
+	   					
+	   				$cap=my_create_captcha();
+	   				$portal_ini['captcha']=$cap['image'];
+	   			}
+	   			
+	   			if (!isset($_SESSION['noticia'.$portal_ini['noticia']->id_noticia]))
+	   			{
+	   				$_SESSION['noticia'.$portal_ini['noticia']->id_noticia]=1;
+	   				$this->Noticias_model->sumarLeido($id_noticia);
+	   			}
+	   			
+	   			// Ver si es comentable
+	   			if ($portal_ini['noticia']->comentable == 0
+	   					||  !isset($_SESSION['usuario']) && $portal_ini['usuario_configuracion']->comentable_anonimos == 0)
+	   			{
+	   				$portal_ini['comentable']=false;
+	   			}else{
+	   				$portal_ini['comentable']=true;
+	   			}
+	   			
+	   			
+	   			$portal_ini['titulo']=str_replace(array('"', "'"), "", $portal_ini['nombre_unico'].' - '.$portal_ini['noticia']->titulo);
+	   			$portal_ini['descripcion']=str_replace(array('"', "'"), "", $portal_ini['nombre_unico'].' - '.$portal_ini['noticia']->titulo);
+	   			
+	   			
+	   			$this->load->view('peques/noticia_detalle_view',$portal_ini);
+	   			$this->load->view('peques/listado_comentarios_view',$portal_ini);
+	   				
+	   			$portal_ini['id_respuesta']=null;$portal_ini['comentario']=null;$portal_ini['accion']='insert';$portal_ini['fieldset']=true;
+	   			$this->load->view('forms/comentario_fview',$portal_ini);
+	   		}
+	   		
+	   		
+	   }
+	   
+	   $this->load->view('subtemplates/footer_inicio_view',$portal_ini);
+  		
   }
   public function cargar_calendario()
   {

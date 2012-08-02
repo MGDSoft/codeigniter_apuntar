@@ -320,6 +320,7 @@ class Comentario_form extends CI_Controller {
 				printf(RELOAD_PAGINA_JS, $toexec);
 				printf(MSG_INFO, $this->lang->line('correcto'), $this->lang->line('comentario_incluido'));
 			}else{
+			
 				printf(MSG_ERROR, $this->lang->line('error_db'));				
 			}
 

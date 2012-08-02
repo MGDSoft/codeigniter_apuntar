@@ -9,8 +9,14 @@
 		$this->load->model('Categorias_model');
 		$this->load->model('Noticias_model');
 		
+		// Auto cargar pagina entera
+		$this->load->model('Web_configuracion_separadores_model');
+		$this->load->model('Categorias_model');
+		$this->load->model('Web_sobre_mi_model');
+		//
 		
 		$this->load->helper('my_usuario_helper');
+		
 		
 		$this->load->library('pagination');
 		$this->load->library('table');
@@ -107,7 +113,10 @@
 
   		$pagina=(isset($_POST['pag']) ?  $this->input->post('pag') : 0 );
   		
-  		$portal_ini=comprobarAdmin();  
+  		if (isset($_GET['ishash']))
+  			$portal_ini=comprobarAdmin();
+  		else  
+  			$portal_ini=comprobarAdmin(true);
 
   		$busqueda_visible=$this->n_comentable($portal_ini['usuario_configuracion']);
   		$portal_ini['pagina']=$pagina;
@@ -119,10 +128,8 @@
 	  	$config['num_links'] = NUMERO_POR_PAGINA;
 	  	$config['cur_page'] = $pagina;
 	  	
-	  	
 	  	//iniciamos la paginacion
 	  	$this->pagination->initialize($config);
-	  	
 	  	
 	  	$portal_ini['titulo']=str_replace(array('"', "'"), "", $portal_ini['nombre_unico'].' - '.$this->lang->line('noticias'));
 	  	$portal_ini['descripcion']=str_replace(array('"', "'"), "", $portal_ini['nombre_unico'].' - '.$this->lang->line('noticias').' '. $this->lang->line('pagina') .' '.($pagina+1) );

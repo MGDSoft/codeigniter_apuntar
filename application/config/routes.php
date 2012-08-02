@@ -55,6 +55,8 @@ $route['news/fecha/(:num)/(:num)/(:num)'] = 'listado_noticias/por_fecha';
 $route['news/mes/(:num)/(:num)'] = 'listado_noticias/por_mes';
 $route['news/(:any)/(:num)'] = 'noticia_detalle/index/';
 
+
+
 $route['scaffolding_trigger'] = 'secret';
 $route['404_override'] = 'index/error_404';
 $route['pagina-no-encontrada'] = 'extras/varios/error_404';

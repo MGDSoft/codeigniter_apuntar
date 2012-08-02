@@ -14,3 +14,7 @@
 <meta name="resource-type" content="document"/>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <link rel="shortcut icon" href="/img/favicon_apuntes.ico" /> 
+<?php if (isset($_GET['_escaped_fragment_']) && isset($usuario_configuracion))
+{
+	echo '<link rel="canonical" href="http://'.$usuario_configuracion->nombre_unico.'.'.URL_BASE.'/'.RUTA_PORTAL.'#!'.$_GET['_escaped_fragment_'].'" />';
+}?>
