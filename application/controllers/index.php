@@ -29,8 +29,9 @@
 		$data['titulo']=$this->lang->line('js_pagina_no_encontrada') . '|' .URL_BASE;
 		$data['descripcion']=$this->lang->line('js_pagina_no_encontrada') . '|' .URL_BASE;
 	}
-  	
-    
+
+        $portal= new stdClass();
+
    $portal->contacto_pagina_personal='';
    $portal->contacto_steam='';
    $portal->contacto_youtube='';

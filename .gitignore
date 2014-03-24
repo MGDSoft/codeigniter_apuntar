@@ -1,0 +1,8 @@
+.idea
+.settings
+.buildpath
+.project
+
+cache/
+application/config/database.php
+logs/
