@@ -3,6 +3,8 @@
 .buildpath
 .project
 
-cache/
+application/cache/
 application/config/database.php
-logs/
+application/logs/
+user_guide/
+system/
